@@ -1,0 +1,18 @@
+{
+  "name": "jinja2-compat-tests",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "Jasper Moelker <jasper@voorhoede.nl> (https://voorhoede.nl/)",
+  "license": "MIT",
+  "dependencies": {
+    "bluebird": "3.4.6",
+    "glob": "7.0.6",
+    "mkdirp": "0.5.1",
+    "nunjucks": "2.5.0"
+  }
+}
