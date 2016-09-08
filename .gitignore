@@ -1,0 +1,10 @@
+cache/
+
+# node/npm dependencies
+node_modules/
+
+# php/composer dependencies
+vendor/
+
+# output of tests
+output/
