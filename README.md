@@ -11,8 +11,8 @@
 
 * [Test input](https://jbmoelker.github.io/jinja-compat-tests/api/tests.json) with templates grouped by feature.
 * [Results](https://jbmoelker.github.io/jinja-compat-tests/api/results.json) of tests per template engine.
-* [Error logs](https://jbmoelker.github.io/jinja-compat-tests/api/tests.json) of tests per template engine.
-* [Versions](https://jbmoelker.github.io/jinja-compat-tests/api/tests.json) of languages and engines used.
+* [Error logs](https://jbmoelker.github.io/jinja-compat-tests/api/errors.json) of tests per template engine.
+* [Versions](https://jbmoelker.github.io/jinja-compat-tests/api/versions.json) of languages and engines used.
 
 
 ## Test setup
