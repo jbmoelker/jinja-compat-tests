@@ -1,12 +1,20 @@
 {
   "name": "jinja2-compat-tests",
   "version": "1.0.0",
-  "description": "",
+  "description": "Test compatibility of Jinja2 template language with Nunjucks and Twig",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "keywords": [],
+  "keywords": [
+    "jinja2",
+    "nunjucks",
+    "twig",
+    "compat",
+    "compatibility",
+    "templates",
+    "templating"
+  ],
   "author": "Jasper Moelker <jasper@voorhoede.nl> (https://voorhoede.nl/)",
   "license": "MIT",
   "dependencies": {
@@ -16,7 +24,9 @@
     "nunjucks": "2.5.0"
   },
   "devDependencies": {
+    "dotty": "0.0.2",
     "find-versions": "2.0.0",
+    "lodash": "4.15.0",
     "shelljs": "0.7.4"
   }
 }
