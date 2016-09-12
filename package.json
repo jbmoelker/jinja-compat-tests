@@ -4,11 +4,7 @@
   "description": "Test compatibility of Jinja2 template language with Nunjucks and Twig",
   "main": "index.js",
   "scripts": {
-    "build": "run-s build:*",
-    "build:jinja2": "python test-jinja2.py",
-    "build:nunjucks": "node test-nunjucks.js",
-    "build:twig": "php test-twig.php",
-    "build:api": "node index.js",
+    "build": "./build.sh",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
@@ -31,7 +27,6 @@
   "devDependencies": {
     "dotty": "0.0.2",
     "find-versions": "2.0.0",
-    "npm-run-all": "3.1.0",
     "shelljs": "0.7.4"
   }
 }

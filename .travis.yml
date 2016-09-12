@@ -1,0 +1,28 @@
+sudo: false
+
+language: php
+
+php: '7.0'
+
+env:
+  - NODE_JS_VERSION=5.8
+
+cache:
+  directories:
+    - node_modules
+    - vendor
+
+install:
+  - curl -o ~/.nvm/nvm.sh https://raw.githubusercontent.com/creationix/nvm/v0.31.0/nvm.sh # update nvm
+  - bash -c "nvm use $NODE_JS_VERSION" || true
+  - bash -c "source ~/.nvm/nvm.sh; nvm install $NODE_JS_VERSION; node --version"
+  - npm install
+  - pip install --user -r requirements.txt
+  - composer install
+
+script:
+  - nvm use $NODE_JS_VERSION
+  - ./build.sh
+
+notifications:
+  email: false
