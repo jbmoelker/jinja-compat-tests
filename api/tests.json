@@ -1,0 +1,42 @@
+{
+    "expressions": {
+        "math": {
+            "addition": "{{ 2 + 3 }}",
+            "devision": "{{ 10/5 }}",
+            "multiplication": "{{ 5*2 }}",
+            "power": "{{ 2**3 }}",
+            "subtraction": "{{ 5 - 3 }}"
+        }
+    },
+    "filters": {
+        "abs": {
+            "negative-float": "{{ -3.14|abs }}",
+            "negative-integer": "{{ -3|abs }}",
+            "positive-float": "{{ 3.14|abs }}",
+            "positive-integer": "{{ 3|abs }}",
+            "variable": "{{ var|abs }}",
+            "zero": "{{ 0|abs }}"
+        },
+        "capitalize": {
+            "number": "{{ 5|capitalize }}",
+            "sentence": "{{ 'my first car'|capitalize }}",
+            "starts-with-number": "{{ '2nd car'|capitalize }}",
+            "word": "{{ 'car'|capitalize }}"
+        }
+    },
+    "tags": {
+        "if": {
+            "true": "{% if true %}true{% endif %}"
+        },
+        "raw": {
+            "broken-expression": "{% raw %}{{ x }{% endraw %}",
+            "broken-tag": "{% raw %}{% if i_am_stupid }Still do your job well{% endraw %}",
+            "comment": "{% raw %}{# test {% endraw %}",
+            "multiline": "\n{% raw %}{{ var }}{% endraw %}\n{{ var }}\n{% raw %}\n    {{ var }}\n{% endraw %}",
+            "multiple": "{% raw %}{{ var }}{% endraw %}{{ var }}{% raw %}{{ var }}{% endraw %}",
+            "nested-raw": "{% raw %}{% raw %}{{ x }{% endraw %}{% endraw %}",
+            "tag": "{% raw %}hello {{ {% %} }}{% endraw %}",
+            "text": "{% raw %}abc{% endraw %}"
+        }
+    }
+}

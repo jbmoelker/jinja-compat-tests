@@ -1,0 +1,23 @@
+{
+    "jinja2": {
+        "tags": {
+            "raw": {
+                "nested-raw": "Encountered unknown tag 'endraw'."
+            }
+        }
+    },
+    "nunjucks": {
+        "filters": {
+            "capitalize": {
+                "number": "(/tests/filters/capitalize/number.html)\n  TypeError: str.toLowerCase is not a function"
+            }
+        }
+    },
+    "twig": {
+        "tags": {
+            "raw": {
+                "nested-raw": "Unknown \"endraw\" tag in \"tags/raw/nested-raw.html\" at line 1."
+            }
+        }
+    }
+}

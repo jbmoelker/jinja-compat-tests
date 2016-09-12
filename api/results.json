@@ -1,0 +1,125 @@
+{
+    "jinja2": {
+        "expressions": {
+            "math": {
+                "addition": "5",
+                "devision": "2.0",
+                "multiplication": "10",
+                "power": "8",
+                "subtraction": "2"
+            }
+        },
+        "filters": {
+            "abs": {
+                "negative-float": "3.14",
+                "negative-integer": "3",
+                "positive-float": "3.14",
+                "positive-integer": "3",
+                "variable": "3",
+                "zero": "0"
+            },
+            "capitalize": {
+                "number": "5",
+                "sentence": "My first car",
+                "starts-with-number": "2nd car",
+                "word": "Car"
+            }
+        },
+        "tags": {
+            "if": {
+                "true": "true"
+            },
+            "raw": {
+                "broken-expression": "{{ x }",
+                "broken-tag": "{% if i_am_stupid }Still do your job well",
+                "comment": "{# test ",
+                "multiline": "\n{{ var }}\n\n\n    {{ var }}\n",
+                "multiple": "{{ var }}{{ var }}",
+                "tag": "hello {{ {% %} }}",
+                "text": "abc"
+            }
+        }
+    },
+    "nunjucks": {
+        "expressions": {
+            "math": {
+                "addition": "5",
+                "devision": "2",
+                "multiplication": "10",
+                "power": "8",
+                "subtraction": "2"
+            }
+        },
+        "filters": {
+            "abs": {
+                "negative-float": "3.14",
+                "negative-integer": "3",
+                "positive-float": "3.14",
+                "positive-integer": "3",
+                "variable": "3",
+                "zero": "0"
+            },
+            "capitalize": {
+                "sentence": "My first car",
+                "starts-with-number": "2nd car",
+                "word": "Car"
+            }
+        },
+        "tags": {
+            "if": {
+                "true": "true"
+            },
+            "raw": {
+                "broken-expression": "{{ x }",
+                "broken-tag": "{% if i_am_stupid }Still do your job well",
+                "comment": "{# test ",
+                "multiline": "\n{{ var }}\n\n\n    {{ var }}\n",
+                "multiple": "{{ var }}{{ var }}",
+                "nested-raw": "{% raw %}{{ x }{% endraw %}",
+                "tag": "hello {{ {% %} }}",
+                "text": "abc"
+            }
+        }
+    },
+    "twig": {
+        "expressions": {
+            "math": {
+                "addition": "5",
+                "devision": "2",
+                "multiplication": "10",
+                "power": "8",
+                "subtraction": "2"
+            }
+        },
+        "filters": {
+            "abs": {
+                "negative-float": "-3.14",
+                "negative-integer": "-3",
+                "positive-float": "3.14",
+                "positive-integer": "3",
+                "variable": "3",
+                "zero": "0"
+            },
+            "capitalize": {
+                "number": "5",
+                "sentence": "My first car",
+                "starts-with-number": "2nd car",
+                "word": "Car"
+            }
+        },
+        "tags": {
+            "if": {
+                "true": "true"
+            },
+            "raw": {
+                "broken-expression": "{{ x }",
+                "broken-tag": "{% if i_am_stupid }Still do your job well",
+                "comment": "{# test ",
+                "multiline": "\n{{ var }}\n\n\n    {{ var }}\n",
+                "multiple": "{{ var }}{{ var }}",
+                "tag": "hello {{ {% %} }}",
+                "text": "abc"
+            }
+        }
+    }
+}
