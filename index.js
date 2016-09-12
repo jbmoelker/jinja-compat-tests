@@ -5,13 +5,14 @@ const versions = require('./lib/versions');
 
 const inputDir = 'tests/';
 const outputDir = 'output/';
+const apiDir = 'dist/api/';
 
 const engines = glob.sync('*/', { cwd: outputDir }).map(dirname => dirname.substring(0, dirname.length -1));
 
-saveJson(outputDir + 'tests.json', tree(inputDir, '.html'));
-saveJson(outputDir + 'results.json', outputTree('.html'));
-saveJson(outputDir + 'errors.json', outputTree('.error.log'));
-saveJson(outputDir + 'versions.json', versions);
+saveJson(apiDir + 'tests.json', tree(inputDir, '.html'));
+saveJson(apiDir + 'results.json', outputTree('.html'));
+saveJson(apiDir + 'errors.json', outputTree('.error.log'));
+saveJson(apiDir + 'versions.json', versions);
 
 function outputTree(ext) {
     return engines
