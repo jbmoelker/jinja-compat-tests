@@ -6,6 +6,7 @@ const saveFile = require('./lib/save-file');
 
 const inputDir = 'tests/';
 const outputDir = 'output/nunjucks/';
+const errorExt = '.error.log';
 
 const renderer = new nunjucks.Environment(
     new nunjucks.FileSystemLoader(inputDir, {
@@ -24,11 +25,23 @@ glob('**/*.html', { cwd: inputDir }, (err, filenames) => {
 });
 
 function renderFile(filename) {
-    const dataFilename = path.join(inputDir, path.dirname(filename), path.basename(filename, path.extname(filename)) + '.json');
+    const dataFilename = path.join(inputDir, changeFileExt(filename, '.json'));
 
     fs.stat(dataFilename, (err, stats) => {
         const data = stats ? JSON.parse(fs.readFileSync(dataFilename, 'utf8')) : {};
-        const output = renderer.render(filename, data);
-        saveFile(path.join(outputDir, filename), output);
+
+        renderer.render(filename, data, (err, output) => {
+            if (err) {
+                const errorFilename = path.join(outputDir, changeFileExt(filename, errorExt));
+                const message = err.message.replace(__dirname, '');
+                saveFile(errorFilename, message);
+            } else {
+                saveFile(path.join(outputDir, filename), output);
+            }
+        });
     });
+}
+
+function changeFileExt(filename, ext) {
+    return path.join(path.dirname(filename), path.basename(filename, path.extname(filename)) + ext);
 }
