@@ -8,6 +8,7 @@ use Symfony\Component\Finder\Finder;
 
 $inputDir = 'tests/';
 $outputDir = 'output/twig/';
+$errorExt = '.error.log';
 
 $finder = new Finder(); // http://symfony.com/doc/current/components/finder.html
 $fs = new Filesystem(); // http://symfony.com/doc/current/components/filesystem.html
@@ -22,7 +23,12 @@ foreach ($files as $file) {
     $dataFilename = str_replace('.html', '.json', ($inputDir . $filename));
 
     $data = $fs->exists($dataFilename) ? json_decode(file_get_contents($dataFilename), true) : Array();
-    $output = $twig->render($filename, $data);
 
-    $fs->dumpFile($outputDir . $filename, $output);
+    try {
+        $output = $twig->render($filename, $data);
+        $fs->dumpFile($outputDir . $filename, $output);
+    } catch (Exception $e) {
+        $errorFilename = str_replace('.html', $errorExt, ($outputDir . $filename));
+        $fs->dumpFile($errorFilename, $e->getMessage());
+    }
 }
