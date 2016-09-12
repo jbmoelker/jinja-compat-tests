@@ -2,7 +2,17 @@
 
 **This project tests compatibility of Jinja2 template language with Nunjucks and Twig**
 
+[![Build Status](https://travis-ci.org/jbmoelker/jinja-compat-tests.svg)](https://travis-ci.org/jbmoelker/jinja-compat-tests)
+
 [Jinja2](http://jinja.pocoo.org/) (Python) introduced an expressive template language. It has since been adapted other languages: [Nunjucks](https://mozilla.github.io/nunjucks/) (JavaScript), [Twig](http://twig.sensiolabs.org/) (PHP) and others. While the template syntax between these implementations is very similar, they do have their differences. This project uses a single set of [tests](tests/), generates the output with all template engines separately, and then compares the output.
+
+
+## Result
+
+* [Test input](https://jbmoelker.github.io/jinja-compat-tests/api/tests.json) with templates grouped by feature.
+* [Results](https://jbmoelker.github.io/jinja-compat-tests/api/results.json) of tests per template engine.
+* [Error logs](https://jbmoelker.github.io/jinja-compat-tests/api/tests.json) of tests per template engine.
+* [Versions](https://jbmoelker.github.io/jinja-compat-tests/api/tests.json) of languages and engines used.
 
 
 ## Test setup
@@ -10,14 +20,14 @@
 This project aims to cover all features of the templating language(s). The test setup consists of:
 
 * [1 shared set of test files](tests) for all template features
-* a render script for each template engine
+* a render script for each template engine (see below)
 
-All scripts render the tests to [output/](output/) in a directory per template engine. The output file has the same name as the test file, but with the rendered result. If a render error occurs an error log file is written to the tests output destination instead.
+All scripts render the tests to `output/` in a directory per template engine. The output file has the same name as the test file, but with the rendered result. If a render error occurs an error log file is written to the tests output destination instead.
 
 
-## Jinja2
+### Jinja2
 
-### Install
+#### Install
 
 The Jinja2 setup requires [Python](https://www.python.org/) (>= 3.3) and `pip3` (comes with Python3) to be installed. Then install dependencies:
 
@@ -25,7 +35,7 @@ The Jinja2 setup requires [Python](https://www.python.org/) (>= 3.3) and `pip3` 
 pip3 install -r requirements.txt
 ```
 
-### Run tests
+#### Run tests
 
 Render all [tests](tests/) to [output/jinja2/](output/jinja2/):
 
@@ -34,9 +44,9 @@ python3 test-jinja2.py
 ```
 
 
-## Nunjucks
+### Nunjucks
 
-### Install
+#### Install
 
 The Nunjucks setup requires [NodeJS](https://nodejs.org/en/) (>= 6.0) and [npm](https://www.npmjs.com/) (comes with Node) to be installed. Then install dependencies:
 
@@ -44,7 +54,7 @@ The Nunjucks setup requires [NodeJS](https://nodejs.org/en/) (>= 6.0) and [npm](
 npm install
 ```
 
-### Run tests
+#### Run tests
 
 Render all [tests](tests/) to [output/nunjucks/](output/nunjucks/):
 
@@ -53,9 +63,9 @@ node test-nunjucks.js
 ```
 
 
-## Twig
+### Twig
 
-### Install
+#### Install
 
 The Twig setup requires [PHP](https://secure.php.net/) (>= 5.5.9) and [Composer](https://getcomposer.org/) to be installed. Then install dependencies:
 
@@ -63,7 +73,7 @@ The Twig setup requires [PHP](https://secure.php.net/) (>= 5.5.9) and [Composer]
 composer install
 ```
 
-### Run tests
+#### Run tests
 
 Render all [tests](tests/) to [output/twig/](output/twig/):
 
