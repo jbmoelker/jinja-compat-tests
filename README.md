@@ -30,7 +30,7 @@ pip3 install -r requirements.txt
 Render all [tests](tests/) to [output/jinja2/](output/jinja2/):
 
 ```bash
-python3 index.py
+python3 test-jinja2.py
 ```
 
 
@@ -49,7 +49,7 @@ npm install
 Render all [tests](tests/) to [output/nunjucks/](output/nunjucks/):
 
 ```bash
-node index.js
+node test-nunjucks.js
 ```
 
 
@@ -68,7 +68,7 @@ composer install
 Render all [tests](tests/) to [output/twig/](output/twig/):
 
 ```bash
-php index.php
+php test-twig.php
 ```
 
 ## Roadmap

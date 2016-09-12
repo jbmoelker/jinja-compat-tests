@@ -1,47 +1,31 @@
-const fs = require('fs');
 const glob = require('glob');
-const nunjucks = require('nunjucks');
-const path = require('path');
-const saveFile = require('./lib/save-file');
+const merge = require('lodash').merge;
+const saveJson = require('./lib/save-json');
+const tree = require('./lib/file-contents-tree');
+const versions = require('./lib/versions');
 
 const inputDir = 'tests/';
-const outputDir = 'output/nunjucks/';
-const errorExt = '.error.log';
+const outputDir = 'output/';
 
-const renderer = new nunjucks.Environment(
-    new nunjucks.FileSystemLoader(inputDir, {
-        noCache: true,
-        watch: false
-    }),
-    { autoescape: true }
-);
+saveJson(outputDir + 'tests.json', tree(inputDir, '.html'));
+saveJson(outputDir + 'versions.json', versions);
 
-glob('**/*.html', { cwd: inputDir }, (err, filenames) => {
+glob('*/', { cwd: outputDir }, (err, dirnames) => {
     if (err) {
         return console.error(err);
     }
 
-    filenames.forEach(renderFile);
+    const obj = dirnames
+        .map(dirname => dirname.substring(0, dirname.length -1))
+        .map(engineName => {
+            const results = tree(`${outputDir}${engineName}/`, '.html');
+            const logs = tree(`${outputDir}${engineName}/`, '.error.log');
+            const contents = merge({}, results, logs);
+            return { engineName, contents };
+        }).reduce((output, item) => {
+            output[item.engineName] = item.contents;
+            return output;
+        }, {});
+
+    saveJson(outputDir + 'output.json', obj);
 });
-
-function renderFile(filename) {
-    const dataFilename = path.join(inputDir, changeFileExt(filename, '.json'));
-
-    fs.stat(dataFilename, (err, stats) => {
-        const data = stats ? JSON.parse(fs.readFileSync(dataFilename, 'utf8')) : {};
-
-        renderer.render(filename, data, (err, output) => {
-            if (err) {
-                const errorFilename = path.join(outputDir, changeFileExt(filename, errorExt));
-                const message = err.message.replace(__dirname, '');
-                saveFile(errorFilename, message);
-            } else {
-                saveFile(path.join(outputDir, filename), output);
-            }
-        });
-    });
-}
-
-function changeFileExt(filename, ext) {
-    return path.join(path.dirname(filename), path.basename(filename, path.extname(filename)) + ext);
-}
