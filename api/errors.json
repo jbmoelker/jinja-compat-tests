@@ -41,6 +41,14 @@
                 "variable": "Invalid filter \"abs\" on line 1 in file /tests/filters/abs/variable.html.",
                 "zero": "Invalid filter \"abs\" on line 1 in file /tests/filters/abs/zero.html."
             },
+            "batch": {
+                "size-and-fill": "Invalid filter \"batch\" on line 2 in file /tests/filters/batch/size-and-fill.html.",
+                "size-only": "Invalid filter \"batch\" on line 2 in file /tests/filters/batch/size-only.html."
+            },
+            "center": {
+                "default": "Invalid filter \"center\" on line 1 in file /tests/filters/center/default.html.",
+                "width-20": "Invalid filter \"center\" on line 1 in file /tests/filters/center/width-20.html."
+            },
             "default": {
                 "alias-d": "Invalid filter \"d\" on line 1 in file /tests/filters/default/alias-d.html."
             }
@@ -53,6 +61,10 @@
     },
     "twig": {
         "filters": {
+            "center": {
+                "default": "Unknown \"center\" filter in \"filters/center/default.html\" at line 1.",
+                "width-20": "Unknown \"center\" filter in \"filters/center/width-20.html\" at line 1."
+            },
             "default": {
                 "alias-d": "Unknown \"d\" filter. Did you mean \"date\", \"round\", \"default\", \"url_encode\", \"date_modify\", \"json_encode\", \"convert_encoding\" in \"filters/default/alias-d.html\" at line 1?"
             }

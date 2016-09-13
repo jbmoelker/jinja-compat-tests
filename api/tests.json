@@ -21,12 +21,20 @@
             "variable": "{{ x|abs }}",
             "zero": "{{ 0|abs }}"
         },
+        "batch": {
+            "size-and-fill": "<table>\n    {% for row in items|batch(3, 'No item') %}\n        <tr>\n            {% for column in row %}\n                <td>{{ column }}</td>\n            {% endfor %}\n        </tr>\n    {% endfor %}\n</table>",
+            "size-only": "<table>\n{% for row in items|batch(3) %}\n    <tr>\n    {% for column in row %}\n        <td>{{ column }}</td>\n    {% endfor %}\n    </tr>\n{% endfor %}\n</table>"
+        },
         "capitalize": {
             "mixed-case": "{{ 'my First cAR'|capitalize }}",
             "number": "{{ 5|capitalize }}",
             "sentence": "{{ 'my first car'|capitalize }}",
             "starts-with-number": "{{ '2nd car'|capitalize }}",
             "word": "{{ 'car'|capitalize }}"
+        },
+        "center": {
+            "default": "<pre>{{ 'x'|center }}</pre>",
+            "width-20": "<pre>{{ 'x'|center(20) }}</pre>"
         },
         "default": {
             "alias-d": "{{ varX|d('\"varX\" is not defined') }}",

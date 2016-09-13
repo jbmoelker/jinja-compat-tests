@@ -22,12 +22,20 @@
                 "variable": "3",
                 "zero": "0"
             },
+            "batch": {
+                "size-and-fill": "<table>\n    \n        <tr>\n            \n                <td>a</td>\n            \n                <td>b</td>\n            \n                <td>c</td>\n            \n        </tr>\n    \n        <tr>\n            \n                <td>d</td>\n            \n                <td>e</td>\n            \n                <td>f</td>\n            \n        </tr>\n    \n        <tr>\n            \n                <td>g</td>\n            \n                <td>No item</td>\n            \n                <td>No item</td>\n            \n        </tr>\n    \n</table>",
+                "size-only": "<table>\n\n    <tr>\n    \n        <td>a</td>\n    \n        <td>b</td>\n    \n        <td>c</td>\n    \n    </tr>\n\n    <tr>\n    \n        <td>d</td>\n    \n        <td>e</td>\n    \n        <td>f</td>\n    \n    </tr>\n\n    <tr>\n    \n        <td>g</td>\n    \n    </tr>\n\n</table>"
+            },
             "capitalize": {
                 "mixed-case": "My first car",
                 "number": "5",
                 "sentence": "My first car",
                 "starts-with-number": "2nd car",
                 "word": "Car"
+            },
+            "center": {
+                "default": "<pre>                                       x                                        </pre>",
+                "width-20": "<pre>         x          </pre>"
             },
             "default": {
                 "alias-d": "\"varX\" is not defined",
@@ -79,11 +87,19 @@
                 "variable": "3",
                 "zero": "0"
             },
+            "batch": {
+                "size-and-fill": "<table>\n    \n        <tr>\n            \n                <td>a</td>\n            \n                <td>b</td>\n            \n                <td>c</td>\n            \n        </tr>\n    \n        <tr>\n            \n                <td>d</td>\n            \n                <td>e</td>\n            \n                <td>f</td>\n            \n        </tr>\n    \n        <tr>\n            \n                <td>g</td>\n            \n                <td>No item</td>\n            \n                <td>No item</td>\n            \n        </tr>\n    \n</table>",
+                "size-only": "<table>\n\n    <tr>\n    \n        <td>a</td>\n    \n        <td>b</td>\n    \n        <td>c</td>\n    \n    </tr>\n\n    <tr>\n    \n        <td>d</td>\n    \n        <td>e</td>\n    \n        <td>f</td>\n    \n    </tr>\n\n    <tr>\n    \n        <td>g</td>\n    \n    </tr>\n\n</table>"
+            },
             "capitalize": {
                 "mixed-case": "My first car",
                 "sentence": "My first car",
                 "starts-with-number": "2nd car",
                 "word": "Car"
+            },
+            "center": {
+                "default": "<pre>                                       x                                        </pre>",
+                "width-20": "<pre>         x          </pre>"
             },
             "default": {
                 "alias-d": "&quot;varX&quot; is not defined",
@@ -184,6 +200,10 @@
                 "positive-integer": "3",
                 "variable": "3",
                 "zero": "0"
+            },
+            "batch": {
+                "size-and-fill": "<table>\n            <tr>\n                            <td>a</td>\n                            <td>b</td>\n                            <td>c</td>\n                    </tr>\n            <tr>\n                            <td>d</td>\n                            <td>e</td>\n                            <td>f</td>\n                    </tr>\n            <tr>\n                            <td>g</td>\n                            <td>No item</td>\n                            <td>No item</td>\n                    </tr>\n    </table>",
+                "size-only": "<table>\n    <tr>\n            <td>a</td>\n            <td>b</td>\n            <td>c</td>\n        </tr>\n    <tr>\n            <td>d</td>\n            <td>e</td>\n            <td>f</td>\n        </tr>\n    <tr>\n            <td>g</td>\n        </tr>\n</table>"
             },
             "capitalize": {
                 "mixed-case": "My first car",
