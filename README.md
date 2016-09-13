@@ -94,10 +94,10 @@ npm install
 
 #### Run tests
 
-Render all [tests](tests/) to [output/nunjucks/](output/nunjucks/):
+Render all [tests](tests/) to [output/swig/](output/swig/):
 
 ```bash
-node test-swig
+node test-swig.js
 ```
 
 
