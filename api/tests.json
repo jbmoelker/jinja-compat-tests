@@ -6,6 +6,10 @@
             "multiplication": "{{ 5*2 }}",
             "power": "{{ 2**3 }}",
             "subtraction": "{{ 5 - 3 }}"
+        },
+        "reserved-words": {
+            "function": "{{ function }}",
+            "var": "{{ var }}"
         }
     },
     "filters": {
@@ -14,7 +18,7 @@
             "negative-integer": "{{ -3|abs }}",
             "positive-float": "{{ 3.14|abs }}",
             "positive-integer": "{{ 3|abs }}",
-            "variable": "{{ var|abs }}",
+            "variable": "{{ x|abs }}",
             "zero": "{{ 0|abs }}"
         },
         "capitalize": {
@@ -32,8 +36,8 @@
             "broken-expression": "{% raw %}{{ x }{% endraw %}",
             "broken-tag": "{% raw %}{% if i_am_stupid }Still do your job well{% endraw %}",
             "comment": "{% raw %}{# test {% endraw %}",
-            "multiline": "\n{% raw %}{{ var }}{% endraw %}\n{{ var }}\n{% raw %}\n    {{ var }}\n{% endraw %}",
-            "multiple": "{% raw %}{{ var }}{% endraw %}{{ var }}{% raw %}{{ var }}{% endraw %}",
+            "multiline": "\n{% raw %}{{ varX }}{% endraw %}\n{{ varY }}\n{% raw %}\n    {{ varZ }}\n{% endraw %}",
+            "multiple": "{% raw %}{{ varX }}{% endraw %}{{ varY }}{% raw %}{{ varZ }}{% endraw %}",
             "nested-raw": "{% raw %}{% raw %}{{ x }{% endraw %}{% endraw %}",
             "tag": "{% raw %}hello {{ {% %} }}{% endraw %}",
             "text": "{% raw %}abc{% endraw %}"

@@ -7,6 +7,10 @@
                 "multiplication": "10",
                 "power": "8",
                 "subtraction": "2"
+            },
+            "reserved-words": {
+                "function": "function",
+                "var": "var"
             }
         },
         "filters": {
@@ -33,8 +37,8 @@
                 "broken-expression": "{{ x }",
                 "broken-tag": "{% if i_am_stupid }Still do your job well",
                 "comment": "{# test ",
-                "multiline": "\n{{ var }}\n\n\n    {{ var }}\n",
-                "multiple": "{{ var }}{{ var }}",
+                "multiline": "\n{{ varX }}\nvalue Y\n\n    {{ varZ }}\n",
+                "multiple": "{{ varX }}value Y{{ varZ }}",
                 "tag": "hello {{ {% %} }}",
                 "text": "abc"
             }
@@ -48,6 +52,10 @@
                 "multiplication": "10",
                 "power": "8",
                 "subtraction": "2"
+            },
+            "reserved-words": {
+                "function": "function",
+                "var": "var"
             }
         },
         "filters": {
@@ -73,9 +81,41 @@
                 "broken-expression": "{{ x }",
                 "broken-tag": "{% if i_am_stupid }Still do your job well",
                 "comment": "{# test ",
-                "multiline": "\n{{ var }}\n\n\n    {{ var }}\n",
-                "multiple": "{{ var }}{{ var }}",
+                "multiline": "\n{{ varX }}\nvalue Y\n\n    {{ varZ }}\n",
+                "multiple": "{{ varX }}value Y{{ varZ }}",
                 "nested-raw": "{% raw %}{{ x }{% endraw %}",
+                "tag": "hello {{ {% %} }}",
+                "text": "abc"
+            }
+        }
+    },
+    "swig": {
+        "expressions": {
+            "math": {
+                "addition": "5",
+                "devision": "2",
+                "multiplication": "10",
+                "subtraction": "2"
+            }
+        },
+        "filters": {
+            "capitalize": {
+                "number": "5",
+                "sentence": "My first car",
+                "starts-with-number": "2nd car",
+                "word": "Car"
+            }
+        },
+        "tags": {
+            "if": {
+                "true": "true"
+            },
+            "raw": {
+                "broken-expression": "{{ x }",
+                "broken-tag": "{% if i_am_stupid }Still do your job well{% endraw %}",
+                "comment": "{# test ",
+                "multiline": "\n{{ varX }}\nvalue Y\n\n    {{ varZ }}\n",
+                "multiple": "{{ varX }}value Y{{ varZ }}",
                 "tag": "hello {{ {% %} }}",
                 "text": "abc"
             }
@@ -89,6 +129,10 @@
                 "multiplication": "10",
                 "power": "8",
                 "subtraction": "2"
+            },
+            "reserved-words": {
+                "function": "function",
+                "var": "var"
             }
         },
         "filters": {
@@ -115,8 +159,8 @@
                 "broken-expression": "{{ x }",
                 "broken-tag": "{% if i_am_stupid }Still do your job well",
                 "comment": "{# test ",
-                "multiline": "\n{{ var }}\n\n\n    {{ var }}\n",
-                "multiple": "{{ var }}{{ var }}",
+                "multiline": "\n{{ varX }}\nvalue Y\n\n    {{ varZ }}\n",
+                "multiple": "{{ varX }}value Y{{ varZ }}",
                 "tag": "hello {{ {% %} }}",
                 "text": "abc"
             }
