@@ -8,3 +8,4 @@ node test-swig.js
 php test-twig.php
 
 node index.js
+node scripts/build-docs.js

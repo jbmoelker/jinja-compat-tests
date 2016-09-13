@@ -1,10 +1,10 @@
 # [WIP] Jinja Compat Tests
 
-**This project tests compatibility of Jinja2 template language with Nunjucks and Twig**
+**This project tests compatibility of Jinja2 template language with Nunjucks and Twig.**
 
 [![Build Status](https://travis-ci.org/jbmoelker/jinja-compat-tests.svg)](https://travis-ci.org/jbmoelker/jinja-compat-tests)
 
-[Jinja2](http://jinja.pocoo.org/) (Python) introduced an expressive template language. It has since been adapted other languages: [Nunjucks](https://mozilla.github.io/nunjucks/) (JavaScript), [Twig](http://twig.sensiolabs.org/) (PHP) and others. While the template syntax between these implementations is very similar, they do have their differences. This project uses a single set of [tests](tests/), generates the output with all template engines separately, and then compares the output.
+[Jinja2](http://jinja.pocoo.org/) (Python) introduced an expressive template language. It has since been adapted by other template engines (languages): [Nunjucks](https://mozilla.github.io/nunjucks/) (JavaScript), [Twig](http://twig.sensiolabs.org/) (PHP) and others. While the template syntax between these implementations is very similar, they do have their differences. This project uses a single set of [tests](tests/), generates the output with all template engines separately, and then compares the output.
 
 
 ## Test results
@@ -13,6 +13,7 @@
 * [Results](https://jbmoelker.github.io/jinja-compat-tests/api/results.json) of tests per template engine.
 * [Error logs](https://jbmoelker.github.io/jinja-compat-tests/api/errors.json) of tests per template engine.
 * [Versions](https://jbmoelker.github.io/jinja-compat-tests/api/versions.json) of languages and engines used.
+* [Documentation references](https://jbmoelker.github.io/jinja-compat-tests/api/docs.json) of all template features for all engines.
 
 
 ## Test setup
