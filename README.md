@@ -81,6 +81,26 @@ Render all [tests](tests/) to [output/twig/](output/twig/):
 php test-twig.php
 ```
 
+
+### Swig
+
+#### Install
+
+The [Swig](https://github.com/voorhoede/swig#readme) setup requires [NodeJS](https://nodejs.org/en/) (>= 6.0) and [npm](https://www.npmjs.com/) (comes with Node) to be installed. Then install dependencies:
+
+```bash
+npm install
+```
+
+#### Run tests
+
+Render all [tests](tests/) to [output/nunjucks/](output/nunjucks/):
+
+```bash
+node test-swig
+```
+
+
 ## Roadmap
 
 * Tests for all templating features and all their use cases
