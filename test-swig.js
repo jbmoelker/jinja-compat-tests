@@ -1,28 +1,26 @@
 const fs = require('fs');
 const glob = require('glob');
-const nunjucks = require('nunjucks');
 const path = require('path');
 const saveFile = require('./lib/save-file');
+const swig = require('swig');
 
 const inputDir = 'tests/';
-const outputDir = 'output/nunjucks/';
+const outputDir = 'output/swig/';
 const errorExt = '.error.log';
 const filenames = glob.sync('**/*.html', { cwd: inputDir });
 
-const renderer = new nunjucks.Environment(
-    new nunjucks.FileSystemLoader(inputDir, {
-        noCache: true,
-        watch: false
-    }),
-    { autoescape: true }
-);
+const renderer = new swig.Swig({
+    autoescape: true,
+    cache: false,
+    loader: swig.loaders.fs(path.join(__dirname, '/', inputDir))
+});
 
 filenames.forEach(renderFile);
 
 function renderFile(filename) {
     getData(filename)
         .then(data => {
-            renderer.render(filename, data, (err, output) => {
+            renderer.renderFile(filename, data, (err, output) => {
                 if (err) {
                     saveError(filename, err);
                 } else {

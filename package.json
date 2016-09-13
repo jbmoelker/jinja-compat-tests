@@ -22,7 +22,8 @@
     "bluebird": "3.4.6",
     "glob": "7.0.6",
     "mkdirp": "0.5.1",
-    "nunjucks": "2.5.0"
+    "nunjucks": "2.5.0",
+    "swig": "1.4.2"
   },
   "devDependencies": {
     "dotty": "0.0.2",
