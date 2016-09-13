@@ -7,7 +7,7 @@
 [Jinja2](http://jinja.pocoo.org/) (Python) introduced an expressive template language. It has since been adapted other languages: [Nunjucks](https://mozilla.github.io/nunjucks/) (JavaScript), [Twig](http://twig.sensiolabs.org/) (PHP) and others. While the template syntax between these implementations is very similar, they do have their differences. This project uses a single set of [tests](tests/), generates the output with all template engines separately, and then compares the output.
 
 
-## Result
+## Test results
 
 * [Test input](https://jbmoelker.github.io/jinja-compat-tests/api/tests.json) with templates grouped by feature.
 * [Results](https://jbmoelker.github.io/jinja-compat-tests/api/results.json) of tests per template engine.
@@ -25,6 +25,8 @@ This project aims to cover all features of the templating language(s). The test 
 All scripts render the tests to `output/` in a directory per template engine. The output file has the same name as the test file, but with the rendered result. If a render error occurs an error log file is written to the tests output destination instead.
 
 
+## Test engines
+
 ### Jinja2
 
 #### Install
@@ -37,7 +39,7 @@ pip3 install -r requirements.txt
 
 #### Run tests
 
-Render all [tests](tests/) to [output/jinja2/](output/jinja2/):
+Render all [tests](tests/) to `output/jinja2/`:
 
 ```bash
 python3 test-jinja2.py
@@ -56,7 +58,7 @@ npm install
 
 #### Run tests
 
-Render all [tests](tests/) to [output/nunjucks/](output/nunjucks/):
+Render all [tests](tests/) to `output/nunjucks/`:
 
 ```bash
 node test-nunjucks.js
@@ -75,7 +77,7 @@ composer install
 
 #### Run tests
 
-Render all [tests](tests/) to [output/twig/](output/twig/):
+Render all [tests](tests/) to `output/twig/`:
 
 ```bash
 php test-twig.php
@@ -94,7 +96,7 @@ npm install
 
 #### Run tests
 
-Render all [tests](tests/) to [output/swig/](output/swig/):
+Render all [tests](tests/) to `output/swig/`:
 
 ```bash
 node test-swig.js
