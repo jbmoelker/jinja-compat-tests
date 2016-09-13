@@ -1,5 +1,10 @@
 {
     "jinja2": {
+        "filters": {
+            "first": {
+                "number": "'int' object is not iterable"
+            }
+        },
         "tags": {
             "raw": {
                 "nested-raw": "Encountered unknown tag 'endraw'."

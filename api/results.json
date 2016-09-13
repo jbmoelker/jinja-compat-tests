@@ -23,10 +23,16 @@
                 "zero": "0"
             },
             "capitalize": {
+                "mixed-case": "My first car",
                 "number": "5",
                 "sentence": "My first car",
                 "starts-with-number": "2nd car",
                 "word": "Car"
+            },
+            "first": {
+                "array": "1",
+                "object": "",
+                "string": "1"
             }
         },
         "tags": {
@@ -68,9 +74,16 @@
                 "zero": "0"
             },
             "capitalize": {
+                "mixed-case": "My first car",
                 "sentence": "My first car",
                 "starts-with-number": "2nd car",
                 "word": "Car"
+            },
+            "first": {
+                "array": "1",
+                "number": "",
+                "object": "",
+                "string": "1"
             }
         },
         "tags": {
@@ -100,10 +113,17 @@
         },
         "filters": {
             "capitalize": {
+                "mixed-case": "My first car",
                 "number": "5",
                 "sentence": "My first car",
                 "starts-with-number": "2nd car",
                 "word": "Car"
+            },
+            "first": {
+                "array": "1",
+                "number": "undefined",
+                "object": "1",
+                "string": "1"
             }
         },
         "tags": {
@@ -145,10 +165,17 @@
                 "zero": "0"
             },
             "capitalize": {
+                "mixed-case": "My first car",
                 "number": "5",
                 "sentence": "My first car",
                 "starts-with-number": "2nd car",
                 "word": "Car"
+            },
+            "first": {
+                "array": "1",
+                "number": "1",
+                "object": "1",
+                "string": "1"
             }
         },
         "tags": {
