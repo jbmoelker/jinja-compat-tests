@@ -1,6 +1,10 @@
 {
     "jinja2": {
         "filters": {
+            "default": {
+                "undefined-property-bracket-notation": "'vars' is undefined",
+                "undefined-property-dot-notation": "'vars' is undefined"
+            },
             "first": {
                 "number": "'int' object is not iterable"
             }
@@ -36,6 +40,9 @@
                 "positive-integer": "Invalid filter \"abs\" on line 1 in file /tests/filters/abs/positive-integer.html.",
                 "variable": "Invalid filter \"abs\" on line 1 in file /tests/filters/abs/variable.html.",
                 "zero": "Invalid filter \"abs\" on line 1 in file /tests/filters/abs/zero.html."
+            },
+            "default": {
+                "alias-d": "Invalid filter \"d\" on line 1 in file /tests/filters/default/alias-d.html."
             }
         },
         "tags": {
@@ -45,6 +52,11 @@
         }
     },
     "twig": {
+        "filters": {
+            "default": {
+                "alias-d": "Unknown \"d\" filter. Did you mean \"date\", \"round\", \"default\", \"url_encode\", \"date_modify\", \"json_encode\", \"convert_encoding\" in \"filters/default/alias-d.html\" at line 1?"
+            }
+        },
         "tags": {
             "raw": {
                 "nested-raw": "Unknown \"endraw\" tag in \"tags/raw/nested-raw.html\" at line 1."

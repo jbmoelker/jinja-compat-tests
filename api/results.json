@@ -29,6 +29,12 @@
                 "starts-with-number": "2nd car",
                 "word": "Car"
             },
+            "default": {
+                "alias-d": "\"varX\" is not defined",
+                "empty-string-strict": "passed string is empty",
+                "empty-string": "",
+                "undefined-variable": "\"varX\" is not defined"
+            },
             "first": {
                 "array": "1",
                 "object": "",
@@ -79,6 +85,14 @@
                 "starts-with-number": "2nd car",
                 "word": "Car"
             },
+            "default": {
+                "alias-d": "&quot;varX&quot; is not defined",
+                "empty-string-strict": "passed string is empty",
+                "empty-string": "",
+                "undefined-property-bracket-notation": "&quot;x&quot; on &quot;vars&quot; is not defined",
+                "undefined-property-dot-notation": "&quot;x&quot; on &quot;vars&quot; is not defined\n",
+                "undefined-variable": "&quot;varX&quot; is not defined"
+            },
             "first": {
                 "array": "1",
                 "number": "",
@@ -118,6 +132,13 @@
                 "sentence": "My first car",
                 "starts-with-number": "2nd car",
                 "word": "Car"
+            },
+            "default": {
+                "empty-string-strict": "passed string is empty",
+                "empty-string": "passed string is empty",
+                "undefined-property-bracket-notation": "&quot;x&quot; on &quot;vars&quot; is not defined",
+                "undefined-property-dot-notation": "&quot;x&quot; on &quot;vars&quot; is not defined\n",
+                "undefined-variable": "&quot;varX&quot; is not defined"
             },
             "first": {
                 "array": "1",
@@ -170,6 +191,13 @@
                 "sentence": "My first car",
                 "starts-with-number": "2nd car",
                 "word": "Car"
+            },
+            "default": {
+                "empty-string-strict": "passed string is empty",
+                "empty-string": "passed string is empty",
+                "undefined-property-bracket-notation": "&quot;x&quot; on &quot;vars&quot; is not defined",
+                "undefined-property-dot-notation": "&quot;x&quot; on &quot;vars&quot; is not defined\n",
+                "undefined-variable": "&quot;varX&quot; is not defined"
             },
             "first": {
                 "array": "1",

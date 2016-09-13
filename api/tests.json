@@ -28,6 +28,14 @@
             "starts-with-number": "{{ '2nd car'|capitalize }}",
             "word": "{{ 'car'|capitalize }}"
         },
+        "default": {
+            "alias-d": "{{ varX|d('\"varX\" is not defined') }}",
+            "empty-string-strict": "{{ ''|default('passed string is empty', true)  }}",
+            "empty-string": "{{ ''|default('passed string is empty')  }}",
+            "undefined-property-bracket-notation": "{{ vars['x']|default('\"x\" on \"vars\" is not defined') }}",
+            "undefined-property-dot-notation": "{{ vars.x|default('\"x\" on \"vars\" is not defined') }}\n",
+            "undefined-variable": "{{ varX|default('\"varX\" is not defined') }}"
+        },
         "first": {
             "array": "{{ [1, 2, 3, 4]|first }}",
             "number": "{{ 1234|first }}",
