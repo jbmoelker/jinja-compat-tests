@@ -9,3 +9,4 @@ php test-twig.php
 
 node index.js
 node scripts/build-docs.js
+node scripts/build-app.js

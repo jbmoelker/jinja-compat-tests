@@ -9,6 +9,8 @@
 
 ## Test results
 
+You can [**browse the test results online**](https://jbmoelker.github.io/jinja-compat-tests/). In addition all raw data is available as JSON:
+
 * [Test input](https://jbmoelker.github.io/jinja-compat-tests/api/tests.json) with templates grouped by feature.
 * [Results](https://jbmoelker.github.io/jinja-compat-tests/api/results.json) of tests per template engine.
 * [Error logs](https://jbmoelker.github.io/jinja-compat-tests/api/errors.json) of tests per template engine.

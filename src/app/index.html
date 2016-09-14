@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>Jinja Compat Tests</h1>
+
+<p>This project tests compatibility of the following template engines:</p>
+<ul>
+{% for engine in engines %}
+    <li>
+        <strong>{{ engine|capitalize }}</strong>
+        <small>v{{ versions[engine] }}</small>
+    </li>
+{% endfor %}
+</ul>
+
+<nav>
+    <h2>Table of contents</h2>
+    <ul>
+    {%- for type, features in tests %}
+        <li>
+            {{ type }}
+            <ul>
+            {%- for feature, items in features %}
+                <li><a href="{{ type }}/{{ feature }}/"><code>{{ feature }}</code></a></li>
+            {% endfor -%}
+            </ul>
+        </li>
+    {% endfor -%}
+    </ul>
+</nav>
+{% endblock %}

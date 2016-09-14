@@ -1,0 +1,62 @@
+{% extends "base.html" %}
+
+{% block content %}
+<style type="text/css">
+    h4 { margin-bottom: 0; }
+    h4 small { float: right; font-weight: normal; font-style: italic; }
+    pre { padding: .5em; margin-top: .5rem; min-height: 1em; overflow-x: scroll; }
+    .section { margin-bottom: 2.5rem; }
+    .test { border: 2px solid deepskyblue; }
+    .result { border: 2px solid lawngreen; }
+    .error { border: 2px solid red; white-space: normal; }
+</style>
+
+<header>
+    <h1><a rel="home" href="{{ paths.root }}">Jinja Compat Tests</a></h1>
+</header>
+
+<article>
+    <h1><code>{{ name }}</code> {{ type|truncate(type.length-1, true, '') }}</h1>
+
+    <section id="docs">
+        <h2><a class="permalink" href="#docs">Docs</a></h2>
+        <ul>
+        {% for engine, data in docs %}
+            {% if data[type][name] %}
+            <li>
+                <a href="{{ data['_baseUrl'] }}{{ data[type][name] }}">{{ engine|capitalize }}</a>
+            </li>
+            {% endif %}
+        {% endfor %}
+        </ul>
+    </section>
+
+    <h2 id="tests">
+        <a class="permalink" href="#tests">Tests</a>
+    </h2>
+    {% for test, html in tests %}
+    <section class="section" id="{{ test }}">
+        <h3><a class="permalink" href="#{{ test }}">Test: {{ test }}</a></h3>
+
+        <h4>Input</h4>
+        <pre class="test"><code>{{ html|replace('<','&lt;')|safe }}</code></pre>
+
+        {% for engine, data in results %}
+        {% set error = errors[engine][type][name][test] %}
+        {% set result = data[type][name][test] %}
+        <section id="{{ test }}-{{ engine }}">
+            <h4>
+                <a class="permalink" href="#{{ test }}-{{ engine }}">Output {{ engine|capitalize }}</a>
+                <small>v{{ versions[engine] }}</small>
+            </h4>
+            {% if error %}
+                <pre class="error"><code>{{ error|safe }}</code></pre>
+            {% else %}
+                <pre class="result"><code>{{ result|replace('<','&lt;')|safe }}</code></pre>
+            {% endif %}
+        </section>
+        {% endfor %}
+    </section>
+    {% endfor %}
+</article>
+{% endblock %}
