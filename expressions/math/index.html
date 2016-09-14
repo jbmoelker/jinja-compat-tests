@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+
+    <title>math expression | Jinja Compat Tests</title>
+    <style type="text/css">
+        html { font-family: Arial, sans-serif; }
+        .app-footer { border-top: 1px solid black; margin-top: 1rem; padding-top: .5rem; }
+    </style>
+    
+</head>
+<body>
+
+
+<style type="text/css">
+    h4 { margin-bottom: 0; }
+    h4 small { float: right; font-weight: normal; font-style: italic; }
+    pre { padding: .5em; margin-top: .5rem; min-height: 1em; overflow-x: scroll; }
+    .section { margin-bottom: 2.5rem; }
+    .test { border: 2px solid deepskyblue; }
+    .result { border: 2px solid lawngreen; }
+    .error { border: 2px solid red; white-space: normal; }
+</style>
+
+<header>
+    <h1><a rel="home" href="../../">Jinja Compat Tests</a></h1>
+</header>
+
+<article>
+    <h1><code>math</code> expression</h1>
+
+    <section id="docs">
+        <h2><a class="permalink" href="#docs">Docs</a></h2>
+        <ul>
+        
+            
+        
+            
+        
+            
+        
+            
+        
+        </ul>
+    </section>
+
+    <h2 id="tests">
+        <a class="permalink" href="#tests">Tests</a>
+    </h2>
+    
+    <section class="section" id="addition">
+        <h3><a class="permalink" href="#addition">Test: addition</a></h3>
+
+        <h4>Input</h4>
+        <pre class="test"><code>{{ 2 + 3 }}</code></pre>
+
+        
+        
+        
+        <section id="addition-jinja2">
+            <h4>
+                <a class="permalink" href="#addition-jinja2">Output Jinja2</a>
+                <small>v2.8.0</small>
+            </h4>
+            
+                <pre class="result"><code>5</code></pre>
+            
+        </section>
+        
+        
+        
+        <section id="addition-nunjucks">
+            <h4>
+                <a class="permalink" href="#addition-nunjucks">Output Nunjucks</a>
+                <small>v2.5.0</small>
+            </h4>
+            
+                <pre class="result"><code>5</code></pre>
+            
+        </section>
+        
+        
+        
+        <section id="addition-swig">
+            <h4>
+                <a class="permalink" href="#addition-swig">Output Swig</a>
+                <small>v1.4.2</small>
+            </h4>
+            
+                <pre class="result"><code>5</code></pre>
+            
+        </section>
+        
+        
+        
+        <section id="addition-twig">
+            <h4>
+                <a class="permalink" href="#addition-twig">Output Twig</a>
+                <small>v1.24.2</small>
+            </h4>
+            
+                <pre class="result"><code>5</code></pre>
+            
+        </section>
+        
+    </section>
+    
+    <section class="section" id="devision">
+        <h3><a class="permalink" href="#devision">Test: devision</a></h3>
+
+        <h4>Input</h4>
+        <pre class="test"><code>{{ 10/5 }}</code></pre>
+
+        
+        
+        
+        <section id="devision-jinja2">
+            <h4>
+                <a class="permalink" href="#devision-jinja2">Output Jinja2</a>
+                <small>v2.8.0</small>
+            </h4>
+            
+                <pre class="result"><code>2.0</code></pre>
+            
+        </section>
+        
+        
+        
+        <section id="devision-nunjucks">
+            <h4>
+                <a class="permalink" href="#devision-nunjucks">Output Nunjucks</a>
+                <small>v2.5.0</small>
+            </h4>
+            
+                <pre class="result"><code>2</code></pre>
+            
+        </section>
+        
+        
+        
+        <section id="devision-swig">
+            <h4>
+                <a class="permalink" href="#devision-swig">Output Swig</a>
+                <small>v1.4.2</small>
+            </h4>
+            
+                <pre class="result"><code>2</code></pre>
+            
+        </section>
+        
+        
+        
+        <section id="devision-twig">
+            <h4>
+                <a class="permalink" href="#devision-twig">Output Twig</a>
+                <small>v1.24.2</small>
+            </h4>
+            
+                <pre class="result"><code>2</code></pre>
+            
+        </section>
+        
+    </section>
+    
+    <section class="section" id="multiplication">
+        <h3><a class="permalink" href="#multiplication">Test: multiplication</a></h3>
+
+        <h4>Input</h4>
+        <pre class="test"><code>{{ 5*2 }}</code></pre>
+
+        
+        
+        
+        <section id="multiplication-jinja2">
+            <h4>
+                <a class="permalink" href="#multiplication-jinja2">Output Jinja2</a>
+                <small>v2.8.0</small>
+            </h4>
+            
+                <pre class="result"><code>10</code></pre>
+            
+        </section>
+        
+        
+        
+        <section id="multiplication-nunjucks">
+            <h4>
+                <a class="permalink" href="#multiplication-nunjucks">Output Nunjucks</a>
+                <small>v2.5.0</small>
+            </h4>
+            
+                <pre class="result"><code>10</code></pre>
+            
+        </section>
+        
+        
+        
+        <section id="multiplication-swig">
+            <h4>
+                <a class="permalink" href="#multiplication-swig">Output Swig</a>
+                <small>v1.4.2</small>
+            </h4>
+            
+                <pre class="result"><code>10</code></pre>
+            
+        </section>
+        
+        
+        
+        <section id="multiplication-twig">
+            <h4>
+                <a class="permalink" href="#multiplication-twig">Output Twig</a>
+                <small>v1.24.2</small>
+            </h4>
+            
+                <pre class="result"><code>10</code></pre>
+            
+        </section>
+        
+    </section>
+    
+    <section class="section" id="power">
+        <h3><a class="permalink" href="#power">Test: power</a></h3>
+
+        <h4>Input</h4>
+        <pre class="test"><code>{{ 2**3 }}</code></pre>
+
+        
+        
+        
+        <section id="power-jinja2">
+            <h4>
+                <a class="permalink" href="#power-jinja2">Output Jinja2</a>
+                <small>v2.8.0</small>
+            </h4>
+            
+                <pre class="result"><code>8</code></pre>
+            
+        </section>
+        
+        
+        
+        <section id="power-nunjucks">
+            <h4>
+                <a class="permalink" href="#power-nunjucks">Output Nunjucks</a>
+                <small>v2.5.0</small>
+            </h4>
+            
+                <pre class="result"><code>8</code></pre>
+            
+        </section>
+        
+        
+        
+        <section id="power-swig">
+            <h4>
+                <a class="permalink" href="#power-swig">Output Swig</a>
+                <small>v1.4.2</small>
+            </h4>
+            
+                <pre class="error"><code>SyntaxError: Unexpected token * in file /home/travis/build/jbmoelker/jinja-compat-tests/tests/expressions/math/power.html.</code></pre>
+            
+        </section>
+        
+        
+        
+        <section id="power-twig">
+            <h4>
+                <a class="permalink" href="#power-twig">Output Twig</a>
+                <small>v1.24.2</small>
+            </h4>
+            
+                <pre class="result"><code>8</code></pre>
+            
+        </section>
+        
+    </section>
+    
+    <section class="section" id="subtraction">
+        <h3><a class="permalink" href="#subtraction">Test: subtraction</a></h3>
+
+        <h4>Input</h4>
+        <pre class="test"><code>{{ 5 - 3 }}</code></pre>
+
+        
+        
+        
+        <section id="subtraction-jinja2">
+            <h4>
+                <a class="permalink" href="#subtraction-jinja2">Output Jinja2</a>
+                <small>v2.8.0</small>
+            </h4>
+            
+                <pre class="result"><code>2</code></pre>
+            
+        </section>
+        
+        
+        
+        <section id="subtraction-nunjucks">
+            <h4>
+                <a class="permalink" href="#subtraction-nunjucks">Output Nunjucks</a>
+                <small>v2.5.0</small>
+            </h4>
+            
+                <pre class="result"><code>2</code></pre>
+            
+        </section>
+        
+        
+        
+        <section id="subtraction-swig">
+            <h4>
+                <a class="permalink" href="#subtraction-swig">Output Swig</a>
+                <small>v1.4.2</small>
+            </h4>
+            
+                <pre class="result"><code>2</code></pre>
+            
+        </section>
+        
+        
+        
+        <section id="subtraction-twig">
+            <h4>
+                <a class="permalink" href="#subtraction-twig">Output Twig</a>
+                <small>v1.24.2</small>
+            </h4>
+            
+                <pre class="result"><code>2</code></pre>
+            
+        </section>
+        
+    </section>
+    
+</article>
+
+
+<footer class="app-footer" role="contentinfo">
+    <a href="https://github.com/jbmoelker/jinja-compat-tests">Source on GitHub</a>
+</footer>
+
+
+</body>
+</html>

@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+
+    <title>default filter | Jinja Compat Tests</title>
+    <style type="text/css">
+        html { font-family: Arial, sans-serif; }
+        .app-footer { border-top: 1px solid black; margin-top: 1rem; padding-top: .5rem; }
+    </style>
+    
+</head>
+<body>
+
+
+<style type="text/css">
+    h4 { margin-bottom: 0; }
+    h4 small { float: right; font-weight: normal; font-style: italic; }
+    pre { padding: .5em; margin-top: .5rem; min-height: 1em; overflow-x: scroll; }
+    .section { margin-bottom: 2.5rem; }
+    .test { border: 2px solid deepskyblue; }
+    .result { border: 2px solid lawngreen; }
+    .error { border: 2px solid red; white-space: normal; }
+</style>
+
+<header>
+    <h1><a rel="home" href="../../">Jinja Compat Tests</a></h1>
+</header>
+
+<article>
+    <h1><code>default</code> filter</h1>
+
+    <section id="docs">
+        <h2><a class="permalink" href="#docs">Docs</a></h2>
+        <ul>
+        
+            
+            <li>
+                <a href="http://jinja.pocoo.org/docs/dev/templates/#default">Jinja2</a>
+            </li>
+            
+        
+            
+            <li>
+                <a href="https://mozilla.github.io/nunjucks/templating.html#default-value-default-boolean">Nunjucks</a>
+            </li>
+            
+        
+            
+            <li>
+                <a href="https://voorhoede.github.io/swig/docs/filters/#default">Swig</a>
+            </li>
+            
+        
+            
+            <li>
+                <a href="http://twig.sensiolabs.org/doc/filters/default.html">Twig</a>
+            </li>
+            
+        
+        </ul>
+    </section>
+
+    <h2 id="tests">
+        <a class="permalink" href="#tests">Tests</a>
+    </h2>
+    
+    <section class="section" id="alias-d">
+        <h3><a class="permalink" href="#alias-d">Test: alias-d</a></h3>
+
+        <h4>Input</h4>
+        <pre class="test"><code>{{ varX|d('"varX" is not defined') }}</code></pre>
+
+        
+        
+        
+        <section id="alias-d-jinja2">
+            <h4>
+                <a class="permalink" href="#alias-d-jinja2">Output Jinja2</a>
+                <small>v2.8.0</small>
+            </h4>
+            
+                <pre class="result"><code>"varX" is not defined</code></pre>
+            
+        </section>
+        
+        
+        
+        <section id="alias-d-nunjucks">
+            <h4>
+                <a class="permalink" href="#alias-d-nunjucks">Output Nunjucks</a>
+                <small>v2.5.0</small>
+            </h4>
+            
+                <pre class="result"><code>&quot;varX&quot; is not defined</code></pre>
+            
+        </section>
+        
+        
+        
+        <section id="alias-d-swig">
+            <h4>
+                <a class="permalink" href="#alias-d-swig">Output Swig</a>
+                <small>v1.4.2</small>
+            </h4>
+            
+                <pre class="error"><code>Invalid filter "d".</code></pre>
+            
+        </section>
+        
+        
+        
+        <section id="alias-d-twig">
+            <h4>
+                <a class="permalink" href="#alias-d-twig">Output Twig</a>
+                <small>v1.24.2</small>
+            </h4>
+            
+                <pre class="error"><code>Unknown "d" filter. Did you mean "date", "round", "default", "url_encode", "date_modify", "json_encode", "convert_encoding" in "filters/default/alias-d.html" at line 1?</code></pre>
+            
+        </section>
+        
+    </section>
+    
+    <section class="section" id="empty-string-strict">
+        <h3><a class="permalink" href="#empty-string-strict">Test: empty-string-strict</a></h3>
+
+        <h4>Input</h4>
+        <pre class="test"><code>{{ ''|default('passed string is empty', true)  }}</code></pre>
+
+        
+        
+        
+        <section id="empty-string-strict-jinja2">
+            <h4>
+                <a class="permalink" href="#empty-string-strict-jinja2">Output Jinja2</a>
+                <small>v2.8.0</small>
+            </h4>
+            
+                <pre class="result"><code>passed string is empty</code></pre>
+            
+        </section>
+        
+        
+        
+        <section id="empty-string-strict-nunjucks">
+            <h4>
+                <a class="permalink" href="#empty-string-strict-nunjucks">Output Nunjucks</a>
+                <small>v2.5.0</small>
+            </h4>
+            
+                <pre class="result"><code>passed string is empty</code></pre>
+            
+        </section>
+        
+        
+        
+        <section id="empty-string-strict-swig">
+            <h4>
+                <a class="permalink" href="#empty-string-strict-swig">Output Swig</a>
+                <small>v1.4.2</small>
+            </h4>
+            
+                <pre class="result"><code>passed string is empty</code></pre>
+            
+        </section>
+        
+        
+        
+        <section id="empty-string-strict-twig">
+            <h4>
+                <a class="permalink" href="#empty-string-strict-twig">Output Twig</a>
+                <small>v1.24.2</small>
+            </h4>
+            
+                <pre class="result"><code>passed string is empty</code></pre>
+            
+        </section>
+        
+    </section>
+    
+    <section class="section" id="empty-string">
+        <h3><a class="permalink" href="#empty-string">Test: empty-string</a></h3>
+
+        <h4>Input</h4>
+        <pre class="test"><code>{{ ''|default('passed string is empty')  }}</code></pre>
+
+        
+        
+        
+        <section id="empty-string-jinja2">
+            <h4>
+                <a class="permalink" href="#empty-string-jinja2">Output Jinja2</a>
+                <small>v2.8.0</small>
+            </h4>
+            
+                <pre class="result"><code></code></pre>
+            
+        </section>
+        
+        
+        
+        <section id="empty-string-nunjucks">
+            <h4>
+                <a class="permalink" href="#empty-string-nunjucks">Output Nunjucks</a>
+                <small>v2.5.0</small>
+            </h4>
+            
+                <pre class="result"><code></code></pre>
+            
+        </section>
+        
+        
+        
+        <section id="empty-string-swig">
+            <h4>
+                <a class="permalink" href="#empty-string-swig">Output Swig</a>
+                <small>v1.4.2</small>
+            </h4>
+            
+                <pre class="result"><code>passed string is empty</code></pre>
+            
+        </section>
+        
+        
+        
+        <section id="empty-string-twig">
+            <h4>
+                <a class="permalink" href="#empty-string-twig">Output Twig</a>
+                <small>v1.24.2</small>
+            </h4>
+            
+                <pre class="result"><code>passed string is empty</code></pre>
+            
+        </section>
+        
+    </section>
+    
+    <section class="section" id="undefined-property-bracket-notation">
+        <h3><a class="permalink" href="#undefined-property-bracket-notation">Test: undefined-property-bracket-notation</a></h3>
+
+        <h4>Input</h4>
+        <pre class="test"><code>{{ vars['x']|default('"x" on "vars" is not defined') }}</code></pre>
+
+        
+        
+        
+        <section id="undefined-property-bracket-notation-jinja2">
+            <h4>
+                <a class="permalink" href="#undefined-property-bracket-notation-jinja2">Output Jinja2</a>
+                <small>v2.8.0</small>
+            </h4>
+            
+                <pre class="error"><code>'vars' is undefined</code></pre>
+            
+        </section>
+        
+        
+        
+        <section id="undefined-property-bracket-notation-nunjucks">
+            <h4>
+                <a class="permalink" href="#undefined-property-bracket-notation-nunjucks">Output Nunjucks</a>
+                <small>v2.5.0</small>
+            </h4>
+            
+                <pre class="result"><code>&quot;x&quot; on &quot;vars&quot; is not defined</code></pre>
+            
+        </section>
+        
+        
+        
+        <section id="undefined-property-bracket-notation-swig">
+            <h4>
+                <a class="permalink" href="#undefined-property-bracket-notation-swig">Output Swig</a>
+                <small>v1.4.2</small>
+            </h4>
+            
+                <pre class="result"><code>&quot;x&quot; on &quot;vars&quot; is not defined</code></pre>
+            
+        </section>
+        
+        
+        
+        <section id="undefined-property-bracket-notation-twig">
+            <h4>
+                <a class="permalink" href="#undefined-property-bracket-notation-twig">Output Twig</a>
+                <small>v1.24.2</small>
+            </h4>
+            
+                <pre class="result"><code>&quot;x&quot; on &quot;vars&quot; is not defined</code></pre>
+            
+        </section>
+        
+    </section>
+    
+    <section class="section" id="undefined-property-dot-notation">
+        <h3><a class="permalink" href="#undefined-property-dot-notation">Test: undefined-property-dot-notation</a></h3>
+
+        <h4>Input</h4>
+        <pre class="test"><code>{{ vars.x|default('"x" on "vars" is not defined') }}
+</code></pre>
+
+        
+        
+        
+        <section id="undefined-property-dot-notation-jinja2">
+            <h4>
+                <a class="permalink" href="#undefined-property-dot-notation-jinja2">Output Jinja2</a>
+                <small>v2.8.0</small>
+            </h4>
+            
+                <pre class="error"><code>'vars' is undefined</code></pre>
+            
+        </section>
+        
+        
+        
+        <section id="undefined-property-dot-notation-nunjucks">
+            <h4>
+                <a class="permalink" href="#undefined-property-dot-notation-nunjucks">Output Nunjucks</a>
+                <small>v2.5.0</small>
+            </h4>
+            
+                <pre class="result"><code>&quot;x&quot; on &quot;vars&quot; is not defined
+</code></pre>
+            
+        </section>
+        
+        
+        
+        <section id="undefined-property-dot-notation-swig">
+            <h4>
+                <a class="permalink" href="#undefined-property-dot-notation-swig">Output Swig</a>
+                <small>v1.4.2</small>
+            </h4>
+            
+                <pre class="result"><code>&quot;x&quot; on &quot;vars&quot; is not defined
+</code></pre>
+            
+        </section>
+        
+        
+        
+        <section id="undefined-property-dot-notation-twig">
+            <h4>
+                <a class="permalink" href="#undefined-property-dot-notation-twig">Output Twig</a>
+                <small>v1.24.2</small>
+            </h4>
+            
+                <pre class="result"><code>&quot;x&quot; on &quot;vars&quot; is not defined
+</code></pre>
+            
+        </section>
+        
+    </section>
+    
+    <section class="section" id="undefined-variable">
+        <h3><a class="permalink" href="#undefined-variable">Test: undefined-variable</a></h3>
+
+        <h4>Input</h4>
+        <pre class="test"><code>{{ varX|default('"varX" is not defined') }}</code></pre>
+
+        
+        
+        
+        <section id="undefined-variable-jinja2">
+            <h4>
+                <a class="permalink" href="#undefined-variable-jinja2">Output Jinja2</a>
+                <small>v2.8.0</small>
+            </h4>
+            
+                <pre class="result"><code>"varX" is not defined</code></pre>
+            
+        </section>
+        
+        
+        
+        <section id="undefined-variable-nunjucks">
+            <h4>
+                <a class="permalink" href="#undefined-variable-nunjucks">Output Nunjucks</a>
+                <small>v2.5.0</small>
+            </h4>
+            
+                <pre class="result"><code>&quot;varX&quot; is not defined</code></pre>
+            
+        </section>
+        
+        
+        
+        <section id="undefined-variable-swig">
+            <h4>
+                <a class="permalink" href="#undefined-variable-swig">Output Swig</a>
+                <small>v1.4.2</small>
+            </h4>
+            
+                <pre class="result"><code>&quot;varX&quot; is not defined</code></pre>
+            
+        </section>
+        
+        
+        
+        <section id="undefined-variable-twig">
+            <h4>
+                <a class="permalink" href="#undefined-variable-twig">Output Twig</a>
+                <small>v1.24.2</small>
+            </h4>
+            
+                <pre class="result"><code>&quot;varX&quot; is not defined</code></pre>
+            
+        </section>
+        
+    </section>
+    
+</article>
+
+
+<footer class="app-footer" role="contentinfo">
+    <a href="https://github.com/jbmoelker/jinja-compat-tests">Source on GitHub</a>
+</footer>
+
+
+</body>
+</html>

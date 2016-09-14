@@ -1,0 +1,561 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+
+    <title>raw tag | Jinja Compat Tests</title>
+    <style type="text/css">
+        html { font-family: Arial, sans-serif; }
+        .app-footer { border-top: 1px solid black; margin-top: 1rem; padding-top: .5rem; }
+    </style>
+    
+</head>
+<body>
+
+
+<style type="text/css">
+    h4 { margin-bottom: 0; }
+    h4 small { float: right; font-weight: normal; font-style: italic; }
+    pre { padding: .5em; margin-top: .5rem; min-height: 1em; overflow-x: scroll; }
+    .section { margin-bottom: 2.5rem; }
+    .test { border: 2px solid deepskyblue; }
+    .result { border: 2px solid lawngreen; }
+    .error { border: 2px solid red; white-space: normal; }
+</style>
+
+<header>
+    <h1><a rel="home" href="../../">Jinja Compat Tests</a></h1>
+</header>
+
+<article>
+    <h1><code>raw</code> tag</h1>
+
+    <section id="docs">
+        <h2><a class="permalink" href="#docs">Docs</a></h2>
+        <ul>
+        
+            
+            <li>
+                <a href="http://jinja.pocoo.org/docs/dev/templates/#escaping">Jinja2</a>
+            </li>
+            
+        
+            
+            <li>
+                <a href="https://mozilla.github.io/nunjucks/templating.html#raw">Nunjucks</a>
+            </li>
+            
+        
+            
+            <li>
+                <a href="https://voorhoede.github.io/swig/docs/tags/#raw">Swig</a>
+            </li>
+            
+        
+            
+            <li>
+                <a href="http://twig.sensiolabs.org/doc/tags/raw.html">Twig</a>
+            </li>
+            
+        
+        </ul>
+    </section>
+
+    <h2 id="tests">
+        <a class="permalink" href="#tests">Tests</a>
+    </h2>
+    
+    <section class="section" id="broken-expression">
+        <h3><a class="permalink" href="#broken-expression">Test: broken-expression</a></h3>
+
+        <h4>Input</h4>
+        <pre class="test"><code>{% raw %}{{ x }{% endraw %}</code></pre>
+
+        
+        
+        
+        <section id="broken-expression-jinja2">
+            <h4>
+                <a class="permalink" href="#broken-expression-jinja2">Output Jinja2</a>
+                <small>v2.8.0</small>
+            </h4>
+            
+                <pre class="result"><code>{{ x }</code></pre>
+            
+        </section>
+        
+        
+        
+        <section id="broken-expression-nunjucks">
+            <h4>
+                <a class="permalink" href="#broken-expression-nunjucks">Output Nunjucks</a>
+                <small>v2.5.0</small>
+            </h4>
+            
+                <pre class="result"><code>{{ x }</code></pre>
+            
+        </section>
+        
+        
+        
+        <section id="broken-expression-swig">
+            <h4>
+                <a class="permalink" href="#broken-expression-swig">Output Swig</a>
+                <small>v1.4.2</small>
+            </h4>
+            
+                <pre class="result"><code>{{ x }</code></pre>
+            
+        </section>
+        
+        
+        
+        <section id="broken-expression-twig">
+            <h4>
+                <a class="permalink" href="#broken-expression-twig">Output Twig</a>
+                <small>v1.24.2</small>
+            </h4>
+            
+                <pre class="result"><code>{{ x }</code></pre>
+            
+        </section>
+        
+    </section>
+    
+    <section class="section" id="broken-tag">
+        <h3><a class="permalink" href="#broken-tag">Test: broken-tag</a></h3>
+
+        <h4>Input</h4>
+        <pre class="test"><code>{% raw %}{% if i_am_stupid }Still do your job well{% endraw %}</code></pre>
+
+        
+        
+        
+        <section id="broken-tag-jinja2">
+            <h4>
+                <a class="permalink" href="#broken-tag-jinja2">Output Jinja2</a>
+                <small>v2.8.0</small>
+            </h4>
+            
+                <pre class="result"><code>{% if i_am_stupid }Still do your job well</code></pre>
+            
+        </section>
+        
+        
+        
+        <section id="broken-tag-nunjucks">
+            <h4>
+                <a class="permalink" href="#broken-tag-nunjucks">Output Nunjucks</a>
+                <small>v2.5.0</small>
+            </h4>
+            
+                <pre class="result"><code>{% if i_am_stupid }Still do your job well</code></pre>
+            
+        </section>
+        
+        
+        
+        <section id="broken-tag-swig">
+            <h4>
+                <a class="permalink" href="#broken-tag-swig">Output Swig</a>
+                <small>v1.4.2</small>
+            </h4>
+            
+                <pre class="result"><code>{% if i_am_stupid }Still do your job well{% endraw %}</code></pre>
+            
+        </section>
+        
+        
+        
+        <section id="broken-tag-twig">
+            <h4>
+                <a class="permalink" href="#broken-tag-twig">Output Twig</a>
+                <small>v1.24.2</small>
+            </h4>
+            
+                <pre class="result"><code>{% if i_am_stupid }Still do your job well</code></pre>
+            
+        </section>
+        
+    </section>
+    
+    <section class="section" id="comment">
+        <h3><a class="permalink" href="#comment">Test: comment</a></h3>
+
+        <h4>Input</h4>
+        <pre class="test"><code>{% raw %}{# test {% endraw %}</code></pre>
+
+        
+        
+        
+        <section id="comment-jinja2">
+            <h4>
+                <a class="permalink" href="#comment-jinja2">Output Jinja2</a>
+                <small>v2.8.0</small>
+            </h4>
+            
+                <pre class="result"><code>{# test </code></pre>
+            
+        </section>
+        
+        
+        
+        <section id="comment-nunjucks">
+            <h4>
+                <a class="permalink" href="#comment-nunjucks">Output Nunjucks</a>
+                <small>v2.5.0</small>
+            </h4>
+            
+                <pre class="result"><code>{# test </code></pre>
+            
+        </section>
+        
+        
+        
+        <section id="comment-swig">
+            <h4>
+                <a class="permalink" href="#comment-swig">Output Swig</a>
+                <small>v1.4.2</small>
+            </h4>
+            
+                <pre class="result"><code>{# test </code></pre>
+            
+        </section>
+        
+        
+        
+        <section id="comment-twig">
+            <h4>
+                <a class="permalink" href="#comment-twig">Output Twig</a>
+                <small>v1.24.2</small>
+            </h4>
+            
+                <pre class="result"><code>{# test </code></pre>
+            
+        </section>
+        
+    </section>
+    
+    <section class="section" id="multiline">
+        <h3><a class="permalink" href="#multiline">Test: multiline</a></h3>
+
+        <h4>Input</h4>
+        <pre class="test"><code>
+{% raw %}{{ varX }}{% endraw %}
+{{ varY }}
+{% raw %}
+    {{ varZ }}
+{% endraw %}</code></pre>
+
+        
+        
+        
+        <section id="multiline-jinja2">
+            <h4>
+                <a class="permalink" href="#multiline-jinja2">Output Jinja2</a>
+                <small>v2.8.0</small>
+            </h4>
+            
+                <pre class="result"><code>
+{{ varX }}
+value Y
+
+    {{ varZ }}
+</code></pre>
+            
+        </section>
+        
+        
+        
+        <section id="multiline-nunjucks">
+            <h4>
+                <a class="permalink" href="#multiline-nunjucks">Output Nunjucks</a>
+                <small>v2.5.0</small>
+            </h4>
+            
+                <pre class="result"><code>
+{{ varX }}
+value Y
+
+    {{ varZ }}
+</code></pre>
+            
+        </section>
+        
+        
+        
+        <section id="multiline-swig">
+            <h4>
+                <a class="permalink" href="#multiline-swig">Output Swig</a>
+                <small>v1.4.2</small>
+            </h4>
+            
+                <pre class="result"><code>
+{{ varX }}
+value Y
+
+    {{ varZ }}
+</code></pre>
+            
+        </section>
+        
+        
+        
+        <section id="multiline-twig">
+            <h4>
+                <a class="permalink" href="#multiline-twig">Output Twig</a>
+                <small>v1.24.2</small>
+            </h4>
+            
+                <pre class="result"><code>
+{{ varX }}
+value Y
+
+    {{ varZ }}
+</code></pre>
+            
+        </section>
+        
+    </section>
+    
+    <section class="section" id="multiple">
+        <h3><a class="permalink" href="#multiple">Test: multiple</a></h3>
+
+        <h4>Input</h4>
+        <pre class="test"><code>{% raw %}{{ varX }}{% endraw %}{{ varY }}{% raw %}{{ varZ }}{% endraw %}</code></pre>
+
+        
+        
+        
+        <section id="multiple-jinja2">
+            <h4>
+                <a class="permalink" href="#multiple-jinja2">Output Jinja2</a>
+                <small>v2.8.0</small>
+            </h4>
+            
+                <pre class="result"><code>{{ varX }}value Y{{ varZ }}</code></pre>
+            
+        </section>
+        
+        
+        
+        <section id="multiple-nunjucks">
+            <h4>
+                <a class="permalink" href="#multiple-nunjucks">Output Nunjucks</a>
+                <small>v2.5.0</small>
+            </h4>
+            
+                <pre class="result"><code>{{ varX }}value Y{{ varZ }}</code></pre>
+            
+        </section>
+        
+        
+        
+        <section id="multiple-swig">
+            <h4>
+                <a class="permalink" href="#multiple-swig">Output Swig</a>
+                <small>v1.4.2</small>
+            </h4>
+            
+                <pre class="result"><code>{{ varX }}value Y{{ varZ }}</code></pre>
+            
+        </section>
+        
+        
+        
+        <section id="multiple-twig">
+            <h4>
+                <a class="permalink" href="#multiple-twig">Output Twig</a>
+                <small>v1.24.2</small>
+            </h4>
+            
+                <pre class="result"><code>{{ varX }}value Y{{ varZ }}</code></pre>
+            
+        </section>
+        
+    </section>
+    
+    <section class="section" id="nested-raw">
+        <h3><a class="permalink" href="#nested-raw">Test: nested-raw</a></h3>
+
+        <h4>Input</h4>
+        <pre class="test"><code>{% raw %}{% raw %}{{ x }{% endraw %}{% endraw %}</code></pre>
+
+        
+        
+        
+        <section id="nested-raw-jinja2">
+            <h4>
+                <a class="permalink" href="#nested-raw-jinja2">Output Jinja2</a>
+                <small>v2.8.0</small>
+            </h4>
+            
+                <pre class="error"><code>Encountered unknown tag 'endraw'.</code></pre>
+            
+        </section>
+        
+        
+        
+        <section id="nested-raw-nunjucks">
+            <h4>
+                <a class="permalink" href="#nested-raw-nunjucks">Output Nunjucks</a>
+                <small>v2.5.0</small>
+            </h4>
+            
+                <pre class="result"><code>{% raw %}{{ x }{% endraw %}</code></pre>
+            
+        </section>
+        
+        
+        
+        <section id="nested-raw-swig">
+            <h4>
+                <a class="permalink" href="#nested-raw-swig">Output Swig</a>
+                <small>v1.4.2</small>
+            </h4>
+            
+                <pre class="error"><code>Unexpected end of tag "raw".</code></pre>
+            
+        </section>
+        
+        
+        
+        <section id="nested-raw-twig">
+            <h4>
+                <a class="permalink" href="#nested-raw-twig">Output Twig</a>
+                <small>v1.24.2</small>
+            </h4>
+            
+                <pre class="error"><code>Unknown "endraw" tag in "tags/raw/nested-raw.html" at line 1.</code></pre>
+            
+        </section>
+        
+    </section>
+    
+    <section class="section" id="tag">
+        <h3><a class="permalink" href="#tag">Test: tag</a></h3>
+
+        <h4>Input</h4>
+        <pre class="test"><code>{% raw %}hello {{ {% %} }}{% endraw %}</code></pre>
+
+        
+        
+        
+        <section id="tag-jinja2">
+            <h4>
+                <a class="permalink" href="#tag-jinja2">Output Jinja2</a>
+                <small>v2.8.0</small>
+            </h4>
+            
+                <pre class="result"><code>hello {{ {% %} }}</code></pre>
+            
+        </section>
+        
+        
+        
+        <section id="tag-nunjucks">
+            <h4>
+                <a class="permalink" href="#tag-nunjucks">Output Nunjucks</a>
+                <small>v2.5.0</small>
+            </h4>
+            
+                <pre class="result"><code>hello {{ {% %} }}</code></pre>
+            
+        </section>
+        
+        
+        
+        <section id="tag-swig">
+            <h4>
+                <a class="permalink" href="#tag-swig">Output Swig</a>
+                <small>v1.4.2</small>
+            </h4>
+            
+                <pre class="result"><code>hello {{ {% %} }}</code></pre>
+            
+        </section>
+        
+        
+        
+        <section id="tag-twig">
+            <h4>
+                <a class="permalink" href="#tag-twig">Output Twig</a>
+                <small>v1.24.2</small>
+            </h4>
+            
+                <pre class="result"><code>hello {{ {% %} }}</code></pre>
+            
+        </section>
+        
+    </section>
+    
+    <section class="section" id="text">
+        <h3><a class="permalink" href="#text">Test: text</a></h3>
+
+        <h4>Input</h4>
+        <pre class="test"><code>{% raw %}abc{% endraw %}</code></pre>
+
+        
+        
+        
+        <section id="text-jinja2">
+            <h4>
+                <a class="permalink" href="#text-jinja2">Output Jinja2</a>
+                <small>v2.8.0</small>
+            </h4>
+            
+                <pre class="result"><code>abc</code></pre>
+            
+        </section>
+        
+        
+        
+        <section id="text-nunjucks">
+            <h4>
+                <a class="permalink" href="#text-nunjucks">Output Nunjucks</a>
+                <small>v2.5.0</small>
+            </h4>
+            
+                <pre class="result"><code>abc</code></pre>
+            
+        </section>
+        
+        
+        
+        <section id="text-swig">
+            <h4>
+                <a class="permalink" href="#text-swig">Output Swig</a>
+                <small>v1.4.2</small>
+            </h4>
+            
+                <pre class="result"><code>abc</code></pre>
+            
+        </section>
+        
+        
+        
+        <section id="text-twig">
+            <h4>
+                <a class="permalink" href="#text-twig">Output Twig</a>
+                <small>v1.24.2</small>
+            </h4>
+            
+                <pre class="result"><code>abc</code></pre>
+            
+        </section>
+        
+    </section>
+    
+</article>
+
+
+<footer class="app-footer" role="contentinfo">
+    <a href="https://github.com/jbmoelker/jinja-compat-tests">Source on GitHub</a>
+</footer>
+
+
+</body>
+</html>

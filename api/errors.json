@@ -25,37 +25,37 @@
     "swig": {
         "expressions": {
             "math": {
-                "power": "SyntaxError: Unexpected token * in file /tests/expressions/math/power.html."
+                "power": "SyntaxError: Unexpected token * in file /home/travis/build/jbmoelker/jinja-compat-tests/tests/expressions/math/power.html."
             },
             "reserved-words": {
-                "function": "Reserved keyword \"function\" attempted to be used as a variable on line 1 in file /tests/expressions/reserved-words/function.html.",
-                "var": "Reserved keyword \"var\" attempted to be used as a variable on line 1 in file /tests/expressions/reserved-words/var.html."
+                "function": "Reserved keyword \"function\" attempted to be used as a variable.",
+                "var": "Reserved keyword \"var\" attempted to be used as a variable."
             }
         },
         "filters": {
             "abs": {
-                "negative-float": "Invalid filter \"abs\" on line 1 in file /tests/filters/abs/negative-float.html.",
-                "negative-integer": "Invalid filter \"abs\" on line 1 in file /tests/filters/abs/negative-integer.html.",
-                "positive-float": "Invalid filter \"abs\" on line 1 in file /tests/filters/abs/positive-float.html.",
-                "positive-integer": "Invalid filter \"abs\" on line 1 in file /tests/filters/abs/positive-integer.html.",
-                "variable": "Invalid filter \"abs\" on line 1 in file /tests/filters/abs/variable.html.",
-                "zero": "Invalid filter \"abs\" on line 1 in file /tests/filters/abs/zero.html."
+                "negative-float": "Invalid filter \"abs\".",
+                "negative-integer": "Invalid filter \"abs\".",
+                "positive-float": "Invalid filter \"abs\".",
+                "positive-integer": "Invalid filter \"abs\".",
+                "variable": "Invalid filter \"abs\".",
+                "zero": "Invalid filter \"abs\"."
             },
             "batch": {
-                "size-and-fill": "Invalid filter \"batch\" on line 2 in file /tests/filters/batch/size-and-fill.html.",
-                "size-only": "Invalid filter \"batch\" on line 2 in file /tests/filters/batch/size-only.html."
+                "size-and-fill": "Invalid filter \"batch\".",
+                "size-only": "Invalid filter \"batch\"."
             },
             "center": {
-                "default": "Invalid filter \"center\" on line 1 in file /tests/filters/center/default.html.",
-                "width-20": "Invalid filter \"center\" on line 1 in file /tests/filters/center/width-20.html."
+                "default": "Invalid filter \"center\".",
+                "width-20": "Invalid filter \"center\"."
             },
             "default": {
-                "alias-d": "Invalid filter \"d\" on line 1 in file /tests/filters/default/alias-d.html."
+                "alias-d": "Invalid filter \"d\"."
             }
         },
         "tags": {
             "raw": {
-                "nested-raw": "Unexpected end of tag \"raw\" on line 1 in file /tests/tags/raw/nested-raw.html."
+                "nested-raw": "Unexpected end of tag \"raw\"."
             }
         }
     },

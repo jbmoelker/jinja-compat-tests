@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+
+    <title>batch filter | Jinja Compat Tests</title>
+    <style type="text/css">
+        html { font-family: Arial, sans-serif; }
+        .app-footer { border-top: 1px solid black; margin-top: 1rem; padding-top: .5rem; }
+    </style>
+    
+</head>
+<body>
+
+
+<style type="text/css">
+    h4 { margin-bottom: 0; }
+    h4 small { float: right; font-weight: normal; font-style: italic; }
+    pre { padding: .5em; margin-top: .5rem; min-height: 1em; overflow-x: scroll; }
+    .section { margin-bottom: 2.5rem; }
+    .test { border: 2px solid deepskyblue; }
+    .result { border: 2px solid lawngreen; }
+    .error { border: 2px solid red; white-space: normal; }
+</style>
+
+<header>
+    <h1><a rel="home" href="../../">Jinja Compat Tests</a></h1>
+</header>
+
+<article>
+    <h1><code>batch</code> filter</h1>
+
+    <section id="docs">
+        <h2><a class="permalink" href="#docs">Docs</a></h2>
+        <ul>
+        
+            
+            <li>
+                <a href="http://jinja.pocoo.org/docs/dev/templates/#batch">Jinja2</a>
+            </li>
+            
+        
+            
+            <li>
+                <a href="https://mozilla.github.io/nunjucks/templating.html#batch">Nunjucks</a>
+            </li>
+            
+        
+            
+        
+            
+            <li>
+                <a href="http://twig.sensiolabs.org/doc/filters/batch.html">Twig</a>
+            </li>
+            
+        
+        </ul>
+    </section>
+
+    <h2 id="tests">
+        <a class="permalink" href="#tests">Tests</a>
+    </h2>
+    
+    <section class="section" id="size-and-fill">
+        <h3><a class="permalink" href="#size-and-fill">Test: size-and-fill</a></h3>
+
+        <h4>Input</h4>
+        <pre class="test"><code>&lt;table>
+    {% for row in items|batch(3, 'No item') %}
+        &lt;tr>
+            {% for column in row %}
+                &lt;td>{{ column }}&lt;/td>
+            {% endfor %}
+        &lt;/tr>
+    {% endfor %}
+&lt;/table></code></pre>
+
+        
+        
+        
+        <section id="size-and-fill-jinja2">
+            <h4>
+                <a class="permalink" href="#size-and-fill-jinja2">Output Jinja2</a>
+                <small>v2.8.0</small>
+            </h4>
+            
+                <pre class="result"><code>&lt;table>
+    
+        &lt;tr>
+            
+                &lt;td>a&lt;/td>
+            
+                &lt;td>b&lt;/td>
+            
+                &lt;td>c&lt;/td>
+            
+        &lt;/tr>
+    
+        &lt;tr>
+            
+                &lt;td>d&lt;/td>
+            
+                &lt;td>e&lt;/td>
+            
+                &lt;td>f&lt;/td>
+            
+        &lt;/tr>
+    
+        &lt;tr>
+            
+                &lt;td>g&lt;/td>
+            
+                &lt;td>No item&lt;/td>
+            
+                &lt;td>No item&lt;/td>
+            
+        &lt;/tr>
+    
+&lt;/table></code></pre>
+            
+        </section>
+        
+        
+        
+        <section id="size-and-fill-nunjucks">
+            <h4>
+                <a class="permalink" href="#size-and-fill-nunjucks">Output Nunjucks</a>
+                <small>v2.5.0</small>
+            </h4>
+            
+                <pre class="result"><code>&lt;table>
+    
+        &lt;tr>
+            
+                &lt;td>a&lt;/td>
+            
+                &lt;td>b&lt;/td>
+            
+                &lt;td>c&lt;/td>
+            
+        &lt;/tr>
+    
+        &lt;tr>
+            
+                &lt;td>d&lt;/td>
+            
+                &lt;td>e&lt;/td>
+            
+                &lt;td>f&lt;/td>
+            
+        &lt;/tr>
+    
+        &lt;tr>
+            
+                &lt;td>g&lt;/td>
+            
+                &lt;td>No item&lt;/td>
+            
+                &lt;td>No item&lt;/td>
+            
+        &lt;/tr>
+    
+&lt;/table></code></pre>
+            
+        </section>
+        
+        
+        
+        <section id="size-and-fill-swig">
+            <h4>
+                <a class="permalink" href="#size-and-fill-swig">Output Swig</a>
+                <small>v1.4.2</small>
+            </h4>
+            
+                <pre class="error"><code>Invalid filter "batch".</code></pre>
+            
+        </section>
+        
+        
+        
+        <section id="size-and-fill-twig">
+            <h4>
+                <a class="permalink" href="#size-and-fill-twig">Output Twig</a>
+                <small>v1.24.2</small>
+            </h4>
+            
+                <pre class="result"><code>&lt;table>
+            &lt;tr>
+                            &lt;td>a&lt;/td>
+                            &lt;td>b&lt;/td>
+                            &lt;td>c&lt;/td>
+                    &lt;/tr>
+            &lt;tr>
+                            &lt;td>d&lt;/td>
+                            &lt;td>e&lt;/td>
+                            &lt;td>f&lt;/td>
+                    &lt;/tr>
+            &lt;tr>
+                            &lt;td>g&lt;/td>
+                            &lt;td>No item&lt;/td>
+                            &lt;td>No item&lt;/td>
+                    &lt;/tr>
+    &lt;/table></code></pre>
+            
+        </section>
+        
+    </section>
+    
+    <section class="section" id="size-only">
+        <h3><a class="permalink" href="#size-only">Test: size-only</a></h3>
+
+        <h4>Input</h4>
+        <pre class="test"><code>&lt;table>
+{% for row in items|batch(3) %}
+    &lt;tr>
+    {% for column in row %}
+        &lt;td>{{ column }}&lt;/td>
+    {% endfor %}
+    &lt;/tr>
+{% endfor %}
+&lt;/table></code></pre>
+
+        
+        
+        
+        <section id="size-only-jinja2">
+            <h4>
+                <a class="permalink" href="#size-only-jinja2">Output Jinja2</a>
+                <small>v2.8.0</small>
+            </h4>
+            
+                <pre class="result"><code>&lt;table>
+
+    &lt;tr>
+    
+        &lt;td>a&lt;/td>
+    
+        &lt;td>b&lt;/td>
+    
+        &lt;td>c&lt;/td>
+    
+    &lt;/tr>
+
+    &lt;tr>
+    
+        &lt;td>d&lt;/td>
+    
+        &lt;td>e&lt;/td>
+    
+        &lt;td>f&lt;/td>
+    
+    &lt;/tr>
+
+    &lt;tr>
+    
+        &lt;td>g&lt;/td>
+    
+    &lt;/tr>
+
+&lt;/table></code></pre>
+            
+        </section>
+        
+        
+        
+        <section id="size-only-nunjucks">
+            <h4>
+                <a class="permalink" href="#size-only-nunjucks">Output Nunjucks</a>
+                <small>v2.5.0</small>
+            </h4>
+            
+                <pre class="result"><code>&lt;table>
+
+    &lt;tr>
+    
+        &lt;td>a&lt;/td>
+    
+        &lt;td>b&lt;/td>
+    
+        &lt;td>c&lt;/td>
+    
+    &lt;/tr>
+
+    &lt;tr>
+    
+        &lt;td>d&lt;/td>
+    
+        &lt;td>e&lt;/td>
+    
+        &lt;td>f&lt;/td>
+    
+    &lt;/tr>
+
+    &lt;tr>
+    
+        &lt;td>g&lt;/td>
+    
+    &lt;/tr>
+
+&lt;/table></code></pre>
+            
+        </section>
+        
+        
+        
+        <section id="size-only-swig">
+            <h4>
+                <a class="permalink" href="#size-only-swig">Output Swig</a>
+                <small>v1.4.2</small>
+            </h4>
+            
+                <pre class="error"><code>Invalid filter "batch".</code></pre>
+            
+        </section>
+        
+        
+        
+        <section id="size-only-twig">
+            <h4>
+                <a class="permalink" href="#size-only-twig">Output Twig</a>
+                <small>v1.24.2</small>
+            </h4>
+            
+                <pre class="result"><code>&lt;table>
+    &lt;tr>
+            &lt;td>a&lt;/td>
+            &lt;td>b&lt;/td>
+            &lt;td>c&lt;/td>
+        &lt;/tr>
+    &lt;tr>
+            &lt;td>d&lt;/td>
+            &lt;td>e&lt;/td>
+            &lt;td>f&lt;/td>
+        &lt;/tr>
+    &lt;tr>
+            &lt;td>g&lt;/td>
+        &lt;/tr>
+&lt;/table></code></pre>
+            
+        </section>
+        
+    </section>
+    
+</article>
+
+
+<footer class="app-footer" role="contentinfo">
+    <a href="https://github.com/jbmoelker/jinja-compat-tests">Source on GitHub</a>
+</footer>
+
+
+</body>
+</html>

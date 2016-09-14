@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+
+    <title>capitalize filter | Jinja Compat Tests</title>
+    <style type="text/css">
+        html { font-family: Arial, sans-serif; }
+        .app-footer { border-top: 1px solid black; margin-top: 1rem; padding-top: .5rem; }
+    </style>
+    
+</head>
+<body>
+
+
+<style type="text/css">
+    h4 { margin-bottom: 0; }
+    h4 small { float: right; font-weight: normal; font-style: italic; }
+    pre { padding: .5em; margin-top: .5rem; min-height: 1em; overflow-x: scroll; }
+    .section { margin-bottom: 2.5rem; }
+    .test { border: 2px solid deepskyblue; }
+    .result { border: 2px solid lawngreen; }
+    .error { border: 2px solid red; white-space: normal; }
+</style>
+
+<header>
+    <h1><a rel="home" href="../../">Jinja Compat Tests</a></h1>
+</header>
+
+<article>
+    <h1><code>capitalize</code> filter</h1>
+
+    <section id="docs">
+        <h2><a class="permalink" href="#docs">Docs</a></h2>
+        <ul>
+        
+            
+            <li>
+                <a href="http://jinja.pocoo.org/docs/dev/templates/#capitalize">Jinja2</a>
+            </li>
+            
+        
+            
+            <li>
+                <a href="https://mozilla.github.io/nunjucks/templating.html#capitalize">Nunjucks</a>
+            </li>
+            
+        
+            
+            <li>
+                <a href="https://voorhoede.github.io/swig/docs/filters/#capitalize">Swig</a>
+            </li>
+            
+        
+            
+            <li>
+                <a href="http://twig.sensiolabs.org/doc/filters/capitalize.html">Twig</a>
+            </li>
+            
+        
+        </ul>
+    </section>
+
+    <h2 id="tests">
+        <a class="permalink" href="#tests">Tests</a>
+    </h2>
+    
+    <section class="section" id="mixed-case">
+        <h3><a class="permalink" href="#mixed-case">Test: mixed-case</a></h3>
+
+        <h4>Input</h4>
+        <pre class="test"><code>{{ 'my First cAR'|capitalize }}</code></pre>
+
+        
+        
+        
+        <section id="mixed-case-jinja2">
+            <h4>
+                <a class="permalink" href="#mixed-case-jinja2">Output Jinja2</a>
+                <small>v2.8.0</small>
+            </h4>
+            
+                <pre class="result"><code>My first car</code></pre>
+            
+        </section>
+        
+        
+        
+        <section id="mixed-case-nunjucks">
+            <h4>
+                <a class="permalink" href="#mixed-case-nunjucks">Output Nunjucks</a>
+                <small>v2.5.0</small>
+            </h4>
+            
+                <pre class="result"><code>My first car</code></pre>
+            
+        </section>
+        
+        
+        
+        <section id="mixed-case-swig">
+            <h4>
+                <a class="permalink" href="#mixed-case-swig">Output Swig</a>
+                <small>v1.4.2</small>
+            </h4>
+            
+                <pre class="result"><code>My first car</code></pre>
+            
+        </section>
+        
+        
+        
+        <section id="mixed-case-twig">
+            <h4>
+                <a class="permalink" href="#mixed-case-twig">Output Twig</a>
+                <small>v1.24.2</small>
+            </h4>
+            
+                <pre class="result"><code>My first car</code></pre>
+            
+        </section>
+        
+    </section>
+    
+    <section class="section" id="number">
+        <h3><a class="permalink" href="#number">Test: number</a></h3>
+
+        <h4>Input</h4>
+        <pre class="test"><code>{{ 5|capitalize }}</code></pre>
+
+        
+        
+        
+        <section id="number-jinja2">
+            <h4>
+                <a class="permalink" href="#number-jinja2">Output Jinja2</a>
+                <small>v2.8.0</small>
+            </h4>
+            
+                <pre class="result"><code>5</code></pre>
+            
+        </section>
+        
+        
+        
+        <section id="number-nunjucks">
+            <h4>
+                <a class="permalink" href="#number-nunjucks">Output Nunjucks</a>
+                <small>v2.5.0</small>
+            </h4>
+            
+                <pre class="error"><code>(/tests/filters/capitalize/number.html)
+  TypeError: str.toLowerCase is not a function</code></pre>
+            
+        </section>
+        
+        
+        
+        <section id="number-swig">
+            <h4>
+                <a class="permalink" href="#number-swig">Output Swig</a>
+                <small>v1.4.2</small>
+            </h4>
+            
+                <pre class="result"><code>5</code></pre>
+            
+        </section>
+        
+        
+        
+        <section id="number-twig">
+            <h4>
+                <a class="permalink" href="#number-twig">Output Twig</a>
+                <small>v1.24.2</small>
+            </h4>
+            
+                <pre class="result"><code>5</code></pre>
+            
+        </section>
+        
+    </section>
+    
+    <section class="section" id="sentence">
+        <h3><a class="permalink" href="#sentence">Test: sentence</a></h3>
+
+        <h4>Input</h4>
+        <pre class="test"><code>{{ 'my first car'|capitalize }}</code></pre>
+
+        
+        
+        
+        <section id="sentence-jinja2">
+            <h4>
+                <a class="permalink" href="#sentence-jinja2">Output Jinja2</a>
+                <small>v2.8.0</small>
+            </h4>
+            
+                <pre class="result"><code>My first car</code></pre>
+            
+        </section>
+        
+        
+        
+        <section id="sentence-nunjucks">
+            <h4>
+                <a class="permalink" href="#sentence-nunjucks">Output Nunjucks</a>
+                <small>v2.5.0</small>
+            </h4>
+            
+                <pre class="result"><code>My first car</code></pre>
+            
+        </section>
+        
+        
+        
+        <section id="sentence-swig">
+            <h4>
+                <a class="permalink" href="#sentence-swig">Output Swig</a>
+                <small>v1.4.2</small>
+            </h4>
+            
+                <pre class="result"><code>My first car</code></pre>
+            
+        </section>
+        
+        
+        
+        <section id="sentence-twig">
+            <h4>
+                <a class="permalink" href="#sentence-twig">Output Twig</a>
+                <small>v1.24.2</small>
+            </h4>
+            
+                <pre class="result"><code>My first car</code></pre>
+            
+        </section>
+        
+    </section>
+    
+    <section class="section" id="starts-with-number">
+        <h3><a class="permalink" href="#starts-with-number">Test: starts-with-number</a></h3>
+
+        <h4>Input</h4>
+        <pre class="test"><code>{{ '2nd car'|capitalize }}</code></pre>
+
+        
+        
+        
+        <section id="starts-with-number-jinja2">
+            <h4>
+                <a class="permalink" href="#starts-with-number-jinja2">Output Jinja2</a>
+                <small>v2.8.0</small>
+            </h4>
+            
+                <pre class="result"><code>2nd car</code></pre>
+            
+        </section>
+        
+        
+        
+        <section id="starts-with-number-nunjucks">
+            <h4>
+                <a class="permalink" href="#starts-with-number-nunjucks">Output Nunjucks</a>
+                <small>v2.5.0</small>
+            </h4>
+            
+                <pre class="result"><code>2nd car</code></pre>
+            
+        </section>
+        
+        
+        
+        <section id="starts-with-number-swig">
+            <h4>
+                <a class="permalink" href="#starts-with-number-swig">Output Swig</a>
+                <small>v1.4.2</small>
+            </h4>
+            
+                <pre class="result"><code>2nd car</code></pre>
+            
+        </section>
+        
+        
+        
+        <section id="starts-with-number-twig">
+            <h4>
+                <a class="permalink" href="#starts-with-number-twig">Output Twig</a>
+                <small>v1.24.2</small>
+            </h4>
+            
+                <pre class="result"><code>2nd car</code></pre>
+            
+        </section>
+        
+    </section>
+    
+    <section class="section" id="word">
+        <h3><a class="permalink" href="#word">Test: word</a></h3>
+
+        <h4>Input</h4>
+        <pre class="test"><code>{{ 'car'|capitalize }}</code></pre>
+
+        
+        
+        
+        <section id="word-jinja2">
+            <h4>
+                <a class="permalink" href="#word-jinja2">Output Jinja2</a>
+                <small>v2.8.0</small>
+            </h4>
+            
+                <pre class="result"><code>Car</code></pre>
+            
+        </section>
+        
+        
+        
+        <section id="word-nunjucks">
+            <h4>
+                <a class="permalink" href="#word-nunjucks">Output Nunjucks</a>
+                <small>v2.5.0</small>
+            </h4>
+            
+                <pre class="result"><code>Car</code></pre>
+            
+        </section>
+        
+        
+        
+        <section id="word-swig">
+            <h4>
+                <a class="permalink" href="#word-swig">Output Swig</a>
+                <small>v1.4.2</small>
+            </h4>
+            
+                <pre class="result"><code>Car</code></pre>
+            
+        </section>
+        
+        
+        
+        <section id="word-twig">
+            <h4>
+                <a class="permalink" href="#word-twig">Output Twig</a>
+                <small>v1.24.2</small>
+            </h4>
+            
+                <pre class="result"><code>Car</code></pre>
+            
+        </section>
+        
+    </section>
+    
+</article>
+
+
+<footer class="app-footer" role="contentinfo">
+    <a href="https://github.com/jbmoelker/jinja-compat-tests">Source on GitHub</a>
+</footer>
+
+
+</body>
+</html>

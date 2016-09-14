@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+
+    <title>abs filter | Jinja Compat Tests</title>
+    <style type="text/css">
+        html { font-family: Arial, sans-serif; }
+        .app-footer { border-top: 1px solid black; margin-top: 1rem; padding-top: .5rem; }
+    </style>
+    
+</head>
+<body>
+
+
+<style type="text/css">
+    h4 { margin-bottom: 0; }
+    h4 small { float: right; font-weight: normal; font-style: italic; }
+    pre { padding: .5em; margin-top: .5rem; min-height: 1em; overflow-x: scroll; }
+    .section { margin-bottom: 2.5rem; }
+    .test { border: 2px solid deepskyblue; }
+    .result { border: 2px solid lawngreen; }
+    .error { border: 2px solid red; white-space: normal; }
+</style>
+
+<header>
+    <h1><a rel="home" href="../../">Jinja Compat Tests</a></h1>
+</header>
+
+<article>
+    <h1><code>abs</code> filter</h1>
+
+    <section id="docs">
+        <h2><a class="permalink" href="#docs">Docs</a></h2>
+        <ul>
+        
+            
+            <li>
+                <a href="http://jinja.pocoo.org/docs/dev/templates/#abs">Jinja2</a>
+            </li>
+            
+        
+            
+            <li>
+                <a href="https://mozilla.github.io/nunjucks/templating.html#abs">Nunjucks</a>
+            </li>
+            
+        
+            
+        
+            
+            <li>
+                <a href="http://twig.sensiolabs.org/doc/filters/abs.html">Twig</a>
+            </li>
+            
+        
+        </ul>
+    </section>
+
+    <h2 id="tests">
+        <a class="permalink" href="#tests">Tests</a>
+    </h2>
+    
+    <section class="section" id="negative-float">
+        <h3><a class="permalink" href="#negative-float">Test: negative-float</a></h3>
+
+        <h4>Input</h4>
+        <pre class="test"><code>{{ -3.14|abs }}</code></pre>
+
+        
+        
+        
+        <section id="negative-float-jinja2">
+            <h4>
+                <a class="permalink" href="#negative-float-jinja2">Output Jinja2</a>
+                <small>v2.8.0</small>
+            </h4>
+            
+                <pre class="result"><code>3.14</code></pre>
+            
+        </section>
+        
+        
+        
+        <section id="negative-float-nunjucks">
+            <h4>
+                <a class="permalink" href="#negative-float-nunjucks">Output Nunjucks</a>
+                <small>v2.5.0</small>
+            </h4>
+            
+                <pre class="result"><code>3.14</code></pre>
+            
+        </section>
+        
+        
+        
+        <section id="negative-float-swig">
+            <h4>
+                <a class="permalink" href="#negative-float-swig">Output Swig</a>
+                <small>v1.4.2</small>
+            </h4>
+            
+                <pre class="error"><code>Invalid filter "abs".</code></pre>
+            
+        </section>
+        
+        
+        
+        <section id="negative-float-twig">
+            <h4>
+                <a class="permalink" href="#negative-float-twig">Output Twig</a>
+                <small>v1.24.2</small>
+            </h4>
+            
+                <pre class="result"><code>-3.14</code></pre>
+            
+        </section>
+        
+    </section>
+    
+    <section class="section" id="negative-integer">
+        <h3><a class="permalink" href="#negative-integer">Test: negative-integer</a></h3>
+
+        <h4>Input</h4>
+        <pre class="test"><code>{{ -3|abs }}</code></pre>
+
+        
+        
+        
+        <section id="negative-integer-jinja2">
+            <h4>
+                <a class="permalink" href="#negative-integer-jinja2">Output Jinja2</a>
+                <small>v2.8.0</small>
+            </h4>
+            
+                <pre class="result"><code>3</code></pre>
+            
+        </section>
+        
+        
+        
+        <section id="negative-integer-nunjucks">
+            <h4>
+                <a class="permalink" href="#negative-integer-nunjucks">Output Nunjucks</a>
+                <small>v2.5.0</small>
+            </h4>
+            
+                <pre class="result"><code>3</code></pre>
+            
+        </section>
+        
+        
+        
+        <section id="negative-integer-swig">
+            <h4>
+                <a class="permalink" href="#negative-integer-swig">Output Swig</a>
+                <small>v1.4.2</small>
+            </h4>
+            
+                <pre class="error"><code>Invalid filter "abs".</code></pre>
+            
+        </section>
+        
+        
+        
+        <section id="negative-integer-twig">
+            <h4>
+                <a class="permalink" href="#negative-integer-twig">Output Twig</a>
+                <small>v1.24.2</small>
+            </h4>
+            
+                <pre class="result"><code>-3</code></pre>
+            
+        </section>
+        
+    </section>
+    
+    <section class="section" id="positive-float">
+        <h3><a class="permalink" href="#positive-float">Test: positive-float</a></h3>
+
+        <h4>Input</h4>
+        <pre class="test"><code>{{ 3.14|abs }}</code></pre>
+
+        
+        
+        
+        <section id="positive-float-jinja2">
+            <h4>
+                <a class="permalink" href="#positive-float-jinja2">Output Jinja2</a>
+                <small>v2.8.0</small>
+            </h4>
+            
+                <pre class="result"><code>3.14</code></pre>
+            
+        </section>
+        
+        
+        
+        <section id="positive-float-nunjucks">
+            <h4>
+                <a class="permalink" href="#positive-float-nunjucks">Output Nunjucks</a>
+                <small>v2.5.0</small>
+            </h4>
+            
+                <pre class="result"><code>3.14</code></pre>
+            
+        </section>
+        
+        
+        
+        <section id="positive-float-swig">
+            <h4>
+                <a class="permalink" href="#positive-float-swig">Output Swig</a>
+                <small>v1.4.2</small>
+            </h4>
+            
+                <pre class="error"><code>Invalid filter "abs".</code></pre>
+            
+        </section>
+        
+        
+        
+        <section id="positive-float-twig">
+            <h4>
+                <a class="permalink" href="#positive-float-twig">Output Twig</a>
+                <small>v1.24.2</small>
+            </h4>
+            
+                <pre class="result"><code>3.14</code></pre>
+            
+        </section>
+        
+    </section>
+    
+    <section class="section" id="positive-integer">
+        <h3><a class="permalink" href="#positive-integer">Test: positive-integer</a></h3>
+
+        <h4>Input</h4>
+        <pre class="test"><code>{{ 3|abs }}</code></pre>
+
+        
+        
+        
+        <section id="positive-integer-jinja2">
+            <h4>
+                <a class="permalink" href="#positive-integer-jinja2">Output Jinja2</a>
+                <small>v2.8.0</small>
+            </h4>
+            
+                <pre class="result"><code>3</code></pre>
+            
+        </section>
+        
+        
+        
+        <section id="positive-integer-nunjucks">
+            <h4>
+                <a class="permalink" href="#positive-integer-nunjucks">Output Nunjucks</a>
+                <small>v2.5.0</small>
+            </h4>
+            
+                <pre class="result"><code>3</code></pre>
+            
+        </section>
+        
+        
+        
+        <section id="positive-integer-swig">
+            <h4>
+                <a class="permalink" href="#positive-integer-swig">Output Swig</a>
+                <small>v1.4.2</small>
+            </h4>
+            
+                <pre class="error"><code>Invalid filter "abs".</code></pre>
+            
+        </section>
+        
+        
+        
+        <section id="positive-integer-twig">
+            <h4>
+                <a class="permalink" href="#positive-integer-twig">Output Twig</a>
+                <small>v1.24.2</small>
+            </h4>
+            
+                <pre class="result"><code>3</code></pre>
+            
+        </section>
+        
+    </section>
+    
+    <section class="section" id="variable">
+        <h3><a class="permalink" href="#variable">Test: variable</a></h3>
+
+        <h4>Input</h4>
+        <pre class="test"><code>{{ x|abs }}</code></pre>
+
+        
+        
+        
+        <section id="variable-jinja2">
+            <h4>
+                <a class="permalink" href="#variable-jinja2">Output Jinja2</a>
+                <small>v2.8.0</small>
+            </h4>
+            
+                <pre class="result"><code>3</code></pre>
+            
+        </section>
+        
+        
+        
+        <section id="variable-nunjucks">
+            <h4>
+                <a class="permalink" href="#variable-nunjucks">Output Nunjucks</a>
+                <small>v2.5.0</small>
+            </h4>
+            
+                <pre class="result"><code>3</code></pre>
+            
+        </section>
+        
+        
+        
+        <section id="variable-swig">
+            <h4>
+                <a class="permalink" href="#variable-swig">Output Swig</a>
+                <small>v1.4.2</small>
+            </h4>
+            
+                <pre class="error"><code>Invalid filter "abs".</code></pre>
+            
+        </section>
+        
+        
+        
+        <section id="variable-twig">
+            <h4>
+                <a class="permalink" href="#variable-twig">Output Twig</a>
+                <small>v1.24.2</small>
+            </h4>
+            
+                <pre class="result"><code>3</code></pre>
+            
+        </section>
+        
+    </section>
+    
+    <section class="section" id="zero">
+        <h3><a class="permalink" href="#zero">Test: zero</a></h3>
+
+        <h4>Input</h4>
+        <pre class="test"><code>{{ 0|abs }}</code></pre>
+
+        
+        
+        
+        <section id="zero-jinja2">
+            <h4>
+                <a class="permalink" href="#zero-jinja2">Output Jinja2</a>
+                <small>v2.8.0</small>
+            </h4>
+            
+                <pre class="result"><code>0</code></pre>
+            
+        </section>
+        
+        
+        
+        <section id="zero-nunjucks">
+            <h4>
+                <a class="permalink" href="#zero-nunjucks">Output Nunjucks</a>
+                <small>v2.5.0</small>
+            </h4>
+            
+                <pre class="result"><code>0</code></pre>
+            
+        </section>
+        
+        
+        
+        <section id="zero-swig">
+            <h4>
+                <a class="permalink" href="#zero-swig">Output Swig</a>
+                <small>v1.4.2</small>
+            </h4>
+            
+                <pre class="error"><code>Invalid filter "abs".</code></pre>
+            
+        </section>
+        
+        
+        
+        <section id="zero-twig">
+            <h4>
+                <a class="permalink" href="#zero-twig">Output Twig</a>
+                <small>v1.24.2</small>
+            </h4>
+            
+                <pre class="result"><code>0</code></pre>
+            
+        </section>
+        
+    </section>
+    
+</article>
+
+
+<footer class="app-footer" role="contentinfo">
+    <a href="https://github.com/jbmoelker/jinja-compat-tests">Source on GitHub</a>
+</footer>
+
+
+</body>
+</html>

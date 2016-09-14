@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+
+    <title>first filter | Jinja Compat Tests</title>
+    <style type="text/css">
+        html { font-family: Arial, sans-serif; }
+        .app-footer { border-top: 1px solid black; margin-top: 1rem; padding-top: .5rem; }
+    </style>
+    
+</head>
+<body>
+
+
+<style type="text/css">
+    h4 { margin-bottom: 0; }
+    h4 small { float: right; font-weight: normal; font-style: italic; }
+    pre { padding: .5em; margin-top: .5rem; min-height: 1em; overflow-x: scroll; }
+    .section { margin-bottom: 2.5rem; }
+    .test { border: 2px solid deepskyblue; }
+    .result { border: 2px solid lawngreen; }
+    .error { border: 2px solid red; white-space: normal; }
+</style>
+
+<header>
+    <h1><a rel="home" href="../../">Jinja Compat Tests</a></h1>
+</header>
+
+<article>
+    <h1><code>first</code> filter</h1>
+
+    <section id="docs">
+        <h2><a class="permalink" href="#docs">Docs</a></h2>
+        <ul>
+        
+            
+            <li>
+                <a href="http://jinja.pocoo.org/docs/dev/templates/#first">Jinja2</a>
+            </li>
+            
+        
+            
+            <li>
+                <a href="https://mozilla.github.io/nunjucks/templating.html#first">Nunjucks</a>
+            </li>
+            
+        
+            
+            <li>
+                <a href="https://voorhoede.github.io/swig/docs/filters/#first">Swig</a>
+            </li>
+            
+        
+            
+            <li>
+                <a href="http://twig.sensiolabs.org/doc/filters/first.html">Twig</a>
+            </li>
+            
+        
+        </ul>
+    </section>
+
+    <h2 id="tests">
+        <a class="permalink" href="#tests">Tests</a>
+    </h2>
+    
+    <section class="section" id="array">
+        <h3><a class="permalink" href="#array">Test: array</a></h3>
+
+        <h4>Input</h4>
+        <pre class="test"><code>{{ [1, 2, 3, 4]|first }}</code></pre>
+
+        
+        
+        
+        <section id="array-jinja2">
+            <h4>
+                <a class="permalink" href="#array-jinja2">Output Jinja2</a>
+                <small>v2.8.0</small>
+            </h4>
+            
+                <pre class="result"><code>1</code></pre>
+            
+        </section>
+        
+        
+        
+        <section id="array-nunjucks">
+            <h4>
+                <a class="permalink" href="#array-nunjucks">Output Nunjucks</a>
+                <small>v2.5.0</small>
+            </h4>
+            
+                <pre class="result"><code>1</code></pre>
+            
+        </section>
+        
+        
+        
+        <section id="array-swig">
+            <h4>
+                <a class="permalink" href="#array-swig">Output Swig</a>
+                <small>v1.4.2</small>
+            </h4>
+            
+                <pre class="result"><code>1</code></pre>
+            
+        </section>
+        
+        
+        
+        <section id="array-twig">
+            <h4>
+                <a class="permalink" href="#array-twig">Output Twig</a>
+                <small>v1.24.2</small>
+            </h4>
+            
+                <pre class="result"><code>1</code></pre>
+            
+        </section>
+        
+    </section>
+    
+    <section class="section" id="number">
+        <h3><a class="permalink" href="#number">Test: number</a></h3>
+
+        <h4>Input</h4>
+        <pre class="test"><code>{{ 1234|first }}</code></pre>
+
+        
+        
+        
+        <section id="number-jinja2">
+            <h4>
+                <a class="permalink" href="#number-jinja2">Output Jinja2</a>
+                <small>v2.8.0</small>
+            </h4>
+            
+                <pre class="error"><code>'int' object is not iterable</code></pre>
+            
+        </section>
+        
+        
+        
+        <section id="number-nunjucks">
+            <h4>
+                <a class="permalink" href="#number-nunjucks">Output Nunjucks</a>
+                <small>v2.5.0</small>
+            </h4>
+            
+                <pre class="result"><code></code></pre>
+            
+        </section>
+        
+        
+        
+        <section id="number-swig">
+            <h4>
+                <a class="permalink" href="#number-swig">Output Swig</a>
+                <small>v1.4.2</small>
+            </h4>
+            
+                <pre class="result"><code>undefined</code></pre>
+            
+        </section>
+        
+        
+        
+        <section id="number-twig">
+            <h4>
+                <a class="permalink" href="#number-twig">Output Twig</a>
+                <small>v1.24.2</small>
+            </h4>
+            
+                <pre class="result"><code>1</code></pre>
+            
+        </section>
+        
+    </section>
+    
+    <section class="section" id="object">
+        <h3><a class="permalink" href="#object">Test: object</a></h3>
+
+        <h4>Input</h4>
+        <pre class="test"><code>{{ { a: 1, b: 2, c: 3, d: 4 }|first }}</code></pre>
+
+        
+        
+        
+        <section id="object-jinja2">
+            <h4>
+                <a class="permalink" href="#object-jinja2">Output Jinja2</a>
+                <small>v2.8.0</small>
+            </h4>
+            
+                <pre class="result"><code></code></pre>
+            
+        </section>
+        
+        
+        
+        <section id="object-nunjucks">
+            <h4>
+                <a class="permalink" href="#object-nunjucks">Output Nunjucks</a>
+                <small>v2.5.0</small>
+            </h4>
+            
+                <pre class="result"><code></code></pre>
+            
+        </section>
+        
+        
+        
+        <section id="object-swig">
+            <h4>
+                <a class="permalink" href="#object-swig">Output Swig</a>
+                <small>v1.4.2</small>
+            </h4>
+            
+                <pre class="result"><code>1</code></pre>
+            
+        </section>
+        
+        
+        
+        <section id="object-twig">
+            <h4>
+                <a class="permalink" href="#object-twig">Output Twig</a>
+                <small>v1.24.2</small>
+            </h4>
+            
+                <pre class="result"><code>1</code></pre>
+            
+        </section>
+        
+    </section>
+    
+    <section class="section" id="string">
+        <h3><a class="permalink" href="#string">Test: string</a></h3>
+
+        <h4>Input</h4>
+        <pre class="test"><code>{{ '1234'|first }}</code></pre>
+
+        
+        
+        
+        <section id="string-jinja2">
+            <h4>
+                <a class="permalink" href="#string-jinja2">Output Jinja2</a>
+                <small>v2.8.0</small>
+            </h4>
+            
+                <pre class="result"><code>1</code></pre>
+            
+        </section>
+        
+        
+        
+        <section id="string-nunjucks">
+            <h4>
+                <a class="permalink" href="#string-nunjucks">Output Nunjucks</a>
+                <small>v2.5.0</small>
+            </h4>
+            
+                <pre class="result"><code>1</code></pre>
+            
+        </section>
+        
+        
+        
+        <section id="string-swig">
+            <h4>
+                <a class="permalink" href="#string-swig">Output Swig</a>
+                <small>v1.4.2</small>
+            </h4>
+            
+                <pre class="result"><code>1</code></pre>
+            
+        </section>
+        
+        
+        
+        <section id="string-twig">
+            <h4>
+                <a class="permalink" href="#string-twig">Output Twig</a>
+                <small>v1.24.2</small>
+            </h4>
+            
+                <pre class="result"><code>1</code></pre>
+            
+        </section>
+        
+    </section>
+    
+</article>
+
+
+<footer class="app-footer" role="contentinfo">
+    <a href="https://github.com/jbmoelker/jinja-compat-tests">Source on GitHub</a>
+</footer>
+
+
+</body>
+</html>
