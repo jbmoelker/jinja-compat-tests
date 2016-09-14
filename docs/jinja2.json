@@ -57,6 +57,7 @@
     "extends": "#extends",
     "block": "#blocks",
     "include": "#include",
-    "import": "#import"
+    "import": "#import",
+    "raw": "#escaping"
   }
 }

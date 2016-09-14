@@ -47,6 +47,7 @@
     "import": "tags/import.html",
     "include": "tags/include.html",
     "macro": "tags/macro.html",
+    "raw": "tags/raw.html",
     "sandbox": "tags/sandbox.html",
     "set": "tags/set.html",
     "spaceless": "tags/spaceless.html",
