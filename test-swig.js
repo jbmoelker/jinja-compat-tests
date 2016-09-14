@@ -47,7 +47,7 @@ function getData(filename) {
 
 function saveError(filename, err) {
     const errorFilename = path.join(outputDir, changeFileExt(filename, errorExt));
-    const pattern = new RegExp(' on line \\d+ in file ' + __dirname + '/' + inputDir + filename, 'g');
+    const pattern = new RegExp('\( on line \\d+\)? in file ' + __dirname + '/' + inputDir + filename, 'g');
     const message = err.message.replace(pattern, '');
     saveFile(errorFilename, message);
 }

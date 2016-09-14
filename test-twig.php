@@ -29,6 +29,6 @@ foreach ($files as $file) {
         $fs->dumpFile($outputDir . $filename, $output);
     } catch (Exception $e) {
         $errorFilename = str_replace('.html', $errorExt, ($outputDir . $filename));
-        $fs->dumpFile($errorFilename, $e->getMessage());
+        $fs->dumpFile($errorFilename, $e->getRawMessage());
     }
 }
