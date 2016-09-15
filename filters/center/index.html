@@ -60,11 +60,14 @@
         <a class="permalink" href="#tests">Tests</a>
     </h2>
     
+    
     <section class="section" id="default">
         <h3><a class="permalink" href="#default">Test: default</a></h3>
 
-        <h4>Input</h4>
+        <h4>Template</h4>
         <pre class="test"><code>&lt;pre>{{ 'x'|center }}&lt;/pre></code></pre>
+
+        
 
         
         
@@ -111,17 +114,20 @@
                 <small>v1.24.2</small>
             </h4>
             
-                <pre class="error"><code>Unknown "center" filter in "filters/center/default.html" at line 1.</code></pre>
+                <pre class="error"><code>Unknown "center" filter.</code></pre>
             
         </section>
         
     </section>
     
+    
     <section class="section" id="width-20">
         <h3><a class="permalink" href="#width-20">Test: width-20</a></h3>
 
-        <h4>Input</h4>
+        <h4>Template</h4>
         <pre class="test"><code>&lt;pre>{{ 'x'|center(20) }}&lt;/pre></code></pre>
+
+        
 
         
         
@@ -168,7 +174,7 @@
                 <small>v1.24.2</small>
             </h4>
             
-                <pre class="error"><code>Unknown "center" filter in "filters/center/width-20.html" at line 1.</code></pre>
+                <pre class="error"><code>Unknown "center" filter.</code></pre>
             
         </section>
         

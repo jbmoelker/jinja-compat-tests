@@ -68,11 +68,14 @@
         <a class="permalink" href="#tests">Tests</a>
     </h2>
     
+    
     <section class="section" id="broken-expression">
         <h3><a class="permalink" href="#broken-expression">Test: broken-expression</a></h3>
 
-        <h4>Input</h4>
+        <h4>Template</h4>
         <pre class="test"><code>{% raw %}{{ x }{% endraw %}</code></pre>
+
+        
 
         
         
@@ -125,11 +128,14 @@
         
     </section>
     
+    
     <section class="section" id="broken-tag">
         <h3><a class="permalink" href="#broken-tag">Test: broken-tag</a></h3>
 
-        <h4>Input</h4>
+        <h4>Template</h4>
         <pre class="test"><code>{% raw %}{% if i_am_stupid }Still do your job well{% endraw %}</code></pre>
+
+        
 
         
         
@@ -182,11 +188,14 @@
         
     </section>
     
+    
     <section class="section" id="comment">
         <h3><a class="permalink" href="#comment">Test: comment</a></h3>
 
-        <h4>Input</h4>
+        <h4>Template</h4>
         <pre class="test"><code>{% raw %}{# test {% endraw %}</code></pre>
+
+        
 
         
         
@@ -239,16 +248,26 @@
         
     </section>
     
+    
     <section class="section" id="multiline">
         <h3><a class="permalink" href="#multiline">Test: multiline</a></h3>
 
-        <h4>Input</h4>
+        <h4>Template</h4>
         <pre class="test"><code>
 {% raw %}{{ varX }}{% endraw %}
 {{ varY }}
 {% raw %}
     {{ varZ }}
 {% endraw %}</code></pre>
+
+        
+        <h4>Data</h4>
+        <pre class="test"><code>{
+  "varX": "value X",
+  "varY": "value Y",
+  "varZ": "value Z"
+}</code></pre>
+        
 
         
         
@@ -321,11 +340,21 @@ value Y
         
     </section>
     
+    
     <section class="section" id="multiple">
         <h3><a class="permalink" href="#multiple">Test: multiple</a></h3>
 
-        <h4>Input</h4>
+        <h4>Template</h4>
         <pre class="test"><code>{% raw %}{{ varX }}{% endraw %}{{ varY }}{% raw %}{{ varZ }}{% endraw %}</code></pre>
+
+        
+        <h4>Data</h4>
+        <pre class="test"><code>{
+  "varX": "value X",
+  "varY": "value Y",
+  "varZ": "value Z"
+}</code></pre>
+        
 
         
         
@@ -378,11 +407,14 @@ value Y
         
     </section>
     
+    
     <section class="section" id="nested-raw">
         <h3><a class="permalink" href="#nested-raw">Test: nested-raw</a></h3>
 
-        <h4>Input</h4>
+        <h4>Template</h4>
         <pre class="test"><code>{% raw %}{% raw %}{{ x }{% endraw %}{% endraw %}</code></pre>
+
+        
 
         
         
@@ -429,17 +461,20 @@ value Y
                 <small>v1.24.2</small>
             </h4>
             
-                <pre class="error"><code>Unknown "endraw" tag in "tags/raw/nested-raw.html" at line 1.</code></pre>
+                <pre class="error"><code>Unknown "endraw" tag.</code></pre>
             
         </section>
         
     </section>
     
+    
     <section class="section" id="tag">
         <h3><a class="permalink" href="#tag">Test: tag</a></h3>
 
-        <h4>Input</h4>
+        <h4>Template</h4>
         <pre class="test"><code>{% raw %}hello {{ {% %} }}{% endraw %}</code></pre>
+
+        
 
         
         
@@ -492,11 +527,14 @@ value Y
         
     </section>
     
+    
     <section class="section" id="text">
         <h3><a class="permalink" href="#text">Test: text</a></h3>
 
-        <h4>Input</h4>
+        <h4>Template</h4>
         <pre class="test"><code>{% raw %}abc{% endraw %}</code></pre>
+
+        
 
         
         

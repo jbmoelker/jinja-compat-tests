@@ -1,0 +1,23 @@
+{
+    "expressions": {
+        "reserved-words": {
+            "function": "{ \"function\": \"function\" }",
+            "var": "{ \"var\": \"var\" }"
+        }
+    },
+    "filters": {
+        "abs": {
+            "variable": "{\n  \"x\": -3\n}"
+        },
+        "batch": {
+            "size-and-fill": "{\n  \"items\": [\"a\", \"b\", \"c\", \"d\", \"e\", \"f\", \"g\"]\n}",
+            "size-only": "{\n  \"items\": [\"a\", \"b\", \"c\", \"d\", \"e\", \"f\", \"g\"]\n}"
+        }
+    },
+    "tags": {
+        "raw": {
+            "multiline": "{\n  \"varX\": \"value X\",\n  \"varY\": \"value Y\",\n  \"varZ\": \"value Z\"\n}",
+            "multiple": "{\n  \"varX\": \"value X\",\n  \"varY\": \"value Y\",\n  \"varZ\": \"value Z\"\n}"
+        }
+    }
+}

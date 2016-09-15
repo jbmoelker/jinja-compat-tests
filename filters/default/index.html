@@ -68,11 +68,14 @@
         <a class="permalink" href="#tests">Tests</a>
     </h2>
     
+    
     <section class="section" id="alias-d">
         <h3><a class="permalink" href="#alias-d">Test: alias-d</a></h3>
 
-        <h4>Input</h4>
+        <h4>Template</h4>
         <pre class="test"><code>{{ varX|d('"varX" is not defined') }}</code></pre>
+
+        
 
         
         
@@ -119,17 +122,20 @@
                 <small>v1.24.2</small>
             </h4>
             
-                <pre class="error"><code>Unknown "d" filter. Did you mean "date", "round", "default", "url_encode", "date_modify", "json_encode", "convert_encoding" in "filters/default/alias-d.html" at line 1?</code></pre>
+                <pre class="error"><code>Unknown "d" filter. Did you mean "date", "round", "default", "url_encode", "date_modify", "json_encode", "convert_encoding"?</code></pre>
             
         </section>
         
     </section>
     
+    
     <section class="section" id="empty-string-strict">
         <h3><a class="permalink" href="#empty-string-strict">Test: empty-string-strict</a></h3>
 
-        <h4>Input</h4>
+        <h4>Template</h4>
         <pre class="test"><code>{{ ''|default('passed string is empty', true)  }}</code></pre>
+
+        
 
         
         
@@ -182,11 +188,14 @@
         
     </section>
     
+    
     <section class="section" id="empty-string">
         <h3><a class="permalink" href="#empty-string">Test: empty-string</a></h3>
 
-        <h4>Input</h4>
+        <h4>Template</h4>
         <pre class="test"><code>{{ ''|default('passed string is empty')  }}</code></pre>
+
+        
 
         
         
@@ -239,11 +248,14 @@
         
     </section>
     
+    
     <section class="section" id="undefined-property-bracket-notation">
         <h3><a class="permalink" href="#undefined-property-bracket-notation">Test: undefined-property-bracket-notation</a></h3>
 
-        <h4>Input</h4>
+        <h4>Template</h4>
         <pre class="test"><code>{{ vars['x']|default('"x" on "vars" is not defined') }}</code></pre>
+
+        
 
         
         
@@ -296,12 +308,15 @@
         
     </section>
     
+    
     <section class="section" id="undefined-property-dot-notation">
         <h3><a class="permalink" href="#undefined-property-dot-notation">Test: undefined-property-dot-notation</a></h3>
 
-        <h4>Input</h4>
+        <h4>Template</h4>
         <pre class="test"><code>{{ vars.x|default('"x" on "vars" is not defined') }}
 </code></pre>
+
+        
 
         
         
@@ -357,11 +372,14 @@
         
     </section>
     
+    
     <section class="section" id="undefined-variable">
         <h3><a class="permalink" href="#undefined-variable">Test: undefined-variable</a></h3>
 
-        <h4>Input</h4>
+        <h4>Template</h4>
         <pre class="test"><code>{{ varX|default('"varX" is not defined') }}</code></pre>
+
+        
 
         
         

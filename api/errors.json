@@ -18,14 +18,14 @@
     "nunjucks": {
         "filters": {
             "capitalize": {
-                "number": "(/tests/filters/capitalize/number.html)\n  TypeError: str.toLowerCase is not a function"
+                "number": "\n  TypeError: str.toLowerCase is not a function"
             }
         }
     },
     "swig": {
         "expressions": {
             "math": {
-                "power": "SyntaxError: Unexpected token * in file /home/travis/build/jbmoelker/jinja-compat-tests/tests/expressions/math/power.html."
+                "power": "SyntaxError: Unexpected token *."
             },
             "reserved-words": {
                 "function": "Reserved keyword \"function\" attempted to be used as a variable.",
@@ -62,16 +62,16 @@
     "twig": {
         "filters": {
             "center": {
-                "default": "Unknown \"center\" filter in \"filters/center/default.html\" at line 1.",
-                "width-20": "Unknown \"center\" filter in \"filters/center/width-20.html\" at line 1."
+                "default": "Unknown \"center\" filter.",
+                "width-20": "Unknown \"center\" filter."
             },
             "default": {
-                "alias-d": "Unknown \"d\" filter. Did you mean \"date\", \"round\", \"default\", \"url_encode\", \"date_modify\", \"json_encode\", \"convert_encoding\" in \"filters/default/alias-d.html\" at line 1?"
+                "alias-d": "Unknown \"d\" filter. Did you mean \"date\", \"round\", \"default\", \"url_encode\", \"date_modify\", \"json_encode\", \"convert_encoding\"?"
             }
         },
         "tags": {
             "raw": {
-                "nested-raw": "Unknown \"endraw\" tag in \"tags/raw/nested-raw.html\" at line 1."
+                "nested-raw": "Unknown \"endraw\" tag."
             }
         }
     }

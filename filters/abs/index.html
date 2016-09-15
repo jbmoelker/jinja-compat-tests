@@ -64,11 +64,14 @@
         <a class="permalink" href="#tests">Tests</a>
     </h2>
     
+    
     <section class="section" id="negative-float">
         <h3><a class="permalink" href="#negative-float">Test: negative-float</a></h3>
 
-        <h4>Input</h4>
+        <h4>Template</h4>
         <pre class="test"><code>{{ -3.14|abs }}</code></pre>
+
+        
 
         
         
@@ -121,11 +124,14 @@
         
     </section>
     
+    
     <section class="section" id="negative-integer">
         <h3><a class="permalink" href="#negative-integer">Test: negative-integer</a></h3>
 
-        <h4>Input</h4>
+        <h4>Template</h4>
         <pre class="test"><code>{{ -3|abs }}</code></pre>
+
+        
 
         
         
@@ -178,11 +184,14 @@
         
     </section>
     
+    
     <section class="section" id="positive-float">
         <h3><a class="permalink" href="#positive-float">Test: positive-float</a></h3>
 
-        <h4>Input</h4>
+        <h4>Template</h4>
         <pre class="test"><code>{{ 3.14|abs }}</code></pre>
+
+        
 
         
         
@@ -235,11 +244,14 @@
         
     </section>
     
+    
     <section class="section" id="positive-integer">
         <h3><a class="permalink" href="#positive-integer">Test: positive-integer</a></h3>
 
-        <h4>Input</h4>
+        <h4>Template</h4>
         <pre class="test"><code>{{ 3|abs }}</code></pre>
+
+        
 
         
         
@@ -292,11 +304,19 @@
         
     </section>
     
+    
     <section class="section" id="variable">
         <h3><a class="permalink" href="#variable">Test: variable</a></h3>
 
-        <h4>Input</h4>
+        <h4>Template</h4>
         <pre class="test"><code>{{ x|abs }}</code></pre>
+
+        
+        <h4>Data</h4>
+        <pre class="test"><code>{
+  "x": -3
+}</code></pre>
+        
 
         
         
@@ -349,11 +369,14 @@
         
     </section>
     
+    
     <section class="section" id="zero">
         <h3><a class="permalink" href="#zero">Test: zero</a></h3>
 
-        <h4>Input</h4>
+        <h4>Template</h4>
         <pre class="test"><code>{{ 0|abs }}</code></pre>
+
+        
 
         
         

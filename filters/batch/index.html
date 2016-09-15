@@ -64,10 +64,11 @@
         <a class="permalink" href="#tests">Tests</a>
     </h2>
     
+    
     <section class="section" id="size-and-fill">
         <h3><a class="permalink" href="#size-and-fill">Test: size-and-fill</a></h3>
 
-        <h4>Input</h4>
+        <h4>Template</h4>
         <pre class="test"><code>&lt;table>
     {% for row in items|batch(3, 'No item') %}
         &lt;tr>
@@ -77,6 +78,13 @@
         &lt;/tr>
     {% endfor %}
 &lt;/table></code></pre>
+
+        
+        <h4>Data</h4>
+        <pre class="test"><code>{
+  "items": ["a", "b", "c", "d", "e", "f", "g"]
+}</code></pre>
+        
 
         
         
@@ -209,10 +217,11 @@
         
     </section>
     
+    
     <section class="section" id="size-only">
         <h3><a class="permalink" href="#size-only">Test: size-only</a></h3>
 
-        <h4>Input</h4>
+        <h4>Template</h4>
         <pre class="test"><code>&lt;table>
 {% for row in items|batch(3) %}
     &lt;tr>
@@ -222,6 +231,13 @@
     &lt;/tr>
 {% endfor %}
 &lt;/table></code></pre>
+
+        
+        <h4>Data</h4>
+        <pre class="test"><code>{
+  "items": ["a", "b", "c", "d", "e", "f", "g"]
+}</code></pre>
+        
 
         
         
