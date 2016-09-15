@@ -1,0 +1,3 @@
+{%- for key, value in items | dictsort(false, 'value') -%}
+{{ value }}:{{ key }}
+{% endfor %}
