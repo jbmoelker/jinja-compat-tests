@@ -21,6 +21,9 @@
         }
     },
     "tags": {
+        "if": {
+            "true-variable": "{ \"varX\": true }"
+        },
         "raw": {
             "multiline": "{\n  \"varX\": \"value X\",\n  \"varY\": \"value Y\",\n  \"varZ\": \"value Z\"\n}",
             "multiple": "{\n  \"varX\": \"value X\",\n  \"varY\": \"value Y\",\n  \"varZ\": \"value Z\"\n}"

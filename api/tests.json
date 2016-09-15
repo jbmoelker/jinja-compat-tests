@@ -59,6 +59,8 @@
     },
     "tags": {
         "if": {
+            "true-capitalized": "{% if True %}True{% endif %}",
+            "true-variable": "{% if varX %}true{% endif %}",
             "true": "{% if true %}true{% endif %}"
         },
         "raw": {

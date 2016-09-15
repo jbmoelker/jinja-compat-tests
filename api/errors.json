@@ -1,4 +1,71 @@
 {
+    "django": {
+        "expressions": {
+            "math": {
+                "addition": "Could not parse the remainder: ' + 3' from '2 + 3'",
+                "devision": "Could not parse the remainder: '/5' from '10/5'",
+                "multiplication": "Could not parse the remainder: '*2' from '5*2'",
+                "power": "Could not parse the remainder: '**3' from '2**3'",
+                "subtraction": "Could not parse the remainder: ' - 3' from '5 - 3'"
+            }
+        },
+        "filters": {
+            "abs": {
+                "negative-float": "Invalid filter: 'abs'",
+                "negative-integer": "Invalid filter: 'abs'",
+                "positive-float": "Invalid filter: 'abs'",
+                "positive-integer": "Invalid filter: 'abs'",
+                "variable": "Invalid filter: 'abs'",
+                "zero": "Invalid filter: 'abs'"
+            },
+            "batch": {
+                "size-and-fill": "'for' statements should use the format 'for x in y': for row in items|batch(3, 'No item')",
+                "size-only": "Invalid filter: 'batch'"
+            },
+            "capitalize": {
+                "mixed-case": "Invalid filter: 'capitalize'",
+                "number": "Invalid filter: 'capitalize'",
+                "sentence": "Invalid filter: 'capitalize'",
+                "starts-with-number": "Invalid filter: 'capitalize'",
+                "word": "Invalid filter: 'capitalize'"
+            },
+            "center": {
+                "default": "center requires 2 arguments, 1 provided",
+                "width-20": "center requires 2 arguments, 1 provided"
+            },
+            "default": {
+                "alias-d": "Invalid filter: 'd'",
+                "empty-string-strict": "default requires 2 arguments, 1 provided",
+                "empty-string": "default requires 2 arguments, 1 provided",
+                "undefined-property-bracket-notation": "Could not parse some characters: vars|['x']||default('\"x\" on \"vars\" is not defined')",
+                "undefined-property-dot-notation": "default requires 2 arguments, 1 provided",
+                "undefined-variable": "default requires 2 arguments, 1 provided"
+            },
+            "dictsort": {
+                "by-value": "Invalid block tag on line 1: '-'. Did you forget to register or load this tag?",
+                "case-insensitive": "Invalid block tag on line 1: '-'. Did you forget to register or load this tag?",
+                "case-sensitive": "Invalid block tag on line 1: '-'. Did you forget to register or load this tag?",
+                "default": "Invalid block tag on line 1: '-'. Did you forget to register or load this tag?"
+            },
+            "first": {
+                "array": "Could not parse some characters: |[1, 2, 3, 4]||first",
+                "number": "'int' object has no attribute '__getitem__'",
+                "object": "Could not parse some characters: |{ a: 1, b: 2, c: 3, d: 4 }||first"
+            }
+        },
+        "tags": {
+            "raw": {
+                "broken-expression": "Invalid block tag on line 1: 'raw'. Did you forget to register or load this tag?",
+                "broken-tag": "Invalid block tag on line 1: 'raw'. Did you forget to register or load this tag?",
+                "comment": "Invalid block tag on line 1: 'raw'. Did you forget to register or load this tag?",
+                "multiline": "Invalid block tag on line 2: 'raw'. Did you forget to register or load this tag?",
+                "multiple": "Invalid block tag on line 1: 'raw'. Did you forget to register or load this tag?",
+                "nested-raw": "Invalid block tag on line 1: 'raw'. Did you forget to register or load this tag?",
+                "tag": "Invalid block tag on line 1: 'raw'. Did you forget to register or load this tag?",
+                "text": "Invalid block tag on line 1: 'raw'. Did you forget to register or load this tag?"
+            }
+        }
+    },
     "jinja2": {
         "filters": {
             "default": {
