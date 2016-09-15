@@ -31,6 +31,12 @@ All scripts render the tests to `output/` in a directory per template engine. Th
 
 ## Test engines
 
+* [Jinja2](#jinja2) (Python)
+* [Nunjucks](#nunjucks) (JavaScript)
+* [Twig](#twig) (PHP)
+* [Swig](#swig) (JavaScript)
+* [Django](#django) (Python)
+
 ### Jinja2
 
 #### Install
@@ -104,6 +110,24 @@ Render all [tests](tests/) to `output/swig/`:
 
 ```bash
 node test-swig.js
+```
+
+### Django
+
+#### Install
+
+The Django setup requires [Python](https://www.python.org/) (>= 3.3) and `pip3` (comes with Python3) to be installed. Then install dependencies:
+
+```bash
+pip3 install -r requirements.txt
+```
+
+#### Run tests
+
+Render all [tests](tests/) to `output/django/`:
+
+```bash
+python3 test-django.py
 ```
 
 

@@ -2,6 +2,7 @@
 
 rm -rf output/
 
+python test-django.py
 python test-jinja2.py
 node test-nunjucks.js
 node test-swig.js
