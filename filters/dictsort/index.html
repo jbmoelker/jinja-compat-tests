@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+
+    <title>dictsort filter | Jinja Compat Tests</title>
+    <style type="text/css">
+        html { font-family: Arial, sans-serif; }
+        .app-footer { border-top: 1px solid black; margin-top: 1rem; padding-top: .5rem; }
+    </style>
+    
+</head>
+<body>
+
+
+<style type="text/css">
+    h4 { margin-bottom: 0; }
+    h4 small { float: right; font-weight: normal; font-style: italic; }
+    pre { padding: .5em; margin-top: .5rem; min-height: 1em; overflow-x: scroll; }
+    .section { margin-bottom: 2.5rem; }
+    .test { border: 2px solid deepskyblue; }
+    .result { border: 2px solid lawngreen; }
+    .error { border: 2px solid red; white-space: normal; }
+</style>
+
+<header>
+    <h1><a rel="home" href="../../">Jinja Compat Tests</a></h1>
+</header>
+
+<article>
+    <h1><code>dictsort</code> filter</h1>
+
+    <section id="docs">
+        <h2><a class="permalink" href="#docs">Docs</a></h2>
+        <ul>
+        
+            
+            <li>
+                <a href="http://jinja.pocoo.org/docs/dev/templates/#dictsort">Jinja2</a>
+            </li>
+            
+        
+            
+            <li>
+                <a href="https://mozilla.github.io/nunjucks/templating.html#dictsort">Nunjucks</a>
+            </li>
+            
+        
+            
+        
+            
+        
+        </ul>
+    </section>
+
+    <h2 id="tests">
+        <a class="permalink" href="#tests">Tests</a>
+    </h2>
+    
+    
+    <section class="section" id="by-value">
+        <h3><a class="permalink" href="#by-value">Test: by-value</a></h3>
+
+        <h4>Template</h4>
+        <pre class="test"><code>{%- for key, value in items | dictsort(false, 'value') -%}
+{{ value }}:{{ key }}
+{% endfor %}</code></pre>
+
+        
+        <h4>Data</h4>
+        <pre class="test"><code>{
+  "items": {
+    "a": 5,
+    "b": 2,
+    "c": 4,
+    "d": 6,
+    "e": 3,
+    "f": 1
+  }
+}</code></pre>
+        
+
+        
+        
+        
+        <section id="by-value-jinja2">
+            <h4>
+                <a class="permalink" href="#by-value-jinja2">Output Jinja2</a>
+                <small>v2.8.0</small>
+            </h4>
+            
+                <pre class="result"><code>1:f
+2:b
+3:e
+4:c
+5:a
+6:d
+</code></pre>
+            
+        </section>
+        
+        
+        
+        <section id="by-value-nunjucks">
+            <h4>
+                <a class="permalink" href="#by-value-nunjucks">Output Nunjucks</a>
+                <small>v2.5.0</small>
+            </h4>
+            
+                <pre class="result"><code>1:f
+2:b
+3:e
+4:c
+5:a
+6:d
+</code></pre>
+            
+        </section>
+        
+        
+        
+        <section id="by-value-swig">
+            <h4>
+                <a class="permalink" href="#by-value-swig">Output Swig</a>
+                <small>v1.4.2</small>
+            </h4>
+            
+                <pre class="error"><code>Invalid filter "dictsort".</code></pre>
+            
+        </section>
+        
+        
+        
+        <section id="by-value-twig">
+            <h4>
+                <a class="permalink" href="#by-value-twig">Output Twig</a>
+                <small>v1.24.2</small>
+            </h4>
+            
+                <pre class="error"><code>Unknown "dictsort" filter.</code></pre>
+            
+        </section>
+        
+    </section>
+    
+    
+    <section class="section" id="case-insensitive">
+        <h3><a class="permalink" href="#case-insensitive">Test: case-insensitive</a></h3>
+
+        <h4>Template</h4>
+        <pre class="test"><code>{%- for key, value in items | dictsort(false) -%}
+{{ key }}
+{% endfor %}</code></pre>
+
+        
+        <h4>Data</h4>
+        <pre class="test"><code>{
+  "items": {
+    "b": 1,
+    "B": 2,
+    "c": 3,
+    "A": 4,
+    "a": 5,
+    "C": 6
+  }
+}</code></pre>
+        
+
+        
+        
+        
+        <section id="case-insensitive-jinja2">
+            <h4>
+                <a class="permalink" href="#case-insensitive-jinja2">Output Jinja2</a>
+                <small>v2.8.0</small>
+            </h4>
+            
+                <pre class="result"><code>A
+a
+B
+b
+c
+C
+</code></pre>
+            
+        </section>
+        
+        
+        
+        <section id="case-insensitive-nunjucks">
+            <h4>
+                <a class="permalink" href="#case-insensitive-nunjucks">Output Nunjucks</a>
+                <small>v2.5.0</small>
+            </h4>
+            
+                <pre class="result"><code>A
+a
+b
+B
+c
+C
+</code></pre>
+            
+        </section>
+        
+        
+        
+        <section id="case-insensitive-swig">
+            <h4>
+                <a class="permalink" href="#case-insensitive-swig">Output Swig</a>
+                <small>v1.4.2</small>
+            </h4>
+            
+                <pre class="error"><code>Invalid filter "dictsort".</code></pre>
+            
+        </section>
+        
+        
+        
+        <section id="case-insensitive-twig">
+            <h4>
+                <a class="permalink" href="#case-insensitive-twig">Output Twig</a>
+                <small>v1.24.2</small>
+            </h4>
+            
+                <pre class="error"><code>Unknown "dictsort" filter.</code></pre>
+            
+        </section>
+        
+    </section>
+    
+    
+    <section class="section" id="case-sensitive">
+        <h3><a class="permalink" href="#case-sensitive">Test: case-sensitive</a></h3>
+
+        <h4>Template</h4>
+        <pre class="test"><code>{%- for key, value in items | dictsort(true) -%}
+{{ key }}
+{% endfor %}</code></pre>
+
+        
+        <h4>Data</h4>
+        <pre class="test"><code>{
+  "items": {
+    "b": 1,
+    "B": 2,
+    "c": 3,
+    "A": 4,
+    "a": 5,
+    "C": 6
+  }
+}</code></pre>
+        
+
+        
+        
+        
+        <section id="case-sensitive-jinja2">
+            <h4>
+                <a class="permalink" href="#case-sensitive-jinja2">Output Jinja2</a>
+                <small>v2.8.0</small>
+            </h4>
+            
+                <pre class="result"><code>A
+B
+C
+a
+b
+c
+</code></pre>
+            
+        </section>
+        
+        
+        
+        <section id="case-sensitive-nunjucks">
+            <h4>
+                <a class="permalink" href="#case-sensitive-nunjucks">Output Nunjucks</a>
+                <small>v2.5.0</small>
+            </h4>
+            
+                <pre class="result"><code>A
+B
+C
+a
+b
+c
+</code></pre>
+            
+        </section>
+        
+        
+        
+        <section id="case-sensitive-swig">
+            <h4>
+                <a class="permalink" href="#case-sensitive-swig">Output Swig</a>
+                <small>v1.4.2</small>
+            </h4>
+            
+                <pre class="error"><code>Invalid filter "dictsort".</code></pre>
+            
+        </section>
+        
+        
+        
+        <section id="case-sensitive-twig">
+            <h4>
+                <a class="permalink" href="#case-sensitive-twig">Output Twig</a>
+                <small>v1.24.2</small>
+            </h4>
+            
+                <pre class="error"><code>Unknown "dictsort" filter.</code></pre>
+            
+        </section>
+        
+    </section>
+    
+    
+    <section class="section" id="default">
+        <h3><a class="permalink" href="#default">Test: default</a></h3>
+
+        <h4>Template</h4>
+        <pre class="test"><code>{%- for key, value in items | dictsort -%}
+{{ key }}
+{% endfor %}</code></pre>
+
+        
+        <h4>Data</h4>
+        <pre class="test"><code>{
+  "items": {
+    "E": 1,
+    "d": 2,
+    "C": 3,
+    "a": 4,
+    "f": 5,
+    "b": 6
+  }
+}</code></pre>
+        
+
+        
+        
+        
+        <section id="default-jinja2">
+            <h4>
+                <a class="permalink" href="#default-jinja2">Output Jinja2</a>
+                <small>v2.8.0</small>
+            </h4>
+            
+                <pre class="result"><code>a
+b
+C
+d
+E
+f
+</code></pre>
+            
+        </section>
+        
+        
+        
+        <section id="default-nunjucks">
+            <h4>
+                <a class="permalink" href="#default-nunjucks">Output Nunjucks</a>
+                <small>v2.5.0</small>
+            </h4>
+            
+                <pre class="result"><code>a
+b
+C
+d
+E
+f
+</code></pre>
+            
+        </section>
+        
+        
+        
+        <section id="default-swig">
+            <h4>
+                <a class="permalink" href="#default-swig">Output Swig</a>
+                <small>v1.4.2</small>
+            </h4>
+            
+                <pre class="error"><code>Invalid filter "dictsort".</code></pre>
+            
+        </section>
+        
+        
+        
+        <section id="default-twig">
+            <h4>
+                <a class="permalink" href="#default-twig">Output Twig</a>
+                <small>v1.24.2</small>
+            </h4>
+            
+                <pre class="error"><code>Unknown "dictsort" filter.</code></pre>
+            
+        </section>
+        
+    </section>
+    
+</article>
+
+
+<footer class="app-footer" role="contentinfo">
+    <a href="https://github.com/jbmoelker/jinja-compat-tests">Source on GitHub</a>
+</footer>
+
+
+</body>
+</html>

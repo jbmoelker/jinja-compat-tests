@@ -44,6 +44,12 @@
             "undefined-property-dot-notation": "{{ vars.x|default('\"x\" on \"vars\" is not defined') }}\n",
             "undefined-variable": "{{ varX|default('\"varX\" is not defined') }}"
         },
+        "dictsort": {
+            "by-value": "{%- for key, value in items | dictsort(false, 'value') -%}\n{{ value }}:{{ key }}\n{% endfor %}",
+            "case-insensitive": "{%- for key, value in items | dictsort(false) -%}\n{{ key }}\n{% endfor %}",
+            "case-sensitive": "{%- for key, value in items | dictsort(true) -%}\n{{ key }}\n{% endfor %}",
+            "default": "{%- for key, value in items | dictsort -%}\n{{ key }}\n{% endfor %}"
+        },
         "first": {
             "array": "{{ [1, 2, 3, 4]|first }}",
             "number": "{{ 1234|first }}",

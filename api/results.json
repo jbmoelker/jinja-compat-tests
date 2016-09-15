@@ -43,6 +43,12 @@
                 "empty-string": "",
                 "undefined-variable": "\"varX\" is not defined"
             },
+            "dictsort": {
+                "by-value": "1:f\n2:b\n3:e\n4:c\n5:a\n6:d\n",
+                "case-insensitive": "A\na\nB\nb\nc\nC\n",
+                "case-sensitive": "A\nB\nC\na\nb\nc\n",
+                "default": "a\nb\nC\nd\nE\nf\n"
+            },
             "first": {
                 "array": "1",
                 "object": "",
@@ -108,6 +114,12 @@
                 "undefined-property-bracket-notation": "&quot;x&quot; on &quot;vars&quot; is not defined",
                 "undefined-property-dot-notation": "&quot;x&quot; on &quot;vars&quot; is not defined\n",
                 "undefined-variable": "&quot;varX&quot; is not defined"
+            },
+            "dictsort": {
+                "by-value": "1:f\n2:b\n3:e\n4:c\n5:a\n6:d\n",
+                "case-insensitive": "A\na\nb\nB\nc\nC\n",
+                "case-sensitive": "A\nB\nC\na\nb\nc\n",
+                "default": "a\nb\nC\nd\nE\nf\n"
             },
             "first": {
                 "array": "1",

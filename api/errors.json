@@ -51,6 +51,12 @@
             },
             "default": {
                 "alias-d": "Invalid filter \"d\"."
+            },
+            "dictsort": {
+                "by-value": "Invalid filter \"dictsort\".",
+                "case-insensitive": "Invalid filter \"dictsort\".",
+                "case-sensitive": "Invalid filter \"dictsort\".",
+                "default": "Invalid filter \"dictsort\"."
             }
         },
         "tags": {
@@ -67,6 +73,12 @@
             },
             "default": {
                 "alias-d": "Unknown \"d\" filter. Did you mean \"date\", \"round\", \"default\", \"url_encode\", \"date_modify\", \"json_encode\", \"convert_encoding\"?"
+            },
+            "dictsort": {
+                "by-value": "Unknown \"dictsort\" filter.",
+                "case-insensitive": "Unknown \"dictsort\" filter.",
+                "case-sensitive": "Unknown \"dictsort\" filter.",
+                "default": "Unknown \"dictsort\" filter."
             }
         },
         "tags": {
