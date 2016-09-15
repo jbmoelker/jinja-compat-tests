@@ -9,6 +9,8 @@ const outputDir = 'output/nunjucks/';
 const errorExt = '.error.log';
 const filenames = glob.sync('**/*.html', { cwd: inputDir });
 
+nunjucks.installJinjaCompat();
+
 const renderer = new nunjucks.Environment(
     new nunjucks.FileSystemLoader(inputDir, {
         noCache: true,
