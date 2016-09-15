@@ -10,6 +10,7 @@ const apiDir = 'dist/api/';
 const engines = glob.sync('*/', { cwd: outputDir }).map(dirname => dirname.substring(0, dirname.length -1));
 
 saveJson(apiDir + 'tests.json', tree(inputDir, '.html'));
+saveJson(apiDir + 'data.json', tree(inputDir, '.json'));
 saveJson(apiDir + 'results.json', outputTree('.html'));
 saveJson(apiDir + 'errors.json', outputTree('.error.log'));
 saveJson(apiDir + 'versions.json', versions);

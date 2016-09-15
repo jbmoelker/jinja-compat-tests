@@ -9,8 +9,9 @@ const apiDir = rootDir + 'dist/api/';
 const appDir = rootDir + 'src/app/';
 
 const docs = require(apiDir + 'docs.json');
-const errors = require(apiDir + 'errors.json');
-const results = require(apiDir + 'results.json');
+const errors = require(apiDir + 'errors.json');;
+const inputData = require(apiDir + 'data.json');
+const results = require(apiDir + 'results.json')
 const tests = require(apiDir + 'tests.json');
 const versions = require(apiDir + 'versions.json');
 
@@ -48,6 +49,7 @@ function renderFeature(type, name) {
     const data = {
         docs,
         errors,
+        inputData,
         name,
         paths: { root: '../../' },
         results,

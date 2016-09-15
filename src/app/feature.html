@@ -35,11 +35,17 @@
         <a class="permalink" href="#tests">Tests</a>
     </h2>
     {% for test, html in tests %}
+    {% set data = inputData[type][name][test] %}
     <section class="section" id="{{ test }}">
         <h3><a class="permalink" href="#{{ test }}">Test: {{ test }}</a></h3>
 
-        <h4>Input</h4>
+        <h4>Template</h4>
         <pre class="test"><code>{{ html|replace('<','&lt;')|safe }}</code></pre>
+
+        {% if data %}
+        <h4>Data</h4>
+        <pre class="test"><code>{{ data|safe }}</code></pre>
+        {% endif %}
 
         {% for engine, data in results %}
         {% set error = errors[engine][type][name][test] %}
