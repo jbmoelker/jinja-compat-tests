@@ -34,6 +34,11 @@
     <h2 id="tests">
         <a class="permalink" href="#tests">Tests</a>
     </h2>
+    <ol>
+    {% for test, html in tests %}
+        <li><a href="#{{ test }}">{{ test }}</a></li>
+    {% endfor %}
+    </ol>
     {% for test, html in tests %}
     {% set data = inputData[type][name][test] %}
     <section class="section" id="{{ test }}">
