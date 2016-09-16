@@ -1,5 +1,18 @@
 {
     "expressions": {
+        "comparisons": {
+            "ends-with": "{% if 'Templates' ends with 's' %}\n\"Templates\" ends with \"s\"\n{% endif %}",
+            "equal-to": "{% if varX == varY %}\n`varX` is equal to `varY`\n{% endif %}",
+            "greater-than-or-equal": "{% if 2 >= 1 %}\n2 is greater than or equal to 1\n{% endif %}\n\n{% if 2 >= 1 %}\n2 is greater than or equal to 2\n{% endif %}",
+            "greater-than": "{% if 2 > 1 %}\n2 is greater than 1\n{% endif %}",
+            "less-than-or-equal": "{% if 1 <= 2 %}\n1 is less than or equal to 2\n{% endif %}\n\n{% if 1 <= 1 %}\n1 is less than or equal to 1\n{% endif %}",
+            "less-than": "{% if 1 < 2 %}\n1 is less than 2\n{% endif %}",
+            "matches": "{% if phone matches '/^[\\\\d\\\\.]+$/' %}\n`phone` is a valid phone number\n{% endif %}",
+            "not-equal-to": "{% if varX != varY %}\n`varX` is not equal to `varY`\n{% endif %}",
+            "starts-with": "{% if 'Templates' starts with 'T' %}\n\"Templates\" starts with \"T\"\n{% endif %}",
+            "strict-equal-to": "{% if 1234 === 1234 %}\n1234 not strict equal to 1234\n{% endif %}",
+            "strict-not-equal-to": "{% if 1234 !== '1234' %}\n1234 is not strict equal to '1234'\n{% endif %}"
+        },
         "math": {
             "addition": "{{ 2 + 3 }}",
             "devision": "{{ 10/5 }}",

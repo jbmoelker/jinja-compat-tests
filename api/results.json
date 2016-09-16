@@ -1,6 +1,14 @@
 {
     "django": {
         "expressions": {
+            "comparisons": {
+                "equal-to": "\n`varX` is equal to `varY`\n",
+                "greater-than-or-equal": "\n2 is greater than or equal to 1\n\n\n\n2 is greater than or equal to 2\n",
+                "greater-than": "\n2 is greater than 1\n",
+                "less-than-or-equal": "\n1 is less than or equal to 2\n\n\n\n1 is less than or equal to 1\n",
+                "less-than": "\n1 is less than 2\n",
+                "not-equal-to": "\n`varX` is not equal to `varY`\n"
+            },
             "reserved-words": {
                 "function": "function",
                 "var": "var"
@@ -21,6 +29,14 @@
     },
     "jinja2": {
         "expressions": {
+            "comparisons": {
+                "equal-to": "\n`varX` is equal to `varY`\n",
+                "greater-than-or-equal": "\n2 is greater than or equal to 1\n\n\n\n2 is greater than or equal to 2\n",
+                "greater-than": "\n2 is greater than 1\n",
+                "less-than-or-equal": "\n1 is less than or equal to 2\n\n\n\n1 is less than or equal to 1\n",
+                "less-than": "\n1 is less than 2\n",
+                "not-equal-to": "\n`varX` is not equal to `varY`\n"
+            },
             "math": {
                 "addition": "5",
                 "devision": "2.0",
@@ -94,6 +110,16 @@
     },
     "nunjucks": {
         "expressions": {
+            "comparisons": {
+                "equal-to": "\n`varX` is equal to `varY`\n",
+                "greater-than-or-equal": "\n2 is greater than or equal to 1\n\n\n\n2 is greater than or equal to 2\n",
+                "greater-than": "\n2 is greater than 1\n",
+                "less-than-or-equal": "\n1 is less than or equal to 2\n\n\n\n1 is less than or equal to 1\n",
+                "less-than": "\n1 is less than 2\n",
+                "not-equal-to": "\n`varX` is not equal to `varY`\n",
+                "strict-equal-to": "\n1234 not strict equal to 1234\n",
+                "strict-not-equal-to": "\n1234 is not strict equal to '1234'\n"
+            },
             "math": {
                 "addition": "5",
                 "devision": "2",
@@ -170,6 +196,16 @@
     },
     "swig": {
         "expressions": {
+            "comparisons": {
+                "equal-to": "\n`varX` is equal to `varY`\n",
+                "greater-than-or-equal": "\n2 is greater than or equal to 1\n\n\n\n2 is greater than or equal to 2\n",
+                "greater-than": "\n2 is greater than 1\n",
+                "less-than-or-equal": "\n1 is less than or equal to 2\n\n\n\n1 is less than or equal to 1\n",
+                "less-than": "\n1 is less than 2\n",
+                "not-equal-to": "\n`varX` is not equal to `varY`\n",
+                "strict-equal-to": "\n1234 not strict equal to 1234\n",
+                "strict-not-equal-to": "\n1234 is not strict equal to '1234'\n"
+            },
             "math": {
                 "addition": "5",
                 "devision": "2",
@@ -218,6 +254,17 @@
     },
     "twig": {
         "expressions": {
+            "comparisons": {
+                "ends-with": "\"Templates\" ends with \"s\"\n",
+                "equal-to": "`varX` is equal to `varY`\n",
+                "greater-than-or-equal": "2 is greater than or equal to 1\n\n2 is greater than or equal to 2\n",
+                "greater-than": "2 is greater than 1\n",
+                "less-than-or-equal": "1 is less than or equal to 2\n\n1 is less than or equal to 1\n",
+                "less-than": "1 is less than 2\n",
+                "matches": "`phone` is a valid phone number\n",
+                "not-equal-to": "`varX` is not equal to `varY`\n",
+                "starts-with": "\"Templates\" starts with \"T\"\n"
+            },
             "math": {
                 "addition": "5",
                 "devision": "2",

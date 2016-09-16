@@ -1,6 +1,13 @@
 {
     "django": {
         "expressions": {
+            "comparisons": {
+                "ends-with": "Unused 'ends' at end of if expression.",
+                "matches": "Unused 'matches' at end of if expression.",
+                "starts-with": "Unused 'starts' at end of if expression.",
+                "strict-equal-to": "Could not parse the remainder: '===' from '==='",
+                "strict-not-equal-to": "Could not parse the remainder: '!==' from '!=='"
+            },
             "math": {
                 "addition": "Could not parse the remainder: ' + 3' from '2 + 3'",
                 "devision": "Could not parse the remainder: '/5' from '10/5'",
@@ -67,6 +74,15 @@
         }
     },
     "jinja2": {
+        "expressions": {
+            "comparisons": {
+                "ends-with": "expected token 'end of statement block', got 'ends'",
+                "matches": "expected token 'end of statement block', got 'matches'",
+                "starts-with": "expected token 'end of statement block', got 'starts'",
+                "strict-equal-to": "unexpected '='",
+                "strict-not-equal-to": "unexpected '='"
+            }
+        },
         "filters": {
             "default": {
                 "undefined-property-bracket-notation": "'vars' is undefined",
@@ -83,6 +99,13 @@
         }
     },
     "nunjucks": {
+        "expressions": {
+            "comparisons": {
+                "ends-with": " [Line 1, Column 22]\n  expected block end in if statement",
+                "matches": " [Line 1, Column 19]\n  expected block end in if statement",
+                "starts-with": " [Line 1, Column 24]\n  expected block end in if statement"
+            }
+        },
         "filters": {
             "capitalize": {
                 "number": "\n  TypeError: str.toLowerCase is not a function"
@@ -91,6 +114,11 @@
     },
     "swig": {
         "expressions": {
+            "comparisons": {
+                "ends-with": "Reserved keyword \"with\" attempted to be used as a variable.",
+                "matches": "SyntaxError: Unexpected string.",
+                "starts-with": "Reserved keyword \"with\" attempted to be used as a variable."
+            },
             "math": {
                 "power": "SyntaxError: Unexpected token *."
             },
@@ -133,6 +161,12 @@
         }
     },
     "twig": {
+        "expressions": {
+            "comparisons": {
+                "strict-equal-to": "Unexpected token \"operator\" of value \"=\".",
+                "strict-not-equal-to": "Unexpected token \"operator\" of value \"=\"."
+            }
+        },
         "filters": {
             "center": {
                 "default": "Unknown \"center\" filter.",
