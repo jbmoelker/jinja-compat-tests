@@ -58,6 +58,10 @@
                 "array": "Could not parse some characters: |[1, 2, 3, 4]||first",
                 "number": "'int' object has no attribute '__getitem__'",
                 "object": "Could not parse some characters: |{ a: 1, b: 2, c: 3, d: 4 }||first"
+            },
+            "length": {
+                "array": "Could not parse some characters: |[1, 2, 3, 4]||length",
+                "object": "Could not parse some characters: |{ a: 1, b: 2, c: 3, d: 4 }||length"
             }
         },
         "tags": {
@@ -90,6 +94,9 @@
             },
             "first": {
                 "number": "'int' object is not iterable"
+            },
+            "length": {
+                "number": "object of type 'int' has no len()"
             }
         },
         "tags": {
@@ -152,6 +159,12 @@
                 "case-insensitive": "Invalid filter \"dictsort\".",
                 "case-sensitive": "Invalid filter \"dictsort\".",
                 "default": "Invalid filter \"dictsort\"."
+            },
+            "length": {
+                "array": "Invalid filter \"length\".",
+                "number": "Invalid filter \"length\".",
+                "object": "Invalid filter \"length\".",
+                "string": "Invalid filter \"length\"."
             }
         },
         "tags": {

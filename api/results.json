@@ -17,6 +17,10 @@
         "filters": {
             "first": {
                 "string": "1"
+            },
+            "length": {
+                "number": "0",
+                "string": "4"
             }
         },
         "tags": {
@@ -89,6 +93,11 @@
                 "array": "1",
                 "object": "",
                 "string": "1"
+            },
+            "length": {
+                "array": "4",
+                "object": "1",
+                "string": "4"
             }
         },
         "tags": {
@@ -174,6 +183,12 @@
                 "number": "",
                 "object": "",
                 "string": "1"
+            },
+            "length": {
+                "array": "4",
+                "number": "",
+                "object": "4",
+                "string": "4"
             }
         },
         "tags": {
@@ -309,6 +324,12 @@
                 "number": "1",
                 "object": "1",
                 "string": "1"
+            },
+            "length": {
+                "array": "4",
+                "number": "4",
+                "object": "4",
+                "string": "4"
             }
         },
         "tags": {

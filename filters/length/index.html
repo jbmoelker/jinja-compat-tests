@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
 
-    <title>first filter | Jinja Compat Tests</title>
+    <title>length filter | Jinja Compat Tests</title>
     <style type="text/css">
         html { font-family: Arial, sans-serif; }
         .app-footer { border-top: 1px solid black; margin-top: 1rem; padding-top: .5rem; }
@@ -31,7 +31,7 @@
 </header>
 
 <article>
-    <h1><code>first</code> filter</h1>
+    <h1><code>length</code> filter</h1>
 
     <section id="docs">
         <h2><a class="permalink" href="#docs">Docs</a></h2>
@@ -39,25 +39,21 @@
         
             
             <li>
-                <a href="http://jinja.pocoo.org/docs/dev/templates/#first">Jinja2</a>
+                <a href="http://jinja.pocoo.org/docs/dev/templates/#length">Jinja2</a>
             </li>
             
         
             
             <li>
-                <a href="https://mozilla.github.io/nunjucks/templating.html#first">Nunjucks</a>
+                <a href="https://mozilla.github.io/nunjucks/templating.html#length">Nunjucks</a>
             </li>
             
         
             
-            <li>
-                <a href="https://voorhoede.github.io/swig/docs/filters/#first">Swig</a>
-            </li>
-            
         
             
             <li>
-                <a href="http://twig.sensiolabs.org/doc/filters/first.html">Twig</a>
+                <a href="http://twig.sensiolabs.org/doc/filters/length.html">Twig</a>
             </li>
             
         
@@ -84,7 +80,7 @@
         <h3><a class="permalink" href="#array">Test: array</a></h3>
 
         <h4>Template</h4>
-        <pre class="test"><code>{{ [1, 2, 3, 4]|first }}</code></pre>
+        <pre class="test"><code>{{ [1, 2, 3, 4]|length }}</code></pre>
 
         
 
@@ -97,7 +93,7 @@
                 <small>v1.10.1</small>
             </h4>
             
-                <pre class="error"><code>Could not parse some characters: |[1, 2, 3, 4]||first</code></pre>
+                <pre class="error"><code>Could not parse some characters: |[1, 2, 3, 4]||length</code></pre>
             
         </section>
         
@@ -109,7 +105,7 @@
                 <small>v2.8.0</small>
             </h4>
             
-                <pre class="result"><code>1</code></pre>
+                <pre class="result"><code>4</code></pre>
             
         </section>
         
@@ -121,7 +117,7 @@
                 <small>v2.5.0</small>
             </h4>
             
-                <pre class="result"><code>1</code></pre>
+                <pre class="result"><code>4</code></pre>
             
         </section>
         
@@ -133,7 +129,7 @@
                 <small>v1.4.2</small>
             </h4>
             
-                <pre class="result"><code>1</code></pre>
+                <pre class="error"><code>Invalid filter "length".</code></pre>
             
         </section>
         
@@ -145,7 +141,7 @@
                 <small>v1.24.2</small>
             </h4>
             
-                <pre class="result"><code>1</code></pre>
+                <pre class="result"><code>4</code></pre>
             
         </section>
         
@@ -156,7 +152,7 @@
         <h3><a class="permalink" href="#number">Test: number</a></h3>
 
         <h4>Template</h4>
-        <pre class="test"><code>{{ 1234|first }}</code></pre>
+        <pre class="test"><code>{{ 1234|length }}</code></pre>
 
         
 
@@ -169,7 +165,7 @@
                 <small>v1.10.1</small>
             </h4>
             
-                <pre class="error"><code>'int' object has no attribute '__getitem__'</code></pre>
+                <pre class="result"><code>0</code></pre>
             
         </section>
         
@@ -181,7 +177,7 @@
                 <small>v2.8.0</small>
             </h4>
             
-                <pre class="error"><code>'int' object is not iterable</code></pre>
+                <pre class="error"><code>object of type 'int' has no len()</code></pre>
             
         </section>
         
@@ -205,7 +201,7 @@
                 <small>v1.4.2</small>
             </h4>
             
-                <pre class="result"><code>undefined</code></pre>
+                <pre class="error"><code>Invalid filter "length".</code></pre>
             
         </section>
         
@@ -217,7 +213,7 @@
                 <small>v1.24.2</small>
             </h4>
             
-                <pre class="result"><code>1</code></pre>
+                <pre class="result"><code>4</code></pre>
             
         </section>
         
@@ -228,7 +224,7 @@
         <h3><a class="permalink" href="#object">Test: object</a></h3>
 
         <h4>Template</h4>
-        <pre class="test"><code>{{ { a: 1, b: 2, c: 3, d: 4 }|first }}</code></pre>
+        <pre class="test"><code>{{ { a: 1, b: 2, c: 3, d: 4 }|length }}</code></pre>
 
         
 
@@ -241,7 +237,7 @@
                 <small>v1.10.1</small>
             </h4>
             
-                <pre class="error"><code>Could not parse some characters: |{ a: 1, b: 2, c: 3, d: 4 }||first</code></pre>
+                <pre class="error"><code>Could not parse some characters: |{ a: 1, b: 2, c: 3, d: 4 }||length</code></pre>
             
         </section>
         
@@ -253,7 +249,7 @@
                 <small>v2.8.0</small>
             </h4>
             
-                <pre class="result"><code></code></pre>
+                <pre class="result"><code>1</code></pre>
             
         </section>
         
@@ -265,7 +261,7 @@
                 <small>v2.5.0</small>
             </h4>
             
-                <pre class="result"><code></code></pre>
+                <pre class="result"><code>4</code></pre>
             
         </section>
         
@@ -277,7 +273,7 @@
                 <small>v1.4.2</small>
             </h4>
             
-                <pre class="result"><code>1</code></pre>
+                <pre class="error"><code>Invalid filter "length".</code></pre>
             
         </section>
         
@@ -289,7 +285,7 @@
                 <small>v1.24.2</small>
             </h4>
             
-                <pre class="result"><code>1</code></pre>
+                <pre class="result"><code>4</code></pre>
             
         </section>
         
@@ -300,7 +296,7 @@
         <h3><a class="permalink" href="#string">Test: string</a></h3>
 
         <h4>Template</h4>
-        <pre class="test"><code>{{ '1234'|first }}</code></pre>
+        <pre class="test"><code>{{ '1234'|length }}</code></pre>
 
         
 
@@ -313,7 +309,7 @@
                 <small>v1.10.1</small>
             </h4>
             
-                <pre class="result"><code>1</code></pre>
+                <pre class="result"><code>4</code></pre>
             
         </section>
         
@@ -325,7 +321,7 @@
                 <small>v2.8.0</small>
             </h4>
             
-                <pre class="result"><code>1</code></pre>
+                <pre class="result"><code>4</code></pre>
             
         </section>
         
@@ -337,7 +333,7 @@
                 <small>v2.5.0</small>
             </h4>
             
-                <pre class="result"><code>1</code></pre>
+                <pre class="result"><code>4</code></pre>
             
         </section>
         
@@ -349,7 +345,7 @@
                 <small>v1.4.2</small>
             </h4>
             
-                <pre class="result"><code>1</code></pre>
+                <pre class="error"><code>Invalid filter "length".</code></pre>
             
         </section>
         
@@ -361,7 +357,7 @@
                 <small>v1.24.2</small>
             </h4>
             
-                <pre class="result"><code>1</code></pre>
+                <pre class="result"><code>4</code></pre>
             
         </section>
         

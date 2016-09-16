@@ -68,6 +68,12 @@
             "number": "{{ 1234|first }}",
             "object": "{{ { a: 1, b: 2, c: 3, d: 4 }|first }}",
             "string": "{{ '1234'|first }}"
+        },
+        "length": {
+            "array": "{{ [1, 2, 3, 4]|length }}",
+            "number": "{{ 1234|length }}",
+            "object": "{{ { a: 1, b: 2, c: 3, d: 4 }|length }}",
+            "string": "{{ '1234'|length }}"
         }
     },
     "tags": {
