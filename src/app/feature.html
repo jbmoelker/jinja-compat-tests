@@ -4,15 +4,30 @@
 <style type="text/css">
     h4 { margin-bottom: 0; }
     h4 small { float: right; font-weight: normal; font-style: italic; }
+    label { padding-right: 1em; cursor: pointer; }
     pre { padding: .5em; margin-top: .5rem; min-height: 1em; overflow-x: scroll; }
     .section { margin-bottom: 2.5rem; }
     .test { border: 2px solid deepskyblue; }
     .result { border: 2px solid lawngreen; }
     .error { border: 2px solid red; white-space: normal; }
+
+    [data-engine-enabled="false"] { display:none; }
 </style>
 
 <header>
     <h1><a rel="home" href="{{ paths.root }}">Jinja Compat Tests</a></h1>
+
+    <form data-engine-enabler>
+        <fieldset>
+            <legend>Enabled engines</legend>
+            {% for engine, data in results %}
+            <label>
+                <input type="checkbox" checked name="engine" value="{{ engine }}">
+                {{ engine|title }}
+            </label>
+            {% endfor %}
+        </fieldset>
+    </form>
 </header>
 
 <article>
@@ -24,7 +39,7 @@
         {% for engine, data in docs %}
             {% if data[type][name] %}
             <li>
-                <a href="{{ data['_baseUrl'] }}{{ data[type][name] }}">{{ engine|capitalize }}</a>
+                <a href="{{ data['_baseUrl'] }}{{ data[type][name] }}">{{ engine|title }}</a>
             </li>
             {% endif %}
         {% endfor %}
@@ -55,9 +70,9 @@
         {% for engine, data in results %}
         {% set error = errors[engine][type][name][test] %}
         {% set result = data[type][name][test] %}
-        <section id="{{ test }}-{{ engine }}">
+        <section id="{{ test }}-{{ engine }}" data-engine="{{ engine }}">
             <h4>
-                <a class="permalink" href="#{{ test }}-{{ engine }}">Output {{ engine|capitalize }}</a>
+                <a class="permalink" href="#{{ test }}-{{ engine }}">Output {{ engine|title }}</a>
                 <small>v{{ versions[engine] }}</small>
             </h4>
             {% if error %}
@@ -72,4 +87,6 @@
     </section>
     {% endfor %}
 </article>
+
+<script>{% include "./feature.js" %}</script>
 {% endblock %}
