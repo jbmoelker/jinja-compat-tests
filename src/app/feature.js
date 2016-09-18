@@ -8,10 +8,14 @@
 
     var SUPPORTS_STORAGE = ('localStorage' in window);
     var STORAGE_KEY = 'enabledEngines';
+    var FORM_SELECTOR = '[data-engine-enabler]';
+    var INPUT_NAME = 'engine';
+    var TARGET_ATTR = 'data-engine';
+    var ENABLED_ATTR = 'data-engine-enabled';
 
-    var form = document.querySelector('[data-engine-enabler]');
-    var inputs = [].slice.call(form.engine);
-    var targets = [].slice.call(document.querySelectorAll('[data-engine]'));
+    var form = document.querySelector(FORM_SELECTOR);
+    var inputs = [].slice.call(form[INPUT_NAME]);
+    var targets = [].slice.call(document.querySelectorAll('[' + TARGET_ATTR + ']'));
 
     form.addEventListener('change', onEnableEngines);
     restoreState();
@@ -31,8 +35,8 @@
 
     function enableTargets(state) {
         targets.forEach(function(target) {
-            var engine = target.getAttribute('data-engine');
-            target.setAttribute('data-engine-enabled', state[engine]);
+            var key = target.getAttribute(TARGET_ATTR);
+            target.setAttribute(ENABLED_ATTR, state[key]);
         });
     }
 
