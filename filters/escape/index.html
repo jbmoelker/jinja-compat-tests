@@ -19,15 +19,50 @@
 <style type="text/css">
     h4 { margin-bottom: 0; }
     h4 small { float: right; font-weight: normal; font-style: italic; }
+    label { padding-right: 1em; cursor: pointer; }
     pre { padding: .5em; margin-top: .5rem; min-height: 1em; overflow-x: scroll; }
     .section { margin-bottom: 2.5rem; }
     .test { border: 2px solid deepskyblue; }
     .result { border: 2px solid lawngreen; }
     .error { border: 2px solid red; white-space: normal; }
+
+    [data-engine-enabled="false"] { display:none; }
 </style>
 
 <header>
     <h1><a rel="home" href="../../">Jinja Compat Tests</a></h1>
+
+    <form data-engine-enabler>
+        <fieldset>
+            <legend>Enabled engines</legend>
+            
+            <label>
+                <input type="checkbox" checked name="engine" value="django">
+                Django
+            </label>
+            
+            <label>
+                <input type="checkbox" checked name="engine" value="jinja2">
+                Jinja2
+            </label>
+            
+            <label>
+                <input type="checkbox" checked name="engine" value="nunjucks">
+                Nunjucks
+            </label>
+            
+            <label>
+                <input type="checkbox" checked name="engine" value="swig">
+                Swig
+            </label>
+            
+            <label>
+                <input type="checkbox" checked name="engine" value="twig">
+                Twig
+            </label>
+            
+        </fieldset>
+    </form>
 </header>
 
 <article>
@@ -89,7 +124,7 @@
         
         
         
-        <section id="alias-e-django">
+        <section id="alias-e-django" data-engine="django">
             <h4>
                 <a class="permalink" href="#alias-e-django">Output Django</a>
                 <small>v1.10.1</small>
@@ -101,7 +136,7 @@
         
         
         
-        <section id="alias-e-jinja2">
+        <section id="alias-e-jinja2" data-engine="jinja2">
             <h4>
                 <a class="permalink" href="#alias-e-jinja2">Output Jinja2</a>
                 <small>v2.8.0</small>
@@ -113,7 +148,7 @@
         
         
         
-        <section id="alias-e-nunjucks">
+        <section id="alias-e-nunjucks" data-engine="nunjucks">
             <h4>
                 <a class="permalink" href="#alias-e-nunjucks">Output Nunjucks</a>
                 <small>v2.5.0</small>
@@ -125,7 +160,7 @@
         
         
         
-        <section id="alias-e-swig">
+        <section id="alias-e-swig" data-engine="swig">
             <h4>
                 <a class="permalink" href="#alias-e-swig">Output Swig</a>
                 <small>v1.4.2</small>
@@ -137,7 +172,7 @@
         
         
         
-        <section id="alias-e-twig">
+        <section id="alias-e-twig" data-engine="twig">
             <h4>
                 <a class="permalink" href="#alias-e-twig">Output Twig</a>
                 <small>v1.24.2</small>
@@ -161,7 +196,7 @@
         
         
         
-        <section id="default-django">
+        <section id="default-django" data-engine="django">
             <h4>
                 <a class="permalink" href="#default-django">Output Django</a>
                 <small>v1.10.1</small>
@@ -173,7 +208,7 @@
         
         
         
-        <section id="default-jinja2">
+        <section id="default-jinja2" data-engine="jinja2">
             <h4>
                 <a class="permalink" href="#default-jinja2">Output Jinja2</a>
                 <small>v2.8.0</small>
@@ -185,7 +220,7 @@
         
         
         
-        <section id="default-nunjucks">
+        <section id="default-nunjucks" data-engine="nunjucks">
             <h4>
                 <a class="permalink" href="#default-nunjucks">Output Nunjucks</a>
                 <small>v2.5.0</small>
@@ -197,7 +232,7 @@
         
         
         
-        <section id="default-swig">
+        <section id="default-swig" data-engine="swig">
             <h4>
                 <a class="permalink" href="#default-swig">Output Swig</a>
                 <small>v1.4.2</small>
@@ -209,7 +244,7 @@
         
         
         
-        <section id="default-twig">
+        <section id="default-twig" data-engine="twig">
             <h4>
                 <a class="permalink" href="#default-twig">Output Twig</a>
                 <small>v1.24.2</small>
@@ -233,7 +268,7 @@
         
         
         
-        <section id="double-escape-django">
+        <section id="double-escape-django" data-engine="django">
             <h4>
                 <a class="permalink" href="#double-escape-django">Output Django</a>
                 <small>v1.10.1</small>
@@ -245,7 +280,7 @@
         
         
         
-        <section id="double-escape-jinja2">
+        <section id="double-escape-jinja2" data-engine="jinja2">
             <h4>
                 <a class="permalink" href="#double-escape-jinja2">Output Jinja2</a>
                 <small>v2.8.0</small>
@@ -257,7 +292,7 @@
         
         
         
-        <section id="double-escape-nunjucks">
+        <section id="double-escape-nunjucks" data-engine="nunjucks">
             <h4>
                 <a class="permalink" href="#double-escape-nunjucks">Output Nunjucks</a>
                 <small>v2.5.0</small>
@@ -269,7 +304,7 @@
         
         
         
-        <section id="double-escape-swig">
+        <section id="double-escape-swig" data-engine="swig">
             <h4>
                 <a class="permalink" href="#double-escape-swig">Output Swig</a>
                 <small>v1.4.2</small>
@@ -281,7 +316,7 @@
         
         
         
-        <section id="double-escape-twig">
+        <section id="double-escape-twig" data-engine="twig">
             <h4>
                 <a class="permalink" href="#double-escape-twig">Output Twig</a>
                 <small>v1.24.2</small>
@@ -294,6 +329,68 @@
     </section>
     
 </article>
+
+<script>(function engineEnabler(){
+    'use strict';
+
+    var CAPABLE_BROWSER = ('addEventListener' in window);
+    if (!CAPABLE_BROWSER) {
+        return;
+    }
+
+    var SUPPORTS_STORAGE = ('localStorage' in window);
+    var STORAGE_KEY = 'enabledEngines';
+
+    var form = document.querySelector('[data-engine-enabler]');
+    var inputs = [].slice.call(form.engine);
+    var targets = [].slice.call(document.querySelectorAll('[data-engine]'));
+
+    form.addEventListener('change', onEnableEngines);
+    restoreState();
+
+    function onEnableEngines() {
+        var state = getEngineState(this);
+        enableTargets(state);
+        saveState(state);
+    }
+
+    function getEngineState(form) {
+        return inputs.reduce(function(map, input){
+            map[input.value] = input.checked;
+            return map;
+        }, {});
+    }
+
+    function enableTargets(state) {
+        targets.forEach(function(target) {
+            var engine = target.getAttribute('data-engine');
+            target.setAttribute('data-engine-enabled', state[engine]);
+        });
+    }
+
+    function saveState(state) {
+        if(!SUPPORTS_STORAGE) {
+            return;
+        }
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
+    }
+
+    function restoreState() {
+        if(!SUPPORTS_STORAGE) {
+            return;
+        }
+        var state = JSON.parse(localStorage.getItem(STORAGE_KEY));
+        restoreInputs(state);
+        enableTargets(state);
+    }
+
+    function restoreInputs(state) {
+        inputs.forEach(function(input) {
+           input.checked = state[input.value];
+        });
+    }
+
+}());</script>
 
 
 <footer class="app-footer" role="contentinfo">

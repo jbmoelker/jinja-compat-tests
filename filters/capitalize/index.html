@@ -19,15 +19,50 @@
 <style type="text/css">
     h4 { margin-bottom: 0; }
     h4 small { float: right; font-weight: normal; font-style: italic; }
+    label { padding-right: 1em; cursor: pointer; }
     pre { padding: .5em; margin-top: .5rem; min-height: 1em; overflow-x: scroll; }
     .section { margin-bottom: 2.5rem; }
     .test { border: 2px solid deepskyblue; }
     .result { border: 2px solid lawngreen; }
     .error { border: 2px solid red; white-space: normal; }
+
+    [data-engine-enabled="false"] { display:none; }
 </style>
 
 <header>
     <h1><a rel="home" href="../../">Jinja Compat Tests</a></h1>
+
+    <form data-engine-enabler>
+        <fieldset>
+            <legend>Enabled engines</legend>
+            
+            <label>
+                <input type="checkbox" checked name="engine" value="django">
+                Django
+            </label>
+            
+            <label>
+                <input type="checkbox" checked name="engine" value="jinja2">
+                Jinja2
+            </label>
+            
+            <label>
+                <input type="checkbox" checked name="engine" value="nunjucks">
+                Nunjucks
+            </label>
+            
+            <label>
+                <input type="checkbox" checked name="engine" value="swig">
+                Swig
+            </label>
+            
+            <label>
+                <input type="checkbox" checked name="engine" value="twig">
+                Twig
+            </label>
+            
+        </fieldset>
+    </form>
 </header>
 
 <article>
@@ -104,7 +139,7 @@
         
         
         
-        <section id="array-django">
+        <section id="array-django" data-engine="django">
             <h4>
                 <a class="permalink" href="#array-django">Output Django</a>
                 <small>v1.10.1</small>
@@ -116,7 +151,7 @@
         
         
         
-        <section id="array-jinja2">
+        <section id="array-jinja2" data-engine="jinja2">
             <h4>
                 <a class="permalink" href="#array-jinja2">Output Jinja2</a>
                 <small>v2.8.0</small>
@@ -128,7 +163,7 @@
         
         
         
-        <section id="array-nunjucks">
+        <section id="array-nunjucks" data-engine="nunjucks">
             <h4>
                 <a class="permalink" href="#array-nunjucks">Output Nunjucks</a>
                 <small>v2.5.0</small>
@@ -141,7 +176,7 @@
         
         
         
-        <section id="array-swig">
+        <section id="array-swig" data-engine="swig">
             <h4>
                 <a class="permalink" href="#array-swig">Output Swig</a>
                 <small>v1.4.2</small>
@@ -153,7 +188,7 @@
         
         
         
-        <section id="array-twig">
+        <section id="array-twig" data-engine="twig">
             <h4>
                 <a class="permalink" href="#array-twig">Output Twig</a>
                 <small>v1.24.2</small>
@@ -164,39 +199,39 @@ Warning: mb_substr() expects parameter 1 to be string, array given
 
 Call Stack:
     0.0003     376744   1. {main}() /home/travis/build/jbmoelker/jinja-compat-tests/test-twig.php:0
-    0.1100    3323352   2. Twig_Environment->render() /home/travis/build/jbmoelker/jinja-compat-tests/test-twig.php:51
-    0.1125    3327568   3. Twig_Template->render() /home/travis/build/jbmoelker/jinja-compat-tests/vendor/twig/twig/lib/Twig/Environment.php:347
-    0.1125    3344032   4. Twig_Template->display() /home/travis/build/jbmoelker/jinja-compat-tests/vendor/twig/twig/lib/Twig/Template.php:366
-    0.1125    3344144   5. Twig_Template->displayWithErrorHandling() /home/travis/build/jbmoelker/jinja-compat-tests/vendor/twig/twig/lib/Twig/Template.php:355
-    0.1125    3344144   6. __TwigTemplate_87bb27d19dd7eb1fa0e1dff126ade1f469b3fb5428af45b33db341068c6dbc5d->doDisplay() /home/travis/build/jbmoelker/jinja-compat-tests/vendor/twig/twig/lib/Twig/Template.php:387
-    0.1125    3344144   7. twig_capitalize_string_filter() /home/travis/build/jbmoelker/jinja-compat-tests/vendor/twig/twig/lib/Twig/Environment.php(403) : eval()'d code:19
-    0.1125    3344144   8. mb_substr() /home/travis/build/jbmoelker/jinja-compat-tests/vendor/twig/twig/lib/Twig/Extension/Core.php:1331
+    0.1336    3323352   2. Twig_Environment->render() /home/travis/build/jbmoelker/jinja-compat-tests/test-twig.php:51
+    0.1361    3327568   3. Twig_Template->render() /home/travis/build/jbmoelker/jinja-compat-tests/vendor/twig/twig/lib/Twig/Environment.php:347
+    0.1361    3344032   4. Twig_Template->display() /home/travis/build/jbmoelker/jinja-compat-tests/vendor/twig/twig/lib/Twig/Template.php:366
+    0.1362    3344144   5. Twig_Template->displayWithErrorHandling() /home/travis/build/jbmoelker/jinja-compat-tests/vendor/twig/twig/lib/Twig/Template.php:355
+    0.1362    3344144   6. __TwigTemplate_87bb27d19dd7eb1fa0e1dff126ade1f469b3fb5428af45b33db341068c6dbc5d->doDisplay() /home/travis/build/jbmoelker/jinja-compat-tests/vendor/twig/twig/lib/Twig/Template.php:387
+    0.1362    3344144   7. twig_capitalize_string_filter() /home/travis/build/jbmoelker/jinja-compat-tests/vendor/twig/twig/lib/Twig/Environment.php(403) : eval()'d code:19
+    0.1362    3344144   8. mb_substr() /home/travis/build/jbmoelker/jinja-compat-tests/vendor/twig/twig/lib/Twig/Extension/Core.php:1331
 
 
 Warning: mb_strlen() expects parameter 1 to be string, array given
 
 Call Stack:
     0.0003     376744   1. {main}() /home/travis/build/jbmoelker/jinja-compat-tests/test-twig.php:0
-    0.1100    3323352   2. Twig_Environment->render() /home/travis/build/jbmoelker/jinja-compat-tests/test-twig.php:51
-    0.1125    3327568   3. Twig_Template->render() /home/travis/build/jbmoelker/jinja-compat-tests/vendor/twig/twig/lib/Twig/Environment.php:347
-    0.1125    3344032   4. Twig_Template->display() /home/travis/build/jbmoelker/jinja-compat-tests/vendor/twig/twig/lib/Twig/Template.php:366
-    0.1125    3344144   5. Twig_Template->displayWithErrorHandling() /home/travis/build/jbmoelker/jinja-compat-tests/vendor/twig/twig/lib/Twig/Template.php:355
-    0.1125    3344144   6. __TwigTemplate_87bb27d19dd7eb1fa0e1dff126ade1f469b3fb5428af45b33db341068c6dbc5d->doDisplay() /home/travis/build/jbmoelker/jinja-compat-tests/vendor/twig/twig/lib/Twig/Template.php:387
-    0.1125    3344144   7. twig_capitalize_string_filter() /home/travis/build/jbmoelker/jinja-compat-tests/vendor/twig/twig/lib/Twig/Environment.php(403) : eval()'d code:19
-    0.1127    3344176   8. mb_strlen() /home/travis/build/jbmoelker/jinja-compat-tests/vendor/twig/twig/lib/Twig/Extension/Core.php:1331
+    0.1336    3323352   2. Twig_Environment->render() /home/travis/build/jbmoelker/jinja-compat-tests/test-twig.php:51
+    0.1361    3327568   3. Twig_Template->render() /home/travis/build/jbmoelker/jinja-compat-tests/vendor/twig/twig/lib/Twig/Environment.php:347
+    0.1361    3344032   4. Twig_Template->display() /home/travis/build/jbmoelker/jinja-compat-tests/vendor/twig/twig/lib/Twig/Template.php:366
+    0.1362    3344144   5. Twig_Template->displayWithErrorHandling() /home/travis/build/jbmoelker/jinja-compat-tests/vendor/twig/twig/lib/Twig/Template.php:355
+    0.1362    3344144   6. __TwigTemplate_87bb27d19dd7eb1fa0e1dff126ade1f469b3fb5428af45b33db341068c6dbc5d->doDisplay() /home/travis/build/jbmoelker/jinja-compat-tests/vendor/twig/twig/lib/Twig/Template.php:387
+    0.1362    3344144   7. twig_capitalize_string_filter() /home/travis/build/jbmoelker/jinja-compat-tests/vendor/twig/twig/lib/Twig/Environment.php(403) : eval()'d code:19
+    0.1364    3344176   8. mb_strlen() /home/travis/build/jbmoelker/jinja-compat-tests/vendor/twig/twig/lib/Twig/Extension/Core.php:1331
 
 
 Warning: mb_substr() expects parameter 1 to be string, array given
 
 Call Stack:
     0.0003     376744   1. {main}() /home/travis/build/jbmoelker/jinja-compat-tests/test-twig.php:0
-    0.1100    3323352   2. Twig_Environment->render() /home/travis/build/jbmoelker/jinja-compat-tests/test-twig.php:51
-    0.1125    3327568   3. Twig_Template->render() /home/travis/build/jbmoelker/jinja-compat-tests/vendor/twig/twig/lib/Twig/Environment.php:347
-    0.1125    3344032   4. Twig_Template->display() /home/travis/build/jbmoelker/jinja-compat-tests/vendor/twig/twig/lib/Twig/Template.php:366
-    0.1125    3344144   5. Twig_Template->displayWithErrorHandling() /home/travis/build/jbmoelker/jinja-compat-tests/vendor/twig/twig/lib/Twig/Template.php:355
-    0.1125    3344144   6. __TwigTemplate_87bb27d19dd7eb1fa0e1dff126ade1f469b3fb5428af45b33db341068c6dbc5d->doDisplay() /home/travis/build/jbmoelker/jinja-compat-tests/vendor/twig/twig/lib/Twig/Template.php:387
-    0.1125    3344144   7. twig_capitalize_string_filter() /home/travis/build/jbmoelker/jinja-compat-tests/vendor/twig/twig/lib/Twig/Environment.php(403) : eval()'d code:19
-    0.1128    3344176   8. mb_substr() /home/travis/build/jbmoelker/jinja-compat-tests/vendor/twig/twig/lib/Twig/Extension/Core.php:1331
+    0.1336    3323352   2. Twig_Environment->render() /home/travis/build/jbmoelker/jinja-compat-tests/test-twig.php:51
+    0.1361    3327568   3. Twig_Template->render() /home/travis/build/jbmoelker/jinja-compat-tests/vendor/twig/twig/lib/Twig/Environment.php:347
+    0.1361    3344032   4. Twig_Template->display() /home/travis/build/jbmoelker/jinja-compat-tests/vendor/twig/twig/lib/Twig/Template.php:366
+    0.1362    3344144   5. Twig_Template->displayWithErrorHandling() /home/travis/build/jbmoelker/jinja-compat-tests/vendor/twig/twig/lib/Twig/Template.php:355
+    0.1362    3344144   6. __TwigTemplate_87bb27d19dd7eb1fa0e1dff126ade1f469b3fb5428af45b33db341068c6dbc5d->doDisplay() /home/travis/build/jbmoelker/jinja-compat-tests/vendor/twig/twig/lib/Twig/Template.php:387
+    0.1362    3344144   7. twig_capitalize_string_filter() /home/travis/build/jbmoelker/jinja-compat-tests/vendor/twig/twig/lib/Twig/Environment.php(403) : eval()'d code:19
+    0.1366    3344176   8. mb_substr() /home/travis/build/jbmoelker/jinja-compat-tests/vendor/twig/twig/lib/Twig/Extension/Core.php:1331
 
 </code></pre>
             
@@ -216,7 +251,7 @@ Call Stack:
         
         
         
-        <section id="mixed-case-django">
+        <section id="mixed-case-django" data-engine="django">
             <h4>
                 <a class="permalink" href="#mixed-case-django">Output Django</a>
                 <small>v1.10.1</small>
@@ -228,7 +263,7 @@ Call Stack:
         
         
         
-        <section id="mixed-case-jinja2">
+        <section id="mixed-case-jinja2" data-engine="jinja2">
             <h4>
                 <a class="permalink" href="#mixed-case-jinja2">Output Jinja2</a>
                 <small>v2.8.0</small>
@@ -240,7 +275,7 @@ Call Stack:
         
         
         
-        <section id="mixed-case-nunjucks">
+        <section id="mixed-case-nunjucks" data-engine="nunjucks">
             <h4>
                 <a class="permalink" href="#mixed-case-nunjucks">Output Nunjucks</a>
                 <small>v2.5.0</small>
@@ -252,7 +287,7 @@ Call Stack:
         
         
         
-        <section id="mixed-case-swig">
+        <section id="mixed-case-swig" data-engine="swig">
             <h4>
                 <a class="permalink" href="#mixed-case-swig">Output Swig</a>
                 <small>v1.4.2</small>
@@ -264,7 +299,7 @@ Call Stack:
         
         
         
-        <section id="mixed-case-twig">
+        <section id="mixed-case-twig" data-engine="twig">
             <h4>
                 <a class="permalink" href="#mixed-case-twig">Output Twig</a>
                 <small>v1.24.2</small>
@@ -288,7 +323,7 @@ Call Stack:
         
         
         
-        <section id="number-django">
+        <section id="number-django" data-engine="django">
             <h4>
                 <a class="permalink" href="#number-django">Output Django</a>
                 <small>v1.10.1</small>
@@ -300,7 +335,7 @@ Call Stack:
         
         
         
-        <section id="number-jinja2">
+        <section id="number-jinja2" data-engine="jinja2">
             <h4>
                 <a class="permalink" href="#number-jinja2">Output Jinja2</a>
                 <small>v2.8.0</small>
@@ -312,7 +347,7 @@ Call Stack:
         
         
         
-        <section id="number-nunjucks">
+        <section id="number-nunjucks" data-engine="nunjucks">
             <h4>
                 <a class="permalink" href="#number-nunjucks">Output Nunjucks</a>
                 <small>v2.5.0</small>
@@ -325,7 +360,7 @@ Call Stack:
         
         
         
-        <section id="number-swig">
+        <section id="number-swig" data-engine="swig">
             <h4>
                 <a class="permalink" href="#number-swig">Output Swig</a>
                 <small>v1.4.2</small>
@@ -337,7 +372,7 @@ Call Stack:
         
         
         
-        <section id="number-twig">
+        <section id="number-twig" data-engine="twig">
             <h4>
                 <a class="permalink" href="#number-twig">Output Twig</a>
                 <small>v1.24.2</small>
@@ -361,7 +396,7 @@ Call Stack:
         
         
         
-        <section id="sentence-django">
+        <section id="sentence-django" data-engine="django">
             <h4>
                 <a class="permalink" href="#sentence-django">Output Django</a>
                 <small>v1.10.1</small>
@@ -373,7 +408,7 @@ Call Stack:
         
         
         
-        <section id="sentence-jinja2">
+        <section id="sentence-jinja2" data-engine="jinja2">
             <h4>
                 <a class="permalink" href="#sentence-jinja2">Output Jinja2</a>
                 <small>v2.8.0</small>
@@ -385,7 +420,7 @@ Call Stack:
         
         
         
-        <section id="sentence-nunjucks">
+        <section id="sentence-nunjucks" data-engine="nunjucks">
             <h4>
                 <a class="permalink" href="#sentence-nunjucks">Output Nunjucks</a>
                 <small>v2.5.0</small>
@@ -397,7 +432,7 @@ Call Stack:
         
         
         
-        <section id="sentence-swig">
+        <section id="sentence-swig" data-engine="swig">
             <h4>
                 <a class="permalink" href="#sentence-swig">Output Swig</a>
                 <small>v1.4.2</small>
@@ -409,7 +444,7 @@ Call Stack:
         
         
         
-        <section id="sentence-twig">
+        <section id="sentence-twig" data-engine="twig">
             <h4>
                 <a class="permalink" href="#sentence-twig">Output Twig</a>
                 <small>v1.24.2</small>
@@ -433,7 +468,7 @@ Call Stack:
         
         
         
-        <section id="starts-with-number-django">
+        <section id="starts-with-number-django" data-engine="django">
             <h4>
                 <a class="permalink" href="#starts-with-number-django">Output Django</a>
                 <small>v1.10.1</small>
@@ -445,7 +480,7 @@ Call Stack:
         
         
         
-        <section id="starts-with-number-jinja2">
+        <section id="starts-with-number-jinja2" data-engine="jinja2">
             <h4>
                 <a class="permalink" href="#starts-with-number-jinja2">Output Jinja2</a>
                 <small>v2.8.0</small>
@@ -457,7 +492,7 @@ Call Stack:
         
         
         
-        <section id="starts-with-number-nunjucks">
+        <section id="starts-with-number-nunjucks" data-engine="nunjucks">
             <h4>
                 <a class="permalink" href="#starts-with-number-nunjucks">Output Nunjucks</a>
                 <small>v2.5.0</small>
@@ -469,7 +504,7 @@ Call Stack:
         
         
         
-        <section id="starts-with-number-swig">
+        <section id="starts-with-number-swig" data-engine="swig">
             <h4>
                 <a class="permalink" href="#starts-with-number-swig">Output Swig</a>
                 <small>v1.4.2</small>
@@ -481,7 +516,7 @@ Call Stack:
         
         
         
-        <section id="starts-with-number-twig">
+        <section id="starts-with-number-twig" data-engine="twig">
             <h4>
                 <a class="permalink" href="#starts-with-number-twig">Output Twig</a>
                 <small>v1.24.2</small>
@@ -505,7 +540,7 @@ Call Stack:
         
         
         
-        <section id="word-django">
+        <section id="word-django" data-engine="django">
             <h4>
                 <a class="permalink" href="#word-django">Output Django</a>
                 <small>v1.10.1</small>
@@ -517,7 +552,7 @@ Call Stack:
         
         
         
-        <section id="word-jinja2">
+        <section id="word-jinja2" data-engine="jinja2">
             <h4>
                 <a class="permalink" href="#word-jinja2">Output Jinja2</a>
                 <small>v2.8.0</small>
@@ -529,7 +564,7 @@ Call Stack:
         
         
         
-        <section id="word-nunjucks">
+        <section id="word-nunjucks" data-engine="nunjucks">
             <h4>
                 <a class="permalink" href="#word-nunjucks">Output Nunjucks</a>
                 <small>v2.5.0</small>
@@ -541,7 +576,7 @@ Call Stack:
         
         
         
-        <section id="word-swig">
+        <section id="word-swig" data-engine="swig">
             <h4>
                 <a class="permalink" href="#word-swig">Output Swig</a>
                 <small>v1.4.2</small>
@@ -553,7 +588,7 @@ Call Stack:
         
         
         
-        <section id="word-twig">
+        <section id="word-twig" data-engine="twig">
             <h4>
                 <a class="permalink" href="#word-twig">Output Twig</a>
                 <small>v1.24.2</small>
@@ -566,6 +601,68 @@ Call Stack:
     </section>
     
 </article>
+
+<script>(function engineEnabler(){
+    'use strict';
+
+    var CAPABLE_BROWSER = ('addEventListener' in window);
+    if (!CAPABLE_BROWSER) {
+        return;
+    }
+
+    var SUPPORTS_STORAGE = ('localStorage' in window);
+    var STORAGE_KEY = 'enabledEngines';
+
+    var form = document.querySelector('[data-engine-enabler]');
+    var inputs = [].slice.call(form.engine);
+    var targets = [].slice.call(document.querySelectorAll('[data-engine]'));
+
+    form.addEventListener('change', onEnableEngines);
+    restoreState();
+
+    function onEnableEngines() {
+        var state = getEngineState(this);
+        enableTargets(state);
+        saveState(state);
+    }
+
+    function getEngineState(form) {
+        return inputs.reduce(function(map, input){
+            map[input.value] = input.checked;
+            return map;
+        }, {});
+    }
+
+    function enableTargets(state) {
+        targets.forEach(function(target) {
+            var engine = target.getAttribute('data-engine');
+            target.setAttribute('data-engine-enabled', state[engine]);
+        });
+    }
+
+    function saveState(state) {
+        if(!SUPPORTS_STORAGE) {
+            return;
+        }
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
+    }
+
+    function restoreState() {
+        if(!SUPPORTS_STORAGE) {
+            return;
+        }
+        var state = JSON.parse(localStorage.getItem(STORAGE_KEY));
+        restoreInputs(state);
+        enableTargets(state);
+    }
+
+    function restoreInputs(state) {
+        inputs.forEach(function(input) {
+           input.checked = state[input.value];
+        });
+    }
+
+}());</script>
 
 
 <footer class="app-footer" role="contentinfo">

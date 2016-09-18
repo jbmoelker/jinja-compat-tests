@@ -19,15 +19,50 @@
 <style type="text/css">
     h4 { margin-bottom: 0; }
     h4 small { float: right; font-weight: normal; font-style: italic; }
+    label { padding-right: 1em; cursor: pointer; }
     pre { padding: .5em; margin-top: .5rem; min-height: 1em; overflow-x: scroll; }
     .section { margin-bottom: 2.5rem; }
     .test { border: 2px solid deepskyblue; }
     .result { border: 2px solid lawngreen; }
     .error { border: 2px solid red; white-space: normal; }
+
+    [data-engine-enabled="false"] { display:none; }
 </style>
 
 <header>
     <h1><a rel="home" href="../../">Jinja Compat Tests</a></h1>
+
+    <form data-engine-enabler>
+        <fieldset>
+            <legend>Enabled engines</legend>
+            
+            <label>
+                <input type="checkbox" checked name="engine" value="django">
+                Django
+            </label>
+            
+            <label>
+                <input type="checkbox" checked name="engine" value="jinja2">
+                Jinja2
+            </label>
+            
+            <label>
+                <input type="checkbox" checked name="engine" value="nunjucks">
+                Nunjucks
+            </label>
+            
+            <label>
+                <input type="checkbox" checked name="engine" value="swig">
+                Swig
+            </label>
+            
+            <label>
+                <input type="checkbox" checked name="engine" value="twig">
+                Twig
+            </label>
+            
+        </fieldset>
+    </form>
 </header>
 
 <article>
@@ -99,7 +134,7 @@
         
         
         
-        <section id="broken-expression-django">
+        <section id="broken-expression-django" data-engine="django">
             <h4>
                 <a class="permalink" href="#broken-expression-django">Output Django</a>
                 <small>v1.10.1</small>
@@ -111,7 +146,7 @@
         
         
         
-        <section id="broken-expression-jinja2">
+        <section id="broken-expression-jinja2" data-engine="jinja2">
             <h4>
                 <a class="permalink" href="#broken-expression-jinja2">Output Jinja2</a>
                 <small>v2.8.0</small>
@@ -123,7 +158,7 @@
         
         
         
-        <section id="broken-expression-nunjucks">
+        <section id="broken-expression-nunjucks" data-engine="nunjucks">
             <h4>
                 <a class="permalink" href="#broken-expression-nunjucks">Output Nunjucks</a>
                 <small>v2.5.0</small>
@@ -135,7 +170,7 @@
         
         
         
-        <section id="broken-expression-swig">
+        <section id="broken-expression-swig" data-engine="swig">
             <h4>
                 <a class="permalink" href="#broken-expression-swig">Output Swig</a>
                 <small>v1.4.2</small>
@@ -147,7 +182,7 @@
         
         
         
-        <section id="broken-expression-twig">
+        <section id="broken-expression-twig" data-engine="twig">
             <h4>
                 <a class="permalink" href="#broken-expression-twig">Output Twig</a>
                 <small>v1.24.2</small>
@@ -171,7 +206,7 @@
         
         
         
-        <section id="broken-tag-django">
+        <section id="broken-tag-django" data-engine="django">
             <h4>
                 <a class="permalink" href="#broken-tag-django">Output Django</a>
                 <small>v1.10.1</small>
@@ -183,7 +218,7 @@
         
         
         
-        <section id="broken-tag-jinja2">
+        <section id="broken-tag-jinja2" data-engine="jinja2">
             <h4>
                 <a class="permalink" href="#broken-tag-jinja2">Output Jinja2</a>
                 <small>v2.8.0</small>
@@ -195,7 +230,7 @@
         
         
         
-        <section id="broken-tag-nunjucks">
+        <section id="broken-tag-nunjucks" data-engine="nunjucks">
             <h4>
                 <a class="permalink" href="#broken-tag-nunjucks">Output Nunjucks</a>
                 <small>v2.5.0</small>
@@ -207,7 +242,7 @@
         
         
         
-        <section id="broken-tag-swig">
+        <section id="broken-tag-swig" data-engine="swig">
             <h4>
                 <a class="permalink" href="#broken-tag-swig">Output Swig</a>
                 <small>v1.4.2</small>
@@ -219,7 +254,7 @@
         
         
         
-        <section id="broken-tag-twig">
+        <section id="broken-tag-twig" data-engine="twig">
             <h4>
                 <a class="permalink" href="#broken-tag-twig">Output Twig</a>
                 <small>v1.24.2</small>
@@ -243,7 +278,7 @@
         
         
         
-        <section id="comment-django">
+        <section id="comment-django" data-engine="django">
             <h4>
                 <a class="permalink" href="#comment-django">Output Django</a>
                 <small>v1.10.1</small>
@@ -255,7 +290,7 @@
         
         
         
-        <section id="comment-jinja2">
+        <section id="comment-jinja2" data-engine="jinja2">
             <h4>
                 <a class="permalink" href="#comment-jinja2">Output Jinja2</a>
                 <small>v2.8.0</small>
@@ -267,7 +302,7 @@
         
         
         
-        <section id="comment-nunjucks">
+        <section id="comment-nunjucks" data-engine="nunjucks">
             <h4>
                 <a class="permalink" href="#comment-nunjucks">Output Nunjucks</a>
                 <small>v2.5.0</small>
@@ -279,7 +314,7 @@
         
         
         
-        <section id="comment-swig">
+        <section id="comment-swig" data-engine="swig">
             <h4>
                 <a class="permalink" href="#comment-swig">Output Swig</a>
                 <small>v1.4.2</small>
@@ -291,7 +326,7 @@
         
         
         
-        <section id="comment-twig">
+        <section id="comment-twig" data-engine="twig">
             <h4>
                 <a class="permalink" href="#comment-twig">Output Twig</a>
                 <small>v1.24.2</small>
@@ -327,7 +362,7 @@
         
         
         
-        <section id="multiline-django">
+        <section id="multiline-django" data-engine="django">
             <h4>
                 <a class="permalink" href="#multiline-django">Output Django</a>
                 <small>v1.10.1</small>
@@ -339,7 +374,7 @@
         
         
         
-        <section id="multiline-jinja2">
+        <section id="multiline-jinja2" data-engine="jinja2">
             <h4>
                 <a class="permalink" href="#multiline-jinja2">Output Jinja2</a>
                 <small>v2.8.0</small>
@@ -356,7 +391,7 @@ value Y
         
         
         
-        <section id="multiline-nunjucks">
+        <section id="multiline-nunjucks" data-engine="nunjucks">
             <h4>
                 <a class="permalink" href="#multiline-nunjucks">Output Nunjucks</a>
                 <small>v2.5.0</small>
@@ -373,7 +408,7 @@ value Y
         
         
         
-        <section id="multiline-swig">
+        <section id="multiline-swig" data-engine="swig">
             <h4>
                 <a class="permalink" href="#multiline-swig">Output Swig</a>
                 <small>v1.4.2</small>
@@ -390,7 +425,7 @@ value Y
         
         
         
-        <section id="multiline-twig">
+        <section id="multiline-twig" data-engine="twig">
             <h4>
                 <a class="permalink" href="#multiline-twig">Output Twig</a>
                 <small>v1.24.2</small>
@@ -426,7 +461,7 @@ value Y
         
         
         
-        <section id="multiple-django">
+        <section id="multiple-django" data-engine="django">
             <h4>
                 <a class="permalink" href="#multiple-django">Output Django</a>
                 <small>v1.10.1</small>
@@ -438,7 +473,7 @@ value Y
         
         
         
-        <section id="multiple-jinja2">
+        <section id="multiple-jinja2" data-engine="jinja2">
             <h4>
                 <a class="permalink" href="#multiple-jinja2">Output Jinja2</a>
                 <small>v2.8.0</small>
@@ -450,7 +485,7 @@ value Y
         
         
         
-        <section id="multiple-nunjucks">
+        <section id="multiple-nunjucks" data-engine="nunjucks">
             <h4>
                 <a class="permalink" href="#multiple-nunjucks">Output Nunjucks</a>
                 <small>v2.5.0</small>
@@ -462,7 +497,7 @@ value Y
         
         
         
-        <section id="multiple-swig">
+        <section id="multiple-swig" data-engine="swig">
             <h4>
                 <a class="permalink" href="#multiple-swig">Output Swig</a>
                 <small>v1.4.2</small>
@@ -474,7 +509,7 @@ value Y
         
         
         
-        <section id="multiple-twig">
+        <section id="multiple-twig" data-engine="twig">
             <h4>
                 <a class="permalink" href="#multiple-twig">Output Twig</a>
                 <small>v1.24.2</small>
@@ -498,7 +533,7 @@ value Y
         
         
         
-        <section id="nested-raw-django">
+        <section id="nested-raw-django" data-engine="django">
             <h4>
                 <a class="permalink" href="#nested-raw-django">Output Django</a>
                 <small>v1.10.1</small>
@@ -510,7 +545,7 @@ value Y
         
         
         
-        <section id="nested-raw-jinja2">
+        <section id="nested-raw-jinja2" data-engine="jinja2">
             <h4>
                 <a class="permalink" href="#nested-raw-jinja2">Output Jinja2</a>
                 <small>v2.8.0</small>
@@ -522,7 +557,7 @@ value Y
         
         
         
-        <section id="nested-raw-nunjucks">
+        <section id="nested-raw-nunjucks" data-engine="nunjucks">
             <h4>
                 <a class="permalink" href="#nested-raw-nunjucks">Output Nunjucks</a>
                 <small>v2.5.0</small>
@@ -534,7 +569,7 @@ value Y
         
         
         
-        <section id="nested-raw-swig">
+        <section id="nested-raw-swig" data-engine="swig">
             <h4>
                 <a class="permalink" href="#nested-raw-swig">Output Swig</a>
                 <small>v1.4.2</small>
@@ -546,7 +581,7 @@ value Y
         
         
         
-        <section id="nested-raw-twig">
+        <section id="nested-raw-twig" data-engine="twig">
             <h4>
                 <a class="permalink" href="#nested-raw-twig">Output Twig</a>
                 <small>v1.24.2</small>
@@ -570,7 +605,7 @@ value Y
         
         
         
-        <section id="tag-django">
+        <section id="tag-django" data-engine="django">
             <h4>
                 <a class="permalink" href="#tag-django">Output Django</a>
                 <small>v1.10.1</small>
@@ -582,7 +617,7 @@ value Y
         
         
         
-        <section id="tag-jinja2">
+        <section id="tag-jinja2" data-engine="jinja2">
             <h4>
                 <a class="permalink" href="#tag-jinja2">Output Jinja2</a>
                 <small>v2.8.0</small>
@@ -594,7 +629,7 @@ value Y
         
         
         
-        <section id="tag-nunjucks">
+        <section id="tag-nunjucks" data-engine="nunjucks">
             <h4>
                 <a class="permalink" href="#tag-nunjucks">Output Nunjucks</a>
                 <small>v2.5.0</small>
@@ -606,7 +641,7 @@ value Y
         
         
         
-        <section id="tag-swig">
+        <section id="tag-swig" data-engine="swig">
             <h4>
                 <a class="permalink" href="#tag-swig">Output Swig</a>
                 <small>v1.4.2</small>
@@ -618,7 +653,7 @@ value Y
         
         
         
-        <section id="tag-twig">
+        <section id="tag-twig" data-engine="twig">
             <h4>
                 <a class="permalink" href="#tag-twig">Output Twig</a>
                 <small>v1.24.2</small>
@@ -642,7 +677,7 @@ value Y
         
         
         
-        <section id="text-django">
+        <section id="text-django" data-engine="django">
             <h4>
                 <a class="permalink" href="#text-django">Output Django</a>
                 <small>v1.10.1</small>
@@ -654,7 +689,7 @@ value Y
         
         
         
-        <section id="text-jinja2">
+        <section id="text-jinja2" data-engine="jinja2">
             <h4>
                 <a class="permalink" href="#text-jinja2">Output Jinja2</a>
                 <small>v2.8.0</small>
@@ -666,7 +701,7 @@ value Y
         
         
         
-        <section id="text-nunjucks">
+        <section id="text-nunjucks" data-engine="nunjucks">
             <h4>
                 <a class="permalink" href="#text-nunjucks">Output Nunjucks</a>
                 <small>v2.5.0</small>
@@ -678,7 +713,7 @@ value Y
         
         
         
-        <section id="text-swig">
+        <section id="text-swig" data-engine="swig">
             <h4>
                 <a class="permalink" href="#text-swig">Output Swig</a>
                 <small>v1.4.2</small>
@@ -690,7 +725,7 @@ value Y
         
         
         
-        <section id="text-twig">
+        <section id="text-twig" data-engine="twig">
             <h4>
                 <a class="permalink" href="#text-twig">Output Twig</a>
                 <small>v1.24.2</small>
@@ -703,6 +738,68 @@ value Y
     </section>
     
 </article>
+
+<script>(function engineEnabler(){
+    'use strict';
+
+    var CAPABLE_BROWSER = ('addEventListener' in window);
+    if (!CAPABLE_BROWSER) {
+        return;
+    }
+
+    var SUPPORTS_STORAGE = ('localStorage' in window);
+    var STORAGE_KEY = 'enabledEngines';
+
+    var form = document.querySelector('[data-engine-enabler]');
+    var inputs = [].slice.call(form.engine);
+    var targets = [].slice.call(document.querySelectorAll('[data-engine]'));
+
+    form.addEventListener('change', onEnableEngines);
+    restoreState();
+
+    function onEnableEngines() {
+        var state = getEngineState(this);
+        enableTargets(state);
+        saveState(state);
+    }
+
+    function getEngineState(form) {
+        return inputs.reduce(function(map, input){
+            map[input.value] = input.checked;
+            return map;
+        }, {});
+    }
+
+    function enableTargets(state) {
+        targets.forEach(function(target) {
+            var engine = target.getAttribute('data-engine');
+            target.setAttribute('data-engine-enabled', state[engine]);
+        });
+    }
+
+    function saveState(state) {
+        if(!SUPPORTS_STORAGE) {
+            return;
+        }
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
+    }
+
+    function restoreState() {
+        if(!SUPPORTS_STORAGE) {
+            return;
+        }
+        var state = JSON.parse(localStorage.getItem(STORAGE_KEY));
+        restoreInputs(state);
+        enableTargets(state);
+    }
+
+    function restoreInputs(state) {
+        inputs.forEach(function(input) {
+           input.checked = state[input.value];
+        });
+    }
+
+}());</script>
 
 
 <footer class="app-footer" role="contentinfo">

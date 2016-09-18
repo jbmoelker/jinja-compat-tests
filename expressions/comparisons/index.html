@@ -19,15 +19,50 @@
 <style type="text/css">
     h4 { margin-bottom: 0; }
     h4 small { float: right; font-weight: normal; font-style: italic; }
+    label { padding-right: 1em; cursor: pointer; }
     pre { padding: .5em; margin-top: .5rem; min-height: 1em; overflow-x: scroll; }
     .section { margin-bottom: 2.5rem; }
     .test { border: 2px solid deepskyblue; }
     .result { border: 2px solid lawngreen; }
     .error { border: 2px solid red; white-space: normal; }
+
+    [data-engine-enabled="false"] { display:none; }
 </style>
 
 <header>
     <h1><a rel="home" href="../../">Jinja Compat Tests</a></h1>
+
+    <form data-engine-enabler>
+        <fieldset>
+            <legend>Enabled engines</legend>
+            
+            <label>
+                <input type="checkbox" checked name="engine" value="django">
+                Django
+            </label>
+            
+            <label>
+                <input type="checkbox" checked name="engine" value="jinja2">
+                Jinja2
+            </label>
+            
+            <label>
+                <input type="checkbox" checked name="engine" value="nunjucks">
+                Nunjucks
+            </label>
+            
+            <label>
+                <input type="checkbox" checked name="engine" value="swig">
+                Swig
+            </label>
+            
+            <label>
+                <input type="checkbox" checked name="engine" value="twig">
+                Twig
+            </label>
+            
+        </fieldset>
+    </form>
 </header>
 
 <article>
@@ -91,7 +126,7 @@
         
         
         
-        <section id="ends-with-django">
+        <section id="ends-with-django" data-engine="django">
             <h4>
                 <a class="permalink" href="#ends-with-django">Output Django</a>
                 <small>v1.10.1</small>
@@ -103,7 +138,7 @@
         
         
         
-        <section id="ends-with-jinja2">
+        <section id="ends-with-jinja2" data-engine="jinja2">
             <h4>
                 <a class="permalink" href="#ends-with-jinja2">Output Jinja2</a>
                 <small>v2.8.0</small>
@@ -115,7 +150,7 @@
         
         
         
-        <section id="ends-with-nunjucks">
+        <section id="ends-with-nunjucks" data-engine="nunjucks">
             <h4>
                 <a class="permalink" href="#ends-with-nunjucks">Output Nunjucks</a>
                 <small>v2.5.0</small>
@@ -128,7 +163,7 @@
         
         
         
-        <section id="ends-with-swig">
+        <section id="ends-with-swig" data-engine="swig">
             <h4>
                 <a class="permalink" href="#ends-with-swig">Output Swig</a>
                 <small>v1.4.2</small>
@@ -140,7 +175,7 @@
         
         
         
-        <section id="ends-with-twig">
+        <section id="ends-with-twig" data-engine="twig">
             <h4>
                 <a class="permalink" href="#ends-with-twig">Output Twig</a>
                 <small>v1.24.2</small>
@@ -173,7 +208,7 @@
         
         
         
-        <section id="equal-to-django">
+        <section id="equal-to-django" data-engine="django">
             <h4>
                 <a class="permalink" href="#equal-to-django">Output Django</a>
                 <small>v1.10.1</small>
@@ -187,7 +222,7 @@
         
         
         
-        <section id="equal-to-jinja2">
+        <section id="equal-to-jinja2" data-engine="jinja2">
             <h4>
                 <a class="permalink" href="#equal-to-jinja2">Output Jinja2</a>
                 <small>v2.8.0</small>
@@ -201,7 +236,7 @@
         
         
         
-        <section id="equal-to-nunjucks">
+        <section id="equal-to-nunjucks" data-engine="nunjucks">
             <h4>
                 <a class="permalink" href="#equal-to-nunjucks">Output Nunjucks</a>
                 <small>v2.5.0</small>
@@ -215,7 +250,7 @@
         
         
         
-        <section id="equal-to-swig">
+        <section id="equal-to-swig" data-engine="swig">
             <h4>
                 <a class="permalink" href="#equal-to-swig">Output Swig</a>
                 <small>v1.4.2</small>
@@ -229,7 +264,7 @@
         
         
         
-        <section id="equal-to-twig">
+        <section id="equal-to-twig" data-engine="twig">
             <h4>
                 <a class="permalink" href="#equal-to-twig">Output Twig</a>
                 <small>v1.24.2</small>
@@ -260,7 +295,7 @@
         
         
         
-        <section id="greater-than-or-equal-django">
+        <section id="greater-than-or-equal-django" data-engine="django">
             <h4>
                 <a class="permalink" href="#greater-than-or-equal-django">Output Django</a>
                 <small>v1.10.1</small>
@@ -278,7 +313,7 @@
         
         
         
-        <section id="greater-than-or-equal-jinja2">
+        <section id="greater-than-or-equal-jinja2" data-engine="jinja2">
             <h4>
                 <a class="permalink" href="#greater-than-or-equal-jinja2">Output Jinja2</a>
                 <small>v2.8.0</small>
@@ -296,7 +331,7 @@
         
         
         
-        <section id="greater-than-or-equal-nunjucks">
+        <section id="greater-than-or-equal-nunjucks" data-engine="nunjucks">
             <h4>
                 <a class="permalink" href="#greater-than-or-equal-nunjucks">Output Nunjucks</a>
                 <small>v2.5.0</small>
@@ -314,7 +349,7 @@
         
         
         
-        <section id="greater-than-or-equal-swig">
+        <section id="greater-than-or-equal-swig" data-engine="swig">
             <h4>
                 <a class="permalink" href="#greater-than-or-equal-swig">Output Swig</a>
                 <small>v1.4.2</small>
@@ -332,7 +367,7 @@
         
         
         
-        <section id="greater-than-or-equal-twig">
+        <section id="greater-than-or-equal-twig" data-engine="twig">
             <h4>
                 <a class="permalink" href="#greater-than-or-equal-twig">Output Twig</a>
                 <small>v1.24.2</small>
@@ -361,7 +396,7 @@
         
         
         
-        <section id="greater-than-django">
+        <section id="greater-than-django" data-engine="django">
             <h4>
                 <a class="permalink" href="#greater-than-django">Output Django</a>
                 <small>v1.10.1</small>
@@ -375,7 +410,7 @@
         
         
         
-        <section id="greater-than-jinja2">
+        <section id="greater-than-jinja2" data-engine="jinja2">
             <h4>
                 <a class="permalink" href="#greater-than-jinja2">Output Jinja2</a>
                 <small>v2.8.0</small>
@@ -389,7 +424,7 @@
         
         
         
-        <section id="greater-than-nunjucks">
+        <section id="greater-than-nunjucks" data-engine="nunjucks">
             <h4>
                 <a class="permalink" href="#greater-than-nunjucks">Output Nunjucks</a>
                 <small>v2.5.0</small>
@@ -403,7 +438,7 @@
         
         
         
-        <section id="greater-than-swig">
+        <section id="greater-than-swig" data-engine="swig">
             <h4>
                 <a class="permalink" href="#greater-than-swig">Output Swig</a>
                 <small>v1.4.2</small>
@@ -417,7 +452,7 @@
         
         
         
-        <section id="greater-than-twig">
+        <section id="greater-than-twig" data-engine="twig">
             <h4>
                 <a class="permalink" href="#greater-than-twig">Output Twig</a>
                 <small>v1.24.2</small>
@@ -448,7 +483,7 @@
         
         
         
-        <section id="less-than-or-equal-django">
+        <section id="less-than-or-equal-django" data-engine="django">
             <h4>
                 <a class="permalink" href="#less-than-or-equal-django">Output Django</a>
                 <small>v1.10.1</small>
@@ -466,7 +501,7 @@
         
         
         
-        <section id="less-than-or-equal-jinja2">
+        <section id="less-than-or-equal-jinja2" data-engine="jinja2">
             <h4>
                 <a class="permalink" href="#less-than-or-equal-jinja2">Output Jinja2</a>
                 <small>v2.8.0</small>
@@ -484,7 +519,7 @@
         
         
         
-        <section id="less-than-or-equal-nunjucks">
+        <section id="less-than-or-equal-nunjucks" data-engine="nunjucks">
             <h4>
                 <a class="permalink" href="#less-than-or-equal-nunjucks">Output Nunjucks</a>
                 <small>v2.5.0</small>
@@ -502,7 +537,7 @@
         
         
         
-        <section id="less-than-or-equal-swig">
+        <section id="less-than-or-equal-swig" data-engine="swig">
             <h4>
                 <a class="permalink" href="#less-than-or-equal-swig">Output Swig</a>
                 <small>v1.4.2</small>
@@ -520,7 +555,7 @@
         
         
         
-        <section id="less-than-or-equal-twig">
+        <section id="less-than-or-equal-twig" data-engine="twig">
             <h4>
                 <a class="permalink" href="#less-than-or-equal-twig">Output Twig</a>
                 <small>v1.24.2</small>
@@ -549,7 +584,7 @@
         
         
         
-        <section id="less-than-django">
+        <section id="less-than-django" data-engine="django">
             <h4>
                 <a class="permalink" href="#less-than-django">Output Django</a>
                 <small>v1.10.1</small>
@@ -563,7 +598,7 @@
         
         
         
-        <section id="less-than-jinja2">
+        <section id="less-than-jinja2" data-engine="jinja2">
             <h4>
                 <a class="permalink" href="#less-than-jinja2">Output Jinja2</a>
                 <small>v2.8.0</small>
@@ -577,7 +612,7 @@
         
         
         
-        <section id="less-than-nunjucks">
+        <section id="less-than-nunjucks" data-engine="nunjucks">
             <h4>
                 <a class="permalink" href="#less-than-nunjucks">Output Nunjucks</a>
                 <small>v2.5.0</small>
@@ -591,7 +626,7 @@
         
         
         
-        <section id="less-than-swig">
+        <section id="less-than-swig" data-engine="swig">
             <h4>
                 <a class="permalink" href="#less-than-swig">Output Swig</a>
                 <small>v1.4.2</small>
@@ -605,7 +640,7 @@
         
         
         
-        <section id="less-than-twig">
+        <section id="less-than-twig" data-engine="twig">
             <h4>
                 <a class="permalink" href="#less-than-twig">Output Twig</a>
                 <small>v1.24.2</small>
@@ -637,7 +672,7 @@
         
         
         
-        <section id="matches-django">
+        <section id="matches-django" data-engine="django">
             <h4>
                 <a class="permalink" href="#matches-django">Output Django</a>
                 <small>v1.10.1</small>
@@ -649,7 +684,7 @@
         
         
         
-        <section id="matches-jinja2">
+        <section id="matches-jinja2" data-engine="jinja2">
             <h4>
                 <a class="permalink" href="#matches-jinja2">Output Jinja2</a>
                 <small>v2.8.0</small>
@@ -661,7 +696,7 @@
         
         
         
-        <section id="matches-nunjucks">
+        <section id="matches-nunjucks" data-engine="nunjucks">
             <h4>
                 <a class="permalink" href="#matches-nunjucks">Output Nunjucks</a>
                 <small>v2.5.0</small>
@@ -674,7 +709,7 @@
         
         
         
-        <section id="matches-swig">
+        <section id="matches-swig" data-engine="swig">
             <h4>
                 <a class="permalink" href="#matches-swig">Output Swig</a>
                 <small>v1.4.2</small>
@@ -686,7 +721,7 @@
         
         
         
-        <section id="matches-twig">
+        <section id="matches-twig" data-engine="twig">
             <h4>
                 <a class="permalink" href="#matches-twig">Output Twig</a>
                 <small>v1.24.2</small>
@@ -719,7 +754,7 @@
         
         
         
-        <section id="not-equal-to-django">
+        <section id="not-equal-to-django" data-engine="django">
             <h4>
                 <a class="permalink" href="#not-equal-to-django">Output Django</a>
                 <small>v1.10.1</small>
@@ -733,7 +768,7 @@
         
         
         
-        <section id="not-equal-to-jinja2">
+        <section id="not-equal-to-jinja2" data-engine="jinja2">
             <h4>
                 <a class="permalink" href="#not-equal-to-jinja2">Output Jinja2</a>
                 <small>v2.8.0</small>
@@ -747,7 +782,7 @@
         
         
         
-        <section id="not-equal-to-nunjucks">
+        <section id="not-equal-to-nunjucks" data-engine="nunjucks">
             <h4>
                 <a class="permalink" href="#not-equal-to-nunjucks">Output Nunjucks</a>
                 <small>v2.5.0</small>
@@ -761,7 +796,7 @@
         
         
         
-        <section id="not-equal-to-swig">
+        <section id="not-equal-to-swig" data-engine="swig">
             <h4>
                 <a class="permalink" href="#not-equal-to-swig">Output Swig</a>
                 <small>v1.4.2</small>
@@ -775,7 +810,7 @@
         
         
         
-        <section id="not-equal-to-twig">
+        <section id="not-equal-to-twig" data-engine="twig">
             <h4>
                 <a class="permalink" href="#not-equal-to-twig">Output Twig</a>
                 <small>v1.24.2</small>
@@ -802,7 +837,7 @@
         
         
         
-        <section id="starts-with-django">
+        <section id="starts-with-django" data-engine="django">
             <h4>
                 <a class="permalink" href="#starts-with-django">Output Django</a>
                 <small>v1.10.1</small>
@@ -814,7 +849,7 @@
         
         
         
-        <section id="starts-with-jinja2">
+        <section id="starts-with-jinja2" data-engine="jinja2">
             <h4>
                 <a class="permalink" href="#starts-with-jinja2">Output Jinja2</a>
                 <small>v2.8.0</small>
@@ -826,7 +861,7 @@
         
         
         
-        <section id="starts-with-nunjucks">
+        <section id="starts-with-nunjucks" data-engine="nunjucks">
             <h4>
                 <a class="permalink" href="#starts-with-nunjucks">Output Nunjucks</a>
                 <small>v2.5.0</small>
@@ -839,7 +874,7 @@
         
         
         
-        <section id="starts-with-swig">
+        <section id="starts-with-swig" data-engine="swig">
             <h4>
                 <a class="permalink" href="#starts-with-swig">Output Swig</a>
                 <small>v1.4.2</small>
@@ -851,7 +886,7 @@
         
         
         
-        <section id="starts-with-twig">
+        <section id="starts-with-twig" data-engine="twig">
             <h4>
                 <a class="permalink" href="#starts-with-twig">Output Twig</a>
                 <small>v1.24.2</small>
@@ -878,7 +913,7 @@
         
         
         
-        <section id="strict-equal-to-django">
+        <section id="strict-equal-to-django" data-engine="django">
             <h4>
                 <a class="permalink" href="#strict-equal-to-django">Output Django</a>
                 <small>v1.10.1</small>
@@ -890,7 +925,7 @@
         
         
         
-        <section id="strict-equal-to-jinja2">
+        <section id="strict-equal-to-jinja2" data-engine="jinja2">
             <h4>
                 <a class="permalink" href="#strict-equal-to-jinja2">Output Jinja2</a>
                 <small>v2.8.0</small>
@@ -902,7 +937,7 @@
         
         
         
-        <section id="strict-equal-to-nunjucks">
+        <section id="strict-equal-to-nunjucks" data-engine="nunjucks">
             <h4>
                 <a class="permalink" href="#strict-equal-to-nunjucks">Output Nunjucks</a>
                 <small>v2.5.0</small>
@@ -916,7 +951,7 @@
         
         
         
-        <section id="strict-equal-to-swig">
+        <section id="strict-equal-to-swig" data-engine="swig">
             <h4>
                 <a class="permalink" href="#strict-equal-to-swig">Output Swig</a>
                 <small>v1.4.2</small>
@@ -930,7 +965,7 @@
         
         
         
-        <section id="strict-equal-to-twig">
+        <section id="strict-equal-to-twig" data-engine="twig">
             <h4>
                 <a class="permalink" href="#strict-equal-to-twig">Output Twig</a>
                 <small>v1.24.2</small>
@@ -956,7 +991,7 @@
         
         
         
-        <section id="strict-not-equal-to-django">
+        <section id="strict-not-equal-to-django" data-engine="django">
             <h4>
                 <a class="permalink" href="#strict-not-equal-to-django">Output Django</a>
                 <small>v1.10.1</small>
@@ -968,7 +1003,7 @@
         
         
         
-        <section id="strict-not-equal-to-jinja2">
+        <section id="strict-not-equal-to-jinja2" data-engine="jinja2">
             <h4>
                 <a class="permalink" href="#strict-not-equal-to-jinja2">Output Jinja2</a>
                 <small>v2.8.0</small>
@@ -980,7 +1015,7 @@
         
         
         
-        <section id="strict-not-equal-to-nunjucks">
+        <section id="strict-not-equal-to-nunjucks" data-engine="nunjucks">
             <h4>
                 <a class="permalink" href="#strict-not-equal-to-nunjucks">Output Nunjucks</a>
                 <small>v2.5.0</small>
@@ -994,7 +1029,7 @@
         
         
         
-        <section id="strict-not-equal-to-swig">
+        <section id="strict-not-equal-to-swig" data-engine="swig">
             <h4>
                 <a class="permalink" href="#strict-not-equal-to-swig">Output Swig</a>
                 <small>v1.4.2</small>
@@ -1008,7 +1043,7 @@
         
         
         
-        <section id="strict-not-equal-to-twig">
+        <section id="strict-not-equal-to-twig" data-engine="twig">
             <h4>
                 <a class="permalink" href="#strict-not-equal-to-twig">Output Twig</a>
                 <small>v1.24.2</small>
@@ -1021,6 +1056,68 @@
     </section>
     
 </article>
+
+<script>(function engineEnabler(){
+    'use strict';
+
+    var CAPABLE_BROWSER = ('addEventListener' in window);
+    if (!CAPABLE_BROWSER) {
+        return;
+    }
+
+    var SUPPORTS_STORAGE = ('localStorage' in window);
+    var STORAGE_KEY = 'enabledEngines';
+
+    var form = document.querySelector('[data-engine-enabler]');
+    var inputs = [].slice.call(form.engine);
+    var targets = [].slice.call(document.querySelectorAll('[data-engine]'));
+
+    form.addEventListener('change', onEnableEngines);
+    restoreState();
+
+    function onEnableEngines() {
+        var state = getEngineState(this);
+        enableTargets(state);
+        saveState(state);
+    }
+
+    function getEngineState(form) {
+        return inputs.reduce(function(map, input){
+            map[input.value] = input.checked;
+            return map;
+        }, {});
+    }
+
+    function enableTargets(state) {
+        targets.forEach(function(target) {
+            var engine = target.getAttribute('data-engine');
+            target.setAttribute('data-engine-enabled', state[engine]);
+        });
+    }
+
+    function saveState(state) {
+        if(!SUPPORTS_STORAGE) {
+            return;
+        }
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
+    }
+
+    function restoreState() {
+        if(!SUPPORTS_STORAGE) {
+            return;
+        }
+        var state = JSON.parse(localStorage.getItem(STORAGE_KEY));
+        restoreInputs(state);
+        enableTargets(state);
+    }
+
+    function restoreInputs(state) {
+        inputs.forEach(function(input) {
+           input.checked = state[input.value];
+        });
+    }
+
+}());</script>
 
 
 <footer class="app-footer" role="contentinfo">
