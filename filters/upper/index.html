@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+
+    <title>upper filter | Jinja Compat Tests</title>
+    <style type="text/css">
+        html { font-family: Arial, sans-serif; }
+        .app-footer { border-top: 1px solid black; margin-top: 1rem; padding-top: .5rem; }
+    </style>
+    
+</head>
+<body>
+
+
+<style type="text/css">
+    h4 { margin-bottom: 0; }
+    h4 small { float: right; font-weight: normal; font-style: italic; }
+    pre { padding: .5em; margin-top: .5rem; min-height: 1em; overflow-x: scroll; }
+    .section { margin-bottom: 2.5rem; }
+    .test { border: 2px solid deepskyblue; }
+    .result { border: 2px solid lawngreen; }
+    .error { border: 2px solid red; white-space: normal; }
+</style>
+
+<header>
+    <h1><a rel="home" href="../../">Jinja Compat Tests</a></h1>
+</header>
+
+<article>
+    <h1><code>upper</code> filter</h1>
+
+    <section id="docs">
+        <h2><a class="permalink" href="#docs">Docs</a></h2>
+        <ul>
+        
+            
+            <li>
+                <a href="http://jinja.pocoo.org/docs/dev/templates/#upper">Jinja2</a>
+            </li>
+            
+        
+            
+            <li>
+                <a href="https://mozilla.github.io/nunjucks/templating.html#upper">Nunjucks</a>
+            </li>
+            
+        
+            
+            <li>
+                <a href="https://voorhoede.github.io/swig/docs/filters/#upper">Swig</a>
+            </li>
+            
+        
+            
+            <li>
+                <a href="http://twig.sensiolabs.org/doc/filters/upper.html">Twig</a>
+            </li>
+            
+        
+        </ul>
+    </section>
+
+    <h2 id="tests">
+        <a class="permalink" href="#tests">Tests</a>
+    </h2>
+    <ol>
+    
+        <li><a href="#array">array</a></li>
+    
+        <li><a href="#number">number</a></li>
+    
+        <li><a href="#string">string</a></li>
+    
+    </ol>
+    
+    
+    <section class="section" id="array">
+        <h3><a class="permalink" href="#array">Test: array</a></h3>
+
+        <h4>Template</h4>
+        <pre class="test"><code>{{ items|upper }}</code></pre>
+
+        
+        <h4>Data</h4>
+        <pre class="test"><code>{
+  "items": [
+    "my first car",
+    "my Second car",
+    "my THIRD car"
+  ]
+}</code></pre>
+        
+
+        
+        
+        
+        <section id="array-django">
+            <h4>
+                <a class="permalink" href="#array-django">Output Django</a>
+                <small>v1.10.1</small>
+            </h4>
+            
+                <pre class="result"><code>[U&#39;MY FIRST CAR&#39;, U&#39;MY SECOND CAR&#39;, U&#39;MY THIRD CAR&#39;]</code></pre>
+            
+        </section>
+        
+        
+        
+        <section id="array-jinja2">
+            <h4>
+                <a class="permalink" href="#array-jinja2">Output Jinja2</a>
+                <small>v2.8.0</small>
+            </h4>
+            
+                <pre class="result"><code>[U'MY FIRST CAR', U'MY SECOND CAR', U'MY THIRD CAR']</code></pre>
+            
+        </section>
+        
+        
+        
+        <section id="array-nunjucks">
+            <h4>
+                <a class="permalink" href="#array-nunjucks">Output Nunjucks</a>
+                <small>v2.5.0</small>
+            </h4>
+            
+                <pre class="error"><code>
+  TypeError: str.toUpperCase is not a function</code></pre>
+            
+        </section>
+        
+        
+        
+        <section id="array-swig">
+            <h4>
+                <a class="permalink" href="#array-swig">Output Swig</a>
+                <small>v1.4.2</small>
+            </h4>
+            
+                <pre class="result"><code>MY FIRST CAR,MY SECOND CAR,MY THIRD CAR</code></pre>
+            
+        </section>
+        
+        
+        
+        <section id="array-twig">
+            <h4>
+                <a class="permalink" href="#array-twig">Output Twig</a>
+                <small>v1.24.2</small>
+            </h4>
+            
+                <pre class="error"><code>
+Warning: mb_strtoupper() expects parameter 1 to be string, array given
+
+Call Stack:
+    0.0003     376744   1. {main}() /home/travis/build/jbmoelker/jinja-compat-tests/test-twig.php:0
+    0.2351    4055088   2. Twig_Environment->render() /home/travis/build/jbmoelker/jinja-compat-tests/test-twig.php:51
+    0.2376    4069408   3. Twig_Template->render() /home/travis/build/jbmoelker/jinja-compat-tests/vendor/twig/twig/lib/Twig/Environment.php:347
+    0.2376    4085872   4. Twig_Template->display() /home/travis/build/jbmoelker/jinja-compat-tests/vendor/twig/twig/lib/Twig/Template.php:366
+    0.2376    4085984   5. Twig_Template->displayWithErrorHandling() /home/travis/build/jbmoelker/jinja-compat-tests/vendor/twig/twig/lib/Twig/Template.php:355
+    0.2376    4085984   6. __TwigTemplate_33e1aa87391c73e66c8ab6095a05a75b9b83905f888d08f54576618d4adfa926->doDisplay() /home/travis/build/jbmoelker/jinja-compat-tests/vendor/twig/twig/lib/Twig/Template.php:387
+    0.2376    4085984   7. twig_upper_filter() /home/travis/build/jbmoelker/jinja-compat-tests/vendor/twig/twig/lib/Twig/Environment.php(403) : eval()'d code:19
+    0.2376    4085984   8. mb_strtoupper() /home/travis/build/jbmoelker/jinja-compat-tests/vendor/twig/twig/lib/Twig/Extension/Core.php:1280
+
+</code></pre>
+            
+        </section>
+        
+    </section>
+    
+    
+    <section class="section" id="number">
+        <h3><a class="permalink" href="#number">Test: number</a></h3>
+
+        <h4>Template</h4>
+        <pre class="test"><code>{{ 5|upper }}</code></pre>
+
+        
+
+        
+        
+        
+        <section id="number-django">
+            <h4>
+                <a class="permalink" href="#number-django">Output Django</a>
+                <small>v1.10.1</small>
+            </h4>
+            
+                <pre class="result"><code>5</code></pre>
+            
+        </section>
+        
+        
+        
+        <section id="number-jinja2">
+            <h4>
+                <a class="permalink" href="#number-jinja2">Output Jinja2</a>
+                <small>v2.8.0</small>
+            </h4>
+            
+                <pre class="result"><code>5</code></pre>
+            
+        </section>
+        
+        
+        
+        <section id="number-nunjucks">
+            <h4>
+                <a class="permalink" href="#number-nunjucks">Output Nunjucks</a>
+                <small>v2.5.0</small>
+            </h4>
+            
+                <pre class="error"><code>
+  TypeError: str.toUpperCase is not a function</code></pre>
+            
+        </section>
+        
+        
+        
+        <section id="number-swig">
+            <h4>
+                <a class="permalink" href="#number-swig">Output Swig</a>
+                <small>v1.4.2</small>
+            </h4>
+            
+                <pre class="result"><code>5</code></pre>
+            
+        </section>
+        
+        
+        
+        <section id="number-twig">
+            <h4>
+                <a class="permalink" href="#number-twig">Output Twig</a>
+                <small>v1.24.2</small>
+            </h4>
+            
+                <pre class="result"><code>5</code></pre>
+            
+        </section>
+        
+    </section>
+    
+    
+    <section class="section" id="string">
+        <h3><a class="permalink" href="#string">Test: string</a></h3>
+
+        <h4>Template</h4>
+        <pre class="test"><code>{{ 'My first CAR'|upper }}</code></pre>
+
+        
+
+        
+        
+        
+        <section id="string-django">
+            <h4>
+                <a class="permalink" href="#string-django">Output Django</a>
+                <small>v1.10.1</small>
+            </h4>
+            
+                <pre class="result"><code>MY FIRST CAR</code></pre>
+            
+        </section>
+        
+        
+        
+        <section id="string-jinja2">
+            <h4>
+                <a class="permalink" href="#string-jinja2">Output Jinja2</a>
+                <small>v2.8.0</small>
+            </h4>
+            
+                <pre class="result"><code>MY FIRST CAR</code></pre>
+            
+        </section>
+        
+        
+        
+        <section id="string-nunjucks">
+            <h4>
+                <a class="permalink" href="#string-nunjucks">Output Nunjucks</a>
+                <small>v2.5.0</small>
+            </h4>
+            
+                <pre class="result"><code>MY FIRST CAR</code></pre>
+            
+        </section>
+        
+        
+        
+        <section id="string-swig">
+            <h4>
+                <a class="permalink" href="#string-swig">Output Swig</a>
+                <small>v1.4.2</small>
+            </h4>
+            
+                <pre class="result"><code>MY FIRST CAR</code></pre>
+            
+        </section>
+        
+        
+        
+        <section id="string-twig">
+            <h4>
+                <a class="permalink" href="#string-twig">Output Twig</a>
+                <small>v1.24.2</small>
+            </h4>
+            
+                <pre class="result"><code>MY FIRST CAR</code></pre>
+            
+        </section>
+        
+    </section>
+    
+</article>
+
+
+<footer class="app-footer" role="contentinfo">
+    <a href="https://github.com/jbmoelker/jinja-compat-tests">Source on GitHub</a>
+</footer>
+
+
+</body>
+</html>

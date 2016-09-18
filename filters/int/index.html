@@ -1,0 +1,593 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+
+    <title>int filter | Jinja Compat Tests</title>
+    <style type="text/css">
+        html { font-family: Arial, sans-serif; }
+        .app-footer { border-top: 1px solid black; margin-top: 1rem; padding-top: .5rem; }
+    </style>
+    
+</head>
+<body>
+
+
+<style type="text/css">
+    h4 { margin-bottom: 0; }
+    h4 small { float: right; font-weight: normal; font-style: italic; }
+    pre { padding: .5em; margin-top: .5rem; min-height: 1em; overflow-x: scroll; }
+    .section { margin-bottom: 2.5rem; }
+    .test { border: 2px solid deepskyblue; }
+    .result { border: 2px solid lawngreen; }
+    .error { border: 2px solid red; white-space: normal; }
+</style>
+
+<header>
+    <h1><a rel="home" href="../../">Jinja Compat Tests</a></h1>
+</header>
+
+<article>
+    <h1><code>int</code> filter</h1>
+
+    <section id="docs">
+        <h2><a class="permalink" href="#docs">Docs</a></h2>
+        <ul>
+        
+            
+            <li>
+                <a href="http://jinja.pocoo.org/docs/dev/templates/#int">Jinja2</a>
+            </li>
+            
+        
+            
+            <li>
+                <a href="https://mozilla.github.io/nunjucks/templating.html#int">Nunjucks</a>
+            </li>
+            
+        
+            
+        
+            
+        
+        </ul>
+    </section>
+
+    <h2 id="tests">
+        <a class="permalink" href="#tests">Tests</a>
+    </h2>
+    <ol>
+    
+        <li><a href="#base-16">base-16</a></li>
+    
+        <li><a href="#base-8">base-8</a></li>
+    
+        <li><a href="#custom-fallback">custom-fallback</a></li>
+    
+        <li><a href="#float">float</a></li>
+    
+        <li><a href="#force-fallback">force-fallback</a></li>
+    
+        <li><a href="#integer">integer</a></li>
+    
+        <li><a href="#string">string</a></li>
+    
+    </ol>
+    
+    
+    <section class="section" id="base-16">
+        <h3><a class="permalink" href="#base-16">Test: base-16</a></h3>
+
+        <h4>Template</h4>
+        <pre class="test"><code>{{ "0x4d32"|int(0, 16) }}</code></pre>
+
+        
+
+        
+        
+        
+        <section id="base-16-django">
+            <h4>
+                <a class="permalink" href="#base-16-django">Output Django</a>
+                <small>v1.10.1</small>
+            </h4>
+            
+                <pre class="error"><code>Invalid filter: 'int'</code></pre>
+            
+        </section>
+        
+        
+        
+        <section id="base-16-jinja2">
+            <h4>
+                <a class="permalink" href="#base-16-jinja2">Output Jinja2</a>
+                <small>v2.8.0</small>
+            </h4>
+            
+                <pre class="result"><code>19762</code></pre>
+            
+        </section>
+        
+        
+        
+        <section id="base-16-nunjucks">
+            <h4>
+                <a class="permalink" href="#base-16-nunjucks">Output Nunjucks</a>
+                <small>v2.5.0</small>
+            </h4>
+            
+                <pre class="result"><code>0</code></pre>
+            
+        </section>
+        
+        
+        
+        <section id="base-16-swig">
+            <h4>
+                <a class="permalink" href="#base-16-swig">Output Swig</a>
+                <small>v1.4.2</small>
+            </h4>
+            
+                <pre class="error"><code>Invalid filter "int".</code></pre>
+            
+        </section>
+        
+        
+        
+        <section id="base-16-twig">
+            <h4>
+                <a class="permalink" href="#base-16-twig">Output Twig</a>
+                <small>v1.24.2</small>
+            </h4>
+            
+                <pre class="error"><code>Unknown "int" filter.</code></pre>
+            
+        </section>
+        
+    </section>
+    
+    
+    <section class="section" id="base-8">
+        <h3><a class="permalink" href="#base-8">Test: base-8</a></h3>
+
+        <h4>Template</h4>
+        <pre class="test"><code>{{ "011"|int(0, 8) }}</code></pre>
+
+        
+
+        
+        
+        
+        <section id="base-8-django">
+            <h4>
+                <a class="permalink" href="#base-8-django">Output Django</a>
+                <small>v1.10.1</small>
+            </h4>
+            
+                <pre class="error"><code>Invalid filter: 'int'</code></pre>
+            
+        </section>
+        
+        
+        
+        <section id="base-8-jinja2">
+            <h4>
+                <a class="permalink" href="#base-8-jinja2">Output Jinja2</a>
+                <small>v2.8.0</small>
+            </h4>
+            
+                <pre class="result"><code>9</code></pre>
+            
+        </section>
+        
+        
+        
+        <section id="base-8-nunjucks">
+            <h4>
+                <a class="permalink" href="#base-8-nunjucks">Output Nunjucks</a>
+                <small>v2.5.0</small>
+            </h4>
+            
+                <pre class="result"><code>11</code></pre>
+            
+        </section>
+        
+        
+        
+        <section id="base-8-swig">
+            <h4>
+                <a class="permalink" href="#base-8-swig">Output Swig</a>
+                <small>v1.4.2</small>
+            </h4>
+            
+                <pre class="error"><code>Invalid filter "int".</code></pre>
+            
+        </section>
+        
+        
+        
+        <section id="base-8-twig">
+            <h4>
+                <a class="permalink" href="#base-8-twig">Output Twig</a>
+                <small>v1.24.2</small>
+            </h4>
+            
+                <pre class="error"><code>Unknown "int" filter.</code></pre>
+            
+        </section>
+        
+    </section>
+    
+    
+    <section class="section" id="custom-fallback">
+        <h3><a class="permalink" href="#custom-fallback">Test: custom-fallback</a></h3>
+
+        <h4>Template</h4>
+        <pre class="test"><code>{{ ""|int(5) }}</code></pre>
+
+        
+
+        
+        
+        
+        <section id="custom-fallback-django">
+            <h4>
+                <a class="permalink" href="#custom-fallback-django">Output Django</a>
+                <small>v1.10.1</small>
+            </h4>
+            
+                <pre class="error"><code>Invalid filter: 'int'</code></pre>
+            
+        </section>
+        
+        
+        
+        <section id="custom-fallback-jinja2">
+            <h4>
+                <a class="permalink" href="#custom-fallback-jinja2">Output Jinja2</a>
+                <small>v2.8.0</small>
+            </h4>
+            
+                <pre class="result"><code>5</code></pre>
+            
+        </section>
+        
+        
+        
+        <section id="custom-fallback-nunjucks">
+            <h4>
+                <a class="permalink" href="#custom-fallback-nunjucks">Output Nunjucks</a>
+                <small>v2.5.0</small>
+            </h4>
+            
+                <pre class="result"><code>5</code></pre>
+            
+        </section>
+        
+        
+        
+        <section id="custom-fallback-swig">
+            <h4>
+                <a class="permalink" href="#custom-fallback-swig">Output Swig</a>
+                <small>v1.4.2</small>
+            </h4>
+            
+                <pre class="error"><code>Invalid filter "int".</code></pre>
+            
+        </section>
+        
+        
+        
+        <section id="custom-fallback-twig">
+            <h4>
+                <a class="permalink" href="#custom-fallback-twig">Output Twig</a>
+                <small>v1.24.2</small>
+            </h4>
+            
+                <pre class="error"><code>Unknown "int" filter.</code></pre>
+            
+        </section>
+        
+    </section>
+    
+    
+    <section class="section" id="float">
+        <h3><a class="permalink" href="#float">Test: float</a></h3>
+
+        <h4>Template</h4>
+        <pre class="test"><code>{{ 3.52|int }}</code></pre>
+
+        
+
+        
+        
+        
+        <section id="float-django">
+            <h4>
+                <a class="permalink" href="#float-django">Output Django</a>
+                <small>v1.10.1</small>
+            </h4>
+            
+                <pre class="error"><code>Invalid filter: 'int'</code></pre>
+            
+        </section>
+        
+        
+        
+        <section id="float-jinja2">
+            <h4>
+                <a class="permalink" href="#float-jinja2">Output Jinja2</a>
+                <small>v2.8.0</small>
+            </h4>
+            
+                <pre class="result"><code>3</code></pre>
+            
+        </section>
+        
+        
+        
+        <section id="float-nunjucks">
+            <h4>
+                <a class="permalink" href="#float-nunjucks">Output Nunjucks</a>
+                <small>v2.5.0</small>
+            </h4>
+            
+                <pre class="result"><code>3</code></pre>
+            
+        </section>
+        
+        
+        
+        <section id="float-swig">
+            <h4>
+                <a class="permalink" href="#float-swig">Output Swig</a>
+                <small>v1.4.2</small>
+            </h4>
+            
+                <pre class="error"><code>Invalid filter "int".</code></pre>
+            
+        </section>
+        
+        
+        
+        <section id="float-twig">
+            <h4>
+                <a class="permalink" href="#float-twig">Output Twig</a>
+                <small>v1.24.2</small>
+            </h4>
+            
+                <pre class="error"><code>Unknown "int" filter.</code></pre>
+            
+        </section>
+        
+    </section>
+    
+    
+    <section class="section" id="force-fallback">
+        <h3><a class="permalink" href="#force-fallback">Test: force-fallback</a></h3>
+
+        <h4>Template</h4>
+        <pre class="test"><code>{{ ""|int }}</code></pre>
+
+        
+
+        
+        
+        
+        <section id="force-fallback-django">
+            <h4>
+                <a class="permalink" href="#force-fallback-django">Output Django</a>
+                <small>v1.10.1</small>
+            </h4>
+            
+                <pre class="error"><code>Invalid filter: 'int'</code></pre>
+            
+        </section>
+        
+        
+        
+        <section id="force-fallback-jinja2">
+            <h4>
+                <a class="permalink" href="#force-fallback-jinja2">Output Jinja2</a>
+                <small>v2.8.0</small>
+            </h4>
+            
+                <pre class="result"><code>0</code></pre>
+            
+        </section>
+        
+        
+        
+        <section id="force-fallback-nunjucks">
+            <h4>
+                <a class="permalink" href="#force-fallback-nunjucks">Output Nunjucks</a>
+                <small>v2.5.0</small>
+            </h4>
+            
+                <pre class="result"><code></code></pre>
+            
+        </section>
+        
+        
+        
+        <section id="force-fallback-swig">
+            <h4>
+                <a class="permalink" href="#force-fallback-swig">Output Swig</a>
+                <small>v1.4.2</small>
+            </h4>
+            
+                <pre class="error"><code>Invalid filter "int".</code></pre>
+            
+        </section>
+        
+        
+        
+        <section id="force-fallback-twig">
+            <h4>
+                <a class="permalink" href="#force-fallback-twig">Output Twig</a>
+                <small>v1.24.2</small>
+            </h4>
+            
+                <pre class="error"><code>Unknown "int" filter.</code></pre>
+            
+        </section>
+        
+    </section>
+    
+    
+    <section class="section" id="integer">
+        <h3><a class="permalink" href="#integer">Test: integer</a></h3>
+
+        <h4>Template</h4>
+        <pre class="test"><code>{{ 3|int }}</code></pre>
+
+        
+
+        
+        
+        
+        <section id="integer-django">
+            <h4>
+                <a class="permalink" href="#integer-django">Output Django</a>
+                <small>v1.10.1</small>
+            </h4>
+            
+                <pre class="error"><code>Invalid filter: 'int'</code></pre>
+            
+        </section>
+        
+        
+        
+        <section id="integer-jinja2">
+            <h4>
+                <a class="permalink" href="#integer-jinja2">Output Jinja2</a>
+                <small>v2.8.0</small>
+            </h4>
+            
+                <pre class="result"><code>3</code></pre>
+            
+        </section>
+        
+        
+        
+        <section id="integer-nunjucks">
+            <h4>
+                <a class="permalink" href="#integer-nunjucks">Output Nunjucks</a>
+                <small>v2.5.0</small>
+            </h4>
+            
+                <pre class="result"><code>3</code></pre>
+            
+        </section>
+        
+        
+        
+        <section id="integer-swig">
+            <h4>
+                <a class="permalink" href="#integer-swig">Output Swig</a>
+                <small>v1.4.2</small>
+            </h4>
+            
+                <pre class="error"><code>Invalid filter "int".</code></pre>
+            
+        </section>
+        
+        
+        
+        <section id="integer-twig">
+            <h4>
+                <a class="permalink" href="#integer-twig">Output Twig</a>
+                <small>v1.24.2</small>
+            </h4>
+            
+                <pre class="error"><code>Unknown "int" filter.</code></pre>
+            
+        </section>
+        
+    </section>
+    
+    
+    <section class="section" id="string">
+        <h3><a class="permalink" href="#string">Test: string</a></h3>
+
+        <h4>Template</h4>
+        <pre class="test"><code>{{ "3.52"|int }}</code></pre>
+
+        
+
+        
+        
+        
+        <section id="string-django">
+            <h4>
+                <a class="permalink" href="#string-django">Output Django</a>
+                <small>v1.10.1</small>
+            </h4>
+            
+                <pre class="error"><code>Invalid filter: 'int'</code></pre>
+            
+        </section>
+        
+        
+        
+        <section id="string-jinja2">
+            <h4>
+                <a class="permalink" href="#string-jinja2">Output Jinja2</a>
+                <small>v2.8.0</small>
+            </h4>
+            
+                <pre class="result"><code>3</code></pre>
+            
+        </section>
+        
+        
+        
+        <section id="string-nunjucks">
+            <h4>
+                <a class="permalink" href="#string-nunjucks">Output Nunjucks</a>
+                <small>v2.5.0</small>
+            </h4>
+            
+                <pre class="result"><code>3</code></pre>
+            
+        </section>
+        
+        
+        
+        <section id="string-swig">
+            <h4>
+                <a class="permalink" href="#string-swig">Output Swig</a>
+                <small>v1.4.2</small>
+            </h4>
+            
+                <pre class="error"><code>Invalid filter "int".</code></pre>
+            
+        </section>
+        
+        
+        
+        <section id="string-twig">
+            <h4>
+                <a class="permalink" href="#string-twig">Output Twig</a>
+                <small>v1.24.2</small>
+            </h4>
+            
+                <pre class="error"><code>Unknown "int" filter.</code></pre>
+            
+        </section>
+        
+    </section>
+    
+</article>
+
+
+<footer class="app-footer" role="contentinfo">
+    <a href="https://github.com/jbmoelker/jinja-compat-tests">Source on GitHub</a>
+</footer>
+
+
+</body>
+</html>

@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+
+    <title>filesizeformat filter | Jinja Compat Tests</title>
+    <style type="text/css">
+        html { font-family: Arial, sans-serif; }
+        .app-footer { border-top: 1px solid black; margin-top: 1rem; padding-top: .5rem; }
+    </style>
+    
+</head>
+<body>
+
+
+<style type="text/css">
+    h4 { margin-bottom: 0; }
+    h4 small { float: right; font-weight: normal; font-style: italic; }
+    pre { padding: .5em; margin-top: .5rem; min-height: 1em; overflow-x: scroll; }
+    .section { margin-bottom: 2.5rem; }
+    .test { border: 2px solid deepskyblue; }
+    .result { border: 2px solid lawngreen; }
+    .error { border: 2px solid red; white-space: normal; }
+</style>
+
+<header>
+    <h1><a rel="home" href="../../">Jinja Compat Tests</a></h1>
+</header>
+
+<article>
+    <h1><code>filesizeformat</code> filter</h1>
+
+    <section id="docs">
+        <h2><a class="permalink" href="#docs">Docs</a></h2>
+        <ul>
+        
+            
+            <li>
+                <a href="http://jinja.pocoo.org/docs/dev/templates/#filesizeformat">Jinja2</a>
+            </li>
+            
+        
+            
+        
+            
+        
+            
+        
+        </ul>
+    </section>
+
+    <h2 id="tests">
+        <a class="permalink" href="#tests">Tests</a>
+    </h2>
+    <ol>
+    
+        <li><a href="#binary">binary</a></li>
+    
+        <li><a href="#default">default</a></li>
+    
+    </ol>
+    
+    
+    <section class="section" id="binary">
+        <h3><a class="permalink" href="#binary">Test: binary</a></h3>
+
+        <h4>Template</h4>
+        <pre class="test"><code>{{ 0|filesizeformat(true) }}
+{{ 1|filesizeformat(true) }}
+{{ 2|filesizeformat(true) }}
+{{ 10|filesizeformat(true) }}
+{{ 100|filesizeformat(true) }}
+{{ 1000|filesizeformat(true) }}
+{{ 1000000|filesizeformat(true) }}
+{{ 1000000000|filesizeformat(true) }}
+{{ 1000000000000|filesizeformat(true) }}</code></pre>
+
+        
+
+        
+        
+        
+        <section id="binary-django">
+            <h4>
+                <a class="permalink" href="#binary-django">Output Django</a>
+                <small>v1.10.1</small>
+            </h4>
+            
+                <pre class="error"><code>Could not parse the remainder: '(true)' from '0|filesizeformat(true)'</code></pre>
+            
+        </section>
+        
+        
+        
+        <section id="binary-jinja2">
+            <h4>
+                <a class="permalink" href="#binary-jinja2">Output Jinja2</a>
+                <small>v2.8.0</small>
+            </h4>
+            
+                <pre class="result"><code>0 Bytes
+1 Byte
+2 Bytes
+10 Bytes
+100 Bytes
+1000 Bytes
+976.6 KiB
+953.7 MiB
+931.3 GiB</code></pre>
+            
+        </section>
+        
+        
+        
+        <section id="binary-nunjucks">
+            <h4>
+                <a class="permalink" href="#binary-nunjucks">Output Nunjucks</a>
+                <small>v2.5.0</small>
+            </h4>
+            
+                <pre class="error"><code>
+  Error: filter not found: filesizeformat</code></pre>
+            
+        </section>
+        
+        
+        
+        <section id="binary-swig">
+            <h4>
+                <a class="permalink" href="#binary-swig">Output Swig</a>
+                <small>v1.4.2</small>
+            </h4>
+            
+                <pre class="error"><code>Invalid filter "filesizeformat".</code></pre>
+            
+        </section>
+        
+        
+        
+        <section id="binary-twig">
+            <h4>
+                <a class="permalink" href="#binary-twig">Output Twig</a>
+                <small>v1.24.2</small>
+            </h4>
+            
+                <pre class="error"><code>Unknown "filesizeformat" filter.</code></pre>
+            
+        </section>
+        
+    </section>
+    
+    
+    <section class="section" id="default">
+        <h3><a class="permalink" href="#default">Test: default</a></h3>
+
+        <h4>Template</h4>
+        <pre class="test"><code>{{ 0|filesizeformat }}
+{{ 1|filesizeformat }}
+{{ 2|filesizeformat }}
+{{ 10|filesizeformat }}
+{{ 100|filesizeformat }}
+{{ 1000|filesizeformat }}
+{{ 1000000|filesizeformat }}
+{{ 1000000000|filesizeformat }}
+{{ 1000000000000|filesizeformat }}</code></pre>
+
+        
+
+        
+        
+        
+        <section id="default-django">
+            <h4>
+                <a class="permalink" href="#default-django">Output Django</a>
+                <small>v1.10.1</small>
+            </h4>
+            
+                <pre class="error"><code>'ascii' codec can't encode character u'\xa0' in position 1: ordinal not in range(128)</code></pre>
+            
+        </section>
+        
+        
+        
+        <section id="default-jinja2">
+            <h4>
+                <a class="permalink" href="#default-jinja2">Output Jinja2</a>
+                <small>v2.8.0</small>
+            </h4>
+            
+                <pre class="result"><code>0 Bytes
+1 Byte
+2 Bytes
+10 Bytes
+100 Bytes
+1.0 kB
+1.0 MB
+1.0 GB
+1.0 TB</code></pre>
+            
+        </section>
+        
+        
+        
+        <section id="default-nunjucks">
+            <h4>
+                <a class="permalink" href="#default-nunjucks">Output Nunjucks</a>
+                <small>v2.5.0</small>
+            </h4>
+            
+                <pre class="error"><code>
+  Error: filter not found: filesizeformat</code></pre>
+            
+        </section>
+        
+        
+        
+        <section id="default-swig">
+            <h4>
+                <a class="permalink" href="#default-swig">Output Swig</a>
+                <small>v1.4.2</small>
+            </h4>
+            
+                <pre class="error"><code>Invalid filter "filesizeformat".</code></pre>
+            
+        </section>
+        
+        
+        
+        <section id="default-twig">
+            <h4>
+                <a class="permalink" href="#default-twig">Output Twig</a>
+                <small>v1.24.2</small>
+            </h4>
+            
+                <pre class="error"><code>Unknown "filesizeformat" filter.</code></pre>
+            
+        </section>
+        
+    </section>
+    
+</article>
+
+
+<footer class="app-footer" role="contentinfo">
+    <a href="https://github.com/jbmoelker/jinja-compat-tests">Source on GitHub</a>
+</footer>
+
+
+</body>
+</html>

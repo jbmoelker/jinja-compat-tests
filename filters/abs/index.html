@@ -73,6 +73,8 @@
     
         <li><a href="#positive-integer">positive-integer</a></li>
     
+        <li><a href="#string">string</a></li>
+    
         <li><a href="#variable">variable</a></li>
     
         <li><a href="#zero">zero</a></li>
@@ -362,6 +364,78 @@
             </h4>
             
                 <pre class="result"><code>3</code></pre>
+            
+        </section>
+        
+    </section>
+    
+    
+    <section class="section" id="string">
+        <h3><a class="permalink" href="#string">Test: string</a></h3>
+
+        <h4>Template</h4>
+        <pre class="test"><code>{{ '-3.14'|abs }}</code></pre>
+
+        
+
+        
+        
+        
+        <section id="string-django">
+            <h4>
+                <a class="permalink" href="#string-django">Output Django</a>
+                <small>v1.10.1</small>
+            </h4>
+            
+                <pre class="error"><code>Invalid filter: 'abs'</code></pre>
+            
+        </section>
+        
+        
+        
+        <section id="string-jinja2">
+            <h4>
+                <a class="permalink" href="#string-jinja2">Output Jinja2</a>
+                <small>v2.8.0</small>
+            </h4>
+            
+                <pre class="error"><code>bad operand type for abs(): 'str'</code></pre>
+            
+        </section>
+        
+        
+        
+        <section id="string-nunjucks">
+            <h4>
+                <a class="permalink" href="#string-nunjucks">Output Nunjucks</a>
+                <small>v2.5.0</small>
+            </h4>
+            
+                <pre class="result"><code>3.14</code></pre>
+            
+        </section>
+        
+        
+        
+        <section id="string-swig">
+            <h4>
+                <a class="permalink" href="#string-swig">Output Swig</a>
+                <small>v1.4.2</small>
+            </h4>
+            
+                <pre class="error"><code>Invalid filter "abs".</code></pre>
+            
+        </section>
+        
+        
+        
+        <section id="string-twig">
+            <h4>
+                <a class="permalink" href="#string-twig">Output Twig</a>
+                <small>v1.24.2</small>
+            </h4>
+            
+                <pre class="result"><code>3.14</code></pre>
             
         </section>
         

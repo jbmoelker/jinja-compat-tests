@@ -22,14 +22,16 @@
                 "negative-integer": "Invalid filter: 'abs'",
                 "positive-float": "Invalid filter: 'abs'",
                 "positive-integer": "Invalid filter: 'abs'",
+                "string": "Invalid filter: 'abs'",
                 "variable": "Invalid filter: 'abs'",
                 "zero": "Invalid filter: 'abs'"
             },
             "batch": {
-                "size-and-fill": "'for' statements should use the format 'for x in y': for row in items|batch(3, 'No item')",
-                "size-only": "Invalid filter: 'batch'"
+                "size-and-fill": "'for' statements should use the format 'for x in y': for row in items|batch(3, '-') -",
+                "size-only": "'for' statements should use the format 'for x in y': for row in items|batch(3) -"
             },
             "capitalize": {
+                "array": "Invalid filter: 'capitalize'",
                 "mixed-case": "Invalid filter: 'capitalize'",
                 "number": "Invalid filter: 'capitalize'",
                 "sentence": "Invalid filter: 'capitalize'",
@@ -54,10 +56,38 @@
                 "case-sensitive": "Invalid block tag on line 1: '-'. Did you forget to register or load this tag?",
                 "default": "Invalid block tag on line 1: '-'. Did you forget to register or load this tag?"
             },
+            "escape": {
+                "alias-e": "Invalid filter: 'e'"
+            },
+            "filesizeformat": {
+                "binary": "Could not parse the remainder: '(true)' from '0|filesizeformat(true)'",
+                "default": "'ascii' codec can't encode character u'\\xa0' in position 1: ordinal not in range(128)"
+            },
             "first": {
                 "array": "Could not parse some characters: |[1, 2, 3, 4]||first",
                 "number": "'int' object has no attribute '__getitem__'",
                 "object": "Could not parse some characters: |{ a: 1, b: 2, c: 3, d: 4 }||first"
+            },
+            "float": {
+                "custom-fallback": "Invalid filter: 'float'",
+                "float": "Invalid filter: 'float'",
+                "force-fallback": "Invalid filter: 'float'",
+                "integer": "Invalid filter: 'float'",
+                "string": "Invalid filter: 'float'"
+            },
+            "indent": {
+                "custom-spacing": "Invalid filter: 'indent'",
+                "default": "Invalid filter: 'indent'",
+                "include-first-line": "Invalid filter: 'indent'"
+            },
+            "int": {
+                "base-16": "Invalid filter: 'int'",
+                "base-8": "Invalid filter: 'int'",
+                "custom-fallback": "Invalid filter: 'int'",
+                "float": "Invalid filter: 'int'",
+                "force-fallback": "Invalid filter: 'int'",
+                "integer": "Invalid filter: 'int'",
+                "string": "Invalid filter: 'int'"
             },
             "length": {
                 "array": "Could not parse some characters: |[1, 2, 3, 4]||length",
@@ -88,6 +118,9 @@
             }
         },
         "filters": {
+            "abs": {
+                "string": "bad operand type for abs(): 'str'"
+            },
             "default": {
                 "undefined-property-bracket-notation": "'vars' is undefined",
                 "undefined-property-dot-notation": "'vars' is undefined"
@@ -115,7 +148,20 @@
         },
         "filters": {
             "capitalize": {
+                "array": "\n  TypeError: str.toLowerCase is not a function",
                 "number": "\n  TypeError: str.toLowerCase is not a function"
+            },
+            "filesizeformat": {
+                "binary": "\n  Error: filter not found: filesizeformat",
+                "default": "\n  Error: filter not found: filesizeformat"
+            },
+            "lower": {
+                "array": "\n  TypeError: str.toLowerCase is not a function",
+                "number": "\n  TypeError: str.toLowerCase is not a function"
+            },
+            "upper": {
+                "array": "\n  TypeError: str.toUpperCase is not a function",
+                "number": "\n  TypeError: str.toUpperCase is not a function"
             }
         }
     },
@@ -140,6 +186,7 @@
                 "negative-integer": "Invalid filter \"abs\".",
                 "positive-float": "Invalid filter \"abs\".",
                 "positive-integer": "Invalid filter \"abs\".",
+                "string": "Invalid filter \"abs\".",
                 "variable": "Invalid filter \"abs\".",
                 "zero": "Invalid filter \"abs\"."
             },
@@ -159,6 +206,31 @@
                 "case-insensitive": "Invalid filter \"dictsort\".",
                 "case-sensitive": "Invalid filter \"dictsort\".",
                 "default": "Invalid filter \"dictsort\"."
+            },
+            "filesizeformat": {
+                "binary": "Invalid filter \"filesizeformat\".",
+                "default": "Invalid filter \"filesizeformat\"."
+            },
+            "float": {
+                "custom-fallback": "Invalid filter \"float\".",
+                "float": "Invalid filter \"float\".",
+                "force-fallback": "Invalid filter \"float\".",
+                "integer": "Invalid filter \"float\".",
+                "string": "Invalid filter \"float\"."
+            },
+            "indent": {
+                "custom-spacing": "Invalid filter \"indent\".",
+                "default": "Invalid filter \"indent\".",
+                "include-first-line": "Invalid filter \"indent\"."
+            },
+            "int": {
+                "base-16": "Invalid filter \"int\".",
+                "base-8": "Invalid filter \"int\".",
+                "custom-fallback": "Invalid filter \"int\".",
+                "float": "Invalid filter \"int\".",
+                "force-fallback": "Invalid filter \"int\".",
+                "integer": "Invalid filter \"int\".",
+                "string": "Invalid filter \"int\"."
             },
             "length": {
                 "array": "Invalid filter \"length\".",
@@ -181,6 +253,9 @@
             }
         },
         "filters": {
+            "capitalize": {
+                "array": "\nWarning: mb_substr() expects parameter 1 to be string, array given\n\nCall Stack:\n    0.0003     376744   1. {main}() /home/travis/build/jbmoelker/jinja-compat-tests/test-twig.php:0\n    0.1100    3323352   2. Twig_Environment->render() /home/travis/build/jbmoelker/jinja-compat-tests/test-twig.php:51\n    0.1125    3327568   3. Twig_Template->render() /home/travis/build/jbmoelker/jinja-compat-tests/vendor/twig/twig/lib/Twig/Environment.php:347\n    0.1125    3344032   4. Twig_Template->display() /home/travis/build/jbmoelker/jinja-compat-tests/vendor/twig/twig/lib/Twig/Template.php:366\n    0.1125    3344144   5. Twig_Template->displayWithErrorHandling() /home/travis/build/jbmoelker/jinja-compat-tests/vendor/twig/twig/lib/Twig/Template.php:355\n    0.1125    3344144   6. __TwigTemplate_87bb27d19dd7eb1fa0e1dff126ade1f469b3fb5428af45b33db341068c6dbc5d->doDisplay() /home/travis/build/jbmoelker/jinja-compat-tests/vendor/twig/twig/lib/Twig/Template.php:387\n    0.1125    3344144   7. twig_capitalize_string_filter() /home/travis/build/jbmoelker/jinja-compat-tests/vendor/twig/twig/lib/Twig/Environment.php(403) : eval()'d code:19\n    0.1125    3344144   8. mb_substr() /home/travis/build/jbmoelker/jinja-compat-tests/vendor/twig/twig/lib/Twig/Extension/Core.php:1331\n\n\nWarning: mb_strlen() expects parameter 1 to be string, array given\n\nCall Stack:\n    0.0003     376744   1. {main}() /home/travis/build/jbmoelker/jinja-compat-tests/test-twig.php:0\n    0.1100    3323352   2. Twig_Environment->render() /home/travis/build/jbmoelker/jinja-compat-tests/test-twig.php:51\n    0.1125    3327568   3. Twig_Template->render() /home/travis/build/jbmoelker/jinja-compat-tests/vendor/twig/twig/lib/Twig/Environment.php:347\n    0.1125    3344032   4. Twig_Template->display() /home/travis/build/jbmoelker/jinja-compat-tests/vendor/twig/twig/lib/Twig/Template.php:366\n    0.1125    3344144   5. Twig_Template->displayWithErrorHandling() /home/travis/build/jbmoelker/jinja-compat-tests/vendor/twig/twig/lib/Twig/Template.php:355\n    0.1125    3344144   6. __TwigTemplate_87bb27d19dd7eb1fa0e1dff126ade1f469b3fb5428af45b33db341068c6dbc5d->doDisplay() /home/travis/build/jbmoelker/jinja-compat-tests/vendor/twig/twig/lib/Twig/Template.php:387\n    0.1125    3344144   7. twig_capitalize_string_filter() /home/travis/build/jbmoelker/jinja-compat-tests/vendor/twig/twig/lib/Twig/Environment.php(403) : eval()'d code:19\n    0.1127    3344176   8. mb_strlen() /home/travis/build/jbmoelker/jinja-compat-tests/vendor/twig/twig/lib/Twig/Extension/Core.php:1331\n\n\nWarning: mb_substr() expects parameter 1 to be string, array given\n\nCall Stack:\n    0.0003     376744   1. {main}() /home/travis/build/jbmoelker/jinja-compat-tests/test-twig.php:0\n    0.1100    3323352   2. Twig_Environment->render() /home/travis/build/jbmoelker/jinja-compat-tests/test-twig.php:51\n    0.1125    3327568   3. Twig_Template->render() /home/travis/build/jbmoelker/jinja-compat-tests/vendor/twig/twig/lib/Twig/Environment.php:347\n    0.1125    3344032   4. Twig_Template->display() /home/travis/build/jbmoelker/jinja-compat-tests/vendor/twig/twig/lib/Twig/Template.php:366\n    0.1125    3344144   5. Twig_Template->displayWithErrorHandling() /home/travis/build/jbmoelker/jinja-compat-tests/vendor/twig/twig/lib/Twig/Template.php:355\n    0.1125    3344144   6. __TwigTemplate_87bb27d19dd7eb1fa0e1dff126ade1f469b3fb5428af45b33db341068c6dbc5d->doDisplay() /home/travis/build/jbmoelker/jinja-compat-tests/vendor/twig/twig/lib/Twig/Template.php:387\n    0.1125    3344144   7. twig_capitalize_string_filter() /home/travis/build/jbmoelker/jinja-compat-tests/vendor/twig/twig/lib/Twig/Environment.php(403) : eval()'d code:19\n    0.1128    3344176   8. mb_substr() /home/travis/build/jbmoelker/jinja-compat-tests/vendor/twig/twig/lib/Twig/Extension/Core.php:1331\n\n"
+            },
             "center": {
                 "default": "Unknown \"center\" filter.",
                 "width-20": "Unknown \"center\" filter."
@@ -193,6 +268,37 @@
                 "case-insensitive": "Unknown \"dictsort\" filter.",
                 "case-sensitive": "Unknown \"dictsort\" filter.",
                 "default": "Unknown \"dictsort\" filter."
+            },
+            "filesizeformat": {
+                "binary": "Unknown \"filesizeformat\" filter.",
+                "default": "Unknown \"filesizeformat\" filter."
+            },
+            "float": {
+                "custom-fallback": "Unknown \"float\" filter.",
+                "float": "Unknown \"float\" filter.",
+                "force-fallback": "Unknown \"float\" filter.",
+                "integer": "Unknown \"float\" filter.",
+                "string": "Unknown \"float\" filter."
+            },
+            "indent": {
+                "custom-spacing": "Unknown \"indent\" filter.",
+                "default": "Unknown \"indent\" filter.",
+                "include-first-line": "Unknown \"indent\" filter."
+            },
+            "int": {
+                "base-16": "Unknown \"int\" filter.",
+                "base-8": "Unknown \"int\" filter.",
+                "custom-fallback": "Unknown \"int\" filter.",
+                "float": "Unknown \"int\" filter.",
+                "force-fallback": "Unknown \"int\" filter.",
+                "integer": "Unknown \"int\" filter.",
+                "string": "Unknown \"int\" filter."
+            },
+            "lower": {
+                "array": "\nWarning: mb_strtolower() expects parameter 1 to be string, array given\n\nCall Stack:\n    0.0003     376744   1. {main}() /home/travis/build/jbmoelker/jinja-compat-tests/test-twig.php:0\n    0.2264    4025296   2. Twig_Environment->render() /home/travis/build/jbmoelker/jinja-compat-tests/test-twig.php:51\n    0.2288    4039624   3. Twig_Template->render() /home/travis/build/jbmoelker/jinja-compat-tests/vendor/twig/twig/lib/Twig/Environment.php:347\n    0.2288    4056088   4. Twig_Template->display() /home/travis/build/jbmoelker/jinja-compat-tests/vendor/twig/twig/lib/Twig/Template.php:366\n    0.2288    4056200   5. Twig_Template->displayWithErrorHandling() /home/travis/build/jbmoelker/jinja-compat-tests/vendor/twig/twig/lib/Twig/Template.php:355\n    0.2288    4056200   6. __TwigTemplate_2c7b183ad38ae4fb0e53002958241a0ec2d208c947f2a4a3027d5f1436dd5d9d->doDisplay() /home/travis/build/jbmoelker/jinja-compat-tests/vendor/twig/twig/lib/Twig/Template.php:387\n    0.2288    4056200   7. twig_lower_filter() /home/travis/build/jbmoelker/jinja-compat-tests/vendor/twig/twig/lib/Twig/Environment.php(403) : eval()'d code:19\n    0.2288    4056200   8. mb_strtolower() /home/travis/build/jbmoelker/jinja-compat-tests/vendor/twig/twig/lib/Twig/Extension/Core.php:1297\n\n"
+            },
+            "upper": {
+                "array": "\nWarning: mb_strtoupper() expects parameter 1 to be string, array given\n\nCall Stack:\n    0.0003     376744   1. {main}() /home/travis/build/jbmoelker/jinja-compat-tests/test-twig.php:0\n    0.2351    4055088   2. Twig_Environment->render() /home/travis/build/jbmoelker/jinja-compat-tests/test-twig.php:51\n    0.2376    4069408   3. Twig_Template->render() /home/travis/build/jbmoelker/jinja-compat-tests/vendor/twig/twig/lib/Twig/Environment.php:347\n    0.2376    4085872   4. Twig_Template->display() /home/travis/build/jbmoelker/jinja-compat-tests/vendor/twig/twig/lib/Twig/Template.php:366\n    0.2376    4085984   5. Twig_Template->displayWithErrorHandling() /home/travis/build/jbmoelker/jinja-compat-tests/vendor/twig/twig/lib/Twig/Template.php:355\n    0.2376    4085984   6. __TwigTemplate_33e1aa87391c73e66c8ab6095a05a75b9b83905f888d08f54576618d4adfa926->doDisplay() /home/travis/build/jbmoelker/jinja-compat-tests/vendor/twig/twig/lib/Twig/Template.php:387\n    0.2376    4085984   7. twig_upper_filter() /home/travis/build/jbmoelker/jinja-compat-tests/vendor/twig/twig/lib/Twig/Environment.php(403) : eval()'d code:19\n    0.2376    4085984   8. mb_strtoupper() /home/travis/build/jbmoelker/jinja-compat-tests/vendor/twig/twig/lib/Twig/Extension/Core.php:1280\n\n"
             }
         },
         "tags": {

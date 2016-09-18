@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+
+    <title>escape filter | Jinja Compat Tests</title>
+    <style type="text/css">
+        html { font-family: Arial, sans-serif; }
+        .app-footer { border-top: 1px solid black; margin-top: 1rem; padding-top: .5rem; }
+    </style>
+    
+</head>
+<body>
+
+
+<style type="text/css">
+    h4 { margin-bottom: 0; }
+    h4 small { float: right; font-weight: normal; font-style: italic; }
+    pre { padding: .5em; margin-top: .5rem; min-height: 1em; overflow-x: scroll; }
+    .section { margin-bottom: 2.5rem; }
+    .test { border: 2px solid deepskyblue; }
+    .result { border: 2px solid lawngreen; }
+    .error { border: 2px solid red; white-space: normal; }
+</style>
+
+<header>
+    <h1><a rel="home" href="../../">Jinja Compat Tests</a></h1>
+</header>
+
+<article>
+    <h1><code>escape</code> filter</h1>
+
+    <section id="docs">
+        <h2><a class="permalink" href="#docs">Docs</a></h2>
+        <ul>
+        
+            
+            <li>
+                <a href="http://jinja.pocoo.org/docs/dev/templates/#escape">Jinja2</a>
+            </li>
+            
+        
+            
+            <li>
+                <a href="https://mozilla.github.io/nunjucks/templating.html#escape-aliased-as-e">Nunjucks</a>
+            </li>
+            
+        
+            
+            <li>
+                <a href="https://voorhoede.github.io/swig/docs/filters/#escape">Swig</a>
+            </li>
+            
+        
+            
+            <li>
+                <a href="http://twig.sensiolabs.org/doc/filters/escape.html">Twig</a>
+            </li>
+            
+        
+        </ul>
+    </section>
+
+    <h2 id="tests">
+        <a class="permalink" href="#tests">Tests</a>
+    </h2>
+    <ol>
+    
+        <li><a href="#alias-e">alias-e</a></li>
+    
+        <li><a href="#default">default</a></li>
+    
+        <li><a href="#double-escape">double-escape</a></li>
+    
+    </ol>
+    
+    
+    <section class="section" id="alias-e">
+        <h3><a class="permalink" href="#alias-e">Test: alias-e</a></h3>
+
+        <h4>Template</h4>
+        <pre class="test"><code>{{ '&lt;html>'|e }}</code></pre>
+
+        
+
+        
+        
+        
+        <section id="alias-e-django">
+            <h4>
+                <a class="permalink" href="#alias-e-django">Output Django</a>
+                <small>v1.10.1</small>
+            </h4>
+            
+                <pre class="error"><code>Invalid filter: 'e'</code></pre>
+            
+        </section>
+        
+        
+        
+        <section id="alias-e-jinja2">
+            <h4>
+                <a class="permalink" href="#alias-e-jinja2">Output Jinja2</a>
+                <small>v2.8.0</small>
+            </h4>
+            
+                <pre class="result"><code>&amp;lt;html&amp;gt;</code></pre>
+            
+        </section>
+        
+        
+        
+        <section id="alias-e-nunjucks">
+            <h4>
+                <a class="permalink" href="#alias-e-nunjucks">Output Nunjucks</a>
+                <small>v2.5.0</small>
+            </h4>
+            
+                <pre class="result"><code>&amp;lt;html&amp;gt;</code></pre>
+            
+        </section>
+        
+        
+        
+        <section id="alias-e-swig">
+            <h4>
+                <a class="permalink" href="#alias-e-swig">Output Swig</a>
+                <small>v1.4.2</small>
+            </h4>
+            
+                <pre class="result"><code>&amp;lt;html&amp;gt;</code></pre>
+            
+        </section>
+        
+        
+        
+        <section id="alias-e-twig">
+            <h4>
+                <a class="permalink" href="#alias-e-twig">Output Twig</a>
+                <small>v1.24.2</small>
+            </h4>
+            
+                <pre class="result"><code>&amp;lt;html&amp;gt;</code></pre>
+            
+        </section>
+        
+    </section>
+    
+    
+    <section class="section" id="default">
+        <h3><a class="permalink" href="#default">Test: default</a></h3>
+
+        <h4>Template</h4>
+        <pre class="test"><code>{{ '&lt;html>'|escape }}</code></pre>
+
+        
+
+        
+        
+        
+        <section id="default-django">
+            <h4>
+                <a class="permalink" href="#default-django">Output Django</a>
+                <small>v1.10.1</small>
+            </h4>
+            
+                <pre class="result"><code>&lt;html&gt;</code></pre>
+            
+        </section>
+        
+        
+        
+        <section id="default-jinja2">
+            <h4>
+                <a class="permalink" href="#default-jinja2">Output Jinja2</a>
+                <small>v2.8.0</small>
+            </h4>
+            
+                <pre class="result"><code>&amp;lt;html&amp;gt;</code></pre>
+            
+        </section>
+        
+        
+        
+        <section id="default-nunjucks">
+            <h4>
+                <a class="permalink" href="#default-nunjucks">Output Nunjucks</a>
+                <small>v2.5.0</small>
+            </h4>
+            
+                <pre class="result"><code>&amp;lt;html&amp;gt;</code></pre>
+            
+        </section>
+        
+        
+        
+        <section id="default-swig">
+            <h4>
+                <a class="permalink" href="#default-swig">Output Swig</a>
+                <small>v1.4.2</small>
+            </h4>
+            
+                <pre class="result"><code>&amp;lt;html&amp;gt;</code></pre>
+            
+        </section>
+        
+        
+        
+        <section id="default-twig">
+            <h4>
+                <a class="permalink" href="#default-twig">Output Twig</a>
+                <small>v1.24.2</small>
+            </h4>
+            
+                <pre class="result"><code>&amp;lt;html&amp;gt;</code></pre>
+            
+        </section>
+        
+    </section>
+    
+    
+    <section class="section" id="double-escape">
+        <h3><a class="permalink" href="#double-escape">Test: double-escape</a></h3>
+
+        <h4>Template</h4>
+        <pre class="test"><code>{{ '&lt;html>'|escape|escape }}</code></pre>
+
+        
+
+        
+        
+        
+        <section id="double-escape-django">
+            <h4>
+                <a class="permalink" href="#double-escape-django">Output Django</a>
+                <small>v1.10.1</small>
+            </h4>
+            
+                <pre class="result"><code>&lt;html&gt;</code></pre>
+            
+        </section>
+        
+        
+        
+        <section id="double-escape-jinja2">
+            <h4>
+                <a class="permalink" href="#double-escape-jinja2">Output Jinja2</a>
+                <small>v2.8.0</small>
+            </h4>
+            
+                <pre class="result"><code>&amp;lt;html&amp;gt;</code></pre>
+            
+        </section>
+        
+        
+        
+        <section id="double-escape-nunjucks">
+            <h4>
+                <a class="permalink" href="#double-escape-nunjucks">Output Nunjucks</a>
+                <small>v2.5.0</small>
+            </h4>
+            
+                <pre class="result"><code>&amp;lt;html&amp;gt;</code></pre>
+            
+        </section>
+        
+        
+        
+        <section id="double-escape-swig">
+            <h4>
+                <a class="permalink" href="#double-escape-swig">Output Swig</a>
+                <small>v1.4.2</small>
+            </h4>
+            
+                <pre class="result"><code>&amp;lt;html&amp;gt;</code></pre>
+            
+        </section>
+        
+        
+        
+        <section id="double-escape-twig">
+            <h4>
+                <a class="permalink" href="#double-escape-twig">Output Twig</a>
+                <small>v1.24.2</small>
+            </h4>
+            
+                <pre class="result"><code>&amp;amp;lt;html&amp;amp;gt;</code></pre>
+            
+        </section>
+        
+    </section>
+    
+</article>
+
+
+<footer class="app-footer" role="contentinfo">
+    <a href="https://github.com/jbmoelker/jinja-compat-tests">Source on GitHub</a>
+</footer>
+
+
+</body>
+</html>

@@ -69,6 +69,8 @@
     </h2>
     <ol>
     
+        <li><a href="#array">array</a></li>
+    
         <li><a href="#mixed-case">mixed-case</a></li>
     
         <li><a href="#number">number</a></li>
@@ -80,6 +82,127 @@
         <li><a href="#word">word</a></li>
     
     </ol>
+    
+    
+    <section class="section" id="array">
+        <h3><a class="permalink" href="#array">Test: array</a></h3>
+
+        <h4>Template</h4>
+        <pre class="test"><code>{{ items|capitalize }}</code></pre>
+
+        
+        <h4>Data</h4>
+        <pre class="test"><code>{
+  "items": [
+    "my first car",
+    "my Second car",
+    "my THIRD car"
+  ]
+}</code></pre>
+        
+
+        
+        
+        
+        <section id="array-django">
+            <h4>
+                <a class="permalink" href="#array-django">Output Django</a>
+                <small>v1.10.1</small>
+            </h4>
+            
+                <pre class="error"><code>Invalid filter: 'capitalize'</code></pre>
+            
+        </section>
+        
+        
+        
+        <section id="array-jinja2">
+            <h4>
+                <a class="permalink" href="#array-jinja2">Output Jinja2</a>
+                <small>v2.8.0</small>
+            </h4>
+            
+                <pre class="result"><code>[u'my first car', u'my second car', u'my third car']</code></pre>
+            
+        </section>
+        
+        
+        
+        <section id="array-nunjucks">
+            <h4>
+                <a class="permalink" href="#array-nunjucks">Output Nunjucks</a>
+                <small>v2.5.0</small>
+            </h4>
+            
+                <pre class="error"><code>
+  TypeError: str.toLowerCase is not a function</code></pre>
+            
+        </section>
+        
+        
+        
+        <section id="array-swig">
+            <h4>
+                <a class="permalink" href="#array-swig">Output Swig</a>
+                <small>v1.4.2</small>
+            </h4>
+            
+                <pre class="result"><code>My first car,My second car,My third car</code></pre>
+            
+        </section>
+        
+        
+        
+        <section id="array-twig">
+            <h4>
+                <a class="permalink" href="#array-twig">Output Twig</a>
+                <small>v1.24.2</small>
+            </h4>
+            
+                <pre class="error"><code>
+Warning: mb_substr() expects parameter 1 to be string, array given
+
+Call Stack:
+    0.0003     376744   1. {main}() /home/travis/build/jbmoelker/jinja-compat-tests/test-twig.php:0
+    0.1100    3323352   2. Twig_Environment->render() /home/travis/build/jbmoelker/jinja-compat-tests/test-twig.php:51
+    0.1125    3327568   3. Twig_Template->render() /home/travis/build/jbmoelker/jinja-compat-tests/vendor/twig/twig/lib/Twig/Environment.php:347
+    0.1125    3344032   4. Twig_Template->display() /home/travis/build/jbmoelker/jinja-compat-tests/vendor/twig/twig/lib/Twig/Template.php:366
+    0.1125    3344144   5. Twig_Template->displayWithErrorHandling() /home/travis/build/jbmoelker/jinja-compat-tests/vendor/twig/twig/lib/Twig/Template.php:355
+    0.1125    3344144   6. __TwigTemplate_87bb27d19dd7eb1fa0e1dff126ade1f469b3fb5428af45b33db341068c6dbc5d->doDisplay() /home/travis/build/jbmoelker/jinja-compat-tests/vendor/twig/twig/lib/Twig/Template.php:387
+    0.1125    3344144   7. twig_capitalize_string_filter() /home/travis/build/jbmoelker/jinja-compat-tests/vendor/twig/twig/lib/Twig/Environment.php(403) : eval()'d code:19
+    0.1125    3344144   8. mb_substr() /home/travis/build/jbmoelker/jinja-compat-tests/vendor/twig/twig/lib/Twig/Extension/Core.php:1331
+
+
+Warning: mb_strlen() expects parameter 1 to be string, array given
+
+Call Stack:
+    0.0003     376744   1. {main}() /home/travis/build/jbmoelker/jinja-compat-tests/test-twig.php:0
+    0.1100    3323352   2. Twig_Environment->render() /home/travis/build/jbmoelker/jinja-compat-tests/test-twig.php:51
+    0.1125    3327568   3. Twig_Template->render() /home/travis/build/jbmoelker/jinja-compat-tests/vendor/twig/twig/lib/Twig/Environment.php:347
+    0.1125    3344032   4. Twig_Template->display() /home/travis/build/jbmoelker/jinja-compat-tests/vendor/twig/twig/lib/Twig/Template.php:366
+    0.1125    3344144   5. Twig_Template->displayWithErrorHandling() /home/travis/build/jbmoelker/jinja-compat-tests/vendor/twig/twig/lib/Twig/Template.php:355
+    0.1125    3344144   6. __TwigTemplate_87bb27d19dd7eb1fa0e1dff126ade1f469b3fb5428af45b33db341068c6dbc5d->doDisplay() /home/travis/build/jbmoelker/jinja-compat-tests/vendor/twig/twig/lib/Twig/Template.php:387
+    0.1125    3344144   7. twig_capitalize_string_filter() /home/travis/build/jbmoelker/jinja-compat-tests/vendor/twig/twig/lib/Twig/Environment.php(403) : eval()'d code:19
+    0.1127    3344176   8. mb_strlen() /home/travis/build/jbmoelker/jinja-compat-tests/vendor/twig/twig/lib/Twig/Extension/Core.php:1331
+
+
+Warning: mb_substr() expects parameter 1 to be string, array given
+
+Call Stack:
+    0.0003     376744   1. {main}() /home/travis/build/jbmoelker/jinja-compat-tests/test-twig.php:0
+    0.1100    3323352   2. Twig_Environment->render() /home/travis/build/jbmoelker/jinja-compat-tests/test-twig.php:51
+    0.1125    3327568   3. Twig_Template->render() /home/travis/build/jbmoelker/jinja-compat-tests/vendor/twig/twig/lib/Twig/Environment.php:347
+    0.1125    3344032   4. Twig_Template->display() /home/travis/build/jbmoelker/jinja-compat-tests/vendor/twig/twig/lib/Twig/Template.php:366
+    0.1125    3344144   5. Twig_Template->displayWithErrorHandling() /home/travis/build/jbmoelker/jinja-compat-tests/vendor/twig/twig/lib/Twig/Template.php:355
+    0.1125    3344144   6. __TwigTemplate_87bb27d19dd7eb1fa0e1dff126ade1f469b3fb5428af45b33db341068c6dbc5d->doDisplay() /home/travis/build/jbmoelker/jinja-compat-tests/vendor/twig/twig/lib/Twig/Template.php:387
+    0.1125    3344144   7. twig_capitalize_string_filter() /home/travis/build/jbmoelker/jinja-compat-tests/vendor/twig/twig/lib/Twig/Environment.php(403) : eval()'d code:19
+    0.1128    3344176   8. mb_substr() /home/travis/build/jbmoelker/jinja-compat-tests/vendor/twig/twig/lib/Twig/Extension/Core.php:1331
+
+</code></pre>
+            
+        </section>
+        
+    </section>
     
     
     <section class="section" id="mixed-case">

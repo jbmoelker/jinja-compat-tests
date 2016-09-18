@@ -31,14 +31,16 @@
             "negative-integer": "{{ -3|abs }}",
             "positive-float": "{{ 3.14|abs }}",
             "positive-integer": "{{ 3|abs }}",
+            "string": "{{ '-3.14'|abs }}",
             "variable": "{{ x|abs }}",
             "zero": "{{ 0|abs }}"
         },
         "batch": {
-            "size-and-fill": "<table>\n    {% for row in items|batch(3, 'No item') %}\n        <tr>\n            {% for column in row %}\n                <td>{{ column }}</td>\n            {% endfor %}\n        </tr>\n    {% endfor %}\n</table>",
-            "size-only": "<table>\n{% for row in items|batch(3) %}\n    <tr>\n    {% for column in row %}\n        <td>{{ column }}</td>\n    {% endfor %}\n    </tr>\n{% endfor %}\n</table>"
+            "size-and-fill": "{% for row in items|batch(3, '-') -%}\n    {% for column in row %} {{ column }} {% endfor %} |\n{% endfor %}",
+            "size-only": "{% for row in items|batch(3) -%}\n    {% for column in row %} {{ column }} {% endfor %} |\n{% endfor %}"
         },
         "capitalize": {
+            "array": "{{ items|capitalize }}",
             "mixed-case": "{{ 'my First cAR'|capitalize }}",
             "number": "{{ 5|capitalize }}",
             "sentence": "{{ 'my first car'|capitalize }}",
@@ -63,17 +65,57 @@
             "case-sensitive": "{%- for key, value in items | dictsort(true) -%}\n{{ key }}\n{% endfor %}",
             "default": "{%- for key, value in items | dictsort -%}\n{{ key }}\n{% endfor %}"
         },
+        "escape": {
+            "alias-e": "{{ '<html>'|e }}",
+            "default": "{{ '<html>'|escape }}",
+            "double-escape": "{{ '<html>'|escape|escape }}"
+        },
+        "filesizeformat": {
+            "binary": "{{ 0|filesizeformat(true) }}\n{{ 1|filesizeformat(true) }}\n{{ 2|filesizeformat(true) }}\n{{ 10|filesizeformat(true) }}\n{{ 100|filesizeformat(true) }}\n{{ 1000|filesizeformat(true) }}\n{{ 1000000|filesizeformat(true) }}\n{{ 1000000000|filesizeformat(true) }}\n{{ 1000000000000|filesizeformat(true) }}",
+            "default": "{{ 0|filesizeformat }}\n{{ 1|filesizeformat }}\n{{ 2|filesizeformat }}\n{{ 10|filesizeformat }}\n{{ 100|filesizeformat }}\n{{ 1000|filesizeformat }}\n{{ 1000000|filesizeformat }}\n{{ 1000000000|filesizeformat }}\n{{ 1000000000000|filesizeformat }}"
+        },
         "first": {
             "array": "{{ [1, 2, 3, 4]|first }}",
             "number": "{{ 1234|first }}",
             "object": "{{ { a: 1, b: 2, c: 3, d: 4 }|first }}",
             "string": "{{ '1234'|first }}"
         },
+        "float": {
+            "custom-fallback": "{{ \"\"|float(0.5) }}",
+            "float": "{{ 3.52|float }}",
+            "force-fallback": "{{ \"\"|float }}",
+            "integer": "{{ 3|float }}",
+            "string": "{{ \"3.52\"|float }}"
+        },
+        "indent": {
+            "custom-spacing": "{{ \"one\\ntwo\\nthree\" | indent(6) }}",
+            "default": "{{ \"one\\ntwo\\nthree\" | indent }}",
+            "include-first-line": "{{ \"one\\ntwo\\nthree\" | indent(6, true) }}"
+        },
+        "int": {
+            "base-16": "{{ \"0x4d32\"|int(0, 16) }}",
+            "base-8": "{{ \"011\"|int(0, 8) }}",
+            "custom-fallback": "{{ \"\"|int(5) }}",
+            "float": "{{ 3.52|int }}",
+            "force-fallback": "{{ \"\"|int }}",
+            "integer": "{{ 3|int }}",
+            "string": "{{ \"3.52\"|int }}"
+        },
         "length": {
             "array": "{{ [1, 2, 3, 4]|length }}",
             "number": "{{ 1234|length }}",
             "object": "{{ { a: 1, b: 2, c: 3, d: 4 }|length }}",
             "string": "{{ '1234'|length }}"
+        },
+        "lower": {
+            "array": "{{ items|lower }}",
+            "number": "{{ 5|lower }}",
+            "string": "{{ 'My FIRST Car'|lower }}"
+        },
+        "upper": {
+            "array": "{{ items|upper }}",
+            "number": "{{ 5|upper }}",
+            "string": "{{ 'My first CAR'|upper }}"
         }
     },
     "tags": {

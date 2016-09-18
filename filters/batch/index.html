@@ -76,15 +76,9 @@
         <h3><a class="permalink" href="#size-and-fill">Test: size-and-fill</a></h3>
 
         <h4>Template</h4>
-        <pre class="test"><code>&lt;table>
-    {% for row in items|batch(3, 'No item') %}
-        &lt;tr>
-            {% for column in row %}
-                &lt;td>{{ column }}&lt;/td>
-            {% endfor %}
-        &lt;/tr>
-    {% endfor %}
-&lt;/table></code></pre>
+        <pre class="test"><code>{% for row in items|batch(3, '-') -%}
+    {% for column in row %} {{ column }} {% endfor %} |
+{% endfor %}</code></pre>
 
         
         <h4>Data</h4>
@@ -102,7 +96,7 @@
                 <small>v1.10.1</small>
             </h4>
             
-                <pre class="error"><code>'for' statements should use the format 'for x in y': for row in items|batch(3, 'No item')</code></pre>
+                <pre class="error"><code>'for' statements should use the format 'for x in y': for row in items|batch(3, '-') -</code></pre>
             
         </section>
         
@@ -114,39 +108,10 @@
                 <small>v2.8.0</small>
             </h4>
             
-                <pre class="result"><code>&lt;table>
-    
-        &lt;tr>
-            
-                &lt;td>a&lt;/td>
-            
-                &lt;td>b&lt;/td>
-            
-                &lt;td>c&lt;/td>
-            
-        &lt;/tr>
-    
-        &lt;tr>
-            
-                &lt;td>d&lt;/td>
-            
-                &lt;td>e&lt;/td>
-            
-                &lt;td>f&lt;/td>
-            
-        &lt;/tr>
-    
-        &lt;tr>
-            
-                &lt;td>g&lt;/td>
-            
-                &lt;td>No item&lt;/td>
-            
-                &lt;td>No item&lt;/td>
-            
-        &lt;/tr>
-    
-&lt;/table></code></pre>
+                <pre class="result"><code> a  b  c  |
+ d  e  f  |
+ g  -  -  |
+</code></pre>
             
         </section>
         
@@ -158,39 +123,10 @@
                 <small>v2.5.0</small>
             </h4>
             
-                <pre class="result"><code>&lt;table>
-    
-        &lt;tr>
-            
-                &lt;td>a&lt;/td>
-            
-                &lt;td>b&lt;/td>
-            
-                &lt;td>c&lt;/td>
-            
-        &lt;/tr>
-    
-        &lt;tr>
-            
-                &lt;td>d&lt;/td>
-            
-                &lt;td>e&lt;/td>
-            
-                &lt;td>f&lt;/td>
-            
-        &lt;/tr>
-    
-        &lt;tr>
-            
-                &lt;td>g&lt;/td>
-            
-                &lt;td>No item&lt;/td>
-            
-                &lt;td>No item&lt;/td>
-            
-        &lt;/tr>
-    
-&lt;/table></code></pre>
+                <pre class="result"><code> a  b  c  |
+ d  e  f  |
+ g  -  -  |
+</code></pre>
             
         </section>
         
@@ -214,23 +150,10 @@
                 <small>v1.24.2</small>
             </h4>
             
-                <pre class="result"><code>&lt;table>
-            &lt;tr>
-                            &lt;td>a&lt;/td>
-                            &lt;td>b&lt;/td>
-                            &lt;td>c&lt;/td>
-                    &lt;/tr>
-            &lt;tr>
-                            &lt;td>d&lt;/td>
-                            &lt;td>e&lt;/td>
-                            &lt;td>f&lt;/td>
-                    &lt;/tr>
-            &lt;tr>
-                            &lt;td>g&lt;/td>
-                            &lt;td>No item&lt;/td>
-                            &lt;td>No item&lt;/td>
-                    &lt;/tr>
-    &lt;/table></code></pre>
+                <pre class="result"><code> a  b  c  |
+ d  e  f  |
+ g  -  -  |
+</code></pre>
             
         </section>
         
@@ -241,15 +164,9 @@
         <h3><a class="permalink" href="#size-only">Test: size-only</a></h3>
 
         <h4>Template</h4>
-        <pre class="test"><code>&lt;table>
-{% for row in items|batch(3) %}
-    &lt;tr>
-    {% for column in row %}
-        &lt;td>{{ column }}&lt;/td>
-    {% endfor %}
-    &lt;/tr>
-{% endfor %}
-&lt;/table></code></pre>
+        <pre class="test"><code>{% for row in items|batch(3) -%}
+    {% for column in row %} {{ column }} {% endfor %} |
+{% endfor %}</code></pre>
 
         
         <h4>Data</h4>
@@ -267,7 +184,7 @@
                 <small>v1.10.1</small>
             </h4>
             
-                <pre class="error"><code>Invalid filter: 'batch'</code></pre>
+                <pre class="error"><code>'for' statements should use the format 'for x in y': for row in items|batch(3) -</code></pre>
             
         </section>
         
@@ -279,35 +196,10 @@
                 <small>v2.8.0</small>
             </h4>
             
-                <pre class="result"><code>&lt;table>
-
-    &lt;tr>
-    
-        &lt;td>a&lt;/td>
-    
-        &lt;td>b&lt;/td>
-    
-        &lt;td>c&lt;/td>
-    
-    &lt;/tr>
-
-    &lt;tr>
-    
-        &lt;td>d&lt;/td>
-    
-        &lt;td>e&lt;/td>
-    
-        &lt;td>f&lt;/td>
-    
-    &lt;/tr>
-
-    &lt;tr>
-    
-        &lt;td>g&lt;/td>
-    
-    &lt;/tr>
-
-&lt;/table></code></pre>
+                <pre class="result"><code> a  b  c  |
+ d  e  f  |
+ g  |
+</code></pre>
             
         </section>
         
@@ -319,35 +211,10 @@
                 <small>v2.5.0</small>
             </h4>
             
-                <pre class="result"><code>&lt;table>
-
-    &lt;tr>
-    
-        &lt;td>a&lt;/td>
-    
-        &lt;td>b&lt;/td>
-    
-        &lt;td>c&lt;/td>
-    
-    &lt;/tr>
-
-    &lt;tr>
-    
-        &lt;td>d&lt;/td>
-    
-        &lt;td>e&lt;/td>
-    
-        &lt;td>f&lt;/td>
-    
-    &lt;/tr>
-
-    &lt;tr>
-    
-        &lt;td>g&lt;/td>
-    
-    &lt;/tr>
-
-&lt;/table></code></pre>
+                <pre class="result"><code> a  b  c  |
+ d  e  f  |
+ g  |
+</code></pre>
             
         </section>
         
@@ -371,21 +238,10 @@
                 <small>v1.24.2</small>
             </h4>
             
-                <pre class="result"><code>&lt;table>
-    &lt;tr>
-            &lt;td>a&lt;/td>
-            &lt;td>b&lt;/td>
-            &lt;td>c&lt;/td>
-        &lt;/tr>
-    &lt;tr>
-            &lt;td>d&lt;/td>
-            &lt;td>e&lt;/td>
-            &lt;td>f&lt;/td>
-        &lt;/tr>
-    &lt;tr>
-            &lt;td>g&lt;/td>
-        &lt;/tr>
-&lt;/table></code></pre>
+                <pre class="result"><code> a  b  c  |
+ d  e  f  |
+ g  |
+</code></pre>
             
         </section>
         

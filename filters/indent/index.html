@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+
+    <title>indent filter | Jinja Compat Tests</title>
+    <style type="text/css">
+        html { font-family: Arial, sans-serif; }
+        .app-footer { border-top: 1px solid black; margin-top: 1rem; padding-top: .5rem; }
+    </style>
+    
+</head>
+<body>
+
+
+<style type="text/css">
+    h4 { margin-bottom: 0; }
+    h4 small { float: right; font-weight: normal; font-style: italic; }
+    pre { padding: .5em; margin-top: .5rem; min-height: 1em; overflow-x: scroll; }
+    .section { margin-bottom: 2.5rem; }
+    .test { border: 2px solid deepskyblue; }
+    .result { border: 2px solid lawngreen; }
+    .error { border: 2px solid red; white-space: normal; }
+</style>
+
+<header>
+    <h1><a rel="home" href="../../">Jinja Compat Tests</a></h1>
+</header>
+
+<article>
+    <h1><code>indent</code> filter</h1>
+
+    <section id="docs">
+        <h2><a class="permalink" href="#docs">Docs</a></h2>
+        <ul>
+        
+            
+            <li>
+                <a href="http://jinja.pocoo.org/docs/dev/templates/#indent">Jinja2</a>
+            </li>
+            
+        
+            
+            <li>
+                <a href="https://mozilla.github.io/nunjucks/templating.html#indent">Nunjucks</a>
+            </li>
+            
+        
+            
+        
+            
+        
+        </ul>
+    </section>
+
+    <h2 id="tests">
+        <a class="permalink" href="#tests">Tests</a>
+    </h2>
+    <ol>
+    
+        <li><a href="#custom-spacing">custom-spacing</a></li>
+    
+        <li><a href="#default">default</a></li>
+    
+        <li><a href="#include-first-line">include-first-line</a></li>
+    
+    </ol>
+    
+    
+    <section class="section" id="custom-spacing">
+        <h3><a class="permalink" href="#custom-spacing">Test: custom-spacing</a></h3>
+
+        <h4>Template</h4>
+        <pre class="test"><code>{{ "one\ntwo\nthree" | indent(6) }}</code></pre>
+
+        
+
+        
+        
+        
+        <section id="custom-spacing-django">
+            <h4>
+                <a class="permalink" href="#custom-spacing-django">Output Django</a>
+                <small>v1.10.1</small>
+            </h4>
+            
+                <pre class="error"><code>Invalid filter: 'indent'</code></pre>
+            
+        </section>
+        
+        
+        
+        <section id="custom-spacing-jinja2">
+            <h4>
+                <a class="permalink" href="#custom-spacing-jinja2">Output Jinja2</a>
+                <small>v2.8.0</small>
+            </h4>
+            
+                <pre class="result"><code>one
+      two
+      three</code></pre>
+            
+        </section>
+        
+        
+        
+        <section id="custom-spacing-nunjucks">
+            <h4>
+                <a class="permalink" href="#custom-spacing-nunjucks">Output Nunjucks</a>
+                <small>v2.5.0</small>
+            </h4>
+            
+                <pre class="result"><code>one
+      two
+      three
+</code></pre>
+            
+        </section>
+        
+        
+        
+        <section id="custom-spacing-swig">
+            <h4>
+                <a class="permalink" href="#custom-spacing-swig">Output Swig</a>
+                <small>v1.4.2</small>
+            </h4>
+            
+                <pre class="error"><code>Invalid filter "indent".</code></pre>
+            
+        </section>
+        
+        
+        
+        <section id="custom-spacing-twig">
+            <h4>
+                <a class="permalink" href="#custom-spacing-twig">Output Twig</a>
+                <small>v1.24.2</small>
+            </h4>
+            
+                <pre class="error"><code>Unknown "indent" filter.</code></pre>
+            
+        </section>
+        
+    </section>
+    
+    
+    <section class="section" id="default">
+        <h3><a class="permalink" href="#default">Test: default</a></h3>
+
+        <h4>Template</h4>
+        <pre class="test"><code>{{ "one\ntwo\nthree" | indent }}</code></pre>
+
+        
+
+        
+        
+        
+        <section id="default-django">
+            <h4>
+                <a class="permalink" href="#default-django">Output Django</a>
+                <small>v1.10.1</small>
+            </h4>
+            
+                <pre class="error"><code>Invalid filter: 'indent'</code></pre>
+            
+        </section>
+        
+        
+        
+        <section id="default-jinja2">
+            <h4>
+                <a class="permalink" href="#default-jinja2">Output Jinja2</a>
+                <small>v2.8.0</small>
+            </h4>
+            
+                <pre class="result"><code>one
+    two
+    three</code></pre>
+            
+        </section>
+        
+        
+        
+        <section id="default-nunjucks">
+            <h4>
+                <a class="permalink" href="#default-nunjucks">Output Nunjucks</a>
+                <small>v2.5.0</small>
+            </h4>
+            
+                <pre class="result"><code>one
+    two
+    three
+</code></pre>
+            
+        </section>
+        
+        
+        
+        <section id="default-swig">
+            <h4>
+                <a class="permalink" href="#default-swig">Output Swig</a>
+                <small>v1.4.2</small>
+            </h4>
+            
+                <pre class="error"><code>Invalid filter "indent".</code></pre>
+            
+        </section>
+        
+        
+        
+        <section id="default-twig">
+            <h4>
+                <a class="permalink" href="#default-twig">Output Twig</a>
+                <small>v1.24.2</small>
+            </h4>
+            
+                <pre class="error"><code>Unknown "indent" filter.</code></pre>
+            
+        </section>
+        
+    </section>
+    
+    
+    <section class="section" id="include-first-line">
+        <h3><a class="permalink" href="#include-first-line">Test: include-first-line</a></h3>
+
+        <h4>Template</h4>
+        <pre class="test"><code>{{ "one\ntwo\nthree" | indent(6, true) }}</code></pre>
+
+        
+
+        
+        
+        
+        <section id="include-first-line-django">
+            <h4>
+                <a class="permalink" href="#include-first-line-django">Output Django</a>
+                <small>v1.10.1</small>
+            </h4>
+            
+                <pre class="error"><code>Invalid filter: 'indent'</code></pre>
+            
+        </section>
+        
+        
+        
+        <section id="include-first-line-jinja2">
+            <h4>
+                <a class="permalink" href="#include-first-line-jinja2">Output Jinja2</a>
+                <small>v2.8.0</small>
+            </h4>
+            
+                <pre class="result"><code>      one
+      two
+      three</code></pre>
+            
+        </section>
+        
+        
+        
+        <section id="include-first-line-nunjucks">
+            <h4>
+                <a class="permalink" href="#include-first-line-nunjucks">Output Nunjucks</a>
+                <small>v2.5.0</small>
+            </h4>
+            
+                <pre class="result"><code>      one
+      two
+      three
+</code></pre>
+            
+        </section>
+        
+        
+        
+        <section id="include-first-line-swig">
+            <h4>
+                <a class="permalink" href="#include-first-line-swig">Output Swig</a>
+                <small>v1.4.2</small>
+            </h4>
+            
+                <pre class="error"><code>Invalid filter "indent".</code></pre>
+            
+        </section>
+        
+        
+        
+        <section id="include-first-line-twig">
+            <h4>
+                <a class="permalink" href="#include-first-line-twig">Output Twig</a>
+                <small>v1.24.2</small>
+            </h4>
+            
+                <pre class="error"><code>Unknown "indent" filter.</code></pre>
+            
+        </section>
+        
+    </section>
+    
+</article>
+
+
+<footer class="app-footer" role="contentinfo">
+    <a href="https://github.com/jbmoelker/jinja-compat-tests">Source on GitHub</a>
+</footer>
+
+
+</body>
+</html>

@@ -15,12 +15,29 @@
             }
         },
         "filters": {
+            "escape": {
+                "default": "<html>",
+                "double-escape": "<html>"
+            },
+            "filesizeformat": {
+                "default": ""
+            },
             "first": {
                 "string": "1"
             },
             "length": {
                 "number": "0",
                 "string": "4"
+            },
+            "lower": {
+                "array": "[u&#39;my first car&#39;, u&#39;my second car&#39;, u&#39;my third car&#39;]",
+                "number": "5",
+                "string": "my first car"
+            },
+            "upper": {
+                "array": "[U&#39;MY FIRST CAR&#39;, U&#39;MY SECOND CAR&#39;, U&#39;MY THIRD CAR&#39;]",
+                "number": "5",
+                "string": "MY FIRST CAR"
             }
         },
         "tags": {
@@ -63,10 +80,11 @@
                 "zero": "0"
             },
             "batch": {
-                "size-and-fill": "<table>\n    \n        <tr>\n            \n                <td>a</td>\n            \n                <td>b</td>\n            \n                <td>c</td>\n            \n        </tr>\n    \n        <tr>\n            \n                <td>d</td>\n            \n                <td>e</td>\n            \n                <td>f</td>\n            \n        </tr>\n    \n        <tr>\n            \n                <td>g</td>\n            \n                <td>No item</td>\n            \n                <td>No item</td>\n            \n        </tr>\n    \n</table>",
-                "size-only": "<table>\n\n    <tr>\n    \n        <td>a</td>\n    \n        <td>b</td>\n    \n        <td>c</td>\n    \n    </tr>\n\n    <tr>\n    \n        <td>d</td>\n    \n        <td>e</td>\n    \n        <td>f</td>\n    \n    </tr>\n\n    <tr>\n    \n        <td>g</td>\n    \n    </tr>\n\n</table>"
+                "size-and-fill": " a  b  c  |\n d  e  f  |\n g  -  -  |\n",
+                "size-only": " a  b  c  |\n d  e  f  |\n g  |\n"
             },
             "capitalize": {
+                "array": "[u'my first car', u'my second car', u'my third car']",
                 "mixed-case": "My first car",
                 "number": "5",
                 "sentence": "My first car",
@@ -89,15 +107,55 @@
                 "case-sensitive": "A\nB\nC\na\nb\nc\n",
                 "default": "a\nb\nC\nd\nE\nf\n"
             },
+            "escape": {
+                "alias-e": "&lt;html&gt;",
+                "default": "&lt;html&gt;",
+                "double-escape": "&lt;html&gt;"
+            },
+            "filesizeformat": {
+                "binary": "0 Bytes\n1 Byte\n2 Bytes\n10 Bytes\n100 Bytes\n1000 Bytes\n976.6 KiB\n953.7 MiB\n931.3 GiB",
+                "default": "0 Bytes\n1 Byte\n2 Bytes\n10 Bytes\n100 Bytes\n1.0 kB\n1.0 MB\n1.0 GB\n1.0 TB"
+            },
             "first": {
                 "array": "1",
                 "object": "",
                 "string": "1"
             },
+            "float": {
+                "custom-fallback": "0.5",
+                "float": "3.52",
+                "force-fallback": "0.0",
+                "integer": "3.0",
+                "string": "3.52"
+            },
+            "indent": {
+                "custom-spacing": "one\n      two\n      three",
+                "default": "one\n    two\n    three",
+                "include-first-line": "      one\n      two\n      three"
+            },
+            "int": {
+                "base-16": "19762",
+                "base-8": "9",
+                "custom-fallback": "5",
+                "float": "3",
+                "force-fallback": "0",
+                "integer": "3",
+                "string": "3"
+            },
             "length": {
                 "array": "4",
                 "object": "1",
                 "string": "4"
+            },
+            "lower": {
+                "array": "[u'my first car', u'my second car', u'my third car']",
+                "number": "5",
+                "string": "my first car"
+            },
+            "upper": {
+                "array": "[U'MY FIRST CAR', U'MY SECOND CAR', U'MY THIRD CAR']",
+                "number": "5",
+                "string": "MY FIRST CAR"
             }
         },
         "tags": {
@@ -147,12 +205,13 @@
                 "negative-integer": "3",
                 "positive-float": "3.14",
                 "positive-integer": "3",
+                "string": "3.14",
                 "variable": "3",
                 "zero": "0"
             },
             "batch": {
-                "size-and-fill": "<table>\n    \n        <tr>\n            \n                <td>a</td>\n            \n                <td>b</td>\n            \n                <td>c</td>\n            \n        </tr>\n    \n        <tr>\n            \n                <td>d</td>\n            \n                <td>e</td>\n            \n                <td>f</td>\n            \n        </tr>\n    \n        <tr>\n            \n                <td>g</td>\n            \n                <td>No item</td>\n            \n                <td>No item</td>\n            \n        </tr>\n    \n</table>",
-                "size-only": "<table>\n\n    <tr>\n    \n        <td>a</td>\n    \n        <td>b</td>\n    \n        <td>c</td>\n    \n    </tr>\n\n    <tr>\n    \n        <td>d</td>\n    \n        <td>e</td>\n    \n        <td>f</td>\n    \n    </tr>\n\n    <tr>\n    \n        <td>g</td>\n    \n    </tr>\n\n</table>"
+                "size-and-fill": " a  b  c  |\n d  e  f  |\n g  -  -  |\n",
+                "size-only": " a  b  c  |\n d  e  f  |\n g  |\n"
             },
             "capitalize": {
                 "mixed-case": "My first car",
@@ -178,17 +237,49 @@
                 "case-sensitive": "A\nB\nC\na\nb\nc\n",
                 "default": "a\nb\nC\nd\nE\nf\n"
             },
+            "escape": {
+                "alias-e": "&lt;html&gt;",
+                "default": "&lt;html&gt;",
+                "double-escape": "&lt;html&gt;"
+            },
             "first": {
                 "array": "1",
                 "number": "",
                 "object": "",
                 "string": "1"
             },
+            "float": {
+                "custom-fallback": "0.5",
+                "float": "3.52",
+                "force-fallback": "",
+                "integer": "3",
+                "string": "3.52"
+            },
+            "indent": {
+                "custom-spacing": "one\n      two\n      three\n",
+                "default": "one\n    two\n    three\n",
+                "include-first-line": "      one\n      two\n      three\n"
+            },
+            "int": {
+                "base-16": "0",
+                "base-8": "11",
+                "custom-fallback": "5",
+                "float": "3",
+                "force-fallback": "",
+                "integer": "3",
+                "string": "3"
+            },
             "length": {
                 "array": "4",
                 "number": "",
                 "object": "4",
                 "string": "4"
+            },
+            "lower": {
+                "string": "my first car"
+            },
+            "upper": {
+                "string": "MY FIRST CAR"
             }
         },
         "tags": {
@@ -230,6 +321,7 @@
         },
         "filters": {
             "capitalize": {
+                "array": "My first car,My second car,My third car",
                 "mixed-case": "My first car",
                 "number": "5",
                 "sentence": "My first car",
@@ -243,11 +335,26 @@
                 "undefined-property-dot-notation": "&quot;x&quot; on &quot;vars&quot; is not defined\n",
                 "undefined-variable": "&quot;varX&quot; is not defined"
             },
+            "escape": {
+                "alias-e": "&lt;html&gt;",
+                "default": "&lt;html&gt;",
+                "double-escape": "&lt;html&gt;"
+            },
             "first": {
                 "array": "1",
                 "number": "undefined",
                 "object": "1",
                 "string": "1"
+            },
+            "lower": {
+                "array": "my first car,my second car,my third car",
+                "number": "5",
+                "string": "my first car"
+            },
+            "upper": {
+                "array": "MY FIRST CAR,MY SECOND CAR,MY THIRD CAR",
+                "number": "5",
+                "string": "MY FIRST CAR"
             }
         },
         "tags": {
@@ -298,12 +405,13 @@
                 "negative-integer": "-3",
                 "positive-float": "3.14",
                 "positive-integer": "3",
+                "string": "3.14",
                 "variable": "3",
                 "zero": "0"
             },
             "batch": {
-                "size-and-fill": "<table>\n            <tr>\n                            <td>a</td>\n                            <td>b</td>\n                            <td>c</td>\n                    </tr>\n            <tr>\n                            <td>d</td>\n                            <td>e</td>\n                            <td>f</td>\n                    </tr>\n            <tr>\n                            <td>g</td>\n                            <td>No item</td>\n                            <td>No item</td>\n                    </tr>\n    </table>",
-                "size-only": "<table>\n    <tr>\n            <td>a</td>\n            <td>b</td>\n            <td>c</td>\n        </tr>\n    <tr>\n            <td>d</td>\n            <td>e</td>\n            <td>f</td>\n        </tr>\n    <tr>\n            <td>g</td>\n        </tr>\n</table>"
+                "size-and-fill": " a  b  c  |\n d  e  f  |\n g  -  -  |\n",
+                "size-only": " a  b  c  |\n d  e  f  |\n g  |\n"
             },
             "capitalize": {
                 "mixed-case": "My first car",
@@ -319,6 +427,11 @@
                 "undefined-property-dot-notation": "&quot;x&quot; on &quot;vars&quot; is not defined\n",
                 "undefined-variable": "&quot;varX&quot; is not defined"
             },
+            "escape": {
+                "alias-e": "&lt;html&gt;",
+                "default": "&lt;html&gt;",
+                "double-escape": "&amp;lt;html&amp;gt;"
+            },
             "first": {
                 "array": "1",
                 "number": "1",
@@ -330,6 +443,14 @@
                 "number": "4",
                 "object": "4",
                 "string": "4"
+            },
+            "lower": {
+                "number": "5",
+                "string": "my first car"
+            },
+            "upper": {
+                "number": "5",
+                "string": "MY FIRST CAR"
             }
         },
         "tags": {
