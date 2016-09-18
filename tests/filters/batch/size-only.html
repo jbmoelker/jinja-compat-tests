@@ -1,9 +1,3 @@
-<table>
-{% for row in items|batch(3) %}
-    <tr>
-    {% for column in row %}
-        <td>{{ column }}</td>
-    {% endfor %}
-    </tr>
+{% for row in items|batch(3) -%}
+    {% for column in row %} {{ column }} {% endfor %} |
 {% endfor %}
-</table>
