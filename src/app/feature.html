@@ -63,7 +63,9 @@
             {% if error %}
                 <pre class="error"><code>{{ error|safe }}</code></pre>
             {% else %}
-                <pre class="result"><code>{{ result|replace('<','&lt;')|safe }}</code></pre>
+                <pre class="result"><code>
+                {%- if name == 'escape' %}{{ result }}{% else %}{{ result|replace('<','&lt;')|safe }}{% endif -%}
+                </code></pre>
             {% endif %}
         </section>
         {% endfor %}
