@@ -10,6 +10,7 @@ python test-jinja2.py
 node test-nunjucks.js
 node test-swig.js
 php test-twig.php
+ruby test-liquid.rb
 
 node index.js
 node scripts/build-docs.js
