@@ -73,6 +73,7 @@
         <section id="{{ test }}-{{ engine }}" data-engine="{{ engine }}">
             <h4>
                 <a class="permalink" href="#{{ test }}-{{ engine }}">Output {{ engine|title }}</a>
+                {% if error %}(error){% endif %}
                 <small>v{{ versions[engine] }}</small>
             </h4>
             {% if error %}
