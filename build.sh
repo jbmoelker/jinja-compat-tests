@@ -1,6 +1,9 @@
 #!/usr/bin/env bash
 
+rm -rf dist/
 rm -rf output/
+
+node scripts/build-template-data.js
 
 python test-django.py
 python test-jinja2.py
