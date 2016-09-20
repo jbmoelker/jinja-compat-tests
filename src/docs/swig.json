@@ -1,5 +1,10 @@
 {
   "_baseUrl": "https://voorhoede.github.io/swig/docs/",
+  "expressions": {
+    "literals": "#variables",
+    "logic": "#tags",
+    "whitespace-control": "#whitespace"
+  },
   "filters": {
     "addslashes": "filters/#addslashes",
     "capitalize": "filters/#capitalize",
@@ -24,6 +29,7 @@
     "url_encode": "filters/#url_encode",
     "url_decode": "filters/#url_decode"
   },
+  "functions": {},
   "tags": {
     "autoescape": "tags/#autoescape",
     "block": "tags/#block",

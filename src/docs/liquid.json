@@ -1,5 +1,12 @@
 {
   "_baseUrl": "https://shopify.github.io/liquid/",
+  "expressions": {
+    "comparisons": "basics/operators/",
+    "literals": "basics/types/",
+    "logic": "basics/operators/",
+    "tests": "basics/truthy-and-falsy/",
+    "whitespace-control": "basics/whitespace/"
+  },
   "filters": {
     "abs": "filters/abs/",
     "append": "filters/append/",

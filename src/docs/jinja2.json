@@ -1,5 +1,13 @@
 {
   "_baseUrl": "http://jinja.pocoo.org/docs/dev/templates/",
+  "expressions": {
+    "comparisons": "#comparisons",
+    "literals": "#literals",
+    "logic": "#logic",
+    "math": "#math",
+    "tests": "#tests",
+    "whitespace-control": "#whitespace-control"
+  },
   "filters": {
     "abs": "#abs",
     "attr": "#attr",
@@ -47,6 +55,13 @@
     "wordcount": "#wordcount",
     "wordwrap": "#wordwrap",
     "xmlattr": "#xmlattr"
+  },
+  "functions": {
+    "range": "#range",
+    "lipsum": "#lipsum",
+    "dict": "#dict",
+    "cycler": "#cycler",
+    "joiner": "#joiner"
   },
   "tags": {
     "for": "#for",

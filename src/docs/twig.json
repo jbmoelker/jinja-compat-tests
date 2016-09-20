@@ -1,5 +1,13 @@
 {
   "_baseUrl": "http://twig.sensiolabs.org/doc/",
+  "expressions": {
+    "comparisons": "templates.html#comparisons",
+    "literals": "templates.html#literals",
+    "logic": "templates.html#logic",
+    "math": "templates.html#math",
+    "tests": "templates.html#test-operator",
+    "whitespace-control": "templates.html#whitespace-control"
+  },
   "filters": {
     "abs": "filters/abs.html",
     "batch": "filters/batch.html",
@@ -32,6 +40,22 @@
     "trim": "filters/trim.html",
     "upper": "filters/upper.html",
     "url_encode": "filters/url_encode.html"
+  },
+  "functions": {
+    "attribute": "functions/attribute.html",
+    "block": "functions/block.html",
+    "constant": "functions/constant.html",
+    "cycle": "functions/cycle.html",
+    "date": "functions/date.html",
+    "dump": "functions/dump.html",
+    "include": "functions/include.html",
+    "max": "functions/max.html",
+    "min": "functions/min.html",
+    "parent": "functions/parent.html",
+    "random": "functions/random.html",
+    "range": "functions/range.html",
+    "source": "functions/source.html",
+    "template_from_string": "functions/template_from_string.html"
   },
   "tags": {
     "autoescape": "tags/autoescape.html",
