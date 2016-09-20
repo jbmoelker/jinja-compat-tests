@@ -91,12 +91,6 @@
         
             
             <li>
-                <a href="https://shopify.github.io/liquid/filters/last/">Liquid</a>
-            </li>
-            
-        
-            
-            <li>
                 <a href="https://mozilla.github.io/nunjucks/templating.html#last">Nunjucks</a>
             </li>
             
@@ -121,6 +115,8 @@
     </h2>
     <ol>
     
+        <li><a href="#array-as-variable">array-as-variable</a></li>
+    
         <li><a href="#array">array</a></li>
     
         <li><a href="#number">number</a></li>
@@ -130,6 +126,101 @@
         <li><a href="#string">string</a></li>
     
     </ol>
+    
+    
+    <section class="section" id="array-as-variable">
+        <h3><a class="permalink" href="#array-as-variable">Test: array-as-variable</a></h3>
+
+        <h4>Template</h4>
+        <pre class="test"><code>{{ items|last }}</code></pre>
+
+        
+        <h4>Data</h4>
+        <pre class="test"><code>{
+  "items": [1, 2, 3, 4]
+}</code></pre>
+        
+
+        
+        
+        
+        <section id="array-as-variable-django" data-engine="django">
+            <h4>
+                <a class="permalink" href="#array-as-variable-django">Output Django</a>
+                
+                <small>v1.10.1</small>
+            </h4>
+            
+                <pre class="result"><code>4</code></pre>
+            
+        </section>
+        
+        
+        
+        <section id="array-as-variable-jinja2" data-engine="jinja2">
+            <h4>
+                <a class="permalink" href="#array-as-variable-jinja2">Output Jinja2</a>
+                
+                <small>v2.8.0</small>
+            </h4>
+            
+                <pre class="result"><code>4</code></pre>
+            
+        </section>
+        
+        
+        
+        <section id="array-as-variable-liquid" data-engine="liquid">
+            <h4>
+                <a class="permalink" href="#array-as-variable-liquid">Output Liquid</a>
+                
+                <small>v3.0.6</small>
+            </h4>
+            
+                <pre class="result"><code>4</code></pre>
+            
+        </section>
+        
+        
+        
+        <section id="array-as-variable-nunjucks" data-engine="nunjucks">
+            <h4>
+                <a class="permalink" href="#array-as-variable-nunjucks">Output Nunjucks</a>
+                
+                <small>v2.5.0</small>
+            </h4>
+            
+                <pre class="result"><code>4</code></pre>
+            
+        </section>
+        
+        
+        
+        <section id="array-as-variable-swig" data-engine="swig">
+            <h4>
+                <a class="permalink" href="#array-as-variable-swig">Output Swig</a>
+                
+                <small>v1.4.2</small>
+            </h4>
+            
+                <pre class="result"><code>4</code></pre>
+            
+        </section>
+        
+        
+        
+        <section id="array-as-variable-twig" data-engine="twig">
+            <h4>
+                <a class="permalink" href="#array-as-variable-twig">Output Twig</a>
+                
+                <small>v1.24.2</small>
+            </h4>
+            
+                <pre class="result"><code>4</code></pre>
+            
+        </section>
+        
+    </section>
     
     
     <section class="section" id="array">
@@ -146,6 +237,7 @@
         <section id="array-django" data-engine="django">
             <h4>
                 <a class="permalink" href="#array-django">Output Django</a>
+                (error)
                 <small>v1.10.1</small>
             </h4>
             
@@ -158,6 +250,7 @@
         <section id="array-jinja2" data-engine="jinja2">
             <h4>
                 <a class="permalink" href="#array-jinja2">Output Jinja2</a>
+                
                 <small>v2.8.0</small>
             </h4>
             
@@ -170,6 +263,7 @@
         <section id="array-liquid" data-engine="liquid">
             <h4>
                 <a class="permalink" href="#array-liquid">Output Liquid</a>
+                
                 <small>v3.0.6</small>
             </h4>
             
@@ -182,6 +276,7 @@
         <section id="array-nunjucks" data-engine="nunjucks">
             <h4>
                 <a class="permalink" href="#array-nunjucks">Output Nunjucks</a>
+                
                 <small>v2.5.0</small>
             </h4>
             
@@ -194,6 +289,7 @@
         <section id="array-swig" data-engine="swig">
             <h4>
                 <a class="permalink" href="#array-swig">Output Swig</a>
+                
                 <small>v1.4.2</small>
             </h4>
             
@@ -206,6 +302,7 @@
         <section id="array-twig" data-engine="twig">
             <h4>
                 <a class="permalink" href="#array-twig">Output Twig</a>
+                
                 <small>v1.24.2</small>
             </h4>
             
@@ -230,6 +327,7 @@
         <section id="number-django" data-engine="django">
             <h4>
                 <a class="permalink" href="#number-django">Output Django</a>
+                (error)
                 <small>v1.10.1</small>
             </h4>
             
@@ -242,6 +340,7 @@
         <section id="number-jinja2" data-engine="jinja2">
             <h4>
                 <a class="permalink" href="#number-jinja2">Output Jinja2</a>
+                (error)
                 <small>v2.8.0</small>
             </h4>
             
@@ -254,6 +353,7 @@
         <section id="number-liquid" data-engine="liquid">
             <h4>
                 <a class="permalink" href="#number-liquid">Output Liquid</a>
+                
                 <small>v3.0.6</small>
             </h4>
             
@@ -266,6 +366,7 @@
         <section id="number-nunjucks" data-engine="nunjucks">
             <h4>
                 <a class="permalink" href="#number-nunjucks">Output Nunjucks</a>
+                
                 <small>v2.5.0</small>
             </h4>
             
@@ -278,6 +379,7 @@
         <section id="number-swig" data-engine="swig">
             <h4>
                 <a class="permalink" href="#number-swig">Output Swig</a>
+                
                 <small>v1.4.2</small>
             </h4>
             
@@ -290,6 +392,7 @@
         <section id="number-twig" data-engine="twig">
             <h4>
                 <a class="permalink" href="#number-twig">Output Twig</a>
+                
                 <small>v1.24.2</small>
             </h4>
             
@@ -314,6 +417,7 @@
         <section id="object-django" data-engine="django">
             <h4>
                 <a class="permalink" href="#object-django">Output Django</a>
+                (error)
                 <small>v1.10.1</small>
             </h4>
             
@@ -326,6 +430,7 @@
         <section id="object-jinja2" data-engine="jinja2">
             <h4>
                 <a class="permalink" href="#object-jinja2">Output Jinja2</a>
+                (error)
                 <small>v2.8.0</small>
             </h4>
             
@@ -338,6 +443,7 @@
         <section id="object-liquid" data-engine="liquid">
             <h4>
                 <a class="permalink" href="#object-liquid">Output Liquid</a>
+                (error)
                 <small>v3.0.6</small>
             </h4>
             
@@ -350,6 +456,7 @@
         <section id="object-nunjucks" data-engine="nunjucks">
             <h4>
                 <a class="permalink" href="#object-nunjucks">Output Nunjucks</a>
+                
                 <small>v2.5.0</small>
             </h4>
             
@@ -362,6 +469,7 @@
         <section id="object-swig" data-engine="swig">
             <h4>
                 <a class="permalink" href="#object-swig">Output Swig</a>
+                
                 <small>v1.4.2</small>
             </h4>
             
@@ -374,6 +482,7 @@
         <section id="object-twig" data-engine="twig">
             <h4>
                 <a class="permalink" href="#object-twig">Output Twig</a>
+                
                 <small>v1.24.2</small>
             </h4>
             
@@ -398,6 +507,7 @@
         <section id="string-django" data-engine="django">
             <h4>
                 <a class="permalink" href="#string-django">Output Django</a>
+                
                 <small>v1.10.1</small>
             </h4>
             
@@ -410,6 +520,7 @@
         <section id="string-jinja2" data-engine="jinja2">
             <h4>
                 <a class="permalink" href="#string-jinja2">Output Jinja2</a>
+                
                 <small>v2.8.0</small>
             </h4>
             
@@ -422,6 +533,7 @@
         <section id="string-liquid" data-engine="liquid">
             <h4>
                 <a class="permalink" href="#string-liquid">Output Liquid</a>
+                
                 <small>v3.0.6</small>
             </h4>
             
@@ -434,6 +546,7 @@
         <section id="string-nunjucks" data-engine="nunjucks">
             <h4>
                 <a class="permalink" href="#string-nunjucks">Output Nunjucks</a>
+                
                 <small>v2.5.0</small>
             </h4>
             
@@ -446,6 +559,7 @@
         <section id="string-swig" data-engine="swig">
             <h4>
                 <a class="permalink" href="#string-swig">Output Swig</a>
+                
                 <small>v1.4.2</small>
             </h4>
             
@@ -458,6 +572,7 @@
         <section id="string-twig" data-engine="twig">
             <h4>
                 <a class="permalink" href="#string-twig">Output Twig</a>
+                
                 <small>v1.24.2</small>
             </h4>
             

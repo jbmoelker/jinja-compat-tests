@@ -26,6 +26,7 @@
                 "string": "1"
             },
             "last": {
+                "array-as-variable": "4",
                 "string": "4"
             },
             "length": {
@@ -146,6 +147,7 @@
                 "string": "3"
             },
             "last": {
+                "array-as-variable": "4",
                 "array": "4",
                 "string": "4"
             },
@@ -279,6 +281,7 @@
                 "string": "3.52"
             },
             "last": {
+                "array-as-variable": "4",
                 "array": "",
                 "number": "",
                 "string": ""
@@ -411,6 +414,7 @@
                 "string": "3"
             },
             "last": {
+                "array-as-variable": "4",
                 "array": "4",
                 "number": "",
                 "object": "",
@@ -494,6 +498,7 @@
                 "string": "1"
             },
             "last": {
+                "array-as-variable": "4",
                 "array": "4",
                 "number": "undefined",
                 "object": "4",
@@ -592,6 +597,7 @@
                 "string": "1"
             },
             "last": {
+                "array-as-variable": "4",
                 "array": "4",
                 "number": "4",
                 "object": "4",

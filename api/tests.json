@@ -102,6 +102,7 @@
             "string": "{{ \"3.52\"|int }}"
         },
         "last": {
+            "array-as-variable": "{{ items|last }}",
             "array": "{{ [1, 2, 3, 4]|last }}",
             "number": "{{ 1234|last }}",
             "object": "{{ { a: 1, b: 2, c: 3, d: 4 }|last }}",
