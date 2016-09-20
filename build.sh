@@ -12,6 +12,6 @@ node test-swig.js
 php test-twig.php
 ruby test-liquid.rb
 
-node index.js
+node scripts/build-api.js
 node scripts/build-docs.js
 node scripts/build-app.js
