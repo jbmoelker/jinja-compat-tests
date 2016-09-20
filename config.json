@@ -1,7 +1,8 @@
 {
   "inputDir": "tests/",
   "outputDir": "output/",
-  "appDir": "src/app",
+  "appDir": "src/app/",
+  "docsDir": "src/docs/",
   "srcDir": "src/",
   "distDir": "dist/",
   "apiDir": "dist/api/",

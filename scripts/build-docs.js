@@ -3,8 +3,9 @@ const path = require('path');
 const saveJson = require('../lib/save-json');
 
 const rootDir = path.join(__dirname, '/../');
-const docsDir = rootDir + 'docs/';
-const apiDir = rootDir + 'dist/api/';
+const config = require(rootDir + 'config.json');
+const docsDir = rootDir + config.docsDir;
+const apiDir = rootDir + config.apiDir;
 
 const filenames = glob.sync('*.json', { cwd: docsDir });
 
