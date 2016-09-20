@@ -1,0 +1,12 @@
+{
+  "inputDir": "tests/",
+  "outputDir": "output/",
+  "appDir": "src/app",
+  "srcDir": "src/",
+  "distDir": "dist/",
+  "apiDir": "dist/api/",
+  "templateExt": ".html",
+  "dataExt": ".json",
+  "errorExt": ".error.log",
+  "templateDataFile": "output/template-data.json"
+}
