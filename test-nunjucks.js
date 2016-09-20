@@ -1,13 +1,13 @@
-const fs = require('fs');
-const glob = require('glob');
 const nunjucks = require('nunjucks');
 const path = require('path');
 const saveFile = require('./lib/save-file');
 
-const inputDir = 'tests/';
-const outputDir = 'output/nunjucks/';
-const errorExt = '.error.log';
-const filenames = glob.sync('**/*.html', { cwd: inputDir });
+const engine = 'nunjucks';
+const rootDir = __dirname + '/';
+const config = require('./config.json');
+const inputDir = rootDir + config.inputDir;
+const outputDir = rootDir + config.outputDir + engine + '/';
+const templateData = require(rootDir + config.templateDataFile);
 
 nunjucks.installJinjaCompat();
 
@@ -19,39 +19,25 @@ const renderer = new nunjucks.Environment(
     { autoescape: true }
 );
 
-filenames.forEach(renderFile);
+Object.keys(templateData).forEach(templateName => {
+    renderTemplate(templateName, templateData[templateName]);
+});
 
-function renderFile(filename) {
-    getData(filename)
-        .then(data => {
-            renderer.render(filename, data, (err, output) => {
-                if (err) {
-                    saveError(filename, err);
-                } else {
-                    saveFile(path.join(outputDir, filename), output);
-                }
-            });
-        });
-}
-
-function changeFileExt(filename, ext) {
-    return path.join(path.dirname(filename), path.basename(filename, path.extname(filename)) + ext);
-}
-
-function getData(filename) {
-    return new Promise((resolve, reject) => {
-        const dataFilename = path.join(inputDir, changeFileExt(filename, '.json'));
-
-        fs.stat(dataFilename, (err, stats) => {
-            const data = stats ? JSON.parse(fs.readFileSync(dataFilename, 'utf8')) : {};
-            resolve(data);
-        });
+function renderTemplate(templateName, data) {
+    const templateFilename = templateName + config.templateExt;
+    renderer.render(templateFilename, data, (err, output) => {
+        if (err) {
+            saveError(templateName, err);
+        } else {
+            saveFile(path.join(outputDir, templateFilename), output);
+        }
     });
 }
 
-function saveError(filename, err) {
-    const errorFilename = path.join(outputDir, changeFileExt(filename, errorExt));
-    const pattern = new RegExp('\\(' + __dirname + '/' + inputDir + filename + '\\)', 'g');
+function saveError(templateName, err) {
+    const errorFilename = path.join(outputDir, templateName + config.errorExt);
+    const templateFilename = inputDir + templateName + config.templateExt;
+    const pattern = new RegExp('\\(' + templateFilename + '\\)', 'g');
     const message = err.message.replace(pattern, '');
     saveFile(errorFilename, message);
 }
