@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
 
-    <title>if tag | Jinja Compat Tests</title>
+    <title>cycle function | Jinja Compat Tests</title>
     <style type="text/css">
         html { font-family: Arial, sans-serif; }
         .app-footer { border-top: 1px solid black; margin-top: 1rem; padding-top: .5rem; }
@@ -71,45 +71,25 @@
 </header>
 
 <article>
-    <h1><code>if</code> tag</h1>
+    <h1><code>cycle</code> function</h1>
 
     <section id="docs">
         <h2><a class="permalink" href="#docs">Docs</a></h2>
         <ul>
         
             
-            <li>
-                <a href="https://docs.djangoproject.com/en/1.10/ref/templates/builtins/#if">Django</a>
-            </li>
+        
+            
+        
+            
+        
+            
+        
             
         
             
             <li>
-                <a href="http://jinja.pocoo.org/docs/dev/templates/#if">Jinja2</a>
-            </li>
-            
-        
-            
-            <li>
-                <a href="https://shopify.github.io/liquid/tags/control-flow/#if">Liquid</a>
-            </li>
-            
-        
-            
-            <li>
-                <a href="https://mozilla.github.io/nunjucks/templating.html#if">Nunjucks</a>
-            </li>
-            
-        
-            
-            <li>
-                <a href="https://voorhoede.github.io/swig/docs/tags/#if">Swig</a>
-            </li>
-            
-        
-            
-            <li>
-                <a href="http://twig.sensiolabs.org/doc/tags/if.html">Twig</a>
+                <a href="http://twig.sensiolabs.org/doc/functions/cycle.html">Twig</a>
             </li>
             
         
@@ -121,282 +101,215 @@
     </h2>
     <ol>
     
-        <li><a href="#true-capitalized">true-capitalized</a></li>
+        <li><a href="#2-items">2-items</a></li>
     
-        <li><a href="#true-variable">true-variable</a></li>
-    
-        <li><a href="#true">true</a></li>
+        <li><a href="#3-items">3-items</a></li>
     
     </ol>
     
     
-    <section class="section" id="true-capitalized">
-        <h3><a class="permalink" href="#true-capitalized">Test: true-capitalized</a></h3>
+    <section class="section" id="2-items">
+        <h3><a class="permalink" href="#2-items">Test: 2-items</a></h3>
 
         <h4>Template</h4>
-        <pre class="test"><code>{% if True %}True{% endif %}</code></pre>
-
-        
-
-        
-        
-        
-        <section id="true-capitalized-django" data-engine="django">
-            <h4>
-                <a class="permalink" href="#true-capitalized-django">Output Django</a>
-                
-                <small>v1.10.1</small>
-            </h4>
-            
-                <pre class="result"><code>True</code></pre>
-            
-        </section>
-        
-        
-        
-        <section id="true-capitalized-jinja2" data-engine="jinja2">
-            <h4>
-                <a class="permalink" href="#true-capitalized-jinja2">Output Jinja2</a>
-                
-                <small>v2.8.0</small>
-            </h4>
-            
-                <pre class="result"><code>True</code></pre>
-            
-        </section>
-        
-        
-        
-        <section id="true-capitalized-liquid" data-engine="liquid">
-            <h4>
-                <a class="permalink" href="#true-capitalized-liquid">Output Liquid</a>
-                (error)
-                <small>v3.0.6</small>
-            </h4>
-            
-                <pre class="error"><code>(no output)</code></pre>
-            
-        </section>
-        
-        
-        
-        <section id="true-capitalized-nunjucks" data-engine="nunjucks">
-            <h4>
-                <a class="permalink" href="#true-capitalized-nunjucks">Output Nunjucks</a>
-                
-                <small>v2.5.0</small>
-            </h4>
-            
-                <pre class="result"><code>True</code></pre>
-            
-        </section>
-        
-        
-        
-        <section id="true-capitalized-swig" data-engine="swig">
-            <h4>
-                <a class="permalink" href="#true-capitalized-swig">Output Swig</a>
-                (error)
-                <small>v1.4.2</small>
-            </h4>
-            
-                <pre class="error"><code>(no output)</code></pre>
-            
-        </section>
-        
-        
-        
-        <section id="true-capitalized-twig" data-engine="twig">
-            <h4>
-                <a class="permalink" href="#true-capitalized-twig">Output Twig</a>
-                
-                <small>v1.24.2</small>
-            </h4>
-            
-                <pre class="result"><code></code></pre>
-            
-        </section>
-        
-    </section>
-    
-    
-    <section class="section" id="true-variable">
-        <h3><a class="permalink" href="#true-variable">Test: true-variable</a></h3>
-
-        <h4>Template</h4>
-        <pre class="test"><code>{% if varX %}true{% endif %}</code></pre>
+        <pre class="test"><code>{% for i in rows %}
+{{ cycle(items, i) }}
+{% endfor %}</code></pre>
 
         
         <h4>Data</h4>
-        <pre class="test"><code>{ "varX": true }</code></pre>
+        <pre class="test"><code>{
+  "items": ["odd", "even"],
+  "rows": [1, 2, 3, 4, 5]
+}</code></pre>
         
 
         
         
         
-        <section id="true-variable-django" data-engine="django">
+        <section id="2-items-django" data-engine="django">
             <h4>
-                <a class="permalink" href="#true-variable-django">Output Django</a>
-                
+                <a class="permalink" href="#2-items-django">Output Django</a>
+                (error)
                 <small>v1.10.1</small>
             </h4>
             
-                <pre class="result"><code>true</code></pre>
+                <pre class="error"><code>Could not parse the remainder: '(items, i)' from 'cycle(items, i)'</code></pre>
             
         </section>
         
         
         
-        <section id="true-variable-jinja2" data-engine="jinja2">
+        <section id="2-items-jinja2" data-engine="jinja2">
             <h4>
-                <a class="permalink" href="#true-variable-jinja2">Output Jinja2</a>
-                
+                <a class="permalink" href="#2-items-jinja2">Output Jinja2</a>
+                (error)
                 <small>v2.8.0</small>
             </h4>
             
-                <pre class="result"><code>true</code></pre>
+                <pre class="error"><code>'cycle' is undefined</code></pre>
             
         </section>
         
         
         
-        <section id="true-variable-liquid" data-engine="liquid">
+        <section id="2-items-liquid" data-engine="liquid">
             <h4>
-                <a class="permalink" href="#true-variable-liquid">Output Liquid</a>
-                
+                <a class="permalink" href="#2-items-liquid">Output Liquid</a>
+                (error)
                 <small>v3.0.6</small>
             </h4>
             
-                <pre class="result"><code>true</code></pre>
+                <pre class="error"><code>(no output)</code></pre>
             
         </section>
         
         
         
-        <section id="true-variable-nunjucks" data-engine="nunjucks">
+        <section id="2-items-nunjucks" data-engine="nunjucks">
             <h4>
-                <a class="permalink" href="#true-variable-nunjucks">Output Nunjucks</a>
-                
+                <a class="permalink" href="#2-items-nunjucks">Output Nunjucks</a>
+                (error)
                 <small>v2.5.0</small>
             </h4>
             
-                <pre class="result"><code>true</code></pre>
+                <pre class="error"><code> [Line 1, Column 6]
+  Error: Unable to call `cycle`, which is undefined or falsey</code></pre>
             
         </section>
         
         
         
-        <section id="true-variable-swig" data-engine="swig">
+        <section id="2-items-swig" data-engine="swig">
             <h4>
-                <a class="permalink" href="#true-variable-swig">Output Swig</a>
-                
+                <a class="permalink" href="#2-items-swig">Output Swig</a>
+                (error)
                 <small>v1.4.2</small>
             </h4>
             
-                <pre class="result"><code>true</code></pre>
+                <pre class="error"><code>(no output)</code></pre>
             
         </section>
         
         
         
-        <section id="true-variable-twig" data-engine="twig">
+        <section id="2-items-twig" data-engine="twig">
             <h4>
-                <a class="permalink" href="#true-variable-twig">Output Twig</a>
+                <a class="permalink" href="#2-items-twig">Output Twig</a>
                 
                 <small>v1.24.2</small>
             </h4>
             
-                <pre class="result"><code>true</code></pre>
+                <pre class="result"><code>even
+odd
+even
+odd
+even
+</code></pre>
             
         </section>
         
     </section>
     
     
-    <section class="section" id="true">
-        <h3><a class="permalink" href="#true">Test: true</a></h3>
+    <section class="section" id="3-items">
+        <h3><a class="permalink" href="#3-items">Test: 3-items</a></h3>
 
         <h4>Template</h4>
-        <pre class="test"><code>{% if true %}true{% endif %}</code></pre>
+        <pre class="test"><code>{% for i in rows %}
+{{ cycle(items, i) }}
+{% endfor %}</code></pre>
 
         
+        <h4>Data</h4>
+        <pre class="test"><code>{
+  "items": ["apple", "orange", "banana"],
+  "rows": [1, 2, 3, 4, 5]
+}</code></pre>
+        
 
         
         
         
-        <section id="true-django" data-engine="django">
+        <section id="3-items-django" data-engine="django">
             <h4>
-                <a class="permalink" href="#true-django">Output Django</a>
-                
+                <a class="permalink" href="#3-items-django">Output Django</a>
+                (error)
                 <small>v1.10.1</small>
             </h4>
             
-                <pre class="result"><code></code></pre>
+                <pre class="error"><code>Could not parse the remainder: '(items, i)' from 'cycle(items, i)'</code></pre>
             
         </section>
         
         
         
-        <section id="true-jinja2" data-engine="jinja2">
+        <section id="3-items-jinja2" data-engine="jinja2">
             <h4>
-                <a class="permalink" href="#true-jinja2">Output Jinja2</a>
-                
+                <a class="permalink" href="#3-items-jinja2">Output Jinja2</a>
+                (error)
                 <small>v2.8.0</small>
             </h4>
             
-                <pre class="result"><code>true</code></pre>
+                <pre class="error"><code>'cycle' is undefined</code></pre>
             
         </section>
         
         
         
-        <section id="true-liquid" data-engine="liquid">
+        <section id="3-items-liquid" data-engine="liquid">
             <h4>
-                <a class="permalink" href="#true-liquid">Output Liquid</a>
-                
+                <a class="permalink" href="#3-items-liquid">Output Liquid</a>
+                (error)
                 <small>v3.0.6</small>
             </h4>
             
-                <pre class="result"><code>true</code></pre>
+                <pre class="error"><code>(no output)</code></pre>
             
         </section>
         
         
         
-        <section id="true-nunjucks" data-engine="nunjucks">
+        <section id="3-items-nunjucks" data-engine="nunjucks">
             <h4>
-                <a class="permalink" href="#true-nunjucks">Output Nunjucks</a>
-                
+                <a class="permalink" href="#3-items-nunjucks">Output Nunjucks</a>
+                (error)
                 <small>v2.5.0</small>
             </h4>
             
-                <pre class="result"><code>true</code></pre>
+                <pre class="error"><code> [Line 1, Column 6]
+  Error: Unable to call `cycle`, which is undefined or falsey</code></pre>
             
         </section>
         
         
         
-        <section id="true-swig" data-engine="swig">
+        <section id="3-items-swig" data-engine="swig">
             <h4>
-                <a class="permalink" href="#true-swig">Output Swig</a>
-                
+                <a class="permalink" href="#3-items-swig">Output Swig</a>
+                (error)
                 <small>v1.4.2</small>
             </h4>
             
-                <pre class="result"><code>true</code></pre>
+                <pre class="error"><code>(no output)</code></pre>
             
         </section>
         
         
         
-        <section id="true-twig" data-engine="twig">
+        <section id="3-items-twig" data-engine="twig">
             <h4>
-                <a class="permalink" href="#true-twig">Output Twig</a>
+                <a class="permalink" href="#3-items-twig">Output Twig</a>
                 
                 <small>v1.24.2</small>
             </h4>
             
-                <pre class="result"><code>true</code></pre>
+                <pre class="result"><code>orange
+banana
+apple
+orange
+banana
+</code></pre>
             
         </section>
         

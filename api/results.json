@@ -10,8 +10,11 @@
                 "not-equal-to": "\n`varX` is not equal to `varY`\n"
             },
             "reserved-words": {
+                "class": "class",
                 "function": "function",
-                "var": "var"
+                "in": "in",
+                "var": "var",
+                "with": "with"
             }
         },
         "filters": {
@@ -44,6 +47,11 @@
                 "string": "MY FIRST CAR"
             }
         },
+        "functions": {
+            "range": {
+                "dot-dot-operator": ""
+            }
+        },
         "tags": {
             "if": {
                 "true-capitalized": "True",
@@ -70,8 +78,11 @@
                 "subtraction": "2"
             },
             "reserved-words": {
+                "class": "class",
                 "function": "function",
-                "var": "var"
+                "in": "in",
+                "var": "var",
+                "with": "with"
             }
         },
         "filters": {
@@ -102,7 +113,7 @@
             "default": {
                 "alias-d": "\"varX\" is not defined",
                 "empty-string-strict": "passed string is empty",
-                "empty-string": "",
+                "empty-string": ".",
                 "undefined-variable": "\"varX\" is not defined"
             },
             "dictsort": {
@@ -167,6 +178,20 @@
                 "string": "MY FIRST CAR"
             }
         },
+        "functions": {
+            "cycler": {
+                "next-next-current": "\nodd\neven\nodd",
+                "next-next-next": "\nodd\neven\nodd",
+                "next-reset-next": "\nodd\nNone\nodd"
+            },
+            "range": {
+                "negative-start": "-5 -4 -3 -2 -1 0 1 2 3 4 ",
+                "negative-step": "10 9 8 7 6 ",
+                "start-stop-step": "5 7 9 ",
+                "start-stop": "5 6 7 8 9 ",
+                "stop": "0 1 2 3 4 5 6 7 8 9 "
+            }
+        },
         "tags": {
             "if": {
                 "true-capitalized": "True",
@@ -187,28 +212,23 @@
     "liquid": {
         "expressions": {
             "comparisons": {
-                "ends-with": "Liquid error: Unknown operator ends",
                 "equal-to": "\n`varX` is equal to `varY`\n",
                 "greater-than-or-equal": "\n2 is greater than or equal to 1\n\n\n\n2 is greater than or equal to 2\n",
                 "greater-than": "\n2 is greater than 1\n",
                 "less-than-or-equal": "\n1 is less than or equal to 2\n\n\n\n1 is less than or equal to 1\n",
                 "less-than": "\n1 is less than 2\n",
-                "matches": "Liquid error: Unknown operator matches",
-                "not-equal-to": "\n`varX` is not equal to `varY`\n",
-                "starts-with": "Liquid error: Unknown operator starts",
-                "strict-equal-to": "Liquid error: Unknown operator ===",
-                "strict-not-equal-to": "Liquid error: Unknown operator !=="
+                "not-equal-to": "\n`varX` is not equal to `varY`\n"
             },
             "math": {
                 "addition": "2",
-                "devision": "",
-                "multiplication": "",
-                "power": "",
                 "subtraction": "5"
             },
             "reserved-words": {
+                "class": "class",
                 "function": "function",
-                "var": "var"
+                "in": "in",
+                "var": "var",
+                "with": "with"
             }
         },
         "filters": {
@@ -238,12 +258,12 @@
                 "width-20": "<pre>x</pre>"
             },
             "default": {
-                "alias-d": "",
-                "empty-string-strict": "",
-                "empty-string": "",
-                "undefined-property-bracket-notation": "",
-                "undefined-property-dot-notation": "\n",
-                "undefined-variable": ""
+                "empty-string": "."
+            },
+            "dump": {
+                "default": "a1{\"b\"=>false}",
+                "spaces": "a1{\"b\"=>false}",
+                "tab": "a1{\"b\"=>false}"
             },
             "escape": {
                 "alias-e": "<html>",
@@ -254,15 +274,8 @@
                 "binary": "0\n1\n2\n10\n100\n1000\n1000000\n1000000000\n1000000000000",
                 "default": "0\n1\n2\n10\n100\n1000\n1000000\n1000000000\n1000000000000"
             },
-            "first": {
-                "array": "",
-                "number": "",
-                "string": ""
-            },
             "float": {
-                "custom-fallback": "",
                 "float": "3.52",
-                "force-fallback": "",
                 "integer": "3",
                 "string": "3.52"
             },
@@ -274,20 +287,14 @@
             "int": {
                 "base-16": "0x4d32",
                 "base-8": "011",
-                "custom-fallback": "",
                 "float": "3.52",
-                "force-fallback": "",
                 "integer": "3",
                 "string": "3.52"
             },
             "last": {
-                "array-as-variable": "4",
-                "array": "",
-                "number": "",
-                "string": ""
+                "array-as-variable": "4"
             },
             "length": {
-                "array": "",
                 "number": "1234",
                 "string": "1234"
             },
@@ -304,7 +311,6 @@
         },
         "tags": {
             "if": {
-                "true-capitalized": "",
                 "true-variable": "true",
                 "true": "true"
             },
@@ -339,8 +345,11 @@
                 "subtraction": "2"
             },
             "reserved-words": {
+                "class": "class",
                 "function": "function",
-                "var": "var"
+                "in": "in",
+                "var": "var",
+                "with": "with"
             }
         },
         "filters": {
@@ -370,7 +379,7 @@
             "default": {
                 "alias-d": "&quot;varX&quot; is not defined",
                 "empty-string-strict": "passed string is empty",
-                "empty-string": "",
+                "empty-string": ".",
                 "undefined-property-bracket-notation": "&quot;x&quot; on &quot;vars&quot; is not defined",
                 "undefined-property-dot-notation": "&quot;x&quot; on &quot;vars&quot; is not defined\n",
                 "undefined-variable": "&quot;varX&quot; is not defined"
@@ -381,6 +390,11 @@
                 "case-sensitive": "A\nB\nC\na\nb\nc\n",
                 "default": "a\nb\nC\nd\nE\nf\n"
             },
+            "dump": {
+                "default": "[&quot;a&quot;,1,{&quot;b&quot;:false}]",
+                "spaces": "[&quot;a&quot;,1,{&quot;b&quot;:false}]",
+                "tab": "[&quot;a&quot;,1,{&quot;b&quot;:false}]"
+            },
             "escape": {
                 "alias-e": "&lt;html&gt;",
                 "default": "&lt;html&gt;",
@@ -388,14 +402,11 @@
             },
             "first": {
                 "array": "1",
-                "number": "",
-                "object": "",
                 "string": "1"
             },
             "float": {
                 "custom-fallback": "0.5",
                 "float": "3.52",
-                "force-fallback": "",
                 "integer": "3",
                 "string": "3.52"
             },
@@ -409,20 +420,16 @@
                 "base-8": "11",
                 "custom-fallback": "5",
                 "float": "3",
-                "force-fallback": "",
                 "integer": "3",
                 "string": "3"
             },
             "last": {
                 "array-as-variable": "4",
                 "array": "4",
-                "number": "",
-                "object": "",
                 "string": "4"
             },
             "length": {
                 "array": "4",
-                "number": "",
                 "object": "4",
                 "string": "4"
             },
@@ -431,6 +438,21 @@
             },
             "upper": {
                 "string": "MY FIRST CAR"
+            }
+        },
+        "functions": {
+            "cycler": {
+                "next-next-current": "\nodd\neven\neven",
+                "next-next-next": "\nodd\neven\nodd",
+                "next-reset-next": "\nodd\n\nodd"
+            },
+            "range": {
+                "float-step": "5 7.5 ",
+                "negative-start": "-5 -4 -3 -2 -1 0 1 2 3 4 ",
+                "negative-step": "10 9 8 7 6 ",
+                "start-stop-step": "5 7 9 ",
+                "start-stop": "5 6 7 8 9 ",
+                "stop": "0 1 2 3 4 5 6 7 8 9 "
             }
         },
         "tags": {
@@ -481,7 +503,7 @@
             },
             "default": {
                 "empty-string-strict": "passed string is empty",
-                "empty-string": "passed string is empty",
+                "empty-string": "passed string is empty.",
                 "undefined-property-bracket-notation": "&quot;x&quot; on &quot;vars&quot; is not defined",
                 "undefined-property-dot-notation": "&quot;x&quot; on &quot;vars&quot; is not defined\n",
                 "undefined-variable": "&quot;varX&quot; is not defined"
@@ -517,7 +539,6 @@
         },
         "tags": {
             "if": {
-                "true-capitalized": "",
                 "true-variable": "true",
                 "true": "true"
             },
@@ -553,8 +574,11 @@
                 "subtraction": "2"
             },
             "reserved-words": {
+                "class": "class",
                 "function": "function",
-                "var": "var"
+                "in": "in",
+                "var": "var",
+                "with": "with"
             }
         },
         "filters": {
@@ -580,7 +604,7 @@
             },
             "default": {
                 "empty-string-strict": "passed string is empty",
-                "empty-string": "passed string is empty",
+                "empty-string": "passed string is empty.",
                 "undefined-property-bracket-notation": "&quot;x&quot; on &quot;vars&quot; is not defined",
                 "undefined-property-dot-notation": "&quot;x&quot; on &quot;vars&quot; is not defined\n",
                 "undefined-variable": "&quot;varX&quot; is not defined"
@@ -616,6 +640,20 @@
             "upper": {
                 "number": "5",
                 "string": "MY FIRST CAR"
+            }
+        },
+        "functions": {
+            "cycle": {
+                "2-items": "even\nodd\neven\nodd\neven\n",
+                "3-items": "orange\nbanana\napple\norange\nbanana\n"
+            },
+            "range": {
+                "dot-dot-operator": "5 6 7 8 9 10 ",
+                "float-step": "5 7.5 10 ",
+                "negative-start": "-5 -4 -3 -2 -1 0 1 2 3 4 5 ",
+                "negative-step": "10 9 8 7 6 5 ",
+                "start-stop-step": "5 7 9 ",
+                "start-stop": "5 6 7 8 9 10 "
             }
         },
         "tags": {

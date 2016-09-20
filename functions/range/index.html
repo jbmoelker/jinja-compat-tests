@@ -1,0 +1,846 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+
+    <title>range function | Jinja Compat Tests</title>
+    <style type="text/css">
+        html { font-family: Arial, sans-serif; }
+        .app-footer { border-top: 1px solid black; margin-top: 1rem; padding-top: .5rem; }
+    </style>
+    
+</head>
+<body>
+
+
+<style type="text/css">
+    h4 { margin-bottom: 0; }
+    h4 small { float: right; font-weight: normal; font-style: italic; }
+    label { padding-right: 1em; cursor: pointer; }
+    pre { padding: .5em; margin-top: .5rem; min-height: 1em; overflow-x: scroll; }
+    .section { margin-bottom: 2.5rem; }
+    .test { border: 2px solid deepskyblue; }
+    .result { border: 2px solid lawngreen; }
+    .error { border: 2px solid red; white-space: normal; }
+
+    [data-engine-enabled="false"] { display:none; }
+</style>
+
+<header>
+    <h1><a rel="home" href="../../">Jinja Compat Tests</a></h1>
+
+    <form data-engine-enabler>
+        <fieldset>
+            <legend>Enabled engines</legend>
+            
+            <label>
+                <input type="checkbox" checked name="engine" value="django">
+                Django
+            </label>
+            
+            <label>
+                <input type="checkbox" checked name="engine" value="jinja2">
+                Jinja2
+            </label>
+            
+            <label>
+                <input type="checkbox" checked name="engine" value="liquid">
+                Liquid
+            </label>
+            
+            <label>
+                <input type="checkbox" checked name="engine" value="nunjucks">
+                Nunjucks
+            </label>
+            
+            <label>
+                <input type="checkbox" checked name="engine" value="swig">
+                Swig
+            </label>
+            
+            <label>
+                <input type="checkbox" checked name="engine" value="twig">
+                Twig
+            </label>
+            
+        </fieldset>
+    </form>
+</header>
+
+<article>
+    <h1><code>range</code> function</h1>
+
+    <section id="docs">
+        <h2><a class="permalink" href="#docs">Docs</a></h2>
+        <ul>
+        
+            
+        
+            
+            <li>
+                <a href="http://jinja.pocoo.org/docs/dev/templates/#range">Jinja2</a>
+            </li>
+            
+        
+            
+        
+            
+            <li>
+                <a href="https://mozilla.github.io/nunjucks/templating.html#range-start-stop-step">Nunjucks</a>
+            </li>
+            
+        
+            
+        
+            
+            <li>
+                <a href="http://twig.sensiolabs.org/doc/functions/range.html">Twig</a>
+            </li>
+            
+        
+        </ul>
+    </section>
+
+    <h2 id="tests">
+        <a class="permalink" href="#tests">Tests</a>
+    </h2>
+    <ol>
+    
+        <li><a href="#dot-dot-operator">dot-dot-operator</a></li>
+    
+        <li><a href="#float-step">float-step</a></li>
+    
+        <li><a href="#negative-start">negative-start</a></li>
+    
+        <li><a href="#negative-step">negative-step</a></li>
+    
+        <li><a href="#start-stop-step">start-stop-step</a></li>
+    
+        <li><a href="#start-stop">start-stop</a></li>
+    
+        <li><a href="#stop">stop</a></li>
+    
+    </ol>
+    
+    
+    <section class="section" id="dot-dot-operator">
+        <h3><a class="permalink" href="#dot-dot-operator">Test: dot-dot-operator</a></h3>
+
+        <h4>Template</h4>
+        <pre class="test"><code>{% for i in 5..10 %}{{ i }} {% endfor %}</code></pre>
+
+        
+
+        
+        
+        
+        <section id="dot-dot-operator-django" data-engine="django">
+            <h4>
+                <a class="permalink" href="#dot-dot-operator-django">Output Django</a>
+                
+                <small>v1.10.1</small>
+            </h4>
+            
+                <pre class="result"><code></code></pre>
+            
+        </section>
+        
+        
+        
+        <section id="dot-dot-operator-jinja2" data-engine="jinja2">
+            <h4>
+                <a class="permalink" href="#dot-dot-operator-jinja2">Output Jinja2</a>
+                (error)
+                <small>v2.8.0</small>
+            </h4>
+            
+                <pre class="error"><code>expected name or number</code></pre>
+            
+        </section>
+        
+        
+        
+        <section id="dot-dot-operator-liquid" data-engine="liquid">
+            <h4>
+                <a class="permalink" href="#dot-dot-operator-liquid">Output Liquid</a>
+                (error)
+                <small>v3.0.6</small>
+            </h4>
+            
+                <pre class="error"><code>(no output)</code></pre>
+            
+        </section>
+        
+        
+        
+        <section id="dot-dot-operator-nunjucks" data-engine="nunjucks">
+            <h4>
+                <a class="permalink" href="#dot-dot-operator-nunjucks">Output Nunjucks</a>
+                (error)
+                <small>v2.5.0</small>
+            </h4>
+            
+                <pre class="error"><code> [Line 1, Column 14]
+  expected block end in for statement</code></pre>
+            
+        </section>
+        
+        
+        
+        <section id="dot-dot-operator-swig" data-engine="swig">
+            <h4>
+                <a class="permalink" href="#dot-dot-operator-swig">Output Swig</a>
+                (error)
+                <small>v1.4.2</small>
+            </h4>
+            
+                <pre class="error"><code>Unexpected number "5" on line 1.</code></pre>
+            
+        </section>
+        
+        
+        
+        <section id="dot-dot-operator-twig" data-engine="twig">
+            <h4>
+                <a class="permalink" href="#dot-dot-operator-twig">Output Twig</a>
+                
+                <small>v1.24.2</small>
+            </h4>
+            
+                <pre class="result"><code>5 6 7 8 9 10 </code></pre>
+            
+        </section>
+        
+    </section>
+    
+    
+    <section class="section" id="float-step">
+        <h3><a class="permalink" href="#float-step">Test: float-step</a></h3>
+
+        <h4>Template</h4>
+        <pre class="test"><code>{% for i in range(5, 10, 2.5) %}{{ i }} {% endfor %}</code></pre>
+
+        
+
+        
+        
+        
+        <section id="float-step-django" data-engine="django">
+            <h4>
+                <a class="permalink" href="#float-step-django">Output Django</a>
+                (error)
+                <small>v1.10.1</small>
+            </h4>
+            
+                <pre class="error"><code>'for' statements should use the format 'for x in y': for i in range(5, 10, 2.5)</code></pre>
+            
+        </section>
+        
+        
+        
+        <section id="float-step-jinja2" data-engine="jinja2">
+            <h4>
+                <a class="permalink" href="#float-step-jinja2">Output Jinja2</a>
+                (error)
+                <small>v2.8.0</small>
+            </h4>
+            
+                <pre class="error"><code>integer argument expected, got float</code></pre>
+            
+        </section>
+        
+        
+        
+        <section id="float-step-liquid" data-engine="liquid">
+            <h4>
+                <a class="permalink" href="#float-step-liquid">Output Liquid</a>
+                (error)
+                <small>v3.0.6</small>
+            </h4>
+            
+                <pre class="error"><code>(no output)</code></pre>
+            
+        </section>
+        
+        
+        
+        <section id="float-step-nunjucks" data-engine="nunjucks">
+            <h4>
+                <a class="permalink" href="#float-step-nunjucks">Output Nunjucks</a>
+                
+                <small>v2.5.0</small>
+            </h4>
+            
+                <pre class="result"><code>5 7.5 </code></pre>
+            
+        </section>
+        
+        
+        
+        <section id="float-step-swig" data-engine="swig">
+            <h4>
+                <a class="permalink" href="#float-step-swig">Output Swig</a>
+                (error)
+                <small>v1.4.2</small>
+            </h4>
+            
+                <pre class="error"><code>(no output)</code></pre>
+            
+        </section>
+        
+        
+        
+        <section id="float-step-twig" data-engine="twig">
+            <h4>
+                <a class="permalink" href="#float-step-twig">Output Twig</a>
+                
+                <small>v1.24.2</small>
+            </h4>
+            
+                <pre class="result"><code>5 7.5 10 </code></pre>
+            
+        </section>
+        
+    </section>
+    
+    
+    <section class="section" id="negative-start">
+        <h3><a class="permalink" href="#negative-start">Test: negative-start</a></h3>
+
+        <h4>Template</h4>
+        <pre class="test"><code>{% for i in range(-5, 5) %}{{ i }} {% endfor %}</code></pre>
+
+        
+
+        
+        
+        
+        <section id="negative-start-django" data-engine="django">
+            <h4>
+                <a class="permalink" href="#negative-start-django">Output Django</a>
+                (error)
+                <small>v1.10.1</small>
+            </h4>
+            
+                <pre class="error"><code>'for' statements should use the format 'for x in y': for i in range(-5, 5)</code></pre>
+            
+        </section>
+        
+        
+        
+        <section id="negative-start-jinja2" data-engine="jinja2">
+            <h4>
+                <a class="permalink" href="#negative-start-jinja2">Output Jinja2</a>
+                
+                <small>v2.8.0</small>
+            </h4>
+            
+                <pre class="result"><code>-5 -4 -3 -2 -1 0 1 2 3 4 </code></pre>
+            
+        </section>
+        
+        
+        
+        <section id="negative-start-liquid" data-engine="liquid">
+            <h4>
+                <a class="permalink" href="#negative-start-liquid">Output Liquid</a>
+                (error)
+                <small>v3.0.6</small>
+            </h4>
+            
+                <pre class="error"><code>(no output)</code></pre>
+            
+        </section>
+        
+        
+        
+        <section id="negative-start-nunjucks" data-engine="nunjucks">
+            <h4>
+                <a class="permalink" href="#negative-start-nunjucks">Output Nunjucks</a>
+                
+                <small>v2.5.0</small>
+            </h4>
+            
+                <pre class="result"><code>-5 -4 -3 -2 -1 0 1 2 3 4 </code></pre>
+            
+        </section>
+        
+        
+        
+        <section id="negative-start-swig" data-engine="swig">
+            <h4>
+                <a class="permalink" href="#negative-start-swig">Output Swig</a>
+                (error)
+                <small>v1.4.2</small>
+            </h4>
+            
+                <pre class="error"><code>(no output)</code></pre>
+            
+        </section>
+        
+        
+        
+        <section id="negative-start-twig" data-engine="twig">
+            <h4>
+                <a class="permalink" href="#negative-start-twig">Output Twig</a>
+                
+                <small>v1.24.2</small>
+            </h4>
+            
+                <pre class="result"><code>-5 -4 -3 -2 -1 0 1 2 3 4 5 </code></pre>
+            
+        </section>
+        
+    </section>
+    
+    
+    <section class="section" id="negative-step">
+        <h3><a class="permalink" href="#negative-step">Test: negative-step</a></h3>
+
+        <h4>Template</h4>
+        <pre class="test"><code>{% for i in range(10, 5, -1) %}{{ i }} {% endfor %}</code></pre>
+
+        
+
+        
+        
+        
+        <section id="negative-step-django" data-engine="django">
+            <h4>
+                <a class="permalink" href="#negative-step-django">Output Django</a>
+                (error)
+                <small>v1.10.1</small>
+            </h4>
+            
+                <pre class="error"><code>'for' statements should use the format 'for x in y': for i in range(10, 5, -1)</code></pre>
+            
+        </section>
+        
+        
+        
+        <section id="negative-step-jinja2" data-engine="jinja2">
+            <h4>
+                <a class="permalink" href="#negative-step-jinja2">Output Jinja2</a>
+                
+                <small>v2.8.0</small>
+            </h4>
+            
+                <pre class="result"><code>10 9 8 7 6 </code></pre>
+            
+        </section>
+        
+        
+        
+        <section id="negative-step-liquid" data-engine="liquid">
+            <h4>
+                <a class="permalink" href="#negative-step-liquid">Output Liquid</a>
+                (error)
+                <small>v3.0.6</small>
+            </h4>
+            
+                <pre class="error"><code>(no output)</code></pre>
+            
+        </section>
+        
+        
+        
+        <section id="negative-step-nunjucks" data-engine="nunjucks">
+            <h4>
+                <a class="permalink" href="#negative-step-nunjucks">Output Nunjucks</a>
+                
+                <small>v2.5.0</small>
+            </h4>
+            
+                <pre class="result"><code>10 9 8 7 6 </code></pre>
+            
+        </section>
+        
+        
+        
+        <section id="negative-step-swig" data-engine="swig">
+            <h4>
+                <a class="permalink" href="#negative-step-swig">Output Swig</a>
+                (error)
+                <small>v1.4.2</small>
+            </h4>
+            
+                <pre class="error"><code>(no output)</code></pre>
+            
+        </section>
+        
+        
+        
+        <section id="negative-step-twig" data-engine="twig">
+            <h4>
+                <a class="permalink" href="#negative-step-twig">Output Twig</a>
+                
+                <small>v1.24.2</small>
+            </h4>
+            
+                <pre class="result"><code>10 9 8 7 6 5 </code></pre>
+            
+        </section>
+        
+    </section>
+    
+    
+    <section class="section" id="start-stop-step">
+        <h3><a class="permalink" href="#start-stop-step">Test: start-stop-step</a></h3>
+
+        <h4>Template</h4>
+        <pre class="test"><code>{% for i in range(5, 10, 2) %}{{ i }} {% endfor %}</code></pre>
+
+        
+
+        
+        
+        
+        <section id="start-stop-step-django" data-engine="django">
+            <h4>
+                <a class="permalink" href="#start-stop-step-django">Output Django</a>
+                (error)
+                <small>v1.10.1</small>
+            </h4>
+            
+                <pre class="error"><code>'for' statements should use the format 'for x in y': for i in range(5, 10, 2)</code></pre>
+            
+        </section>
+        
+        
+        
+        <section id="start-stop-step-jinja2" data-engine="jinja2">
+            <h4>
+                <a class="permalink" href="#start-stop-step-jinja2">Output Jinja2</a>
+                
+                <small>v2.8.0</small>
+            </h4>
+            
+                <pre class="result"><code>5 7 9 </code></pre>
+            
+        </section>
+        
+        
+        
+        <section id="start-stop-step-liquid" data-engine="liquid">
+            <h4>
+                <a class="permalink" href="#start-stop-step-liquid">Output Liquid</a>
+                (error)
+                <small>v3.0.6</small>
+            </h4>
+            
+                <pre class="error"><code>(no output)</code></pre>
+            
+        </section>
+        
+        
+        
+        <section id="start-stop-step-nunjucks" data-engine="nunjucks">
+            <h4>
+                <a class="permalink" href="#start-stop-step-nunjucks">Output Nunjucks</a>
+                
+                <small>v2.5.0</small>
+            </h4>
+            
+                <pre class="result"><code>5 7 9 </code></pre>
+            
+        </section>
+        
+        
+        
+        <section id="start-stop-step-swig" data-engine="swig">
+            <h4>
+                <a class="permalink" href="#start-stop-step-swig">Output Swig</a>
+                (error)
+                <small>v1.4.2</small>
+            </h4>
+            
+                <pre class="error"><code>(no output)</code></pre>
+            
+        </section>
+        
+        
+        
+        <section id="start-stop-step-twig" data-engine="twig">
+            <h4>
+                <a class="permalink" href="#start-stop-step-twig">Output Twig</a>
+                
+                <small>v1.24.2</small>
+            </h4>
+            
+                <pre class="result"><code>5 7 9 </code></pre>
+            
+        </section>
+        
+    </section>
+    
+    
+    <section class="section" id="start-stop">
+        <h3><a class="permalink" href="#start-stop">Test: start-stop</a></h3>
+
+        <h4>Template</h4>
+        <pre class="test"><code>{% for i in range(5, 10) %}{{ i }} {% endfor %}</code></pre>
+
+        
+
+        
+        
+        
+        <section id="start-stop-django" data-engine="django">
+            <h4>
+                <a class="permalink" href="#start-stop-django">Output Django</a>
+                (error)
+                <small>v1.10.1</small>
+            </h4>
+            
+                <pre class="error"><code>'for' statements should use the format 'for x in y': for i in range(5, 10)</code></pre>
+            
+        </section>
+        
+        
+        
+        <section id="start-stop-jinja2" data-engine="jinja2">
+            <h4>
+                <a class="permalink" href="#start-stop-jinja2">Output Jinja2</a>
+                
+                <small>v2.8.0</small>
+            </h4>
+            
+                <pre class="result"><code>5 6 7 8 9 </code></pre>
+            
+        </section>
+        
+        
+        
+        <section id="start-stop-liquid" data-engine="liquid">
+            <h4>
+                <a class="permalink" href="#start-stop-liquid">Output Liquid</a>
+                (error)
+                <small>v3.0.6</small>
+            </h4>
+            
+                <pre class="error"><code>(no output)</code></pre>
+            
+        </section>
+        
+        
+        
+        <section id="start-stop-nunjucks" data-engine="nunjucks">
+            <h4>
+                <a class="permalink" href="#start-stop-nunjucks">Output Nunjucks</a>
+                
+                <small>v2.5.0</small>
+            </h4>
+            
+                <pre class="result"><code>5 6 7 8 9 </code></pre>
+            
+        </section>
+        
+        
+        
+        <section id="start-stop-swig" data-engine="swig">
+            <h4>
+                <a class="permalink" href="#start-stop-swig">Output Swig</a>
+                (error)
+                <small>v1.4.2</small>
+            </h4>
+            
+                <pre class="error"><code>(no output)</code></pre>
+            
+        </section>
+        
+        
+        
+        <section id="start-stop-twig" data-engine="twig">
+            <h4>
+                <a class="permalink" href="#start-stop-twig">Output Twig</a>
+                
+                <small>v1.24.2</small>
+            </h4>
+            
+                <pre class="result"><code>5 6 7 8 9 10 </code></pre>
+            
+        </section>
+        
+    </section>
+    
+    
+    <section class="section" id="stop">
+        <h3><a class="permalink" href="#stop">Test: stop</a></h3>
+
+        <h4>Template</h4>
+        <pre class="test"><code>{% for i in range(10) %}{{ i }} {% endfor %}</code></pre>
+
+        
+
+        
+        
+        
+        <section id="stop-django" data-engine="django">
+            <h4>
+                <a class="permalink" href="#stop-django">Output Django</a>
+                (error)
+                <small>v1.10.1</small>
+            </h4>
+            
+                <pre class="error"><code>Could not parse the remainder: '(10)' from 'range(10)'</code></pre>
+            
+        </section>
+        
+        
+        
+        <section id="stop-jinja2" data-engine="jinja2">
+            <h4>
+                <a class="permalink" href="#stop-jinja2">Output Jinja2</a>
+                
+                <small>v2.8.0</small>
+            </h4>
+            
+                <pre class="result"><code>0 1 2 3 4 5 6 7 8 9 </code></pre>
+            
+        </section>
+        
+        
+        
+        <section id="stop-liquid" data-engine="liquid">
+            <h4>
+                <a class="permalink" href="#stop-liquid">Output Liquid</a>
+                (error)
+                <small>v3.0.6</small>
+            </h4>
+            
+                <pre class="error"><code>(no output)</code></pre>
+            
+        </section>
+        
+        
+        
+        <section id="stop-nunjucks" data-engine="nunjucks">
+            <h4>
+                <a class="permalink" href="#stop-nunjucks">Output Nunjucks</a>
+                
+                <small>v2.5.0</small>
+            </h4>
+            
+                <pre class="result"><code>0 1 2 3 4 5 6 7 8 9 </code></pre>
+            
+        </section>
+        
+        
+        
+        <section id="stop-swig" data-engine="swig">
+            <h4>
+                <a class="permalink" href="#stop-swig">Output Swig</a>
+                (error)
+                <small>v1.4.2</small>
+            </h4>
+            
+                <pre class="error"><code>(no output)</code></pre>
+            
+        </section>
+        
+        
+        
+        <section id="stop-twig" data-engine="twig">
+            <h4>
+                <a class="permalink" href="#stop-twig">Output Twig</a>
+                (error)
+                <small>v1.24.2</small>
+            </h4>
+            
+                <pre class="error"><code>
+Warning: range() expects at least 2 parameters, 1 given
+
+Call Stack:
+    0.0002     376744   1. {main}() /home/travis/build/jbmoelker/jinja-compat-tests/test-twig.php:0
+    0.2983    4420216   2. Twig_Environment->render() /home/travis/build/jbmoelker/jinja-compat-tests/test-twig.php:51
+    0.3017    4430904   3. Twig_Template->render() /home/travis/build/jbmoelker/jinja-compat-tests/vendor/twig/twig/lib/Twig/Environment.php:347
+    0.3017    4447368   4. Twig_Template->display() /home/travis/build/jbmoelker/jinja-compat-tests/vendor/twig/twig/lib/Twig/Template.php:366
+    0.3018    4447480   5. Twig_Template->displayWithErrorHandling() /home/travis/build/jbmoelker/jinja-compat-tests/vendor/twig/twig/lib/Twig/Template.php:355
+    0.3018    4447480   6. __TwigTemplate_77fd7540f1961731b01ca3ad78b4942d9bcb5dfa108c0fb7d3886a68ae08a9b1->doDisplay() /home/travis/build/jbmoelker/jinja-compat-tests/vendor/twig/twig/lib/Twig/Template.php:387
+    0.3018    4447856   7. range() /home/travis/build/jbmoelker/jinja-compat-tests/vendor/twig/twig/lib/Twig/Environment.php(403) : eval()'d code:20
+
+</code></pre>
+            
+        </section>
+        
+    </section>
+    
+</article>
+
+<script>(function engineEnabler(){
+    'use strict';
+
+    var CAPABLE_BROWSER = ('addEventListener' in window);
+    if (!CAPABLE_BROWSER) {
+        return;
+    }
+
+    var SUPPORTS_STORAGE = ('localStorage' in window);
+    var STORAGE_KEY = 'enabledEngines';
+    var FORM_SELECTOR = '[data-engine-enabler]';
+    var INPUT_NAME = 'engine';
+    var TARGET_ATTR = 'data-engine';
+    var ENABLED_ATTR = 'data-engine-enabled';
+
+    var form = document.querySelector(FORM_SELECTOR);
+    var inputs = [].slice.call(form[INPUT_NAME]);
+    var targets = [].slice.call(document.querySelectorAll('[' + TARGET_ATTR + ']'));
+
+    form.addEventListener('change', onEnableEngines);
+    restoreState();
+
+    function onEnableEngines() {
+        var state = getEngineState(this);
+        enableTargets(state);
+        saveState(state);
+    }
+
+    function getEngineState(form) {
+        return inputs.reduce(function(map, input){
+            map[input.value] = input.checked;
+            return map;
+        }, {});
+    }
+
+    function enableTargets(state) {
+        targets.forEach(function(target) {
+            var key = target.getAttribute(TARGET_ATTR);
+            target.setAttribute(ENABLED_ATTR, state[key]);
+        });
+    }
+
+    function saveState(state) {
+        if(!SUPPORTS_STORAGE) {
+            return;
+        }
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
+    }
+
+    function restoreState() {
+        if(!SUPPORTS_STORAGE) {
+            return;
+        }
+        var state = JSON.parse(localStorage.getItem(STORAGE_KEY));
+        restoreInputs(state);
+        enableTargets(state);
+    }
+
+    function restoreInputs(state) {
+        inputs.forEach(function(input) {
+           input.checked = state[input.value];
+        });
+    }
+
+}());</script>
+
+
+<footer class="app-footer" role="contentinfo">
+    <a href="https://github.com/jbmoelker/jinja-compat-tests">Source on GitHub</a>
+</footer>
+
+
+</body>
+</html>

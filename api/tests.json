@@ -21,8 +21,11 @@
             "subtraction": "{{ 5 - 3 }}"
         },
         "reserved-words": {
+            "class": "{{ class }}",
             "function": "{{ function }}",
-            "var": "{{ var }}"
+            "in": "{{ in }}",
+            "var": "{{ var }}",
+            "with": "{{ with }}"
         }
     },
     "filters": {
@@ -54,7 +57,7 @@
         "default": {
             "alias-d": "{{ varX|d('\"varX\" is not defined') }}",
             "empty-string-strict": "{{ ''|default('passed string is empty', true)  }}",
-            "empty-string": "{{ ''|default('passed string is empty')  }}",
+            "empty-string": "{{ ''|default('passed string is empty')  }}.",
             "undefined-property-bracket-notation": "{{ vars['x']|default('\"x\" on \"vars\" is not defined') }}",
             "undefined-property-dot-notation": "{{ vars.x|default('\"x\" on \"vars\" is not defined') }}\n",
             "undefined-variable": "{{ varX|default('\"varX\" is not defined') }}"
@@ -64,6 +67,11 @@
             "case-insensitive": "{%- for key, value in items | dictsort(false) -%}\n{{ key }}\n{% endfor %}",
             "case-sensitive": "{%- for key, value in items | dictsort(true) -%}\n{{ key }}\n{% endfor %}",
             "default": "{%- for key, value in items | dictsort -%}\n{{ key }}\n{% endfor %}"
+        },
+        "dump": {
+            "default": "{{ data|dump }}",
+            "spaces": "{{ data|dump(2) }}",
+            "tab": "{{ data|dump('\\t') }}"
         },
         "escape": {
             "alias-e": "{{ '<html>'|e }}",
@@ -123,6 +131,26 @@
             "array": "{{ items|upper }}",
             "number": "{{ 5|upper }}",
             "string": "{{ 'My first CAR'|upper }}"
+        }
+    },
+    "functions": {
+        "cycle": {
+            "2-items": "{% for i in rows %}\n{{ cycle(items, i) }}\n{% endfor %}",
+            "3-items": "{% for i in rows %}\n{{ cycle(items, i) }}\n{% endfor %}"
+        },
+        "cycler": {
+            "next-next-current": "{% set cls = cycler('odd', 'even') %}\n{{ cls.next() }}\n{{ cls.next() }}\n{{ cls.current }}",
+            "next-next-next": "{% set cls = cycler('odd', 'even') %}\n{{ cls.next() }}\n{{ cls.next() }}\n{{ cls.next() }}",
+            "next-reset-next": "{% set cls = cycler('odd', 'even') %}\n{{ cls.next() }}\n{{ cls.reset() }}\n{{ cls.next() }}"
+        },
+        "range": {
+            "dot-dot-operator": "{% for i in 5..10 %}{{ i }} {% endfor %}",
+            "float-step": "{% for i in range(5, 10, 2.5) %}{{ i }} {% endfor %}",
+            "negative-start": "{% for i in range(-5, 5) %}{{ i }} {% endfor %}",
+            "negative-step": "{% for i in range(10, 5, -1) %}{{ i }} {% endfor %}",
+            "start-stop-step": "{% for i in range(5, 10, 2) %}{{ i }} {% endfor %}",
+            "start-stop": "{% for i in range(5, 10) %}{{ i }} {% endfor %}",
+            "stop": "{% for i in range(10) %}{{ i }} {% endfor %}"
         }
     },
     "tags": {

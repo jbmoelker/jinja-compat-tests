@@ -6,8 +6,11 @@
             "not-equal-to": "{\n  \"varX\": \"Templates\",\n  \"varY\": \"Partials\"\n}"
         },
         "reserved-words": {
+            "class": "{ \"class\": \"class\" }",
             "function": "{ \"function\": \"function\" }",
-            "var": "{ \"var\": \"var\" }"
+            "in": "{ \"in\": \"in\" }",
+            "var": "{ \"var\": \"var\" }",
+            "with": "{ \"with\": \"with\" }"
         }
     },
     "filters": {
@@ -27,6 +30,11 @@
             "case-sensitive": "{\n  \"items\": {\n    \"b\": 1,\n    \"B\": 2,\n    \"c\": 3,\n    \"A\": 4,\n    \"a\": 5,\n    \"C\": 6\n  }\n}",
             "default": "{\n  \"items\": {\n    \"E\": 1,\n    \"d\": 2,\n    \"C\": 3,\n    \"a\": 4,\n    \"f\": 5,\n    \"b\": 6\n  }\n}"
         },
+        "dump": {
+            "default": "{\n  \"data\": [\"a\", 1, { \"b\": false }]\n}",
+            "spaces": "{\n  \"data\": [\"a\", 1, { \"b\": false }]\n}",
+            "tab": "{\n  \"data\": [\"a\", 1, { \"b\": false }]\n}"
+        },
         "last": {
             "array-as-variable": "{\n  \"items\": [1, 2, 3, 4]\n}"
         },
@@ -35,6 +43,12 @@
         },
         "upper": {
             "array": "{\n  \"items\": [\n    \"my first car\",\n    \"my Second car\",\n    \"my THIRD car\"\n  ]\n}"
+        }
+    },
+    "functions": {
+        "cycle": {
+            "2-items": "{\n  \"items\": [\"odd\", \"even\"],\n  \"rows\": [1, 2, 3, 4, 5]\n}",
+            "3-items": "{\n  \"items\": [\"apple\", \"orange\", \"banana\"],\n  \"rows\": [1, 2, 3, 4, 5]\n}"
         }
     },
     "tags": {
