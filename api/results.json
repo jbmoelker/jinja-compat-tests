@@ -25,6 +25,9 @@
             "first": {
                 "string": "1"
             },
+            "last": {
+                "string": "4"
+            },
             "length": {
                 "number": "0",
                 "string": "4"
@@ -141,6 +144,10 @@
                 "force-fallback": "0",
                 "integer": "3",
                 "string": "3"
+            },
+            "last": {
+                "array": "4",
+                "string": "4"
             },
             "length": {
                 "array": "4",
@@ -269,6 +276,12 @@
                 "integer": "3",
                 "string": "3"
             },
+            "last": {
+                "array": "4",
+                "number": "",
+                "object": "",
+                "string": "4"
+            },
             "length": {
                 "array": "4",
                 "number": "",
@@ -345,6 +358,12 @@
                 "number": "undefined",
                 "object": "1",
                 "string": "1"
+            },
+            "last": {
+                "array": "4",
+                "number": "undefined",
+                "object": "4",
+                "string": "4"
             },
             "lower": {
                 "array": "my first car,my second car,my third car",
@@ -437,6 +456,12 @@
                 "number": "1",
                 "object": "1",
                 "string": "1"
+            },
+            "last": {
+                "array": "4",
+                "number": "4",
+                "object": "4",
+                "string": "4"
             },
             "length": {
                 "array": "4",

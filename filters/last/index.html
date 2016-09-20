@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
 
-    <title>math expression | Jinja Compat Tests</title>
+    <title>last filter | Jinja Compat Tests</title>
     <style type="text/css">
         html { font-family: Arial, sans-serif; }
         .app-footer { border-top: 1px solid black; margin-top: 1rem; padding-top: .5rem; }
@@ -66,20 +66,40 @@
 </header>
 
 <article>
-    <h1><code>math</code> expression</h1>
+    <h1><code>last</code> filter</h1>
 
     <section id="docs">
         <h2><a class="permalink" href="#docs">Docs</a></h2>
         <ul>
         
             
-        
+            <li>
+                <a href="https://docs.djangoproject.com/en/1.10/ref/templates/builtins/#last">Django</a>
+            </li>
             
         
             
-        
+            <li>
+                <a href="http://jinja.pocoo.org/docs/dev/templates/#last">Jinja2</a>
+            </li>
             
         
+            
+            <li>
+                <a href="https://mozilla.github.io/nunjucks/templating.html#last">Nunjucks</a>
+            </li>
+            
+        
+            
+            <li>
+                <a href="https://voorhoede.github.io/swig/docs/filters/#last">Swig</a>
+            </li>
+            
+        
+            
+            <li>
+                <a href="http://twig.sensiolabs.org/doc/filters/last.html">Twig</a>
+            </li>
             
         
         </ul>
@@ -90,373 +110,299 @@
     </h2>
     <ol>
     
-        <li><a href="#addition">addition</a></li>
+        <li><a href="#array">array</a></li>
     
-        <li><a href="#devision">devision</a></li>
+        <li><a href="#number">number</a></li>
     
-        <li><a href="#multiplication">multiplication</a></li>
+        <li><a href="#object">object</a></li>
     
-        <li><a href="#power">power</a></li>
-    
-        <li><a href="#subtraction">subtraction</a></li>
+        <li><a href="#string">string</a></li>
     
     </ol>
     
     
-    <section class="section" id="addition">
-        <h3><a class="permalink" href="#addition">Test: addition</a></h3>
+    <section class="section" id="array">
+        <h3><a class="permalink" href="#array">Test: array</a></h3>
 
         <h4>Template</h4>
-        <pre class="test"><code>{{ 2 + 3 }}</code></pre>
+        <pre class="test"><code>{{ [1, 2, 3, 4]|last }}</code></pre>
 
         
 
         
         
         
-        <section id="addition-django" data-engine="django">
+        <section id="array-django" data-engine="django">
             <h4>
-                <a class="permalink" href="#addition-django">Output Django</a>
+                <a class="permalink" href="#array-django">Output Django</a>
                 <small>v1.10.1</small>
             </h4>
             
-                <pre class="error"><code>Could not parse the remainder: ' + 3' from '2 + 3'</code></pre>
+                <pre class="error"><code>Could not parse some characters: |[1, 2, 3, 4]||last</code></pre>
             
         </section>
         
         
         
-        <section id="addition-jinja2" data-engine="jinja2">
+        <section id="array-jinja2" data-engine="jinja2">
             <h4>
-                <a class="permalink" href="#addition-jinja2">Output Jinja2</a>
+                <a class="permalink" href="#array-jinja2">Output Jinja2</a>
                 <small>v2.8.0</small>
             </h4>
             
-                <pre class="result"><code>5</code></pre>
+                <pre class="result"><code>4</code></pre>
             
         </section>
         
         
         
-        <section id="addition-nunjucks" data-engine="nunjucks">
+        <section id="array-nunjucks" data-engine="nunjucks">
             <h4>
-                <a class="permalink" href="#addition-nunjucks">Output Nunjucks</a>
+                <a class="permalink" href="#array-nunjucks">Output Nunjucks</a>
                 <small>v2.5.0</small>
             </h4>
             
-                <pre class="result"><code>5</code></pre>
+                <pre class="result"><code>4</code></pre>
             
         </section>
         
         
         
-        <section id="addition-swig" data-engine="swig">
+        <section id="array-swig" data-engine="swig">
             <h4>
-                <a class="permalink" href="#addition-swig">Output Swig</a>
+                <a class="permalink" href="#array-swig">Output Swig</a>
                 <small>v1.4.2</small>
             </h4>
             
-                <pre class="result"><code>5</code></pre>
+                <pre class="result"><code>4</code></pre>
             
         </section>
         
         
         
-        <section id="addition-twig" data-engine="twig">
+        <section id="array-twig" data-engine="twig">
             <h4>
-                <a class="permalink" href="#addition-twig">Output Twig</a>
+                <a class="permalink" href="#array-twig">Output Twig</a>
                 <small>v1.24.2</small>
             </h4>
             
-                <pre class="result"><code>5</code></pre>
+                <pre class="result"><code>4</code></pre>
             
         </section>
         
     </section>
     
     
-    <section class="section" id="devision">
-        <h3><a class="permalink" href="#devision">Test: devision</a></h3>
+    <section class="section" id="number">
+        <h3><a class="permalink" href="#number">Test: number</a></h3>
 
         <h4>Template</h4>
-        <pre class="test"><code>{{ 10/5 }}</code></pre>
+        <pre class="test"><code>{{ 1234|last }}</code></pre>
 
         
 
         
         
         
-        <section id="devision-django" data-engine="django">
+        <section id="number-django" data-engine="django">
             <h4>
-                <a class="permalink" href="#devision-django">Output Django</a>
+                <a class="permalink" href="#number-django">Output Django</a>
                 <small>v1.10.1</small>
             </h4>
             
-                <pre class="error"><code>Could not parse the remainder: '/5' from '10/5'</code></pre>
+                <pre class="error"><code>'int' object has no attribute '__getitem__'</code></pre>
             
         </section>
         
         
         
-        <section id="devision-jinja2" data-engine="jinja2">
+        <section id="number-jinja2" data-engine="jinja2">
             <h4>
-                <a class="permalink" href="#devision-jinja2">Output Jinja2</a>
+                <a class="permalink" href="#number-jinja2">Output Jinja2</a>
                 <small>v2.8.0</small>
             </h4>
             
-                <pre class="result"><code>2.0</code></pre>
+                <pre class="error"><code>argument to reversed() must be a sequence</code></pre>
             
         </section>
         
         
         
-        <section id="devision-nunjucks" data-engine="nunjucks">
+        <section id="number-nunjucks" data-engine="nunjucks">
             <h4>
-                <a class="permalink" href="#devision-nunjucks">Output Nunjucks</a>
+                <a class="permalink" href="#number-nunjucks">Output Nunjucks</a>
                 <small>v2.5.0</small>
             </h4>
             
-                <pre class="result"><code>2</code></pre>
+                <pre class="result"><code></code></pre>
             
         </section>
         
         
         
-        <section id="devision-swig" data-engine="swig">
+        <section id="number-swig" data-engine="swig">
             <h4>
-                <a class="permalink" href="#devision-swig">Output Swig</a>
+                <a class="permalink" href="#number-swig">Output Swig</a>
                 <small>v1.4.2</small>
             </h4>
             
-                <pre class="result"><code>2</code></pre>
+                <pre class="result"><code>undefined</code></pre>
             
         </section>
         
         
         
-        <section id="devision-twig" data-engine="twig">
+        <section id="number-twig" data-engine="twig">
             <h4>
-                <a class="permalink" href="#devision-twig">Output Twig</a>
+                <a class="permalink" href="#number-twig">Output Twig</a>
                 <small>v1.24.2</small>
             </h4>
             
-                <pre class="result"><code>2</code></pre>
+                <pre class="result"><code>4</code></pre>
             
         </section>
         
     </section>
     
     
-    <section class="section" id="multiplication">
-        <h3><a class="permalink" href="#multiplication">Test: multiplication</a></h3>
+    <section class="section" id="object">
+        <h3><a class="permalink" href="#object">Test: object</a></h3>
 
         <h4>Template</h4>
-        <pre class="test"><code>{{ 5*2 }}</code></pre>
+        <pre class="test"><code>{{ { a: 1, b: 2, c: 3, d: 4 }|last }}</code></pre>
 
         
 
         
         
         
-        <section id="multiplication-django" data-engine="django">
+        <section id="object-django" data-engine="django">
             <h4>
-                <a class="permalink" href="#multiplication-django">Output Django</a>
+                <a class="permalink" href="#object-django">Output Django</a>
                 <small>v1.10.1</small>
             </h4>
             
-                <pre class="error"><code>Could not parse the remainder: '*2' from '5*2'</code></pre>
+                <pre class="error"><code>Could not parse some characters: |{ a: 1, b: 2, c: 3, d: 4 }||last</code></pre>
             
         </section>
         
         
         
-        <section id="multiplication-jinja2" data-engine="jinja2">
+        <section id="object-jinja2" data-engine="jinja2">
             <h4>
-                <a class="permalink" href="#multiplication-jinja2">Output Jinja2</a>
+                <a class="permalink" href="#object-jinja2">Output Jinja2</a>
                 <small>v2.8.0</small>
             </h4>
             
-                <pre class="result"><code>10</code></pre>
+                <pre class="error"><code>argument to reversed() must be a sequence</code></pre>
             
         </section>
         
         
         
-        <section id="multiplication-nunjucks" data-engine="nunjucks">
+        <section id="object-nunjucks" data-engine="nunjucks">
             <h4>
-                <a class="permalink" href="#multiplication-nunjucks">Output Nunjucks</a>
+                <a class="permalink" href="#object-nunjucks">Output Nunjucks</a>
                 <small>v2.5.0</small>
             </h4>
             
-                <pre class="result"><code>10</code></pre>
+                <pre class="result"><code></code></pre>
             
         </section>
         
         
         
-        <section id="multiplication-swig" data-engine="swig">
+        <section id="object-swig" data-engine="swig">
             <h4>
-                <a class="permalink" href="#multiplication-swig">Output Swig</a>
+                <a class="permalink" href="#object-swig">Output Swig</a>
                 <small>v1.4.2</small>
             </h4>
             
-                <pre class="result"><code>10</code></pre>
+                <pre class="result"><code>4</code></pre>
             
         </section>
         
         
         
-        <section id="multiplication-twig" data-engine="twig">
+        <section id="object-twig" data-engine="twig">
             <h4>
-                <a class="permalink" href="#multiplication-twig">Output Twig</a>
+                <a class="permalink" href="#object-twig">Output Twig</a>
                 <small>v1.24.2</small>
             </h4>
             
-                <pre class="result"><code>10</code></pre>
+                <pre class="result"><code>4</code></pre>
             
         </section>
         
     </section>
     
     
-    <section class="section" id="power">
-        <h3><a class="permalink" href="#power">Test: power</a></h3>
+    <section class="section" id="string">
+        <h3><a class="permalink" href="#string">Test: string</a></h3>
 
         <h4>Template</h4>
-        <pre class="test"><code>{{ 2**3 }}</code></pre>
+        <pre class="test"><code>{{ '1234'|last }}</code></pre>
 
         
 
         
         
         
-        <section id="power-django" data-engine="django">
+        <section id="string-django" data-engine="django">
             <h4>
-                <a class="permalink" href="#power-django">Output Django</a>
+                <a class="permalink" href="#string-django">Output Django</a>
                 <small>v1.10.1</small>
             </h4>
             
-                <pre class="error"><code>Could not parse the remainder: '**3' from '2**3'</code></pre>
+                <pre class="result"><code>4</code></pre>
             
         </section>
         
         
         
-        <section id="power-jinja2" data-engine="jinja2">
+        <section id="string-jinja2" data-engine="jinja2">
             <h4>
-                <a class="permalink" href="#power-jinja2">Output Jinja2</a>
+                <a class="permalink" href="#string-jinja2">Output Jinja2</a>
                 <small>v2.8.0</small>
             </h4>
             
-                <pre class="result"><code>8</code></pre>
+                <pre class="result"><code>4</code></pre>
             
         </section>
         
         
         
-        <section id="power-nunjucks" data-engine="nunjucks">
+        <section id="string-nunjucks" data-engine="nunjucks">
             <h4>
-                <a class="permalink" href="#power-nunjucks">Output Nunjucks</a>
+                <a class="permalink" href="#string-nunjucks">Output Nunjucks</a>
                 <small>v2.5.0</small>
             </h4>
             
-                <pre class="result"><code>8</code></pre>
+                <pre class="result"><code>4</code></pre>
             
         </section>
         
         
         
-        <section id="power-swig" data-engine="swig">
+        <section id="string-swig" data-engine="swig">
             <h4>
-                <a class="permalink" href="#power-swig">Output Swig</a>
+                <a class="permalink" href="#string-swig">Output Swig</a>
                 <small>v1.4.2</small>
             </h4>
             
-                <pre class="error"><code>SyntaxError: Unexpected token *.</code></pre>
+                <pre class="result"><code>4</code></pre>
             
         </section>
         
         
         
-        <section id="power-twig" data-engine="twig">
+        <section id="string-twig" data-engine="twig">
             <h4>
-                <a class="permalink" href="#power-twig">Output Twig</a>
+                <a class="permalink" href="#string-twig">Output Twig</a>
                 <small>v1.24.2</small>
             </h4>
             
-                <pre class="result"><code>8</code></pre>
-            
-        </section>
-        
-    </section>
-    
-    
-    <section class="section" id="subtraction">
-        <h3><a class="permalink" href="#subtraction">Test: subtraction</a></h3>
-
-        <h4>Template</h4>
-        <pre class="test"><code>{{ 5 - 3 }}</code></pre>
-
-        
-
-        
-        
-        
-        <section id="subtraction-django" data-engine="django">
-            <h4>
-                <a class="permalink" href="#subtraction-django">Output Django</a>
-                <small>v1.10.1</small>
-            </h4>
-            
-                <pre class="error"><code>Could not parse the remainder: ' - 3' from '5 - 3'</code></pre>
-            
-        </section>
-        
-        
-        
-        <section id="subtraction-jinja2" data-engine="jinja2">
-            <h4>
-                <a class="permalink" href="#subtraction-jinja2">Output Jinja2</a>
-                <small>v2.8.0</small>
-            </h4>
-            
-                <pre class="result"><code>2</code></pre>
-            
-        </section>
-        
-        
-        
-        <section id="subtraction-nunjucks" data-engine="nunjucks">
-            <h4>
-                <a class="permalink" href="#subtraction-nunjucks">Output Nunjucks</a>
-                <small>v2.5.0</small>
-            </h4>
-            
-                <pre class="result"><code>2</code></pre>
-            
-        </section>
-        
-        
-        
-        <section id="subtraction-swig" data-engine="swig">
-            <h4>
-                <a class="permalink" href="#subtraction-swig">Output Swig</a>
-                <small>v1.4.2</small>
-            </h4>
-            
-                <pre class="result"><code>2</code></pre>
-            
-        </section>
-        
-        
-        
-        <section id="subtraction-twig" data-engine="twig">
-            <h4>
-                <a class="permalink" href="#subtraction-twig">Output Twig</a>
-                <small>v1.24.2</small>
-            </h4>
-            
-                <pre class="result"><code>2</code></pre>
+                <pre class="result"><code>4</code></pre>
             
         </section>
         

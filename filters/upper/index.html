@@ -74,6 +74,12 @@
         
             
             <li>
+                <a href="https://docs.djangoproject.com/en/1.10/ref/templates/builtins/#upper">Django</a>
+            </li>
+            
+        
+            
+            <li>
                 <a href="http://jinja.pocoo.org/docs/dev/templates/#upper">Jinja2</a>
             </li>
             
@@ -192,14 +198,14 @@
 Warning: mb_strtoupper() expects parameter 1 to be string, array given
 
 Call Stack:
-    0.0003     376744   1. {main}() /home/travis/build/jbmoelker/jinja-compat-tests/test-twig.php:0
-    0.2595    4055088   2. Twig_Environment->render() /home/travis/build/jbmoelker/jinja-compat-tests/test-twig.php:51
-    0.2619    4069408   3. Twig_Template->render() /home/travis/build/jbmoelker/jinja-compat-tests/vendor/twig/twig/lib/Twig/Environment.php:347
-    0.2619    4085872   4. Twig_Template->display() /home/travis/build/jbmoelker/jinja-compat-tests/vendor/twig/twig/lib/Twig/Template.php:366
-    0.2619    4085984   5. Twig_Template->displayWithErrorHandling() /home/travis/build/jbmoelker/jinja-compat-tests/vendor/twig/twig/lib/Twig/Template.php:355
-    0.2619    4085984   6. __TwigTemplate_33e1aa87391c73e66c8ab6095a05a75b9b83905f888d08f54576618d4adfa926->doDisplay() /home/travis/build/jbmoelker/jinja-compat-tests/vendor/twig/twig/lib/Twig/Template.php:387
-    0.2619    4085984   7. twig_upper_filter() /home/travis/build/jbmoelker/jinja-compat-tests/vendor/twig/twig/lib/Twig/Environment.php(403) : eval()'d code:19
-    0.2619    4085984   8. mb_strtoupper() /home/travis/build/jbmoelker/jinja-compat-tests/vendor/twig/twig/lib/Twig/Extension/Core.php:1280
+    0.0004     376744   1. {main}() /home/travis/build/jbmoelker/jinja-compat-tests/test-twig.php:0
+    0.4125    4142112   2. Twig_Environment->render() /home/travis/build/jbmoelker/jinja-compat-tests/test-twig.php:51
+    0.4167    4156432   3. Twig_Template->render() /home/travis/build/jbmoelker/jinja-compat-tests/vendor/twig/twig/lib/Twig/Environment.php:347
+    0.4167    4172896   4. Twig_Template->display() /home/travis/build/jbmoelker/jinja-compat-tests/vendor/twig/twig/lib/Twig/Template.php:366
+    0.4167    4173008   5. Twig_Template->displayWithErrorHandling() /home/travis/build/jbmoelker/jinja-compat-tests/vendor/twig/twig/lib/Twig/Template.php:355
+    0.4167    4173008   6. __TwigTemplate_33e1aa87391c73e66c8ab6095a05a75b9b83905f888d08f54576618d4adfa926->doDisplay() /home/travis/build/jbmoelker/jinja-compat-tests/vendor/twig/twig/lib/Twig/Template.php:387
+    0.4167    4173008   7. twig_upper_filter() /home/travis/build/jbmoelker/jinja-compat-tests/vendor/twig/twig/lib/Twig/Environment.php(403) : eval()'d code:19
+    0.4167    4173008   8. mb_strtoupper() /home/travis/build/jbmoelker/jinja-compat-tests/vendor/twig/twig/lib/Twig/Extension/Core.php:1280
 
 </code></pre>
             
@@ -364,10 +370,14 @@ Call Stack:
 
     var SUPPORTS_STORAGE = ('localStorage' in window);
     var STORAGE_KEY = 'enabledEngines';
+    var FORM_SELECTOR = '[data-engine-enabler]';
+    var INPUT_NAME = 'engine';
+    var TARGET_ATTR = 'data-engine';
+    var ENABLED_ATTR = 'data-engine-enabled';
 
-    var form = document.querySelector('[data-engine-enabler]');
-    var inputs = [].slice.call(form.engine);
-    var targets = [].slice.call(document.querySelectorAll('[data-engine]'));
+    var form = document.querySelector(FORM_SELECTOR);
+    var inputs = [].slice.call(form[INPUT_NAME]);
+    var targets = [].slice.call(document.querySelectorAll('[' + TARGET_ATTR + ']'));
 
     form.addEventListener('change', onEnableEngines);
     restoreState();
@@ -387,8 +397,8 @@ Call Stack:
 
     function enableTargets(state) {
         targets.forEach(function(target) {
-            var engine = target.getAttribute('data-engine');
-            target.setAttribute('data-engine-enabled', state[engine]);
+            var key = target.getAttribute(TARGET_ATTR);
+            target.setAttribute(ENABLED_ATTR, state[key]);
         });
     }
 
