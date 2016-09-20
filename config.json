@@ -9,5 +9,6 @@
   "templateExt": ".html",
   "dataExt": ".json",
   "errorExt": ".error.log",
-  "templateDataFile": "output/template-data.json"
+  "templateDataFile": "output/template-data.json",
+  "noOutputMessage": "(no output)"
 }

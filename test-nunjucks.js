@@ -1,4 +1,5 @@
 const nunjucks = require('nunjucks');
+const onlyWhitespace = require('./lib/only-whitespace');
 const path = require('path');
 const saveFile = require('./lib/save-file');
 
@@ -26,6 +27,9 @@ Object.keys(templateData).forEach(templateName => {
 function renderTemplate(templateName, data) {
     const templateFilename = templateName + config.templateExt;
     renderer.render(templateFilename, data, (err, output) => {
+        if (!err && onlyWhitespace(output)) {
+            err = { message: config.noOutputMessage }
+        }
         if (err) {
             saveError(templateName, err);
         } else {

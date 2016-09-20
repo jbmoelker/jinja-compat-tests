@@ -1,4 +1,5 @@
 const path = require('path');
+const onlyWhitespace = require('./lib/only-whitespace');
 const saveFile = require('./lib/save-file');
 const swig = require('swig');
 
@@ -22,6 +23,9 @@ Object.keys(templateData).forEach(templateName => {
 function renderTemplate(templateName, data) {
     const templateFilename = templateName + config.templateExt;
     renderer.renderFile(templateFilename, data, (err, output) => {
+        if (!err && onlyWhitespace(output)) {
+            err = { message: config.noOutputMessage }
+        }
         if (err) {
             saveError(templateName, err);
         } else {
