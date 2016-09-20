@@ -22,6 +22,8 @@ install:
 - npm install
 - pip install --user -r requirements.txt
 - composer install
+- gem install bundler
+- bundle install
 
 script:
 - nvm use $NODE_JS_VERSION
