@@ -47,6 +47,11 @@
             </label>
             
             <label>
+                <input type="checkbox" checked name="engine" value="liquid">
+                Liquid
+            </label>
+            
+            <label>
                 <input type="checkbox" checked name="engine" value="nunjucks">
                 Nunjucks
             </label>
@@ -82,6 +87,8 @@
             <li>
                 <a href="http://jinja.pocoo.org/docs/dev/templates/#length">Jinja2</a>
             </li>
+            
+        
             
         
             
@@ -147,6 +154,18 @@
             </h4>
             
                 <pre class="result"><code>4</code></pre>
+            
+        </section>
+        
+        
+        
+        <section id="array-liquid" data-engine="liquid">
+            <h4>
+                <a class="permalink" href="#array-liquid">Output Liquid</a>
+                <small>v3.0.6</small>
+            </h4>
+            
+                <pre class="result"><code></code></pre>
             
         </section>
         
@@ -224,6 +243,18 @@
         
         
         
+        <section id="number-liquid" data-engine="liquid">
+            <h4>
+                <a class="permalink" href="#number-liquid">Output Liquid</a>
+                <small>v3.0.6</small>
+            </h4>
+            
+                <pre class="result"><code>1234</code></pre>
+            
+        </section>
+        
+        
+        
         <section id="number-nunjucks" data-engine="nunjucks">
             <h4>
                 <a class="permalink" href="#number-nunjucks">Output Nunjucks</a>
@@ -296,6 +327,18 @@
         
         
         
+        <section id="object-liquid" data-engine="liquid">
+            <h4>
+                <a class="permalink" href="#object-liquid">Output Liquid</a>
+                <small>v3.0.6</small>
+            </h4>
+            
+                <pre class="error"><code>Liquid syntax error: Variable '{{ { a: 1, b: 2, c: 3, d: 4 }' was not properly terminated with regexp: /\}\}/</code></pre>
+            
+        </section>
+        
+        
+        
         <section id="object-nunjucks" data-engine="nunjucks">
             <h4>
                 <a class="permalink" href="#object-nunjucks">Output Nunjucks</a>
@@ -363,6 +406,18 @@
             </h4>
             
                 <pre class="result"><code>4</code></pre>
+            
+        </section>
+        
+        
+        
+        <section id="string-liquid" data-engine="liquid">
+            <h4>
+                <a class="permalink" href="#string-liquid">Output Liquid</a>
+                <small>v3.0.6</small>
+            </h4>
+            
+                <pre class="result"><code>1234</code></pre>
             
         </section>
         

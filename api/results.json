@@ -182,6 +182,140 @@
             }
         }
     },
+    "liquid": {
+        "expressions": {
+            "comparisons": {
+                "ends-with": "Liquid error: Unknown operator ends",
+                "equal-to": "\n`varX` is equal to `varY`\n",
+                "greater-than-or-equal": "\n2 is greater than or equal to 1\n\n\n\n2 is greater than or equal to 2\n",
+                "greater-than": "\n2 is greater than 1\n",
+                "less-than-or-equal": "\n1 is less than or equal to 2\n\n\n\n1 is less than or equal to 1\n",
+                "less-than": "\n1 is less than 2\n",
+                "matches": "Liquid error: Unknown operator matches",
+                "not-equal-to": "\n`varX` is not equal to `varY`\n",
+                "starts-with": "Liquid error: Unknown operator starts",
+                "strict-equal-to": "Liquid error: Unknown operator ===",
+                "strict-not-equal-to": "Liquid error: Unknown operator !=="
+            },
+            "math": {
+                "addition": "2",
+                "devision": "",
+                "multiplication": "",
+                "power": "",
+                "subtraction": "5"
+            },
+            "reserved-words": {
+                "function": "function",
+                "var": "var"
+            }
+        },
+        "filters": {
+            "abs": {
+                "negative-float": "-3.14",
+                "negative-integer": "-3",
+                "positive-float": "3.14",
+                "positive-integer": "3",
+                "string": "-3.14",
+                "variable": "-3",
+                "zero": "0"
+            },
+            "batch": {
+                "size-and-fill": "\n     a  |\n\n     b  |\n\n     c  |\n\n     d  |\n\n     e  |\n\n     f  |\n\n     g  |\n",
+                "size-only": "\n     a  |\n\n     b  |\n\n     c  |\n\n     d  |\n\n     e  |\n\n     f  |\n\n     g  |\n"
+            },
+            "capitalize": {
+                "array": "[\"my first car\", \"my second car\", \"my third car\"]",
+                "mixed-case": "My first car",
+                "number": "5",
+                "sentence": "My first car",
+                "starts-with-number": "2nd car",
+                "word": "Car"
+            },
+            "center": {
+                "default": "<pre>x</pre>",
+                "width-20": "<pre>x</pre>"
+            },
+            "default": {
+                "alias-d": "",
+                "empty-string-strict": "",
+                "empty-string": "",
+                "undefined-property-bracket-notation": "",
+                "undefined-property-dot-notation": "\n",
+                "undefined-variable": ""
+            },
+            "escape": {
+                "alias-e": "<html>",
+                "default": "&lt;html&gt;",
+                "double-escape": "&amp;lt;html&amp;gt;"
+            },
+            "filesizeformat": {
+                "binary": "0\n1\n2\n10\n100\n1000\n1000000\n1000000000\n1000000000000",
+                "default": "0\n1\n2\n10\n100\n1000\n1000000\n1000000000\n1000000000000"
+            },
+            "first": {
+                "array": "",
+                "number": "",
+                "string": ""
+            },
+            "float": {
+                "custom-fallback": "",
+                "float": "3.52",
+                "force-fallback": "",
+                "integer": "3",
+                "string": "3.52"
+            },
+            "indent": {
+                "custom-spacing": "one\\ntwo\\nthree",
+                "default": "one\\ntwo\\nthree",
+                "include-first-line": "one\\ntwo\\nthree"
+            },
+            "int": {
+                "base-16": "0x4d32",
+                "base-8": "011",
+                "custom-fallback": "",
+                "float": "3.52",
+                "force-fallback": "",
+                "integer": "3",
+                "string": "3.52"
+            },
+            "last": {
+                "array": "",
+                "number": "",
+                "string": ""
+            },
+            "length": {
+                "array": "",
+                "number": "1234",
+                "string": "1234"
+            },
+            "lower": {
+                "array": "my first carmy Second carmy THIRD car",
+                "number": "5",
+                "string": "My FIRST Car"
+            },
+            "upper": {
+                "array": "my first carmy Second carmy THIRD car",
+                "number": "5",
+                "string": "My first CAR"
+            }
+        },
+        "tags": {
+            "if": {
+                "true-capitalized": "",
+                "true-variable": "true",
+                "true": "true"
+            },
+            "raw": {
+                "broken-expression": "{{ x }",
+                "broken-tag": "{% if i_am_stupid }Still do your job well",
+                "comment": "{# test ",
+                "multiline": "\n{{ varX }}\nvalue Y\n\n    {{ varZ }}\n",
+                "multiple": "{{ varX }}value Y{{ varZ }}",
+                "tag": "hello {{ {% %} }}",
+                "text": "abc"
+            }
+        }
+    },
     "nunjucks": {
         "expressions": {
             "comparisons": {

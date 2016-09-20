@@ -47,6 +47,11 @@
             </label>
             
             <label>
+                <input type="checkbox" checked name="engine" value="liquid">
+                Liquid
+            </label>
+            
+            <label>
                 <input type="checkbox" checked name="engine" value="nunjucks">
                 Nunjucks
             </label>
@@ -77,6 +82,12 @@
             
             <li>
                 <a href="http://jinja.pocoo.org/docs/dev/templates/#capitalize">Jinja2</a>
+            </li>
+            
+        
+            
+            <li>
+                <a href="https://shopify.github.io/liquid/filters/capitalize/">Liquid</a>
             </li>
             
         
@@ -165,6 +176,18 @@
         
         
         
+        <section id="array-liquid" data-engine="liquid">
+            <h4>
+                <a class="permalink" href="#array-liquid">Output Liquid</a>
+                <small>v3.0.6</small>
+            </h4>
+            
+                <pre class="result"><code>["my first car", "my second car", "my third car"]</code></pre>
+            
+        </section>
+        
+        
+        
         <section id="array-nunjucks" data-engine="nunjucks">
             <h4>
                 <a class="permalink" href="#array-nunjucks">Output Nunjucks</a>
@@ -200,40 +223,40 @@
 Warning: mb_substr() expects parameter 1 to be string, array given
 
 Call Stack:
-    0.0004     376744   1. {main}() /home/travis/build/jbmoelker/jinja-compat-tests/test-twig.php:0
-    0.1723    3323352   2. Twig_Environment->render() /home/travis/build/jbmoelker/jinja-compat-tests/test-twig.php:51
-    0.1766    3327568   3. Twig_Template->render() /home/travis/build/jbmoelker/jinja-compat-tests/vendor/twig/twig/lib/Twig/Environment.php:347
-    0.1766    3344032   4. Twig_Template->display() /home/travis/build/jbmoelker/jinja-compat-tests/vendor/twig/twig/lib/Twig/Template.php:366
-    0.1766    3344144   5. Twig_Template->displayWithErrorHandling() /home/travis/build/jbmoelker/jinja-compat-tests/vendor/twig/twig/lib/Twig/Template.php:355
-    0.1766    3344144   6. __TwigTemplate_87bb27d19dd7eb1fa0e1dff126ade1f469b3fb5428af45b33db341068c6dbc5d->doDisplay() /home/travis/build/jbmoelker/jinja-compat-tests/vendor/twig/twig/lib/Twig/Template.php:387
-    0.1766    3344144   7. twig_capitalize_string_filter() /home/travis/build/jbmoelker/jinja-compat-tests/vendor/twig/twig/lib/Twig/Environment.php(403) : eval()'d code:19
-    0.1766    3344144   8. mb_substr() /home/travis/build/jbmoelker/jinja-compat-tests/vendor/twig/twig/lib/Twig/Extension/Core.php:1331
+    0.0003     376744   1. {main}() /home/travis/build/jbmoelker/jinja-compat-tests/test-twig.php:0
+    0.1582    3323352   2. Twig_Environment->render() /home/travis/build/jbmoelker/jinja-compat-tests/test-twig.php:51
+    0.1609    3327568   3. Twig_Template->render() /home/travis/build/jbmoelker/jinja-compat-tests/vendor/twig/twig/lib/Twig/Environment.php:347
+    0.1609    3344032   4. Twig_Template->display() /home/travis/build/jbmoelker/jinja-compat-tests/vendor/twig/twig/lib/Twig/Template.php:366
+    0.1609    3344144   5. Twig_Template->displayWithErrorHandling() /home/travis/build/jbmoelker/jinja-compat-tests/vendor/twig/twig/lib/Twig/Template.php:355
+    0.1609    3344144   6. __TwigTemplate_87bb27d19dd7eb1fa0e1dff126ade1f469b3fb5428af45b33db341068c6dbc5d->doDisplay() /home/travis/build/jbmoelker/jinja-compat-tests/vendor/twig/twig/lib/Twig/Template.php:387
+    0.1609    3344144   7. twig_capitalize_string_filter() /home/travis/build/jbmoelker/jinja-compat-tests/vendor/twig/twig/lib/Twig/Environment.php(403) : eval()'d code:19
+    0.1609    3344144   8. mb_substr() /home/travis/build/jbmoelker/jinja-compat-tests/vendor/twig/twig/lib/Twig/Extension/Core.php:1331
 
 
 Warning: mb_strlen() expects parameter 1 to be string, array given
 
 Call Stack:
-    0.0004     376744   1. {main}() /home/travis/build/jbmoelker/jinja-compat-tests/test-twig.php:0
-    0.1723    3323352   2. Twig_Environment->render() /home/travis/build/jbmoelker/jinja-compat-tests/test-twig.php:51
-    0.1766    3327568   3. Twig_Template->render() /home/travis/build/jbmoelker/jinja-compat-tests/vendor/twig/twig/lib/Twig/Environment.php:347
-    0.1766    3344032   4. Twig_Template->display() /home/travis/build/jbmoelker/jinja-compat-tests/vendor/twig/twig/lib/Twig/Template.php:366
-    0.1766    3344144   5. Twig_Template->displayWithErrorHandling() /home/travis/build/jbmoelker/jinja-compat-tests/vendor/twig/twig/lib/Twig/Template.php:355
-    0.1766    3344144   6. __TwigTemplate_87bb27d19dd7eb1fa0e1dff126ade1f469b3fb5428af45b33db341068c6dbc5d->doDisplay() /home/travis/build/jbmoelker/jinja-compat-tests/vendor/twig/twig/lib/Twig/Template.php:387
-    0.1766    3344144   7. twig_capitalize_string_filter() /home/travis/build/jbmoelker/jinja-compat-tests/vendor/twig/twig/lib/Twig/Environment.php(403) : eval()'d code:19
-    0.1769    3344176   8. mb_strlen() /home/travis/build/jbmoelker/jinja-compat-tests/vendor/twig/twig/lib/Twig/Extension/Core.php:1331
+    0.0003     376744   1. {main}() /home/travis/build/jbmoelker/jinja-compat-tests/test-twig.php:0
+    0.1582    3323352   2. Twig_Environment->render() /home/travis/build/jbmoelker/jinja-compat-tests/test-twig.php:51
+    0.1609    3327568   3. Twig_Template->render() /home/travis/build/jbmoelker/jinja-compat-tests/vendor/twig/twig/lib/Twig/Environment.php:347
+    0.1609    3344032   4. Twig_Template->display() /home/travis/build/jbmoelker/jinja-compat-tests/vendor/twig/twig/lib/Twig/Template.php:366
+    0.1609    3344144   5. Twig_Template->displayWithErrorHandling() /home/travis/build/jbmoelker/jinja-compat-tests/vendor/twig/twig/lib/Twig/Template.php:355
+    0.1609    3344144   6. __TwigTemplate_87bb27d19dd7eb1fa0e1dff126ade1f469b3fb5428af45b33db341068c6dbc5d->doDisplay() /home/travis/build/jbmoelker/jinja-compat-tests/vendor/twig/twig/lib/Twig/Template.php:387
+    0.1609    3344144   7. twig_capitalize_string_filter() /home/travis/build/jbmoelker/jinja-compat-tests/vendor/twig/twig/lib/Twig/Environment.php(403) : eval()'d code:19
+    0.1618    3344176   8. mb_strlen() /home/travis/build/jbmoelker/jinja-compat-tests/vendor/twig/twig/lib/Twig/Extension/Core.php:1331
 
 
 Warning: mb_substr() expects parameter 1 to be string, array given
 
 Call Stack:
-    0.0004     376744   1. {main}() /home/travis/build/jbmoelker/jinja-compat-tests/test-twig.php:0
-    0.1723    3323352   2. Twig_Environment->render() /home/travis/build/jbmoelker/jinja-compat-tests/test-twig.php:51
-    0.1766    3327568   3. Twig_Template->render() /home/travis/build/jbmoelker/jinja-compat-tests/vendor/twig/twig/lib/Twig/Environment.php:347
-    0.1766    3344032   4. Twig_Template->display() /home/travis/build/jbmoelker/jinja-compat-tests/vendor/twig/twig/lib/Twig/Template.php:366
-    0.1766    3344144   5. Twig_Template->displayWithErrorHandling() /home/travis/build/jbmoelker/jinja-compat-tests/vendor/twig/twig/lib/Twig/Template.php:355
-    0.1766    3344144   6. __TwigTemplate_87bb27d19dd7eb1fa0e1dff126ade1f469b3fb5428af45b33db341068c6dbc5d->doDisplay() /home/travis/build/jbmoelker/jinja-compat-tests/vendor/twig/twig/lib/Twig/Template.php:387
-    0.1766    3344144   7. twig_capitalize_string_filter() /home/travis/build/jbmoelker/jinja-compat-tests/vendor/twig/twig/lib/Twig/Environment.php(403) : eval()'d code:19
-    0.1771    3344176   8. mb_substr() /home/travis/build/jbmoelker/jinja-compat-tests/vendor/twig/twig/lib/Twig/Extension/Core.php:1331
+    0.0003     376744   1. {main}() /home/travis/build/jbmoelker/jinja-compat-tests/test-twig.php:0
+    0.1582    3323352   2. Twig_Environment->render() /home/travis/build/jbmoelker/jinja-compat-tests/test-twig.php:51
+    0.1609    3327568   3. Twig_Template->render() /home/travis/build/jbmoelker/jinja-compat-tests/vendor/twig/twig/lib/Twig/Environment.php:347
+    0.1609    3344032   4. Twig_Template->display() /home/travis/build/jbmoelker/jinja-compat-tests/vendor/twig/twig/lib/Twig/Template.php:366
+    0.1609    3344144   5. Twig_Template->displayWithErrorHandling() /home/travis/build/jbmoelker/jinja-compat-tests/vendor/twig/twig/lib/Twig/Template.php:355
+    0.1609    3344144   6. __TwigTemplate_87bb27d19dd7eb1fa0e1dff126ade1f469b3fb5428af45b33db341068c6dbc5d->doDisplay() /home/travis/build/jbmoelker/jinja-compat-tests/vendor/twig/twig/lib/Twig/Template.php:387
+    0.1609    3344144   7. twig_capitalize_string_filter() /home/travis/build/jbmoelker/jinja-compat-tests/vendor/twig/twig/lib/Twig/Environment.php(403) : eval()'d code:19
+    0.1624    3344176   8. mb_substr() /home/travis/build/jbmoelker/jinja-compat-tests/vendor/twig/twig/lib/Twig/Extension/Core.php:1331
 
 </code></pre>
             
@@ -269,6 +292,18 @@ Call Stack:
             <h4>
                 <a class="permalink" href="#mixed-case-jinja2">Output Jinja2</a>
                 <small>v2.8.0</small>
+            </h4>
+            
+                <pre class="result"><code>My first car</code></pre>
+            
+        </section>
+        
+        
+        
+        <section id="mixed-case-liquid" data-engine="liquid">
+            <h4>
+                <a class="permalink" href="#mixed-case-liquid">Output Liquid</a>
+                <small>v3.0.6</small>
             </h4>
             
                 <pre class="result"><code>My first car</code></pre>
@@ -341,6 +376,18 @@ Call Stack:
             <h4>
                 <a class="permalink" href="#number-jinja2">Output Jinja2</a>
                 <small>v2.8.0</small>
+            </h4>
+            
+                <pre class="result"><code>5</code></pre>
+            
+        </section>
+        
+        
+        
+        <section id="number-liquid" data-engine="liquid">
+            <h4>
+                <a class="permalink" href="#number-liquid">Output Liquid</a>
+                <small>v3.0.6</small>
             </h4>
             
                 <pre class="result"><code>5</code></pre>
@@ -422,6 +469,18 @@ Call Stack:
         
         
         
+        <section id="sentence-liquid" data-engine="liquid">
+            <h4>
+                <a class="permalink" href="#sentence-liquid">Output Liquid</a>
+                <small>v3.0.6</small>
+            </h4>
+            
+                <pre class="result"><code>My first car</code></pre>
+            
+        </section>
+        
+        
+        
         <section id="sentence-nunjucks" data-engine="nunjucks">
             <h4>
                 <a class="permalink" href="#sentence-nunjucks">Output Nunjucks</a>
@@ -494,6 +553,18 @@ Call Stack:
         
         
         
+        <section id="starts-with-number-liquid" data-engine="liquid">
+            <h4>
+                <a class="permalink" href="#starts-with-number-liquid">Output Liquid</a>
+                <small>v3.0.6</small>
+            </h4>
+            
+                <pre class="result"><code>2nd car</code></pre>
+            
+        </section>
+        
+        
+        
         <section id="starts-with-number-nunjucks" data-engine="nunjucks">
             <h4>
                 <a class="permalink" href="#starts-with-number-nunjucks">Output Nunjucks</a>
@@ -558,6 +629,18 @@ Call Stack:
             <h4>
                 <a class="permalink" href="#word-jinja2">Output Jinja2</a>
                 <small>v2.8.0</small>
+            </h4>
+            
+                <pre class="result"><code>Car</code></pre>
+            
+        </section>
+        
+        
+        
+        <section id="word-liquid" data-engine="liquid">
+            <h4>
+                <a class="permalink" href="#word-liquid">Output Liquid</a>
+                <small>v3.0.6</small>
             </h4>
             
                 <pre class="result"><code>Car</code></pre>

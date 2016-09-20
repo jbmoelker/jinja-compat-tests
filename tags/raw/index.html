@@ -47,6 +47,11 @@
             </label>
             
             <label>
+                <input type="checkbox" checked name="engine" value="liquid">
+                Liquid
+            </label>
+            
+            <label>
                 <input type="checkbox" checked name="engine" value="nunjucks">
                 Nunjucks
             </label>
@@ -78,6 +83,8 @@
             <li>
                 <a href="http://jinja.pocoo.org/docs/dev/templates/#escaping">Jinja2</a>
             </li>
+            
+        
             
         
             
@@ -160,6 +167,18 @@
         
         
         
+        <section id="broken-expression-liquid" data-engine="liquid">
+            <h4>
+                <a class="permalink" href="#broken-expression-liquid">Output Liquid</a>
+                <small>v3.0.6</small>
+            </h4>
+            
+                <pre class="result"><code>{{ x }</code></pre>
+            
+        </section>
+        
+        
+        
         <section id="broken-expression-nunjucks" data-engine="nunjucks">
             <h4>
                 <a class="permalink" href="#broken-expression-nunjucks">Output Nunjucks</a>
@@ -232,6 +251,18 @@
         
         
         
+        <section id="broken-tag-liquid" data-engine="liquid">
+            <h4>
+                <a class="permalink" href="#broken-tag-liquid">Output Liquid</a>
+                <small>v3.0.6</small>
+            </h4>
+            
+                <pre class="result"><code>{% if i_am_stupid }Still do your job well</code></pre>
+            
+        </section>
+        
+        
+        
         <section id="broken-tag-nunjucks" data-engine="nunjucks">
             <h4>
                 <a class="permalink" href="#broken-tag-nunjucks">Output Nunjucks</a>
@@ -296,6 +327,18 @@
             <h4>
                 <a class="permalink" href="#comment-jinja2">Output Jinja2</a>
                 <small>v2.8.0</small>
+            </h4>
+            
+                <pre class="result"><code>{# test </code></pre>
+            
+        </section>
+        
+        
+        
+        <section id="comment-liquid" data-engine="liquid">
+            <h4>
+                <a class="permalink" href="#comment-liquid">Output Liquid</a>
+                <small>v3.0.6</small>
             </h4>
             
                 <pre class="result"><code>{# test </code></pre>
@@ -380,6 +423,23 @@
             <h4>
                 <a class="permalink" href="#multiline-jinja2">Output Jinja2</a>
                 <small>v2.8.0</small>
+            </h4>
+            
+                <pre class="result"><code>
+{{ varX }}
+value Y
+
+    {{ varZ }}
+</code></pre>
+            
+        </section>
+        
+        
+        
+        <section id="multiline-liquid" data-engine="liquid">
+            <h4>
+                <a class="permalink" href="#multiline-liquid">Output Liquid</a>
+                <small>v3.0.6</small>
             </h4>
             
                 <pre class="result"><code>
@@ -487,6 +547,18 @@ value Y
         
         
         
+        <section id="multiple-liquid" data-engine="liquid">
+            <h4>
+                <a class="permalink" href="#multiple-liquid">Output Liquid</a>
+                <small>v3.0.6</small>
+            </h4>
+            
+                <pre class="result"><code>{{ varX }}value Y{{ varZ }}</code></pre>
+            
+        </section>
+        
+        
+        
         <section id="multiple-nunjucks" data-engine="nunjucks">
             <h4>
                 <a class="permalink" href="#multiple-nunjucks">Output Nunjucks</a>
@@ -554,6 +626,18 @@ value Y
             </h4>
             
                 <pre class="error"><code>Encountered unknown tag 'endraw'.</code></pre>
+            
+        </section>
+        
+        
+        
+        <section id="nested-raw-liquid" data-engine="liquid">
+            <h4>
+                <a class="permalink" href="#nested-raw-liquid">Output Liquid</a>
+                <small>v3.0.6</small>
+            </h4>
+            
+                <pre class="error"><code>Liquid syntax error: Unknown tag 'endraw'</code></pre>
             
         </section>
         
@@ -631,6 +715,18 @@ value Y
         
         
         
+        <section id="tag-liquid" data-engine="liquid">
+            <h4>
+                <a class="permalink" href="#tag-liquid">Output Liquid</a>
+                <small>v3.0.6</small>
+            </h4>
+            
+                <pre class="result"><code>hello {{ {% %} }}</code></pre>
+            
+        </section>
+        
+        
+        
         <section id="tag-nunjucks" data-engine="nunjucks">
             <h4>
                 <a class="permalink" href="#tag-nunjucks">Output Nunjucks</a>
@@ -695,6 +791,18 @@ value Y
             <h4>
                 <a class="permalink" href="#text-jinja2">Output Jinja2</a>
                 <small>v2.8.0</small>
+            </h4>
+            
+                <pre class="result"><code>abc</code></pre>
+            
+        </section>
+        
+        
+        
+        <section id="text-liquid" data-engine="liquid">
+            <h4>
+                <a class="permalink" href="#text-liquid">Output Liquid</a>
+                <small>v3.0.6</small>
             </h4>
             
                 <pre class="result"><code>abc</code></pre>
