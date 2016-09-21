@@ -16,13 +16,14 @@
 <body>
 
 
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.5.1/themes/prism.css">
 <style type="text/css">
     h4 { margin-bottom: 0; }
     h4 small { float: right; font-weight: normal; font-style: italic; }
     label { padding-right: 1em; cursor: pointer; }
-    pre { padding: .5em; margin-top: .5rem; min-height: 1em; overflow-x: scroll; }
+    pre { padding: .5em; margin-top: .5rem; min-height: 1em; background: #f5f2f0; overflow-x: scroll; }
     .section { margin-bottom: 2.5rem; }
-    .test { border: 2px solid deepskyblue; }
+    .test pre { border: 2px solid deepskyblue; }
     .result { border: 2px solid lawngreen; }
     .error { border: 2px solid red; white-space: normal; }
 
@@ -126,7 +127,7 @@
         <h3><a class="permalink" href="#addition">Test: addition</a></h3>
 
         <h4>Template</h4>
-        <pre class="test"><code>{{ 2 + 3 }}</code></pre>
+        <div class="test"><pre class="language-twig"><code><span class="token tag" ><span class="token ld" ><span class="token punctuation" >{{</span></span> <span class="token number" >2</span> <span class="token operator" >+</span> <span class="token number" >3</span> <span class="token rd" ><span class="token punctuation" >}}</span></span></span></code></pre></div>
 
         
 
@@ -216,7 +217,7 @@
         <h3><a class="permalink" href="#devision">Test: devision</a></h3>
 
         <h4>Template</h4>
-        <pre class="test"><code>{{ 10/5 }}</code></pre>
+        <div class="test"><pre class="language-twig"><code><span class="token tag" ><span class="token ld" ><span class="token punctuation" >{{</span></span> <span class="token number" >10</span><span class="token operator" >/</span><span class="token number" >5</span> <span class="token rd" ><span class="token punctuation" >}}</span></span></span></code></pre></div>
 
         
 
@@ -306,7 +307,7 @@
         <h3><a class="permalink" href="#multiplication">Test: multiplication</a></h3>
 
         <h4>Template</h4>
-        <pre class="test"><code>{{ 5*2 }}</code></pre>
+        <div class="test"><pre class="language-twig"><code><span class="token tag" ><span class="token ld" ><span class="token punctuation" >{{</span></span> <span class="token number" >5</span><span class="token operator" >*</span><span class="token number" >2</span> <span class="token rd" ><span class="token punctuation" >}}</span></span></span></code></pre></div>
 
         
 
@@ -396,7 +397,7 @@
         <h3><a class="permalink" href="#power">Test: power</a></h3>
 
         <h4>Template</h4>
-        <pre class="test"><code>{{ 2**3 }}</code></pre>
+        <div class="test"><pre class="language-twig"><code><span class="token tag" ><span class="token ld" ><span class="token punctuation" >{{</span></span> <span class="token number" >2</span><span class="token operator" >**</span><span class="token number" >3</span> <span class="token rd" ><span class="token punctuation" >}}</span></span></span></code></pre></div>
 
         
 
@@ -486,7 +487,7 @@
         <h3><a class="permalink" href="#subtraction">Test: subtraction</a></h3>
 
         <h4>Template</h4>
-        <pre class="test"><code>{{ 5 - 3 }}</code></pre>
+        <div class="test"><pre class="language-twig"><code><span class="token tag" ><span class="token ld" ><span class="token punctuation" >{{</span></span> <span class="token number" >5</span> <span class="token operator" >-</span> <span class="token number" >3</span> <span class="token rd" ><span class="token punctuation" >}}</span></span></span></code></pre></div>
 
         
 

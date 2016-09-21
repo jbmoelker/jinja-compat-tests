@@ -16,13 +16,14 @@
 <body>
 
 
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.5.1/themes/prism.css">
 <style type="text/css">
     h4 { margin-bottom: 0; }
     h4 small { float: right; font-weight: normal; font-style: italic; }
     label { padding-right: 1em; cursor: pointer; }
-    pre { padding: .5em; margin-top: .5rem; min-height: 1em; overflow-x: scroll; }
+    pre { padding: .5em; margin-top: .5rem; min-height: 1em; background: #f5f2f0; overflow-x: scroll; }
     .section { margin-bottom: 2.5rem; }
-    .test { border: 2px solid deepskyblue; }
+    .test pre { border: 2px solid deepskyblue; }
     .result { border: 2px solid lawngreen; }
     .error { border: 2px solid red; white-space: normal; }
 
@@ -130,7 +131,7 @@
         <h3><a class="permalink" href="#dot-dot-operator">Test: dot-dot-operator</a></h3>
 
         <h4>Template</h4>
-        <pre class="test"><code>{% for i in 5..10 %}{{ i }} {% endfor %}</code></pre>
+        <div class="test"><pre class="language-twig"><code><span class="token tag" ><span class="token ld" ><span class="token punctuation" >{%</span> <span class="token keyword" >for</span></span> <span class="token property" >i</span> <span class="token operator" >in</span> <span class="token number" >5</span><span class="token punctuation" >.</span><span class="token punctuation" >.</span><span class="token number" >10</span> <span class="token rd" ><span class="token punctuation" >%}</span></span></span><span class="token tag" ><span class="token ld" ><span class="token punctuation" >{{</span></span> <span class="token property" >i</span> <span class="token rd" ><span class="token punctuation" >}}</span></span></span> <span class="token tag" ><span class="token ld" ><span class="token punctuation" >{%</span> <span class="token keyword" >endfor</span></span> <span class="token rd" ><span class="token punctuation" >%}</span></span></span></code></pre></div>
 
         
 
@@ -221,7 +222,7 @@
         <h3><a class="permalink" href="#float-step">Test: float-step</a></h3>
 
         <h4>Template</h4>
-        <pre class="test"><code>{% for i in range(5, 10, 2.5) %}{{ i }} {% endfor %}</code></pre>
+        <div class="test"><pre class="language-twig"><code><span class="token tag" ><span class="token ld" ><span class="token punctuation" >{%</span> <span class="token keyword" >for</span></span> <span class="token property" >i</span> <span class="token operator" >in</span> <span class="token property" >range</span><span class="token punctuation" >(</span><span class="token number" >5</span><span class="token punctuation" >,</span> <span class="token number" >10</span><span class="token punctuation" >,</span> <span class="token number" >2.5</span><span class="token punctuation" >)</span> <span class="token rd" ><span class="token punctuation" >%}</span></span></span><span class="token tag" ><span class="token ld" ><span class="token punctuation" >{{</span></span> <span class="token property" >i</span> <span class="token rd" ><span class="token punctuation" >}}</span></span></span> <span class="token tag" ><span class="token ld" ><span class="token punctuation" >{%</span> <span class="token keyword" >endfor</span></span> <span class="token rd" ><span class="token punctuation" >%}</span></span></span></code></pre></div>
 
         
 
@@ -311,7 +312,7 @@
         <h3><a class="permalink" href="#negative-start">Test: negative-start</a></h3>
 
         <h4>Template</h4>
-        <pre class="test"><code>{% for i in range(-5, 5) %}{{ i }} {% endfor %}</code></pre>
+        <div class="test"><pre class="language-twig"><code><span class="token tag" ><span class="token ld" ><span class="token punctuation" >{%</span> <span class="token keyword" >for</span></span> <span class="token property" >i</span> <span class="token operator" >in</span> <span class="token property" >range</span><span class="token punctuation" >(</span><span class="token operator" >-</span><span class="token number" >5</span><span class="token punctuation" >,</span> <span class="token number" >5</span><span class="token punctuation" >)</span> <span class="token rd" ><span class="token punctuation" >%}</span></span></span><span class="token tag" ><span class="token ld" ><span class="token punctuation" >{{</span></span> <span class="token property" >i</span> <span class="token rd" ><span class="token punctuation" >}}</span></span></span> <span class="token tag" ><span class="token ld" ><span class="token punctuation" >{%</span> <span class="token keyword" >endfor</span></span> <span class="token rd" ><span class="token punctuation" >%}</span></span></span></code></pre></div>
 
         
 
@@ -401,7 +402,7 @@
         <h3><a class="permalink" href="#negative-step">Test: negative-step</a></h3>
 
         <h4>Template</h4>
-        <pre class="test"><code>{% for i in range(10, 5, -1) %}{{ i }} {% endfor %}</code></pre>
+        <div class="test"><pre class="language-twig"><code><span class="token tag" ><span class="token ld" ><span class="token punctuation" >{%</span> <span class="token keyword" >for</span></span> <span class="token property" >i</span> <span class="token operator" >in</span> <span class="token property" >range</span><span class="token punctuation" >(</span><span class="token number" >10</span><span class="token punctuation" >,</span> <span class="token number" >5</span><span class="token punctuation" >,</span> <span class="token operator" >-</span><span class="token number" >1</span><span class="token punctuation" >)</span> <span class="token rd" ><span class="token punctuation" >%}</span></span></span><span class="token tag" ><span class="token ld" ><span class="token punctuation" >{{</span></span> <span class="token property" >i</span> <span class="token rd" ><span class="token punctuation" >}}</span></span></span> <span class="token tag" ><span class="token ld" ><span class="token punctuation" >{%</span> <span class="token keyword" >endfor</span></span> <span class="token rd" ><span class="token punctuation" >%}</span></span></span></code></pre></div>
 
         
 
@@ -491,7 +492,7 @@
         <h3><a class="permalink" href="#start-stop-step">Test: start-stop-step</a></h3>
 
         <h4>Template</h4>
-        <pre class="test"><code>{% for i in range(5, 10, 2) %}{{ i }} {% endfor %}</code></pre>
+        <div class="test"><pre class="language-twig"><code><span class="token tag" ><span class="token ld" ><span class="token punctuation" >{%</span> <span class="token keyword" >for</span></span> <span class="token property" >i</span> <span class="token operator" >in</span> <span class="token property" >range</span><span class="token punctuation" >(</span><span class="token number" >5</span><span class="token punctuation" >,</span> <span class="token number" >10</span><span class="token punctuation" >,</span> <span class="token number" >2</span><span class="token punctuation" >)</span> <span class="token rd" ><span class="token punctuation" >%}</span></span></span><span class="token tag" ><span class="token ld" ><span class="token punctuation" >{{</span></span> <span class="token property" >i</span> <span class="token rd" ><span class="token punctuation" >}}</span></span></span> <span class="token tag" ><span class="token ld" ><span class="token punctuation" >{%</span> <span class="token keyword" >endfor</span></span> <span class="token rd" ><span class="token punctuation" >%}</span></span></span></code></pre></div>
 
         
 
@@ -581,7 +582,7 @@
         <h3><a class="permalink" href="#start-stop">Test: start-stop</a></h3>
 
         <h4>Template</h4>
-        <pre class="test"><code>{% for i in range(5, 10) %}{{ i }} {% endfor %}</code></pre>
+        <div class="test"><pre class="language-twig"><code><span class="token tag" ><span class="token ld" ><span class="token punctuation" >{%</span> <span class="token keyword" >for</span></span> <span class="token property" >i</span> <span class="token operator" >in</span> <span class="token property" >range</span><span class="token punctuation" >(</span><span class="token number" >5</span><span class="token punctuation" >,</span> <span class="token number" >10</span><span class="token punctuation" >)</span> <span class="token rd" ><span class="token punctuation" >%}</span></span></span><span class="token tag" ><span class="token ld" ><span class="token punctuation" >{{</span></span> <span class="token property" >i</span> <span class="token rd" ><span class="token punctuation" >}}</span></span></span> <span class="token tag" ><span class="token ld" ><span class="token punctuation" >{%</span> <span class="token keyword" >endfor</span></span> <span class="token rd" ><span class="token punctuation" >%}</span></span></span></code></pre></div>
 
         
 
@@ -671,7 +672,7 @@
         <h3><a class="permalink" href="#stop">Test: stop</a></h3>
 
         <h4>Template</h4>
-        <pre class="test"><code>{% for i in range(10) %}{{ i }} {% endfor %}</code></pre>
+        <div class="test"><pre class="language-twig"><code><span class="token tag" ><span class="token ld" ><span class="token punctuation" >{%</span> <span class="token keyword" >for</span></span> <span class="token property" >i</span> <span class="token operator" >in</span> <span class="token property" >range</span><span class="token punctuation" >(</span><span class="token number" >10</span><span class="token punctuation" >)</span> <span class="token rd" ><span class="token punctuation" >%}</span></span></span><span class="token tag" ><span class="token ld" ><span class="token punctuation" >{{</span></span> <span class="token property" >i</span> <span class="token rd" ><span class="token punctuation" >}}</span></span></span> <span class="token tag" ><span class="token ld" ><span class="token punctuation" >{%</span> <span class="token keyword" >endfor</span></span> <span class="token rd" ><span class="token punctuation" >%}</span></span></span></code></pre></div>
 
         
 
@@ -755,12 +756,12 @@ Warning: range() expects at least 2 parameters, 1 given
 
 Call Stack:
     0.0003     372816   1. {main}() /home/travis/build/jbmoelker/jinja-compat-tests/test-twig.php:0
-    2.1920    4230960   2. Twig_Environment->render() /home/travis/build/jbmoelker/jinja-compat-tests/test-twig.php:48
-    2.1960    4241688   3. Twig_Template->render() /home/travis/build/jbmoelker/jinja-compat-tests/vendor/twig/twig/lib/Twig/Environment.php:347
-    2.1960    4258152   4. Twig_Template->display() /home/travis/build/jbmoelker/jinja-compat-tests/vendor/twig/twig/lib/Twig/Template.php:366
-    2.1960    4258264   5. Twig_Template->displayWithErrorHandling() /home/travis/build/jbmoelker/jinja-compat-tests/vendor/twig/twig/lib/Twig/Template.php:355
-    2.1960    4258264   6. __TwigTemplate_77fd7540f1961731b01ca3ad78b4942d9bcb5dfa108c0fb7d3886a68ae08a9b1->doDisplay() /home/travis/build/jbmoelker/jinja-compat-tests/vendor/twig/twig/lib/Twig/Template.php:387
-    2.1960    4258640   7. range() /home/travis/build/jbmoelker/jinja-compat-tests/vendor/twig/twig/lib/Twig/Environment.php(403) : eval()'d code:20
+    0.2782    4230960   2. Twig_Environment->render() /home/travis/build/jbmoelker/jinja-compat-tests/test-twig.php:48
+    0.2818    4241688   3. Twig_Template->render() /home/travis/build/jbmoelker/jinja-compat-tests/vendor/twig/twig/lib/Twig/Environment.php:347
+    0.2818    4258152   4. Twig_Template->display() /home/travis/build/jbmoelker/jinja-compat-tests/vendor/twig/twig/lib/Twig/Template.php:366
+    0.2818    4258264   5. Twig_Template->displayWithErrorHandling() /home/travis/build/jbmoelker/jinja-compat-tests/vendor/twig/twig/lib/Twig/Template.php:355
+    0.2818    4258264   6. __TwigTemplate_77fd7540f1961731b01ca3ad78b4942d9bcb5dfa108c0fb7d3886a68ae08a9b1->doDisplay() /home/travis/build/jbmoelker/jinja-compat-tests/vendor/twig/twig/lib/Twig/Template.php:387
+    0.2818    4258640   7. range() /home/travis/build/jbmoelker/jinja-compat-tests/vendor/twig/twig/lib/Twig/Environment.php(403) : eval()'d code:20
 
 </code></pre>
             

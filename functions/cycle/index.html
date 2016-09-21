@@ -16,13 +16,14 @@
 <body>
 
 
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.5.1/themes/prism.css">
 <style type="text/css">
     h4 { margin-bottom: 0; }
     h4 small { float: right; font-weight: normal; font-style: italic; }
     label { padding-right: 1em; cursor: pointer; }
-    pre { padding: .5em; margin-top: .5rem; min-height: 1em; overflow-x: scroll; }
+    pre { padding: .5em; margin-top: .5rem; min-height: 1em; background: #f5f2f0; overflow-x: scroll; }
     .section { margin-bottom: 2.5rem; }
-    .test { border: 2px solid deepskyblue; }
+    .test pre { border: 2px solid deepskyblue; }
     .result { border: 2px solid lawngreen; }
     .error { border: 2px solid red; white-space: normal; }
 
@@ -112,16 +113,16 @@
         <h3><a class="permalink" href="#2-items">Test: 2-items</a></h3>
 
         <h4>Template</h4>
-        <pre class="test"><code>{% for i in rows %}
-{{ cycle(items, i) }}
-{% endfor %}</code></pre>
+        <div class="test"><pre class="language-twig"><code><span class="token tag" ><span class="token ld" ><span class="token punctuation" >{%</span> <span class="token keyword" >for</span></span> <span class="token property" >i</span> <span class="token operator" >in</span> <span class="token property" >rows</span> <span class="token rd" ><span class="token punctuation" >%}</span></span></span>
+<span class="token tag" ><span class="token ld" ><span class="token punctuation" >{{</span></span> <span class="token property" >cycle</span><span class="token punctuation" >(</span><span class="token property" >items</span><span class="token punctuation" >,</span> <span class="token property" >i</span><span class="token punctuation" >)</span> <span class="token rd" ><span class="token punctuation" >}}</span></span></span>
+<span class="token tag" ><span class="token ld" ><span class="token punctuation" >{%</span> <span class="token keyword" >endfor</span></span> <span class="token rd" ><span class="token punctuation" >%}</span></span></span></code></pre></div>
 
         
         <h4>Data</h4>
-        <pre class="test"><code>{
-  "items": ["odd", "even"],
-  "rows": [1, 2, 3, 4, 5]
-}</code></pre>
+        <div class="test"><pre class="language-json"><code><span class="token punctuation" >{</span>
+  <span class="token property" >"items"</span><span class="token operator" >:</span> <span class="token punctuation" >[</span><span class="token string" >"odd"</span><span class="token punctuation" >,</span> <span class="token string" >"even"</span><span class="token punctuation" >]</span><span class="token punctuation" >,</span>
+  <span class="token property" >"rows"</span><span class="token operator" >:</span> <span class="token punctuation" >[</span><span class="token number" >1</span><span class="token punctuation" >,</span> <span class="token number" >2</span><span class="token punctuation" >,</span> <span class="token number" >3</span><span class="token punctuation" >,</span> <span class="token number" >4</span><span class="token punctuation" >,</span> <span class="token number" >5</span><span class="token punctuation" >]</span>
+<span class="token punctuation" >}</span></code></pre></div>
         
 
         
@@ -216,16 +217,16 @@ even
         <h3><a class="permalink" href="#3-items">Test: 3-items</a></h3>
 
         <h4>Template</h4>
-        <pre class="test"><code>{% for i in rows %}
-{{ cycle(items, i) }}
-{% endfor %}</code></pre>
+        <div class="test"><pre class="language-twig"><code><span class="token tag" ><span class="token ld" ><span class="token punctuation" >{%</span> <span class="token keyword" >for</span></span> <span class="token property" >i</span> <span class="token operator" >in</span> <span class="token property" >rows</span> <span class="token rd" ><span class="token punctuation" >%}</span></span></span>
+<span class="token tag" ><span class="token ld" ><span class="token punctuation" >{{</span></span> <span class="token property" >cycle</span><span class="token punctuation" >(</span><span class="token property" >items</span><span class="token punctuation" >,</span> <span class="token property" >i</span><span class="token punctuation" >)</span> <span class="token rd" ><span class="token punctuation" >}}</span></span></span>
+<span class="token tag" ><span class="token ld" ><span class="token punctuation" >{%</span> <span class="token keyword" >endfor</span></span> <span class="token rd" ><span class="token punctuation" >%}</span></span></span></code></pre></div>
 
         
         <h4>Data</h4>
-        <pre class="test"><code>{
-  "items": ["apple", "orange", "banana"],
-  "rows": [1, 2, 3, 4, 5]
-}</code></pre>
+        <div class="test"><pre class="language-json"><code><span class="token punctuation" >{</span>
+  <span class="token property" >"items"</span><span class="token operator" >:</span> <span class="token punctuation" >[</span><span class="token string" >"apple"</span><span class="token punctuation" >,</span> <span class="token string" >"orange"</span><span class="token punctuation" >,</span> <span class="token string" >"banana"</span><span class="token punctuation" >]</span><span class="token punctuation" >,</span>
+  <span class="token property" >"rows"</span><span class="token operator" >:</span> <span class="token punctuation" >[</span><span class="token number" >1</span><span class="token punctuation" >,</span> <span class="token number" >2</span><span class="token punctuation" >,</span> <span class="token number" >3</span><span class="token punctuation" >,</span> <span class="token number" >4</span><span class="token punctuation" >,</span> <span class="token number" >5</span><span class="token punctuation" >]</span>
+<span class="token punctuation" >}</span></code></pre></div>
         
 
         

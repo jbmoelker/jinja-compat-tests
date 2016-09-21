@@ -16,13 +16,14 @@
 <body>
 
 
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.5.1/themes/prism.css">
 <style type="text/css">
     h4 { margin-bottom: 0; }
     h4 small { float: right; font-weight: normal; font-style: italic; }
     label { padding-right: 1em; cursor: pointer; }
-    pre { padding: .5em; margin-top: .5rem; min-height: 1em; overflow-x: scroll; }
+    pre { padding: .5em; margin-top: .5rem; min-height: 1em; background: #f5f2f0; overflow-x: scroll; }
     .section { margin-bottom: 2.5rem; }
-    .test { border: 2px solid deepskyblue; }
+    .test pre { border: 2px solid deepskyblue; }
     .result { border: 2px solid lawngreen; }
     .error { border: 2px solid red; white-space: normal; }
 
@@ -114,11 +115,11 @@
         <h3><a class="permalink" href="#class">Test: class</a></h3>
 
         <h4>Template</h4>
-        <pre class="test"><code>{{ class }}</code></pre>
+        <div class="test"><pre class="language-twig"><code><span class="token tag" ><span class="token ld" ><span class="token punctuation" >{{</span></span> <span class="token property" >class</span> <span class="token rd" ><span class="token punctuation" >}}</span></span></span></code></pre></div>
 
         
         <h4>Data</h4>
-        <pre class="test"><code>{ "class": "class" }</code></pre>
+        <div class="test"><pre class="language-json"><code><span class="token punctuation" >{</span> <span class="token property" >"class"</span><span class="token operator" >:</span> <span class="token string" >"class"</span> <span class="token punctuation" >}</span></code></pre></div>
         
 
         
@@ -207,11 +208,11 @@
         <h3><a class="permalink" href="#function">Test: function</a></h3>
 
         <h4>Template</h4>
-        <pre class="test"><code>{{ function }}</code></pre>
+        <div class="test"><pre class="language-twig"><code><span class="token tag" ><span class="token ld" ><span class="token punctuation" >{{</span></span> <span class="token property" >function</span> <span class="token rd" ><span class="token punctuation" >}}</span></span></span></code></pre></div>
 
         
         <h4>Data</h4>
-        <pre class="test"><code>{ "function": "function" }</code></pre>
+        <div class="test"><pre class="language-json"><code><span class="token punctuation" >{</span> <span class="token property" >"function"</span><span class="token operator" >:</span> <span class="token string" >"function"</span> <span class="token punctuation" >}</span></code></pre></div>
         
 
         
@@ -300,11 +301,11 @@
         <h3><a class="permalink" href="#in">Test: in</a></h3>
 
         <h4>Template</h4>
-        <pre class="test"><code>{{ in }}</code></pre>
+        <div class="test"><pre class="language-twig"><code><span class="token tag" ><span class="token ld" ><span class="token punctuation" >{{</span></span> <span class="token operator" >in</span> <span class="token rd" ><span class="token punctuation" >}}</span></span></span></code></pre></div>
 
         
         <h4>Data</h4>
-        <pre class="test"><code>{ "in": "in" }</code></pre>
+        <div class="test"><pre class="language-json"><code><span class="token punctuation" >{</span> <span class="token property" >"in"</span><span class="token operator" >:</span> <span class="token string" >"in"</span> <span class="token punctuation" >}</span></code></pre></div>
         
 
         
@@ -393,11 +394,11 @@
         <h3><a class="permalink" href="#var">Test: var</a></h3>
 
         <h4>Template</h4>
-        <pre class="test"><code>{{ var }}</code></pre>
+        <div class="test"><pre class="language-twig"><code><span class="token tag" ><span class="token ld" ><span class="token punctuation" >{{</span></span> <span class="token property" >var</span> <span class="token rd" ><span class="token punctuation" >}}</span></span></span></code></pre></div>
 
         
         <h4>Data</h4>
-        <pre class="test"><code>{ "var": "var" }</code></pre>
+        <div class="test"><pre class="language-json"><code><span class="token punctuation" >{</span> <span class="token property" >"var"</span><span class="token operator" >:</span> <span class="token string" >"var"</span> <span class="token punctuation" >}</span></code></pre></div>
         
 
         
@@ -486,11 +487,11 @@
         <h3><a class="permalink" href="#with">Test: with</a></h3>
 
         <h4>Template</h4>
-        <pre class="test"><code>{{ with }}</code></pre>
+        <div class="test"><pre class="language-twig"><code><span class="token tag" ><span class="token ld" ><span class="token punctuation" >{{</span></span> <span class="token property" >with</span> <span class="token rd" ><span class="token punctuation" >}}</span></span></span></code></pre></div>
 
         
         <h4>Data</h4>
-        <pre class="test"><code>{ "with": "with" }</code></pre>
+        <div class="test"><pre class="language-json"><code><span class="token punctuation" >{</span> <span class="token property" >"with"</span><span class="token operator" >:</span> <span class="token string" >"with"</span> <span class="token punctuation" >}</span></code></pre></div>
         
 
         

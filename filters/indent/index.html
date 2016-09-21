@@ -16,13 +16,14 @@
 <body>
 
 
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.5.1/themes/prism.css">
 <style type="text/css">
     h4 { margin-bottom: 0; }
     h4 small { float: right; font-weight: normal; font-style: italic; }
     label { padding-right: 1em; cursor: pointer; }
-    pre { padding: .5em; margin-top: .5rem; min-height: 1em; overflow-x: scroll; }
+    pre { padding: .5em; margin-top: .5rem; min-height: 1em; background: #f5f2f0; overflow-x: scroll; }
     .section { margin-bottom: 2.5rem; }
-    .test { border: 2px solid deepskyblue; }
+    .test pre { border: 2px solid deepskyblue; }
     .result { border: 2px solid lawngreen; }
     .error { border: 2px solid red; white-space: normal; }
 
@@ -118,7 +119,7 @@
         <h3><a class="permalink" href="#custom-spacing">Test: custom-spacing</a></h3>
 
         <h4>Template</h4>
-        <pre class="test"><code>{{ "one\ntwo\nthree" | indent(6) }}</code></pre>
+        <div class="test"><pre class="language-twig"><code><span class="token tag" ><span class="token ld" ><span class="token punctuation" >{{</span></span> <span class="token string" ><span class="token punctuation" >"</span>one\ntwo\nthree<span class="token punctuation" >"</span></span> <span class="token operator" >|</span> <span class="token property" >indent</span><span class="token punctuation" >(</span><span class="token number" >6</span><span class="token punctuation" >)</span> <span class="token rd" ><span class="token punctuation" >}}</span></span></span></code></pre></div>
 
         
 
@@ -213,7 +214,7 @@
         <h3><a class="permalink" href="#default">Test: default</a></h3>
 
         <h4>Template</h4>
-        <pre class="test"><code>{{ "one\ntwo\nthree" | indent }}</code></pre>
+        <div class="test"><pre class="language-twig"><code><span class="token tag" ><span class="token ld" ><span class="token punctuation" >{{</span></span> <span class="token string" ><span class="token punctuation" >"</span>one\ntwo\nthree<span class="token punctuation" >"</span></span> <span class="token operator" >|</span> <span class="token property" >indent</span> <span class="token rd" ><span class="token punctuation" >}}</span></span></span></code></pre></div>
 
         
 
@@ -308,7 +309,7 @@
         <h3><a class="permalink" href="#include-first-line">Test: include-first-line</a></h3>
 
         <h4>Template</h4>
-        <pre class="test"><code>{{ "one\ntwo\nthree" | indent(6, true) }}</code></pre>
+        <div class="test"><pre class="language-twig"><code><span class="token tag" ><span class="token ld" ><span class="token punctuation" >{{</span></span> <span class="token string" ><span class="token punctuation" >"</span>one\ntwo\nthree<span class="token punctuation" >"</span></span> <span class="token operator" >|</span> <span class="token property" >indent</span><span class="token punctuation" >(</span><span class="token number" >6</span><span class="token punctuation" >,</span> <span class="token boolean" >true</span><span class="token punctuation" >)</span> <span class="token rd" ><span class="token punctuation" >}}</span></span></span></code></pre></div>
 
         
 

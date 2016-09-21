@@ -16,13 +16,14 @@
 <body>
 
 
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.5.1/themes/prism.css">
 <style type="text/css">
     h4 { margin-bottom: 0; }
     h4 small { float: right; font-weight: normal; font-style: italic; }
     label { padding-right: 1em; cursor: pointer; }
-    pre { padding: .5em; margin-top: .5rem; min-height: 1em; overflow-x: scroll; }
+    pre { padding: .5em; margin-top: .5rem; min-height: 1em; background: #f5f2f0; overflow-x: scroll; }
     .section { margin-bottom: 2.5rem; }
-    .test { border: 2px solid deepskyblue; }
+    .test pre { border: 2px solid deepskyblue; }
     .result { border: 2px solid lawngreen; }
     .error { border: 2px solid red; white-space: normal; }
 
@@ -118,10 +119,10 @@
         <h3><a class="permalink" href="#next-next-current">Test: next-next-current</a></h3>
 
         <h4>Template</h4>
-        <pre class="test"><code>{% set cls = cycler('odd', 'even') %}
-{{ cls.next() }}
-{{ cls.next() }}
-{{ cls.current }}</code></pre>
+        <div class="test"><pre class="language-twig"><code><span class="token tag" ><span class="token ld" ><span class="token punctuation" >{%</span> <span class="token keyword" >set</span></span> <span class="token property" >cls</span> <span class="token operator" >=</span> <span class="token property" >cycler</span><span class="token punctuation" >(</span><span class="token string" ><span class="token punctuation" >'</span>odd<span class="token punctuation" >'</span></span><span class="token punctuation" >,</span> <span class="token string" ><span class="token punctuation" >'</span>even<span class="token punctuation" >'</span></span><span class="token punctuation" >)</span> <span class="token rd" ><span class="token punctuation" >%}</span></span></span>
+<span class="token tag" ><span class="token ld" ><span class="token punctuation" >{{</span></span> <span class="token property" >cls</span><span class="token punctuation" >.</span><span class="token property" >next</span><span class="token punctuation" >(</span><span class="token punctuation" >)</span> <span class="token rd" ><span class="token punctuation" >}}</span></span></span>
+<span class="token tag" ><span class="token ld" ><span class="token punctuation" >{{</span></span> <span class="token property" >cls</span><span class="token punctuation" >.</span><span class="token property" >next</span><span class="token punctuation" >(</span><span class="token punctuation" >)</span> <span class="token rd" ><span class="token punctuation" >}}</span></span></span>
+<span class="token tag" ><span class="token ld" ><span class="token punctuation" >{{</span></span> <span class="token property" >cls</span><span class="token punctuation" >.</span><span class="token property" >current</span> <span class="token rd" ><span class="token punctuation" >}}</span></span></span></code></pre></div>
 
         
 
@@ -217,10 +218,10 @@ even</code></pre>
         <h3><a class="permalink" href="#next-next-next">Test: next-next-next</a></h3>
 
         <h4>Template</h4>
-        <pre class="test"><code>{% set cls = cycler('odd', 'even') %}
-{{ cls.next() }}
-{{ cls.next() }}
-{{ cls.next() }}</code></pre>
+        <div class="test"><pre class="language-twig"><code><span class="token tag" ><span class="token ld" ><span class="token punctuation" >{%</span> <span class="token keyword" >set</span></span> <span class="token property" >cls</span> <span class="token operator" >=</span> <span class="token property" >cycler</span><span class="token punctuation" >(</span><span class="token string" ><span class="token punctuation" >'</span>odd<span class="token punctuation" >'</span></span><span class="token punctuation" >,</span> <span class="token string" ><span class="token punctuation" >'</span>even<span class="token punctuation" >'</span></span><span class="token punctuation" >)</span> <span class="token rd" ><span class="token punctuation" >%}</span></span></span>
+<span class="token tag" ><span class="token ld" ><span class="token punctuation" >{{</span></span> <span class="token property" >cls</span><span class="token punctuation" >.</span><span class="token property" >next</span><span class="token punctuation" >(</span><span class="token punctuation" >)</span> <span class="token rd" ><span class="token punctuation" >}}</span></span></span>
+<span class="token tag" ><span class="token ld" ><span class="token punctuation" >{{</span></span> <span class="token property" >cls</span><span class="token punctuation" >.</span><span class="token property" >next</span><span class="token punctuation" >(</span><span class="token punctuation" >)</span> <span class="token rd" ><span class="token punctuation" >}}</span></span></span>
+<span class="token tag" ><span class="token ld" ><span class="token punctuation" >{{</span></span> <span class="token property" >cls</span><span class="token punctuation" >.</span><span class="token property" >next</span><span class="token punctuation" >(</span><span class="token punctuation" >)</span> <span class="token rd" ><span class="token punctuation" >}}</span></span></span></code></pre></div>
 
         
 
@@ -316,10 +317,10 @@ odd</code></pre>
         <h3><a class="permalink" href="#next-reset-next">Test: next-reset-next</a></h3>
 
         <h4>Template</h4>
-        <pre class="test"><code>{% set cls = cycler('odd', 'even') %}
-{{ cls.next() }}
-{{ cls.reset() }}
-{{ cls.next() }}</code></pre>
+        <div class="test"><pre class="language-twig"><code><span class="token tag" ><span class="token ld" ><span class="token punctuation" >{%</span> <span class="token keyword" >set</span></span> <span class="token property" >cls</span> <span class="token operator" >=</span> <span class="token property" >cycler</span><span class="token punctuation" >(</span><span class="token string" ><span class="token punctuation" >'</span>odd<span class="token punctuation" >'</span></span><span class="token punctuation" >,</span> <span class="token string" ><span class="token punctuation" >'</span>even<span class="token punctuation" >'</span></span><span class="token punctuation" >)</span> <span class="token rd" ><span class="token punctuation" >%}</span></span></span>
+<span class="token tag" ><span class="token ld" ><span class="token punctuation" >{{</span></span> <span class="token property" >cls</span><span class="token punctuation" >.</span><span class="token property" >next</span><span class="token punctuation" >(</span><span class="token punctuation" >)</span> <span class="token rd" ><span class="token punctuation" >}}</span></span></span>
+<span class="token tag" ><span class="token ld" ><span class="token punctuation" >{{</span></span> <span class="token property" >cls</span><span class="token punctuation" >.</span><span class="token property" >reset</span><span class="token punctuation" >(</span><span class="token punctuation" >)</span> <span class="token rd" ><span class="token punctuation" >}}</span></span></span>
+<span class="token tag" ><span class="token ld" ><span class="token punctuation" >{{</span></span> <span class="token property" >cls</span><span class="token punctuation" >.</span><span class="token property" >next</span><span class="token punctuation" >(</span><span class="token punctuation" >)</span> <span class="token rd" ><span class="token punctuation" >}}</span></span></span></code></pre></div>
 
         
 

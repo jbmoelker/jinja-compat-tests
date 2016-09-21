@@ -16,13 +16,14 @@
 <body>
 
 
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.5.1/themes/prism.css">
 <style type="text/css">
     h4 { margin-bottom: 0; }
     h4 small { float: right; font-weight: normal; font-style: italic; }
     label { padding-right: 1em; cursor: pointer; }
-    pre { padding: .5em; margin-top: .5rem; min-height: 1em; overflow-x: scroll; }
+    pre { padding: .5em; margin-top: .5rem; min-height: 1em; background: #f5f2f0; overflow-x: scroll; }
     .section { margin-bottom: 2.5rem; }
-    .test { border: 2px solid deepskyblue; }
+    .test pre { border: 2px solid deepskyblue; }
     .result { border: 2px solid lawngreen; }
     .error { border: 2px solid red; white-space: normal; }
 
@@ -136,17 +137,17 @@
         <h3><a class="permalink" href="#array">Test: array</a></h3>
 
         <h4>Template</h4>
-        <pre class="test"><code>{{ items|capitalize }}</code></pre>
+        <div class="test"><pre class="language-twig"><code><span class="token tag" ><span class="token ld" ><span class="token punctuation" >{{</span></span> <span class="token property" >items</span><span class="token operator" >|</span><span class="token property" >capitalize</span> <span class="token rd" ><span class="token punctuation" >}}</span></span></span></code></pre></div>
 
         
         <h4>Data</h4>
-        <pre class="test"><code>{
-  "items": [
-    "my first car",
-    "my Second car",
-    "my THIRD car"
-  ]
-}</code></pre>
+        <div class="test"><pre class="language-json"><code><span class="token punctuation" >{</span>
+  <span class="token property" >"items"</span><span class="token operator" >:</span> <span class="token punctuation" >[</span>
+    <span class="token string" >"my first car"</span><span class="token punctuation" >,</span>
+    <span class="token string" >"my Second car"</span><span class="token punctuation" >,</span>
+    <span class="token string" >"my THIRD car"</span>
+  <span class="token punctuation" >]</span>
+<span class="token punctuation" >}</span></code></pre></div>
         
 
         
@@ -230,39 +231,39 @@ Warning: mb_substr() expects parameter 1 to be string, array given
 
 Call Stack:
     0.0003     372816   1. {main}() /home/travis/build/jbmoelker/jinja-compat-tests/test-twig.php:0
-    1.5710    3158824   2. Twig_Environment->render() /home/travis/build/jbmoelker/jinja-compat-tests/test-twig.php:48
-    1.5737    3163080   3. Twig_Template->render() /home/travis/build/jbmoelker/jinja-compat-tests/vendor/twig/twig/lib/Twig/Environment.php:347
-    1.5737    3179544   4. Twig_Template->display() /home/travis/build/jbmoelker/jinja-compat-tests/vendor/twig/twig/lib/Twig/Template.php:366
-    1.5737    3179656   5. Twig_Template->displayWithErrorHandling() /home/travis/build/jbmoelker/jinja-compat-tests/vendor/twig/twig/lib/Twig/Template.php:355
-    1.5737    3179656   6. __TwigTemplate_87bb27d19dd7eb1fa0e1dff126ade1f469b3fb5428af45b33db341068c6dbc5d->doDisplay() /home/travis/build/jbmoelker/jinja-compat-tests/vendor/twig/twig/lib/Twig/Template.php:387
-    1.5737    3179656   7. twig_capitalize_string_filter() /home/travis/build/jbmoelker/jinja-compat-tests/vendor/twig/twig/lib/Twig/Environment.php(403) : eval()'d code:19
-    1.5737    3179656   8. mb_substr() /home/travis/build/jbmoelker/jinja-compat-tests/vendor/twig/twig/lib/Twig/Extension/Core.php:1331
+    0.1012    3158824   2. Twig_Environment->render() /home/travis/build/jbmoelker/jinja-compat-tests/test-twig.php:48
+    0.1037    3163080   3. Twig_Template->render() /home/travis/build/jbmoelker/jinja-compat-tests/vendor/twig/twig/lib/Twig/Environment.php:347
+    0.1037    3179544   4. Twig_Template->display() /home/travis/build/jbmoelker/jinja-compat-tests/vendor/twig/twig/lib/Twig/Template.php:366
+    0.1037    3179656   5. Twig_Template->displayWithErrorHandling() /home/travis/build/jbmoelker/jinja-compat-tests/vendor/twig/twig/lib/Twig/Template.php:355
+    0.1037    3179656   6. __TwigTemplate_87bb27d19dd7eb1fa0e1dff126ade1f469b3fb5428af45b33db341068c6dbc5d->doDisplay() /home/travis/build/jbmoelker/jinja-compat-tests/vendor/twig/twig/lib/Twig/Template.php:387
+    0.1037    3179656   7. twig_capitalize_string_filter() /home/travis/build/jbmoelker/jinja-compat-tests/vendor/twig/twig/lib/Twig/Environment.php(403) : eval()'d code:19
+    0.1037    3179656   8. mb_substr() /home/travis/build/jbmoelker/jinja-compat-tests/vendor/twig/twig/lib/Twig/Extension/Core.php:1331
 
 
 Warning: mb_strlen() expects parameter 1 to be string, array given
 
 Call Stack:
     0.0003     372816   1. {main}() /home/travis/build/jbmoelker/jinja-compat-tests/test-twig.php:0
-    1.5710    3158824   2. Twig_Environment->render() /home/travis/build/jbmoelker/jinja-compat-tests/test-twig.php:48
-    1.5737    3163080   3. Twig_Template->render() /home/travis/build/jbmoelker/jinja-compat-tests/vendor/twig/twig/lib/Twig/Environment.php:347
-    1.5737    3179544   4. Twig_Template->display() /home/travis/build/jbmoelker/jinja-compat-tests/vendor/twig/twig/lib/Twig/Template.php:366
-    1.5737    3179656   5. Twig_Template->displayWithErrorHandling() /home/travis/build/jbmoelker/jinja-compat-tests/vendor/twig/twig/lib/Twig/Template.php:355
-    1.5737    3179656   6. __TwigTemplate_87bb27d19dd7eb1fa0e1dff126ade1f469b3fb5428af45b33db341068c6dbc5d->doDisplay() /home/travis/build/jbmoelker/jinja-compat-tests/vendor/twig/twig/lib/Twig/Template.php:387
-    1.5737    3179656   7. twig_capitalize_string_filter() /home/travis/build/jbmoelker/jinja-compat-tests/vendor/twig/twig/lib/Twig/Environment.php(403) : eval()'d code:19
-    1.5739    3179688   8. mb_strlen() /home/travis/build/jbmoelker/jinja-compat-tests/vendor/twig/twig/lib/Twig/Extension/Core.php:1331
+    0.1012    3158824   2. Twig_Environment->render() /home/travis/build/jbmoelker/jinja-compat-tests/test-twig.php:48
+    0.1037    3163080   3. Twig_Template->render() /home/travis/build/jbmoelker/jinja-compat-tests/vendor/twig/twig/lib/Twig/Environment.php:347
+    0.1037    3179544   4. Twig_Template->display() /home/travis/build/jbmoelker/jinja-compat-tests/vendor/twig/twig/lib/Twig/Template.php:366
+    0.1037    3179656   5. Twig_Template->displayWithErrorHandling() /home/travis/build/jbmoelker/jinja-compat-tests/vendor/twig/twig/lib/Twig/Template.php:355
+    0.1037    3179656   6. __TwigTemplate_87bb27d19dd7eb1fa0e1dff126ade1f469b3fb5428af45b33db341068c6dbc5d->doDisplay() /home/travis/build/jbmoelker/jinja-compat-tests/vendor/twig/twig/lib/Twig/Template.php:387
+    0.1037    3179656   7. twig_capitalize_string_filter() /home/travis/build/jbmoelker/jinja-compat-tests/vendor/twig/twig/lib/Twig/Environment.php(403) : eval()'d code:19
+    0.1045    3179688   8. mb_strlen() /home/travis/build/jbmoelker/jinja-compat-tests/vendor/twig/twig/lib/Twig/Extension/Core.php:1331
 
 
 Warning: mb_substr() expects parameter 1 to be string, array given
 
 Call Stack:
     0.0003     372816   1. {main}() /home/travis/build/jbmoelker/jinja-compat-tests/test-twig.php:0
-    1.5710    3158824   2. Twig_Environment->render() /home/travis/build/jbmoelker/jinja-compat-tests/test-twig.php:48
-    1.5737    3163080   3. Twig_Template->render() /home/travis/build/jbmoelker/jinja-compat-tests/vendor/twig/twig/lib/Twig/Environment.php:347
-    1.5737    3179544   4. Twig_Template->display() /home/travis/build/jbmoelker/jinja-compat-tests/vendor/twig/twig/lib/Twig/Template.php:366
-    1.5737    3179656   5. Twig_Template->displayWithErrorHandling() /home/travis/build/jbmoelker/jinja-compat-tests/vendor/twig/twig/lib/Twig/Template.php:355
-    1.5737    3179656   6. __TwigTemplate_87bb27d19dd7eb1fa0e1dff126ade1f469b3fb5428af45b33db341068c6dbc5d->doDisplay() /home/travis/build/jbmoelker/jinja-compat-tests/vendor/twig/twig/lib/Twig/Template.php:387
-    1.5737    3179656   7. twig_capitalize_string_filter() /home/travis/build/jbmoelker/jinja-compat-tests/vendor/twig/twig/lib/Twig/Environment.php(403) : eval()'d code:19
-    1.5740    3179688   8. mb_substr() /home/travis/build/jbmoelker/jinja-compat-tests/vendor/twig/twig/lib/Twig/Extension/Core.php:1331
+    0.1012    3158824   2. Twig_Environment->render() /home/travis/build/jbmoelker/jinja-compat-tests/test-twig.php:48
+    0.1037    3163080   3. Twig_Template->render() /home/travis/build/jbmoelker/jinja-compat-tests/vendor/twig/twig/lib/Twig/Environment.php:347
+    0.1037    3179544   4. Twig_Template->display() /home/travis/build/jbmoelker/jinja-compat-tests/vendor/twig/twig/lib/Twig/Template.php:366
+    0.1037    3179656   5. Twig_Template->displayWithErrorHandling() /home/travis/build/jbmoelker/jinja-compat-tests/vendor/twig/twig/lib/Twig/Template.php:355
+    0.1037    3179656   6. __TwigTemplate_87bb27d19dd7eb1fa0e1dff126ade1f469b3fb5428af45b33db341068c6dbc5d->doDisplay() /home/travis/build/jbmoelker/jinja-compat-tests/vendor/twig/twig/lib/Twig/Template.php:387
+    0.1037    3179656   7. twig_capitalize_string_filter() /home/travis/build/jbmoelker/jinja-compat-tests/vendor/twig/twig/lib/Twig/Environment.php(403) : eval()'d code:19
+    0.1050    3179688   8. mb_substr() /home/travis/build/jbmoelker/jinja-compat-tests/vendor/twig/twig/lib/Twig/Extension/Core.php:1331
 
 </code></pre>
             
@@ -275,7 +276,7 @@ Call Stack:
         <h3><a class="permalink" href="#mixed-case">Test: mixed-case</a></h3>
 
         <h4>Template</h4>
-        <pre class="test"><code>{{ 'my First cAR'|capitalize }}</code></pre>
+        <div class="test"><pre class="language-twig"><code><span class="token tag" ><span class="token ld" ><span class="token punctuation" >{{</span></span> <span class="token string" ><span class="token punctuation" >'</span>my First cAR<span class="token punctuation" >'</span></span><span class="token operator" >|</span><span class="token property" >capitalize</span> <span class="token rd" ><span class="token punctuation" >}}</span></span></span></code></pre></div>
 
         
 
@@ -365,7 +366,7 @@ Call Stack:
         <h3><a class="permalink" href="#number">Test: number</a></h3>
 
         <h4>Template</h4>
-        <pre class="test"><code>{{ 5|capitalize }}</code></pre>
+        <div class="test"><pre class="language-twig"><code><span class="token tag" ><span class="token ld" ><span class="token punctuation" >{{</span></span> <span class="token number" >5</span><span class="token operator" >|</span><span class="token property" >capitalize</span> <span class="token rd" ><span class="token punctuation" >}}</span></span></span></code></pre></div>
 
         
 
@@ -456,7 +457,7 @@ Call Stack:
         <h3><a class="permalink" href="#sentence">Test: sentence</a></h3>
 
         <h4>Template</h4>
-        <pre class="test"><code>{{ 'my first car'|capitalize }}</code></pre>
+        <div class="test"><pre class="language-twig"><code><span class="token tag" ><span class="token ld" ><span class="token punctuation" >{{</span></span> <span class="token string" ><span class="token punctuation" >'</span>my first car<span class="token punctuation" >'</span></span><span class="token operator" >|</span><span class="token property" >capitalize</span> <span class="token rd" ><span class="token punctuation" >}}</span></span></span></code></pre></div>
 
         
 
@@ -546,7 +547,7 @@ Call Stack:
         <h3><a class="permalink" href="#starts-with-number">Test: starts-with-number</a></h3>
 
         <h4>Template</h4>
-        <pre class="test"><code>{{ '2nd car'|capitalize }}</code></pre>
+        <div class="test"><pre class="language-twig"><code><span class="token tag" ><span class="token ld" ><span class="token punctuation" >{{</span></span> <span class="token string" ><span class="token punctuation" >'</span>2nd car<span class="token punctuation" >'</span></span><span class="token operator" >|</span><span class="token property" >capitalize</span> <span class="token rd" ><span class="token punctuation" >}}</span></span></span></code></pre></div>
 
         
 
@@ -636,7 +637,7 @@ Call Stack:
         <h3><a class="permalink" href="#word">Test: word</a></h3>
 
         <h4>Template</h4>
-        <pre class="test"><code>{{ 'car'|capitalize }}</code></pre>
+        <div class="test"><pre class="language-twig"><code><span class="token tag" ><span class="token ld" ><span class="token punctuation" >{{</span></span> <span class="token string" ><span class="token punctuation" >'</span>car<span class="token punctuation" >'</span></span><span class="token operator" >|</span><span class="token property" >capitalize</span> <span class="token rd" ><span class="token punctuation" >}}</span></span></span></code></pre></div>
 
         
 

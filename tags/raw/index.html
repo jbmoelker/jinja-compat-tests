@@ -16,13 +16,14 @@
 <body>
 
 
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.5.1/themes/prism.css">
 <style type="text/css">
     h4 { margin-bottom: 0; }
     h4 small { float: right; font-weight: normal; font-style: italic; }
     label { padding-right: 1em; cursor: pointer; }
-    pre { padding: .5em; margin-top: .5rem; min-height: 1em; overflow-x: scroll; }
+    pre { padding: .5em; margin-top: .5rem; min-height: 1em; background: #f5f2f0; overflow-x: scroll; }
     .section { margin-bottom: 2.5rem; }
-    .test { border: 2px solid deepskyblue; }
+    .test pre { border: 2px solid deepskyblue; }
     .result { border: 2px solid lawngreen; }
     .error { border: 2px solid red; white-space: normal; }
 
@@ -136,7 +137,7 @@
         <h3><a class="permalink" href="#broken-expression">Test: broken-expression</a></h3>
 
         <h4>Template</h4>
-        <pre class="test"><code>{% raw %}{{ x }{% endraw %}</code></pre>
+        <div class="test"><pre class="language-twig"><code><span class="token tag" ><span class="token ld" ><span class="token punctuation" >{%</span> <span class="token keyword" >raw</span></span> <span class="token rd" ><span class="token punctuation" >%}</span></span></span><span class="token other" >{{ x }</span><span class="token tag" ><span class="token ld" ><span class="token punctuation" >{%</span> <span class="token keyword" >endraw</span></span> <span class="token rd" ><span class="token punctuation" >%}</span></span></span></code></pre></div>
 
         
 
@@ -226,7 +227,7 @@
         <h3><a class="permalink" href="#broken-tag">Test: broken-tag</a></h3>
 
         <h4>Template</h4>
-        <pre class="test"><code>{% raw %}{% if i_am_stupid }Still do your job well{% endraw %}</code></pre>
+        <div class="test"><pre class="language-twig"><code><span class="token tag" ><span class="token ld" ><span class="token punctuation" >{%</span> <span class="token keyword" >raw</span></span> <span class="token rd" ><span class="token punctuation" >%}</span></span></span><span class="token tag" ><span class="token ld" ><span class="token punctuation" >{%</span> <span class="token keyword" >if</span></span> <span class="token property" >i_am_stupid</span> <span class="token punctuation" >}</span><span class="token property" >Still</span> <span class="token property" >do</span> <span class="token property" >your</span> <span class="token property" >job</span> <span class="token property" >well</span><span class="token punctuation" >{</span><span class="token operator" >%</span> <span class="token property" >endraw</span> <span class="token rd" ><span class="token punctuation" >%}</span></span></span></code></pre></div>
 
         
 
@@ -316,7 +317,7 @@
         <h3><a class="permalink" href="#comment">Test: comment</a></h3>
 
         <h4>Template</h4>
-        <pre class="test"><code>{% raw %}{# test {% endraw %}</code></pre>
+        <div class="test"><pre class="language-twig"><code><span class="token tag" ><span class="token ld" ><span class="token punctuation" >{%</span> <span class="token keyword" >raw</span></span> <span class="token rd" ><span class="token punctuation" >%}</span></span></span><span class="token other" >{# test</span> <span class="token tag" ><span class="token ld" ><span class="token punctuation" >{%</span> <span class="token keyword" >endraw</span></span> <span class="token rd" ><span class="token punctuation" >%}</span></span></span></code></pre></div>
 
         
 
@@ -406,20 +407,20 @@
         <h3><a class="permalink" href="#multiline">Test: multiline</a></h3>
 
         <h4>Template</h4>
-        <pre class="test"><code>
-{% raw %}{{ varX }}{% endraw %}
-{{ varY }}
-{% raw %}
-    {{ varZ }}
-{% endraw %}</code></pre>
+        <div class="test"><pre class="language-twig"><code>
+<span class="token tag" ><span class="token ld" ><span class="token punctuation" >{%</span> <span class="token keyword" >raw</span></span> <span class="token rd" ><span class="token punctuation" >%}</span></span></span><span class="token tag" ><span class="token ld" ><span class="token punctuation" >{{</span></span> <span class="token property" >varX</span> <span class="token rd" ><span class="token punctuation" >}}</span></span></span><span class="token tag" ><span class="token ld" ><span class="token punctuation" >{%</span> <span class="token keyword" >endraw</span></span> <span class="token rd" ><span class="token punctuation" >%}</span></span></span>
+<span class="token tag" ><span class="token ld" ><span class="token punctuation" >{{</span></span> <span class="token property" >varY</span> <span class="token rd" ><span class="token punctuation" >}}</span></span></span>
+<span class="token tag" ><span class="token ld" ><span class="token punctuation" >{%</span> <span class="token keyword" >raw</span></span> <span class="token rd" ><span class="token punctuation" >%}</span></span></span>
+    <span class="token tag" ><span class="token ld" ><span class="token punctuation" >{{</span></span> <span class="token property" >varZ</span> <span class="token rd" ><span class="token punctuation" >}}</span></span></span>
+<span class="token tag" ><span class="token ld" ><span class="token punctuation" >{%</span> <span class="token keyword" >endraw</span></span> <span class="token rd" ><span class="token punctuation" >%}</span></span></span></code></pre></div>
 
         
         <h4>Data</h4>
-        <pre class="test"><code>{
-  "varX": "value X",
-  "varY": "value Y",
-  "varZ": "value Z"
-}</code></pre>
+        <div class="test"><pre class="language-json"><code><span class="token punctuation" >{</span>
+  <span class="token property" >"varX"</span><span class="token operator" >:</span> <span class="token string" >"value X"</span><span class="token punctuation" >,</span>
+  <span class="token property" >"varY"</span><span class="token operator" >:</span> <span class="token string" >"value Y"</span><span class="token punctuation" >,</span>
+  <span class="token property" >"varZ"</span><span class="token operator" >:</span> <span class="token string" >"value Z"</span>
+<span class="token punctuation" >}</span></code></pre></div>
         
 
         
@@ -533,15 +534,15 @@ value Y
         <h3><a class="permalink" href="#multiple">Test: multiple</a></h3>
 
         <h4>Template</h4>
-        <pre class="test"><code>{% raw %}{{ varX }}{% endraw %}{{ varY }}{% raw %}{{ varZ }}{% endraw %}</code></pre>
+        <div class="test"><pre class="language-twig"><code><span class="token tag" ><span class="token ld" ><span class="token punctuation" >{%</span> <span class="token keyword" >raw</span></span> <span class="token rd" ><span class="token punctuation" >%}</span></span></span><span class="token tag" ><span class="token ld" ><span class="token punctuation" >{{</span></span> <span class="token property" >varX</span> <span class="token rd" ><span class="token punctuation" >}}</span></span></span><span class="token tag" ><span class="token ld" ><span class="token punctuation" >{%</span> <span class="token keyword" >endraw</span></span> <span class="token rd" ><span class="token punctuation" >%}</span></span></span><span class="token tag" ><span class="token ld" ><span class="token punctuation" >{{</span></span> <span class="token property" >varY</span> <span class="token rd" ><span class="token punctuation" >}}</span></span></span><span class="token tag" ><span class="token ld" ><span class="token punctuation" >{%</span> <span class="token keyword" >raw</span></span> <span class="token rd" ><span class="token punctuation" >%}</span></span></span><span class="token tag" ><span class="token ld" ><span class="token punctuation" >{{</span></span> <span class="token property" >varZ</span> <span class="token rd" ><span class="token punctuation" >}}</span></span></span><span class="token tag" ><span class="token ld" ><span class="token punctuation" >{%</span> <span class="token keyword" >endraw</span></span> <span class="token rd" ><span class="token punctuation" >%}</span></span></span></code></pre></div>
 
         
         <h4>Data</h4>
-        <pre class="test"><code>{
-  "varX": "value X",
-  "varY": "value Y",
-  "varZ": "value Z"
-}</code></pre>
+        <div class="test"><pre class="language-json"><code><span class="token punctuation" >{</span>
+  <span class="token property" >"varX"</span><span class="token operator" >:</span> <span class="token string" >"value X"</span><span class="token punctuation" >,</span>
+  <span class="token property" >"varY"</span><span class="token operator" >:</span> <span class="token string" >"value Y"</span><span class="token punctuation" >,</span>
+  <span class="token property" >"varZ"</span><span class="token operator" >:</span> <span class="token string" >"value Z"</span>
+<span class="token punctuation" >}</span></code></pre></div>
         
 
         
@@ -630,7 +631,7 @@ value Y
         <h3><a class="permalink" href="#nested-raw">Test: nested-raw</a></h3>
 
         <h4>Template</h4>
-        <pre class="test"><code>{% raw %}{% raw %}{{ x }{% endraw %}{% endraw %}</code></pre>
+        <div class="test"><pre class="language-twig"><code><span class="token tag" ><span class="token ld" ><span class="token punctuation" >{%</span> <span class="token keyword" >raw</span></span> <span class="token rd" ><span class="token punctuation" >%}</span></span></span><span class="token tag" ><span class="token ld" ><span class="token punctuation" >{%</span> <span class="token keyword" >raw</span></span> <span class="token rd" ><span class="token punctuation" >%}</span></span></span><span class="token other" >{{ x }</span><span class="token tag" ><span class="token ld" ><span class="token punctuation" >{%</span> <span class="token keyword" >endraw</span></span> <span class="token rd" ><span class="token punctuation" >%}</span></span></span><span class="token tag" ><span class="token ld" ><span class="token punctuation" >{%</span> <span class="token keyword" >endraw</span></span> <span class="token rd" ><span class="token punctuation" >%}</span></span></span></code></pre></div>
 
         
 
@@ -720,7 +721,7 @@ value Y
         <h3><a class="permalink" href="#tag">Test: tag</a></h3>
 
         <h4>Template</h4>
-        <pre class="test"><code>{% raw %}hello {{ {% %} }}{% endraw %}</code></pre>
+        <div class="test"><pre class="language-twig"><code><span class="token tag" ><span class="token ld" ><span class="token punctuation" >{%</span> <span class="token keyword" >raw</span></span> <span class="token rd" ><span class="token punctuation" >%}</span></span></span><span class="token other" >hello</span> <span class="token tag" ><span class="token ld" ><span class="token punctuation" >{{</span></span> <span class="token punctuation" >{</span><span class="token operator" >%</span> <span class="token operator" >%</span><span class="token punctuation" >}</span> <span class="token rd" ><span class="token punctuation" >}}</span></span></span><span class="token tag" ><span class="token ld" ><span class="token punctuation" >{%</span> <span class="token keyword" >endraw</span></span> <span class="token rd" ><span class="token punctuation" >%}</span></span></span></code></pre></div>
 
         
 
@@ -810,7 +811,7 @@ value Y
         <h3><a class="permalink" href="#text">Test: text</a></h3>
 
         <h4>Template</h4>
-        <pre class="test"><code>{% raw %}abc{% endraw %}</code></pre>
+        <div class="test"><pre class="language-twig"><code><span class="token tag" ><span class="token ld" ><span class="token punctuation" >{%</span> <span class="token keyword" >raw</span></span> <span class="token rd" ><span class="token punctuation" >%}</span></span></span><span class="token other" >abc</span><span class="token tag" ><span class="token ld" ><span class="token punctuation" >{%</span> <span class="token keyword" >endraw</span></span> <span class="token rd" ><span class="token punctuation" >%}</span></span></span></code></pre></div>
 
         
 

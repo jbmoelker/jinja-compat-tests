@@ -16,13 +16,14 @@
 <body>
 
 
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.5.1/themes/prism.css">
 <style type="text/css">
     h4 { margin-bottom: 0; }
     h4 small { float: right; font-weight: normal; font-style: italic; }
     label { padding-right: 1em; cursor: pointer; }
-    pre { padding: .5em; margin-top: .5rem; min-height: 1em; overflow-x: scroll; }
+    pre { padding: .5em; margin-top: .5rem; min-height: 1em; background: #f5f2f0; overflow-x: scroll; }
     .section { margin-bottom: 2.5rem; }
-    .test { border: 2px solid deepskyblue; }
+    .test pre { border: 2px solid deepskyblue; }
     .result { border: 2px solid lawngreen; }
     .error { border: 2px solid red; white-space: normal; }
 
@@ -146,9 +147,9 @@
         <h3><a class="permalink" href="#ends-with">Test: ends-with</a></h3>
 
         <h4>Template</h4>
-        <pre class="test"><code>{% if 'Templates' ends with 's' %}
-"Templates" ends with "s"
-{% endif %}</code></pre>
+        <div class="test"><pre class="language-twig"><code><span class="token tag" ><span class="token ld" ><span class="token punctuation" >{%</span> <span class="token keyword" >if</span></span> <span class="token string" ><span class="token punctuation" >'</span>Templates<span class="token punctuation" >'</span></span> <span class="token operator" >ends with</span> <span class="token string" ><span class="token punctuation" >'</span>s<span class="token punctuation" >'</span></span> <span class="token rd" ><span class="token punctuation" >%}</span></span></span>
+<span class="token other" >"Templates" ends with "s"</span>
+<span class="token tag" ><span class="token ld" ><span class="token punctuation" >{%</span> <span class="token keyword" >endif</span></span> <span class="token rd" ><span class="token punctuation" >%}</span></span></span></code></pre></div>
 
         
 
@@ -240,16 +241,16 @@
         <h3><a class="permalink" href="#equal-to">Test: equal-to</a></h3>
 
         <h4>Template</h4>
-        <pre class="test"><code>{% if varX == varY %}
-`varX` is equal to `varY`
-{% endif %}</code></pre>
+        <div class="test"><pre class="language-twig"><code><span class="token tag" ><span class="token ld" ><span class="token punctuation" >{%</span> <span class="token keyword" >if</span></span> <span class="token property" >varX</span> <span class="token operator" >==</span> <span class="token property" >varY</span> <span class="token rd" ><span class="token punctuation" >%}</span></span></span>
+<span class="token other" >`varX` is equal to `varY`</span>
+<span class="token tag" ><span class="token ld" ><span class="token punctuation" >{%</span> <span class="token keyword" >endif</span></span> <span class="token rd" ><span class="token punctuation" >%}</span></span></span></code></pre></div>
 
         
         <h4>Data</h4>
-        <pre class="test"><code>{
-  "varX": "Templates",
-  "varY": "Templates"
-}</code></pre>
+        <div class="test"><pre class="language-json"><code><span class="token punctuation" >{</span>
+  <span class="token property" >"varX"</span><span class="token operator" >:</span> <span class="token string" >"Templates"</span><span class="token punctuation" >,</span>
+  <span class="token property" >"varY"</span><span class="token operator" >:</span> <span class="token string" >"Templates"</span>
+<span class="token punctuation" >}</span></code></pre></div>
         
 
         
@@ -349,13 +350,13 @@
         <h3><a class="permalink" href="#greater-than-or-equal">Test: greater-than-or-equal</a></h3>
 
         <h4>Template</h4>
-        <pre class="test"><code>{% if 2 >= 1 %}
-2 is greater than or equal to 1
-{% endif %}
+        <div class="test"><pre class="language-twig"><code><span class="token tag" ><span class="token ld" ><span class="token punctuation" >{%</span> <span class="token keyword" >if</span></span> <span class="token number" >2</span> <span class="token operator" >>=</span> <span class="token number" >1</span> <span class="token rd" ><span class="token punctuation" >%}</span></span></span>
+<span class="token other" >2 is greater than or equal to 1</span>
+<span class="token tag" ><span class="token ld" ><span class="token punctuation" >{%</span> <span class="token keyword" >endif</span></span> <span class="token rd" ><span class="token punctuation" >%}</span></span></span>
 
-{% if 2 >= 1 %}
-2 is greater than or equal to 2
-{% endif %}</code></pre>
+<span class="token tag" ><span class="token ld" ><span class="token punctuation" >{%</span> <span class="token keyword" >if</span></span> <span class="token number" >2</span> <span class="token operator" >>=</span> <span class="token number" >1</span> <span class="token rd" ><span class="token punctuation" >%}</span></span></span>
+<span class="token other" >2 is greater than or equal to 2</span>
+<span class="token tag" ><span class="token ld" ><span class="token punctuation" >{%</span> <span class="token keyword" >endif</span></span> <span class="token rd" ><span class="token punctuation" >%}</span></span></span></code></pre></div>
 
         
 
@@ -478,9 +479,9 @@
         <h3><a class="permalink" href="#greater-than">Test: greater-than</a></h3>
 
         <h4>Template</h4>
-        <pre class="test"><code>{% if 2 > 1 %}
-2 is greater than 1
-{% endif %}</code></pre>
+        <div class="test"><pre class="language-twig"><code><span class="token tag" ><span class="token ld" ><span class="token punctuation" >{%</span> <span class="token keyword" >if</span></span> <span class="token number" >2</span> <span class="token operator" >></span> <span class="token number" >1</span> <span class="token rd" ><span class="token punctuation" >%}</span></span></span>
+<span class="token other" >2 is greater than 1</span>
+<span class="token tag" ><span class="token ld" ><span class="token punctuation" >{%</span> <span class="token keyword" >endif</span></span> <span class="token rd" ><span class="token punctuation" >%}</span></span></span></code></pre></div>
 
         
 
@@ -581,13 +582,13 @@
         <h3><a class="permalink" href="#less-than-or-equal">Test: less-than-or-equal</a></h3>
 
         <h4>Template</h4>
-        <pre class="test"><code>{% if 1 &lt;= 2 %}
-1 is less than or equal to 2
-{% endif %}
+        <div class="test"><pre class="language-twig"><code><span class="token tag" ><span class="token ld" ><span class="token punctuation" >{%</span> <span class="token keyword" >if</span></span> <span class="token number" >1</span> <span class="token operator" >&lt;=</span> <span class="token number" >2</span> <span class="token rd" ><span class="token punctuation" >%}</span></span></span>
+<span class="token other" >1 is less than or equal to 2</span>
+<span class="token tag" ><span class="token ld" ><span class="token punctuation" >{%</span> <span class="token keyword" >endif</span></span> <span class="token rd" ><span class="token punctuation" >%}</span></span></span>
 
-{% if 1 &lt;= 1 %}
-1 is less than or equal to 1
-{% endif %}</code></pre>
+<span class="token tag" ><span class="token ld" ><span class="token punctuation" >{%</span> <span class="token keyword" >if</span></span> <span class="token number" >1</span> <span class="token operator" >&lt;=</span> <span class="token number" >1</span> <span class="token rd" ><span class="token punctuation" >%}</span></span></span>
+<span class="token other" >1 is less than or equal to 1</span>
+<span class="token tag" ><span class="token ld" ><span class="token punctuation" >{%</span> <span class="token keyword" >endif</span></span> <span class="token rd" ><span class="token punctuation" >%}</span></span></span></code></pre></div>
 
         
 
@@ -710,9 +711,9 @@
         <h3><a class="permalink" href="#less-than">Test: less-than</a></h3>
 
         <h4>Template</h4>
-        <pre class="test"><code>{% if 1 &lt; 2 %}
-1 is less than 2
-{% endif %}</code></pre>
+        <div class="test"><pre class="language-twig"><code><span class="token tag" ><span class="token ld" ><span class="token punctuation" >{%</span> <span class="token keyword" >if</span></span> <span class="token number" >1</span> <span class="token operator" >&lt;</span> <span class="token number" >2</span> <span class="token rd" ><span class="token punctuation" >%}</span></span></span>
+<span class="token other" >1 is less than 2</span>
+<span class="token tag" ><span class="token ld" ><span class="token punctuation" >{%</span> <span class="token keyword" >endif</span></span> <span class="token rd" ><span class="token punctuation" >%}</span></span></span></code></pre></div>
 
         
 
@@ -813,15 +814,15 @@
         <h3><a class="permalink" href="#matches">Test: matches</a></h3>
 
         <h4>Template</h4>
-        <pre class="test"><code>{% if phone matches '/^[\\d\\.]+$/' %}
-`phone` is a valid phone number
-{% endif %}</code></pre>
+        <div class="test"><pre class="language-twig"><code><span class="token tag" ><span class="token ld" ><span class="token punctuation" >{%</span> <span class="token keyword" >if</span></span> <span class="token property" >phone</span> <span class="token operator" >matches</span> <span class="token string" ><span class="token punctuation" >'</span>/^[\\d\\.]+$/<span class="token punctuation" >'</span></span> <span class="token rd" ><span class="token punctuation" >%}</span></span></span>
+<span class="token other" >`phone` is a valid phone number</span>
+<span class="token tag" ><span class="token ld" ><span class="token punctuation" >{%</span> <span class="token keyword" >endif</span></span> <span class="token rd" ><span class="token punctuation" >%}</span></span></span></code></pre></div>
 
         
         <h4>Data</h4>
-        <pre class="test"><code>{
-  "phone": "00311234567"
-}</code></pre>
+        <div class="test"><pre class="language-json"><code><span class="token punctuation" >{</span>
+  <span class="token property" >"phone"</span><span class="token operator" >:</span> <span class="token string" >"00311234567"</span>
+<span class="token punctuation" >}</span></code></pre></div>
         
 
         
@@ -912,16 +913,16 @@
         <h3><a class="permalink" href="#not-equal-to">Test: not-equal-to</a></h3>
 
         <h4>Template</h4>
-        <pre class="test"><code>{% if varX != varY %}
-`varX` is not equal to `varY`
-{% endif %}</code></pre>
+        <div class="test"><pre class="language-twig"><code><span class="token tag" ><span class="token ld" ><span class="token punctuation" >{%</span> <span class="token keyword" >if</span></span> <span class="token property" >varX</span> <span class="token operator" >!=</span> <span class="token property" >varY</span> <span class="token rd" ><span class="token punctuation" >%}</span></span></span>
+<span class="token other" >`varX` is not equal to `varY`</span>
+<span class="token tag" ><span class="token ld" ><span class="token punctuation" >{%</span> <span class="token keyword" >endif</span></span> <span class="token rd" ><span class="token punctuation" >%}</span></span></span></code></pre></div>
 
         
         <h4>Data</h4>
-        <pre class="test"><code>{
-  "varX": "Templates",
-  "varY": "Partials"
-}</code></pre>
+        <div class="test"><pre class="language-json"><code><span class="token punctuation" >{</span>
+  <span class="token property" >"varX"</span><span class="token operator" >:</span> <span class="token string" >"Templates"</span><span class="token punctuation" >,</span>
+  <span class="token property" >"varY"</span><span class="token operator" >:</span> <span class="token string" >"Partials"</span>
+<span class="token punctuation" >}</span></code></pre></div>
         
 
         
@@ -1021,9 +1022,9 @@
         <h3><a class="permalink" href="#starts-with">Test: starts-with</a></h3>
 
         <h4>Template</h4>
-        <pre class="test"><code>{% if 'Templates' starts with 'T' %}
-"Templates" starts with "T"
-{% endif %}</code></pre>
+        <div class="test"><pre class="language-twig"><code><span class="token tag" ><span class="token ld" ><span class="token punctuation" >{%</span> <span class="token keyword" >if</span></span> <span class="token string" ><span class="token punctuation" >'</span>Templates<span class="token punctuation" >'</span></span> <span class="token operator" >starts with</span> <span class="token string" ><span class="token punctuation" >'</span>T<span class="token punctuation" >'</span></span> <span class="token rd" ><span class="token punctuation" >%}</span></span></span>
+<span class="token other" >"Templates" starts with "T"</span>
+<span class="token tag" ><span class="token ld" ><span class="token punctuation" >{%</span> <span class="token keyword" >endif</span></span> <span class="token rd" ><span class="token punctuation" >%}</span></span></span></code></pre></div>
 
         
 
@@ -1115,9 +1116,9 @@
         <h3><a class="permalink" href="#strict-equal-to">Test: strict-equal-to</a></h3>
 
         <h4>Template</h4>
-        <pre class="test"><code>{% if 1234 === 1234 %}
-1234 not strict equal to 1234
-{% endif %}</code></pre>
+        <div class="test"><pre class="language-twig"><code><span class="token tag" ><span class="token ld" ><span class="token punctuation" >{%</span> <span class="token keyword" >if</span></span> <span class="token number" >1234</span> <span class="token operator" >==</span><span class="token operator" >=</span> <span class="token number" >1234</span> <span class="token rd" ><span class="token punctuation" >%}</span></span></span>
+<span class="token other" >1234 not strict equal to 1234</span>
+<span class="token tag" ><span class="token ld" ><span class="token punctuation" >{%</span> <span class="token keyword" >endif</span></span> <span class="token rd" ><span class="token punctuation" >%}</span></span></span></code></pre></div>
 
         
 
@@ -1211,9 +1212,9 @@
         <h3><a class="permalink" href="#strict-not-equal-to">Test: strict-not-equal-to</a></h3>
 
         <h4>Template</h4>
-        <pre class="test"><code>{% if 1234 !== '1234' %}
-1234 is not strict equal to '1234'
-{% endif %}</code></pre>
+        <div class="test"><pre class="language-twig"><code><span class="token tag" ><span class="token ld" ><span class="token punctuation" >{%</span> <span class="token keyword" >if</span></span> <span class="token number" >1234</span> <span class="token operator" >!=</span><span class="token operator" >=</span> <span class="token string" ><span class="token punctuation" >'</span>1234<span class="token punctuation" >'</span></span> <span class="token rd" ><span class="token punctuation" >%}</span></span></span>
+<span class="token other" >1234 is not strict equal to '1234'</span>
+<span class="token tag" ><span class="token ld" ><span class="token punctuation" >{%</span> <span class="token keyword" >endif</span></span> <span class="token rd" ><span class="token punctuation" >%}</span></span></span></code></pre></div>
 
         
 
