@@ -32,6 +32,7 @@ Object.keys(tests).forEach(type => {
 function renderIndex() {
     const data = {
         engines: Object.keys(results),
+        errors,
         title: 'Overview',
         tests,
         versions
