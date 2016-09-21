@@ -1,6 +1,7 @@
 const fs = require('fs');
 const nunjucks = require('nunjucks');
 const path = require('path');
+const prismFilter = require('../lib/nunjucks-filter-prism');
 const saveFile = require('../lib/save-file');
 
 const rootDir = path.join(__dirname, '/../');
@@ -22,6 +23,7 @@ const renderer = new nunjucks.Environment(
     }),
     { autoescape: true }
 );
+renderer.addFilter('prism', prismFilter);
 
 renderIndex();
 

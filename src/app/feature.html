@@ -1,13 +1,14 @@
 {% extends "base.html" %}
 
 {% block content %}
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.5.1/themes/prism.css">
 <style type="text/css">
     h4 { margin-bottom: 0; }
     h4 small { float: right; font-weight: normal; font-style: italic; }
     label { padding-right: 1em; cursor: pointer; }
-    pre { padding: .5em; margin-top: .5rem; min-height: 1em; overflow-x: scroll; }
+    pre { padding: .5em; margin-top: .5rem; min-height: 1em; background: #f5f2f0; overflow-x: scroll; }
     .section { margin-bottom: 2.5rem; }
-    .test { border: 2px solid deepskyblue; }
+    .test pre { border: 2px solid deepskyblue; }
     .result { border: 2px solid lawngreen; }
     .error { border: 2px solid red; white-space: normal; }
 
@@ -60,11 +61,11 @@
         <h3><a class="permalink" href="#{{ test }}">Test: {{ test }}</a></h3>
 
         <h4>Template</h4>
-        <pre class="test"><code>{{ html|replace('<','&lt;')|safe }}</code></pre>
+        <div class="test">{{ html|prism('twig')|safe }}</div>
 
         {% if data %}
         <h4>Data</h4>
-        <pre class="test"><code>{{ data|safe }}</code></pre>
+        <div class="test">{{ data|prism('json')|safe }}</div>
         {% endif %}
 
         {% for engine, data in results %}
