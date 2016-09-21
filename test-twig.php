@@ -4,14 +4,18 @@ require_once 'vendor/autoload.php';
 
 use Symfony\Component\Filesystem\Filesystem;
 use Symfony\Component\Filesystem\Exception\IOExceptionInterface;
-use Symfony\Component\Finder\Finder;
 
-$inputDir = 'tests/';
-$outputDir = 'output/twig/';
-$errorExt = '.error.log';
+$engine = 'twig';
+$config = readJson('config.json');
+$inputDir = $config['inputDir'];
+$outputDir = $config['outputDir'] . $engine . '/';
+$templateData = readJson($config['templateDataFile']);
 
-$finder = new Finder(); // http://symfony.com/doc/current/components/finder.html
 $fs = new Filesystem(); // http://symfony.com/doc/current/components/filesystem.html
+
+function readJson($filename) {
+    return json_decode(file_get_contents($filename), true);
+}
 
 function startsWith($haystack, $needle) {
      return (substr($haystack, 0, strlen($needle)) === $needle);
@@ -39,22 +43,14 @@ class Twig_Warning extends Exception
 $loader = new Twig_Loader_Filesystem($inputDir);
 $twig = new Twig_Environment($loader, array());
 
-$files = $finder->in($inputDir)->files()->name('*.html');
-
-foreach ($files as $file) {
-    $filename = $file->getRelativePathname();
-    $dataFilename = str_replace('.html', '.json', ($inputDir . $filename));
-
-    $data = $fs->exists($dataFilename) ? json_decode(file_get_contents($dataFilename), true) : Array();
-
+foreach ($templateData as $templateName => $data) {
     try {
-        $output = $twig->render($filename, $data);
+        $output = $twig->render($templateName . $config['templateExt'], $data);
         if (startsWith(trim($output), 'Warning: ')) {
             throw new Twig_Warning($output);
         }
-        $fs->dumpFile($outputDir . $filename, $output);
+        $fs->dumpFile($outputDir . $templateName . $config['templateExt'], $output);
     } catch (Exception $e) {
-        $errorFilename = str_replace('.html', $errorExt, ($outputDir . $filename));
-        $fs->dumpFile($errorFilename, $e->getRawMessage());
+        $fs->dumpFile($outputDir . $templateName . $config['errorExt'], $e->getRawMessage());
     }
 }
