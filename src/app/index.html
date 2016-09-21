@@ -1,31 +1,73 @@
 {% extends "base.html" %}
 
 {% block content %}
+<style>
+    table { width: 100%; }
+    thead { background-color: #f9f9f9; }
+    th, td { width: 5em; }
+    th:first-child { text-align: left; width: 10em; }
+    td a { display:block; text-decoration: none; }
+    .support-full { background-color: #39b54a; }
+    .support-part { background-color: #A8BD04; }
+    .support-none { background-color: #c44230; }
+    .a11y-only {
+        border: 0;
+        clip: rect(0 0 0 0);
+        height: 1px;
+        margin: -1px;
+        overflow: hidden;
+        padding: 0;
+        position: absolute;
+        width: 1px;
+    }
+</style>
+
 <h1>Jinja Compat Tests</h1>
-
 <p>This project tests compatibility of the following template engines:</p>
-<ul>
-{% for engine in engines %}
-    <li>
-        <strong>{{ engine|capitalize }}</strong>
-        <small>v{{ versions[engine] }}</small>
-    </li>
-{% endfor %}
-</ul>
 
-<nav>
-    <h2>Table of contents</h2>
-    <ul>
+{% macro thead(title) %}
+    <thead id="{{ title }}">
+        <th>
+            <a href="#{{ title }}">{{ title }}</a>
+        </th>
+    {% for engine in engines %}
+        <th>
+            {{ engine|title }}<br>
+            <small>v{{ versions[engine] }}</small>
+        </th>
+    {% endfor %}
+    </thead>
+{% endmacro %}
+
+<table>
+    <caption>Template feature support per engine</caption>
     {%- for type, features in tests %}
-        <li>
-            {{ type }}
-            <ul>
-            {%- for feature, items in features %}
-                <li><a href="{{ type }}/{{ feature }}/"><code>{{ feature }}</code></a></li>
-            {% endfor -%}
-            </ul>
-        </li>
+    {{ thead(type) }}
+    <tbody>
+    {%- for feature, items in features %}
+        <tr>
+            <th><a href="{{ type }}/{{ feature }}/"><code>{{ feature }}</code></a></th>
+            {% for engine in engines %}
+                <td>
+                {% if (errors[engine][type][feature]|length) == (tests[type][feature]|length) %}
+                    <a class="support-none" href="{{ type }}/{{ feature }}/" title="No support">
+                        &nbsp;<span class="a11y-only">No support</span>
+                    </a>
+                {% elseif errors[engine][type][feature]|length %}
+                    <a class="support-part" href="{{ type }}/{{ feature }}/" title="Partial support">
+                        &nbsp;<span class="a11y-only">Partial support</span>
+                    </a>
+                {% else %}
+                    <a class="support-full" href="{{ type }}/{{ feature }}/" title="Full support">
+                        &nbsp;<span class="a11y-only">Full support</span>
+                    </a>
+                {% endif %}
+                </td>
+            {% endfor %}
+        </tr>
     {% endfor -%}
-    </ul>
-</nav>
+    </tbody>
+    {% endfor %}
+</table>
+
 {% endblock %}

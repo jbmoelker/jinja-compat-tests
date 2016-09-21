@@ -1,6 +1,7 @@
 const fs = require('fs');
 const nunjucks = require('nunjucks');
 const path = require('path');
+const prismFilter = require('../lib/nunjucks-filter-prism');
 const saveFile = require('../lib/save-file');
 
 const rootDir = path.join(__dirname, '/../');
@@ -9,9 +10,9 @@ const apiDir = rootDir + 'dist/api/';
 const appDir = rootDir + 'src/app/';
 
 const docs = require(apiDir + 'docs.json');
-const errors = require(apiDir + 'errors.json');;
+const errors = require(apiDir + 'errors.json');
 const inputData = require(apiDir + 'data.json');
-const results = require(apiDir + 'results.json')
+const results = require(apiDir + 'results.json');
 const tests = require(apiDir + 'tests.json');
 const versions = require(apiDir + 'versions.json');
 
@@ -22,6 +23,7 @@ const renderer = new nunjucks.Environment(
     }),
     { autoescape: true }
 );
+renderer.addFilter('prism', prismFilter);
 
 renderIndex();
 
@@ -32,6 +34,7 @@ Object.keys(tests).forEach(type => {
 function renderIndex() {
     const data = {
         engines: Object.keys(results),
+        errors,
         title: 'Overview',
         tests,
         versions

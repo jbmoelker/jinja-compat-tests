@@ -1,5 +1,13 @@
 {
   "_baseUrl": "https://mozilla.github.io/nunjucks/templating.html",
+  "expressions": {
+    "comparisons": "#comparisons",
+    "logic": "#logic",
+    "math": "#math",
+    "regex": "#regular-expressions",
+    "tests": "#if-expression",
+    "whitespace-control": "#whitespace-control"
+  },
   "filters": {
     "default": "#default-value-default-boolean",
     "sort": "#sort-arr-reverse-casesens-attr",
@@ -38,6 +46,11 @@
     "urlencode": "#urlencode",
     "urlize": "#urlize",
     "wordcount": "#wordcount"
+  },
+  "functions": {
+    "range": "#range-start-stop-step",
+    "cycler": "#cycler-item1-item2-itemn",
+    "joiner": "#joiner-separator"
   },
   "tags": {
     "if": "#if",

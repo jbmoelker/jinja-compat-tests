@@ -1,12 +1,14 @@
 {
   "inputDir": "tests/",
   "outputDir": "output/",
-  "appDir": "src/app",
+  "appDir": "src/app/",
+  "docsDir": "src/docs/",
   "srcDir": "src/",
   "distDir": "dist/",
   "apiDir": "dist/api/",
   "templateExt": ".html",
   "dataExt": ".json",
   "errorExt": ".error.log",
-  "templateDataFile": "output/template-data.json"
+  "templateDataFile": "output/template-data.json",
+  "noOutputMessage": "(no output)"
 }
