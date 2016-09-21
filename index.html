@@ -16,117 +16,1521 @@
 <body>
 
 
+<style>
+    table { width: 100%; }
+    thead { background-color: #f9f9f9; }
+    th, td { width: 5em; }
+    th:first-child { text-align: left; width: 10em; }
+    td a { display:block; text-decoration: none; }
+    .support-full { background-color: #39b54a; }
+    .support-part { background-color: #A8BD04; }
+    .support-none { background-color: #c44230; }
+    .a11y-only {
+        border: 0;
+        clip: rect(0 0 0 0);
+        height: 1px;
+        margin: -1px;
+        overflow: hidden;
+        padding: 0;
+        position: absolute;
+        width: 1px;
+    }
+</style>
+
 <h1>Jinja Compat Tests</h1>
-
 <p>This project tests compatibility of the following template engines:</p>
-<ul>
 
-    <li>
-        <strong>Django</strong>
-        <small>v1.10.1</small>
-    </li>
 
-    <li>
-        <strong>Jinja2</strong>
-        <small>v2.8.0</small>
-    </li>
 
-    <li>
-        <strong>Liquid</strong>
-        <small>v3.0.6</small>
-    </li>
-
-    <li>
-        <strong>Nunjucks</strong>
-        <small>v2.5.0</small>
-    </li>
-
-    <li>
-        <strong>Swig</strong>
-        <small>v1.4.2</small>
-    </li>
-
-    <li>
-        <strong>Twig</strong>
-        <small>v1.24.2</small>
-    </li>
-
-</ul>
-
-<nav>
-    <h2>Table of contents</h2>
-    <ul>
-        <li>
-            expressions
-            <ul>
-                <li><a href="expressions/comparisons/"><code>comparisons</code></a></li>
-            
-                <li><a href="expressions/math/"><code>math</code></a></li>
-            
-                <li><a href="expressions/reserved-words/"><code>reserved-words</code></a></li>
-            </ul>
-        </li>
+<table>
+    <caption>Template feature support per engine</caption>
     
-        <li>
-            filters
-            <ul>
-                <li><a href="filters/abs/"><code>abs</code></a></li>
-            
-                <li><a href="filters/batch/"><code>batch</code></a></li>
-            
-                <li><a href="filters/capitalize/"><code>capitalize</code></a></li>
-            
-                <li><a href="filters/center/"><code>center</code></a></li>
-            
-                <li><a href="filters/default/"><code>default</code></a></li>
-            
-                <li><a href="filters/dictsort/"><code>dictsort</code></a></li>
-            
-                <li><a href="filters/dump/"><code>dump</code></a></li>
-            
-                <li><a href="filters/escape/"><code>escape</code></a></li>
-            
-                <li><a href="filters/filesizeformat/"><code>filesizeformat</code></a></li>
-            
-                <li><a href="filters/first/"><code>first</code></a></li>
-            
-                <li><a href="filters/float/"><code>float</code></a></li>
-            
-                <li><a href="filters/indent/"><code>indent</code></a></li>
-            
-                <li><a href="filters/int/"><code>int</code></a></li>
-            
-                <li><a href="filters/last/"><code>last</code></a></li>
-            
-                <li><a href="filters/length/"><code>length</code></a></li>
-            
-                <li><a href="filters/lower/"><code>lower</code></a></li>
-            
-                <li><a href="filters/upper/"><code>upper</code></a></li>
-            </ul>
-        </li>
+    <thead id="expressions">
+        <th>
+            <a href="#expressions">expressions</a>
+        </th>
     
-        <li>
-            functions
-            <ul>
-                <li><a href="functions/cycle/"><code>cycle</code></a></li>
-            
-                <li><a href="functions/cycler/"><code>cycler</code></a></li>
-            
-                <li><a href="functions/range/"><code>range</code></a></li>
-            </ul>
-        </li>
+        <th>
+            Django<br>
+            <small>v1.10.1</small>
+        </th>
     
-        <li>
-            tags
-            <ul>
-                <li><a href="tags/if/"><code>if</code></a></li>
+        <th>
+            Jinja2<br>
+            <small>v2.8.0</small>
+        </th>
+    
+        <th>
+            Liquid<br>
+            <small>v3.0.6</small>
+        </th>
+    
+        <th>
+            Nunjucks<br>
+            <small>v2.5.0</small>
+        </th>
+    
+        <th>
+            Swig<br>
+            <small>v1.4.2</small>
+        </th>
+    
+        <th>
+            Twig<br>
+            <small>v1.24.2</small>
+        </th>
+    
+    </thead>
+
+    <tbody>
+        <tr>
+            <th><a href="expressions/comparisons/"><code>comparisons</code></a></th>
             
-                <li><a href="tags/raw/"><code>raw</code></a></li>
-            </ul>
-        </li>
-    </ul>
-</nav>
+                <td>
+                
+                    <a class="support-part" href="expressions/comparisons/" title="Partial support">
+                        &nbsp;<span class="a11y-only">Partial support</span>
+                    </a>
+                
+                </td>
+            
+                <td>
+                
+                    <a class="support-part" href="expressions/comparisons/" title="Partial support">
+                        &nbsp;<span class="a11y-only">Partial support</span>
+                    </a>
+                
+                </td>
+            
+                <td>
+                
+                    <a class="support-part" href="expressions/comparisons/" title="Partial support">
+                        &nbsp;<span class="a11y-only">Partial support</span>
+                    </a>
+                
+                </td>
+            
+                <td>
+                
+                    <a class="support-part" href="expressions/comparisons/" title="Partial support">
+                        &nbsp;<span class="a11y-only">Partial support</span>
+                    </a>
+                
+                </td>
+            
+                <td>
+                
+                    <a class="support-part" href="expressions/comparisons/" title="Partial support">
+                        &nbsp;<span class="a11y-only">Partial support</span>
+                    </a>
+                
+                </td>
+            
+                <td>
+                
+                    <a class="support-part" href="expressions/comparisons/" title="Partial support">
+                        &nbsp;<span class="a11y-only">Partial support</span>
+                    </a>
+                
+                </td>
+            
+        </tr>
+    
+        <tr>
+            <th><a href="expressions/math/"><code>math</code></a></th>
+            
+                <td>
+                
+                    <a class="support-none" href="expressions/math/" title="No support">
+                        &nbsp;<span class="a11y-only">No support</span>
+                    </a>
+                
+                </td>
+            
+                <td>
+                
+                    <a class="support-full" href="expressions/math/" title="Full support">
+                        &nbsp;<span class="a11y-only">Full support</span>
+                    </a>
+                
+                </td>
+            
+                <td>
+                
+                    <a class="support-part" href="expressions/math/" title="Partial support">
+                        &nbsp;<span class="a11y-only">Partial support</span>
+                    </a>
+                
+                </td>
+            
+                <td>
+                
+                    <a class="support-full" href="expressions/math/" title="Full support">
+                        &nbsp;<span class="a11y-only">Full support</span>
+                    </a>
+                
+                </td>
+            
+                <td>
+                
+                    <a class="support-part" href="expressions/math/" title="Partial support">
+                        &nbsp;<span class="a11y-only">Partial support</span>
+                    </a>
+                
+                </td>
+            
+                <td>
+                
+                    <a class="support-full" href="expressions/math/" title="Full support">
+                        &nbsp;<span class="a11y-only">Full support</span>
+                    </a>
+                
+                </td>
+            
+        </tr>
+    
+        <tr>
+            <th><a href="expressions/reserved-words/"><code>reserved-words</code></a></th>
+            
+                <td>
+                
+                    <a class="support-full" href="expressions/reserved-words/" title="Full support">
+                        &nbsp;<span class="a11y-only">Full support</span>
+                    </a>
+                
+                </td>
+            
+                <td>
+                
+                    <a class="support-full" href="expressions/reserved-words/" title="Full support">
+                        &nbsp;<span class="a11y-only">Full support</span>
+                    </a>
+                
+                </td>
+            
+                <td>
+                
+                    <a class="support-full" href="expressions/reserved-words/" title="Full support">
+                        &nbsp;<span class="a11y-only">Full support</span>
+                    </a>
+                
+                </td>
+            
+                <td>
+                
+                    <a class="support-full" href="expressions/reserved-words/" title="Full support">
+                        &nbsp;<span class="a11y-only">Full support</span>
+                    </a>
+                
+                </td>
+            
+                <td>
+                
+                    <a class="support-none" href="expressions/reserved-words/" title="No support">
+                        &nbsp;<span class="a11y-only">No support</span>
+                    </a>
+                
+                </td>
+            
+                <td>
+                
+                    <a class="support-full" href="expressions/reserved-words/" title="Full support">
+                        &nbsp;<span class="a11y-only">Full support</span>
+                    </a>
+                
+                </td>
+            
+        </tr>
+    </tbody>
+    
+    
+    <thead id="filters">
+        <th>
+            <a href="#filters">filters</a>
+        </th>
+    
+        <th>
+            Django<br>
+            <small>v1.10.1</small>
+        </th>
+    
+        <th>
+            Jinja2<br>
+            <small>v2.8.0</small>
+        </th>
+    
+        <th>
+            Liquid<br>
+            <small>v3.0.6</small>
+        </th>
+    
+        <th>
+            Nunjucks<br>
+            <small>v2.5.0</small>
+        </th>
+    
+        <th>
+            Swig<br>
+            <small>v1.4.2</small>
+        </th>
+    
+        <th>
+            Twig<br>
+            <small>v1.24.2</small>
+        </th>
+    
+    </thead>
+
+    <tbody>
+        <tr>
+            <th><a href="filters/abs/"><code>abs</code></a></th>
+            
+                <td>
+                
+                    <a class="support-none" href="filters/abs/" title="No support">
+                        &nbsp;<span class="a11y-only">No support</span>
+                    </a>
+                
+                </td>
+            
+                <td>
+                
+                    <a class="support-part" href="filters/abs/" title="Partial support">
+                        &nbsp;<span class="a11y-only">Partial support</span>
+                    </a>
+                
+                </td>
+            
+                <td>
+                
+                    <a class="support-full" href="filters/abs/" title="Full support">
+                        &nbsp;<span class="a11y-only">Full support</span>
+                    </a>
+                
+                </td>
+            
+                <td>
+                
+                    <a class="support-full" href="filters/abs/" title="Full support">
+                        &nbsp;<span class="a11y-only">Full support</span>
+                    </a>
+                
+                </td>
+            
+                <td>
+                
+                    <a class="support-none" href="filters/abs/" title="No support">
+                        &nbsp;<span class="a11y-only">No support</span>
+                    </a>
+                
+                </td>
+            
+                <td>
+                
+                    <a class="support-full" href="filters/abs/" title="Full support">
+                        &nbsp;<span class="a11y-only">Full support</span>
+                    </a>
+                
+                </td>
+            
+        </tr>
+    
+        <tr>
+            <th><a href="filters/batch/"><code>batch</code></a></th>
+            
+                <td>
+                
+                    <a class="support-none" href="filters/batch/" title="No support">
+                        &nbsp;<span class="a11y-only">No support</span>
+                    </a>
+                
+                </td>
+            
+                <td>
+                
+                    <a class="support-full" href="filters/batch/" title="Full support">
+                        &nbsp;<span class="a11y-only">Full support</span>
+                    </a>
+                
+                </td>
+            
+                <td>
+                
+                    <a class="support-full" href="filters/batch/" title="Full support">
+                        &nbsp;<span class="a11y-only">Full support</span>
+                    </a>
+                
+                </td>
+            
+                <td>
+                
+                    <a class="support-full" href="filters/batch/" title="Full support">
+                        &nbsp;<span class="a11y-only">Full support</span>
+                    </a>
+                
+                </td>
+            
+                <td>
+                
+                    <a class="support-none" href="filters/batch/" title="No support">
+                        &nbsp;<span class="a11y-only">No support</span>
+                    </a>
+                
+                </td>
+            
+                <td>
+                
+                    <a class="support-full" href="filters/batch/" title="Full support">
+                        &nbsp;<span class="a11y-only">Full support</span>
+                    </a>
+                
+                </td>
+            
+        </tr>
+    
+        <tr>
+            <th><a href="filters/capitalize/"><code>capitalize</code></a></th>
+            
+                <td>
+                
+                    <a class="support-none" href="filters/capitalize/" title="No support">
+                        &nbsp;<span class="a11y-only">No support</span>
+                    </a>
+                
+                </td>
+            
+                <td>
+                
+                    <a class="support-full" href="filters/capitalize/" title="Full support">
+                        &nbsp;<span class="a11y-only">Full support</span>
+                    </a>
+                
+                </td>
+            
+                <td>
+                
+                    <a class="support-full" href="filters/capitalize/" title="Full support">
+                        &nbsp;<span class="a11y-only">Full support</span>
+                    </a>
+                
+                </td>
+            
+                <td>
+                
+                    <a class="support-part" href="filters/capitalize/" title="Partial support">
+                        &nbsp;<span class="a11y-only">Partial support</span>
+                    </a>
+                
+                </td>
+            
+                <td>
+                
+                    <a class="support-full" href="filters/capitalize/" title="Full support">
+                        &nbsp;<span class="a11y-only">Full support</span>
+                    </a>
+                
+                </td>
+            
+                <td>
+                
+                    <a class="support-part" href="filters/capitalize/" title="Partial support">
+                        &nbsp;<span class="a11y-only">Partial support</span>
+                    </a>
+                
+                </td>
+            
+        </tr>
+    
+        <tr>
+            <th><a href="filters/center/"><code>center</code></a></th>
+            
+                <td>
+                
+                    <a class="support-none" href="filters/center/" title="No support">
+                        &nbsp;<span class="a11y-only">No support</span>
+                    </a>
+                
+                </td>
+            
+                <td>
+                
+                    <a class="support-full" href="filters/center/" title="Full support">
+                        &nbsp;<span class="a11y-only">Full support</span>
+                    </a>
+                
+                </td>
+            
+                <td>
+                
+                    <a class="support-full" href="filters/center/" title="Full support">
+                        &nbsp;<span class="a11y-only">Full support</span>
+                    </a>
+                
+                </td>
+            
+                <td>
+                
+                    <a class="support-full" href="filters/center/" title="Full support">
+                        &nbsp;<span class="a11y-only">Full support</span>
+                    </a>
+                
+                </td>
+            
+                <td>
+                
+                    <a class="support-none" href="filters/center/" title="No support">
+                        &nbsp;<span class="a11y-only">No support</span>
+                    </a>
+                
+                </td>
+            
+                <td>
+                
+                    <a class="support-none" href="filters/center/" title="No support">
+                        &nbsp;<span class="a11y-only">No support</span>
+                    </a>
+                
+                </td>
+            
+        </tr>
+    
+        <tr>
+            <th><a href="filters/default/"><code>default</code></a></th>
+            
+                <td>
+                
+                    <a class="support-none" href="filters/default/" title="No support">
+                        &nbsp;<span class="a11y-only">No support</span>
+                    </a>
+                
+                </td>
+            
+                <td>
+                
+                    <a class="support-part" href="filters/default/" title="Partial support">
+                        &nbsp;<span class="a11y-only">Partial support</span>
+                    </a>
+                
+                </td>
+            
+                <td>
+                
+                    <a class="support-part" href="filters/default/" title="Partial support">
+                        &nbsp;<span class="a11y-only">Partial support</span>
+                    </a>
+                
+                </td>
+            
+                <td>
+                
+                    <a class="support-full" href="filters/default/" title="Full support">
+                        &nbsp;<span class="a11y-only">Full support</span>
+                    </a>
+                
+                </td>
+            
+                <td>
+                
+                    <a class="support-part" href="filters/default/" title="Partial support">
+                        &nbsp;<span class="a11y-only">Partial support</span>
+                    </a>
+                
+                </td>
+            
+                <td>
+                
+                    <a class="support-part" href="filters/default/" title="Partial support">
+                        &nbsp;<span class="a11y-only">Partial support</span>
+                    </a>
+                
+                </td>
+            
+        </tr>
+    
+        <tr>
+            <th><a href="filters/dictsort/"><code>dictsort</code></a></th>
+            
+                <td>
+                
+                    <a class="support-none" href="filters/dictsort/" title="No support">
+                        &nbsp;<span class="a11y-only">No support</span>
+                    </a>
+                
+                </td>
+            
+                <td>
+                
+                    <a class="support-full" href="filters/dictsort/" title="Full support">
+                        &nbsp;<span class="a11y-only">Full support</span>
+                    </a>
+                
+                </td>
+            
+                <td>
+                
+                    <a class="support-none" href="filters/dictsort/" title="No support">
+                        &nbsp;<span class="a11y-only">No support</span>
+                    </a>
+                
+                </td>
+            
+                <td>
+                
+                    <a class="support-full" href="filters/dictsort/" title="Full support">
+                        &nbsp;<span class="a11y-only">Full support</span>
+                    </a>
+                
+                </td>
+            
+                <td>
+                
+                    <a class="support-none" href="filters/dictsort/" title="No support">
+                        &nbsp;<span class="a11y-only">No support</span>
+                    </a>
+                
+                </td>
+            
+                <td>
+                
+                    <a class="support-none" href="filters/dictsort/" title="No support">
+                        &nbsp;<span class="a11y-only">No support</span>
+                    </a>
+                
+                </td>
+            
+        </tr>
+    
+        <tr>
+            <th><a href="filters/dump/"><code>dump</code></a></th>
+            
+                <td>
+                
+                    <a class="support-none" href="filters/dump/" title="No support">
+                        &nbsp;<span class="a11y-only">No support</span>
+                    </a>
+                
+                </td>
+            
+                <td>
+                
+                    <a class="support-none" href="filters/dump/" title="No support">
+                        &nbsp;<span class="a11y-only">No support</span>
+                    </a>
+                
+                </td>
+            
+                <td>
+                
+                    <a class="support-full" href="filters/dump/" title="Full support">
+                        &nbsp;<span class="a11y-only">Full support</span>
+                    </a>
+                
+                </td>
+            
+                <td>
+                
+                    <a class="support-full" href="filters/dump/" title="Full support">
+                        &nbsp;<span class="a11y-only">Full support</span>
+                    </a>
+                
+                </td>
+            
+                <td>
+                
+                    <a class="support-none" href="filters/dump/" title="No support">
+                        &nbsp;<span class="a11y-only">No support</span>
+                    </a>
+                
+                </td>
+            
+                <td>
+                
+                    <a class="support-none" href="filters/dump/" title="No support">
+                        &nbsp;<span class="a11y-only">No support</span>
+                    </a>
+                
+                </td>
+            
+        </tr>
+    
+        <tr>
+            <th><a href="filters/escape/"><code>escape</code></a></th>
+            
+                <td>
+                
+                    <a class="support-part" href="filters/escape/" title="Partial support">
+                        &nbsp;<span class="a11y-only">Partial support</span>
+                    </a>
+                
+                </td>
+            
+                <td>
+                
+                    <a class="support-full" href="filters/escape/" title="Full support">
+                        &nbsp;<span class="a11y-only">Full support</span>
+                    </a>
+                
+                </td>
+            
+                <td>
+                
+                    <a class="support-full" href="filters/escape/" title="Full support">
+                        &nbsp;<span class="a11y-only">Full support</span>
+                    </a>
+                
+                </td>
+            
+                <td>
+                
+                    <a class="support-full" href="filters/escape/" title="Full support">
+                        &nbsp;<span class="a11y-only">Full support</span>
+                    </a>
+                
+                </td>
+            
+                <td>
+                
+                    <a class="support-full" href="filters/escape/" title="Full support">
+                        &nbsp;<span class="a11y-only">Full support</span>
+                    </a>
+                
+                </td>
+            
+                <td>
+                
+                    <a class="support-full" href="filters/escape/" title="Full support">
+                        &nbsp;<span class="a11y-only">Full support</span>
+                    </a>
+                
+                </td>
+            
+        </tr>
+    
+        <tr>
+            <th><a href="filters/filesizeformat/"><code>filesizeformat</code></a></th>
+            
+                <td>
+                
+                    <a class="support-none" href="filters/filesizeformat/" title="No support">
+                        &nbsp;<span class="a11y-only">No support</span>
+                    </a>
+                
+                </td>
+            
+                <td>
+                
+                    <a class="support-full" href="filters/filesizeformat/" title="Full support">
+                        &nbsp;<span class="a11y-only">Full support</span>
+                    </a>
+                
+                </td>
+            
+                <td>
+                
+                    <a class="support-full" href="filters/filesizeformat/" title="Full support">
+                        &nbsp;<span class="a11y-only">Full support</span>
+                    </a>
+                
+                </td>
+            
+                <td>
+                
+                    <a class="support-none" href="filters/filesizeformat/" title="No support">
+                        &nbsp;<span class="a11y-only">No support</span>
+                    </a>
+                
+                </td>
+            
+                <td>
+                
+                    <a class="support-none" href="filters/filesizeformat/" title="No support">
+                        &nbsp;<span class="a11y-only">No support</span>
+                    </a>
+                
+                </td>
+            
+                <td>
+                
+                    <a class="support-none" href="filters/filesizeformat/" title="No support">
+                        &nbsp;<span class="a11y-only">No support</span>
+                    </a>
+                
+                </td>
+            
+        </tr>
+    
+        <tr>
+            <th><a href="filters/first/"><code>first</code></a></th>
+            
+                <td>
+                
+                    <a class="support-part" href="filters/first/" title="Partial support">
+                        &nbsp;<span class="a11y-only">Partial support</span>
+                    </a>
+                
+                </td>
+            
+                <td>
+                
+                    <a class="support-part" href="filters/first/" title="Partial support">
+                        &nbsp;<span class="a11y-only">Partial support</span>
+                    </a>
+                
+                </td>
+            
+                <td>
+                
+                    <a class="support-none" href="filters/first/" title="No support">
+                        &nbsp;<span class="a11y-only">No support</span>
+                    </a>
+                
+                </td>
+            
+                <td>
+                
+                    <a class="support-part" href="filters/first/" title="Partial support">
+                        &nbsp;<span class="a11y-only">Partial support</span>
+                    </a>
+                
+                </td>
+            
+                <td>
+                
+                    <a class="support-full" href="filters/first/" title="Full support">
+                        &nbsp;<span class="a11y-only">Full support</span>
+                    </a>
+                
+                </td>
+            
+                <td>
+                
+                    <a class="support-full" href="filters/first/" title="Full support">
+                        &nbsp;<span class="a11y-only">Full support</span>
+                    </a>
+                
+                </td>
+            
+        </tr>
+    
+        <tr>
+            <th><a href="filters/float/"><code>float</code></a></th>
+            
+                <td>
+                
+                    <a class="support-none" href="filters/float/" title="No support">
+                        &nbsp;<span class="a11y-only">No support</span>
+                    </a>
+                
+                </td>
+            
+                <td>
+                
+                    <a class="support-full" href="filters/float/" title="Full support">
+                        &nbsp;<span class="a11y-only">Full support</span>
+                    </a>
+                
+                </td>
+            
+                <td>
+                
+                    <a class="support-part" href="filters/float/" title="Partial support">
+                        &nbsp;<span class="a11y-only">Partial support</span>
+                    </a>
+                
+                </td>
+            
+                <td>
+                
+                    <a class="support-part" href="filters/float/" title="Partial support">
+                        &nbsp;<span class="a11y-only">Partial support</span>
+                    </a>
+                
+                </td>
+            
+                <td>
+                
+                    <a class="support-none" href="filters/float/" title="No support">
+                        &nbsp;<span class="a11y-only">No support</span>
+                    </a>
+                
+                </td>
+            
+                <td>
+                
+                    <a class="support-none" href="filters/float/" title="No support">
+                        &nbsp;<span class="a11y-only">No support</span>
+                    </a>
+                
+                </td>
+            
+        </tr>
+    
+        <tr>
+            <th><a href="filters/indent/"><code>indent</code></a></th>
+            
+                <td>
+                
+                    <a class="support-none" href="filters/indent/" title="No support">
+                        &nbsp;<span class="a11y-only">No support</span>
+                    </a>
+                
+                </td>
+            
+                <td>
+                
+                    <a class="support-full" href="filters/indent/" title="Full support">
+                        &nbsp;<span class="a11y-only">Full support</span>
+                    </a>
+                
+                </td>
+            
+                <td>
+                
+                    <a class="support-full" href="filters/indent/" title="Full support">
+                        &nbsp;<span class="a11y-only">Full support</span>
+                    </a>
+                
+                </td>
+            
+                <td>
+                
+                    <a class="support-full" href="filters/indent/" title="Full support">
+                        &nbsp;<span class="a11y-only">Full support</span>
+                    </a>
+                
+                </td>
+            
+                <td>
+                
+                    <a class="support-none" href="filters/indent/" title="No support">
+                        &nbsp;<span class="a11y-only">No support</span>
+                    </a>
+                
+                </td>
+            
+                <td>
+                
+                    <a class="support-none" href="filters/indent/" title="No support">
+                        &nbsp;<span class="a11y-only">No support</span>
+                    </a>
+                
+                </td>
+            
+        </tr>
+    
+        <tr>
+            <th><a href="filters/int/"><code>int</code></a></th>
+            
+                <td>
+                
+                    <a class="support-none" href="filters/int/" title="No support">
+                        &nbsp;<span class="a11y-only">No support</span>
+                    </a>
+                
+                </td>
+            
+                <td>
+                
+                    <a class="support-full" href="filters/int/" title="Full support">
+                        &nbsp;<span class="a11y-only">Full support</span>
+                    </a>
+                
+                </td>
+            
+                <td>
+                
+                    <a class="support-part" href="filters/int/" title="Partial support">
+                        &nbsp;<span class="a11y-only">Partial support</span>
+                    </a>
+                
+                </td>
+            
+                <td>
+                
+                    <a class="support-part" href="filters/int/" title="Partial support">
+                        &nbsp;<span class="a11y-only">Partial support</span>
+                    </a>
+                
+                </td>
+            
+                <td>
+                
+                    <a class="support-none" href="filters/int/" title="No support">
+                        &nbsp;<span class="a11y-only">No support</span>
+                    </a>
+                
+                </td>
+            
+                <td>
+                
+                    <a class="support-none" href="filters/int/" title="No support">
+                        &nbsp;<span class="a11y-only">No support</span>
+                    </a>
+                
+                </td>
+            
+        </tr>
+    
+        <tr>
+            <th><a href="filters/last/"><code>last</code></a></th>
+            
+                <td>
+                
+                    <a class="support-part" href="filters/last/" title="Partial support">
+                        &nbsp;<span class="a11y-only">Partial support</span>
+                    </a>
+                
+                </td>
+            
+                <td>
+                
+                    <a class="support-part" href="filters/last/" title="Partial support">
+                        &nbsp;<span class="a11y-only">Partial support</span>
+                    </a>
+                
+                </td>
+            
+                <td>
+                
+                    <a class="support-part" href="filters/last/" title="Partial support">
+                        &nbsp;<span class="a11y-only">Partial support</span>
+                    </a>
+                
+                </td>
+            
+                <td>
+                
+                    <a class="support-part" href="filters/last/" title="Partial support">
+                        &nbsp;<span class="a11y-only">Partial support</span>
+                    </a>
+                
+                </td>
+            
+                <td>
+                
+                    <a class="support-full" href="filters/last/" title="Full support">
+                        &nbsp;<span class="a11y-only">Full support</span>
+                    </a>
+                
+                </td>
+            
+                <td>
+                
+                    <a class="support-full" href="filters/last/" title="Full support">
+                        &nbsp;<span class="a11y-only">Full support</span>
+                    </a>
+                
+                </td>
+            
+        </tr>
+    
+        <tr>
+            <th><a href="filters/length/"><code>length</code></a></th>
+            
+                <td>
+                
+                    <a class="support-part" href="filters/length/" title="Partial support">
+                        &nbsp;<span class="a11y-only">Partial support</span>
+                    </a>
+                
+                </td>
+            
+                <td>
+                
+                    <a class="support-part" href="filters/length/" title="Partial support">
+                        &nbsp;<span class="a11y-only">Partial support</span>
+                    </a>
+                
+                </td>
+            
+                <td>
+                
+                    <a class="support-part" href="filters/length/" title="Partial support">
+                        &nbsp;<span class="a11y-only">Partial support</span>
+                    </a>
+                
+                </td>
+            
+                <td>
+                
+                    <a class="support-part" href="filters/length/" title="Partial support">
+                        &nbsp;<span class="a11y-only">Partial support</span>
+                    </a>
+                
+                </td>
+            
+                <td>
+                
+                    <a class="support-none" href="filters/length/" title="No support">
+                        &nbsp;<span class="a11y-only">No support</span>
+                    </a>
+                
+                </td>
+            
+                <td>
+                
+                    <a class="support-full" href="filters/length/" title="Full support">
+                        &nbsp;<span class="a11y-only">Full support</span>
+                    </a>
+                
+                </td>
+            
+        </tr>
+    
+        <tr>
+            <th><a href="filters/lower/"><code>lower</code></a></th>
+            
+                <td>
+                
+                    <a class="support-full" href="filters/lower/" title="Full support">
+                        &nbsp;<span class="a11y-only">Full support</span>
+                    </a>
+                
+                </td>
+            
+                <td>
+                
+                    <a class="support-full" href="filters/lower/" title="Full support">
+                        &nbsp;<span class="a11y-only">Full support</span>
+                    </a>
+                
+                </td>
+            
+                <td>
+                
+                    <a class="support-full" href="filters/lower/" title="Full support">
+                        &nbsp;<span class="a11y-only">Full support</span>
+                    </a>
+                
+                </td>
+            
+                <td>
+                
+                    <a class="support-part" href="filters/lower/" title="Partial support">
+                        &nbsp;<span class="a11y-only">Partial support</span>
+                    </a>
+                
+                </td>
+            
+                <td>
+                
+                    <a class="support-full" href="filters/lower/" title="Full support">
+                        &nbsp;<span class="a11y-only">Full support</span>
+                    </a>
+                
+                </td>
+            
+                <td>
+                
+                    <a class="support-part" href="filters/lower/" title="Partial support">
+                        &nbsp;<span class="a11y-only">Partial support</span>
+                    </a>
+                
+                </td>
+            
+        </tr>
+    
+        <tr>
+            <th><a href="filters/upper/"><code>upper</code></a></th>
+            
+                <td>
+                
+                    <a class="support-full" href="filters/upper/" title="Full support">
+                        &nbsp;<span class="a11y-only">Full support</span>
+                    </a>
+                
+                </td>
+            
+                <td>
+                
+                    <a class="support-full" href="filters/upper/" title="Full support">
+                        &nbsp;<span class="a11y-only">Full support</span>
+                    </a>
+                
+                </td>
+            
+                <td>
+                
+                    <a class="support-full" href="filters/upper/" title="Full support">
+                        &nbsp;<span class="a11y-only">Full support</span>
+                    </a>
+                
+                </td>
+            
+                <td>
+                
+                    <a class="support-part" href="filters/upper/" title="Partial support">
+                        &nbsp;<span class="a11y-only">Partial support</span>
+                    </a>
+                
+                </td>
+            
+                <td>
+                
+                    <a class="support-full" href="filters/upper/" title="Full support">
+                        &nbsp;<span class="a11y-only">Full support</span>
+                    </a>
+                
+                </td>
+            
+                <td>
+                
+                    <a class="support-part" href="filters/upper/" title="Partial support">
+                        &nbsp;<span class="a11y-only">Partial support</span>
+                    </a>
+                
+                </td>
+            
+        </tr>
+    </tbody>
+    
+    
+    <thead id="functions">
+        <th>
+            <a href="#functions">functions</a>
+        </th>
+    
+        <th>
+            Django<br>
+            <small>v1.10.1</small>
+        </th>
+    
+        <th>
+            Jinja2<br>
+            <small>v2.8.0</small>
+        </th>
+    
+        <th>
+            Liquid<br>
+            <small>v3.0.6</small>
+        </th>
+    
+        <th>
+            Nunjucks<br>
+            <small>v2.5.0</small>
+        </th>
+    
+        <th>
+            Swig<br>
+            <small>v1.4.2</small>
+        </th>
+    
+        <th>
+            Twig<br>
+            <small>v1.24.2</small>
+        </th>
+    
+    </thead>
+
+    <tbody>
+        <tr>
+            <th><a href="functions/cycle/"><code>cycle</code></a></th>
+            
+                <td>
+                
+                    <a class="support-none" href="functions/cycle/" title="No support">
+                        &nbsp;<span class="a11y-only">No support</span>
+                    </a>
+                
+                </td>
+            
+                <td>
+                
+                    <a class="support-none" href="functions/cycle/" title="No support">
+                        &nbsp;<span class="a11y-only">No support</span>
+                    </a>
+                
+                </td>
+            
+                <td>
+                
+                    <a class="support-none" href="functions/cycle/" title="No support">
+                        &nbsp;<span class="a11y-only">No support</span>
+                    </a>
+                
+                </td>
+            
+                <td>
+                
+                    <a class="support-none" href="functions/cycle/" title="No support">
+                        &nbsp;<span class="a11y-only">No support</span>
+                    </a>
+                
+                </td>
+            
+                <td>
+                
+                    <a class="support-none" href="functions/cycle/" title="No support">
+                        &nbsp;<span class="a11y-only">No support</span>
+                    </a>
+                
+                </td>
+            
+                <td>
+                
+                    <a class="support-full" href="functions/cycle/" title="Full support">
+                        &nbsp;<span class="a11y-only">Full support</span>
+                    </a>
+                
+                </td>
+            
+        </tr>
+    
+        <tr>
+            <th><a href="functions/cycler/"><code>cycler</code></a></th>
+            
+                <td>
+                
+                    <a class="support-none" href="functions/cycler/" title="No support">
+                        &nbsp;<span class="a11y-only">No support</span>
+                    </a>
+                
+                </td>
+            
+                <td>
+                
+                    <a class="support-full" href="functions/cycler/" title="Full support">
+                        &nbsp;<span class="a11y-only">Full support</span>
+                    </a>
+                
+                </td>
+            
+                <td>
+                
+                    <a class="support-none" href="functions/cycler/" title="No support">
+                        &nbsp;<span class="a11y-only">No support</span>
+                    </a>
+                
+                </td>
+            
+                <td>
+                
+                    <a class="support-full" href="functions/cycler/" title="Full support">
+                        &nbsp;<span class="a11y-only">Full support</span>
+                    </a>
+                
+                </td>
+            
+                <td>
+                
+                    <a class="support-none" href="functions/cycler/" title="No support">
+                        &nbsp;<span class="a11y-only">No support</span>
+                    </a>
+                
+                </td>
+            
+                <td>
+                
+                    <a class="support-none" href="functions/cycler/" title="No support">
+                        &nbsp;<span class="a11y-only">No support</span>
+                    </a>
+                
+                </td>
+            
+        </tr>
+    
+        <tr>
+            <th><a href="functions/range/"><code>range</code></a></th>
+            
+                <td>
+                
+                    <a class="support-part" href="functions/range/" title="Partial support">
+                        &nbsp;<span class="a11y-only">Partial support</span>
+                    </a>
+                
+                </td>
+            
+                <td>
+                
+                    <a class="support-part" href="functions/range/" title="Partial support">
+                        &nbsp;<span class="a11y-only">Partial support</span>
+                    </a>
+                
+                </td>
+            
+                <td>
+                
+                    <a class="support-none" href="functions/range/" title="No support">
+                        &nbsp;<span class="a11y-only">No support</span>
+                    </a>
+                
+                </td>
+            
+                <td>
+                
+                    <a class="support-part" href="functions/range/" title="Partial support">
+                        &nbsp;<span class="a11y-only">Partial support</span>
+                    </a>
+                
+                </td>
+            
+                <td>
+                
+                    <a class="support-none" href="functions/range/" title="No support">
+                        &nbsp;<span class="a11y-only">No support</span>
+                    </a>
+                
+                </td>
+            
+                <td>
+                
+                    <a class="support-part" href="functions/range/" title="Partial support">
+                        &nbsp;<span class="a11y-only">Partial support</span>
+                    </a>
+                
+                </td>
+            
+        </tr>
+    </tbody>
+    
+    
+    <thead id="tags">
+        <th>
+            <a href="#tags">tags</a>
+        </th>
+    
+        <th>
+            Django<br>
+            <small>v1.10.1</small>
+        </th>
+    
+        <th>
+            Jinja2<br>
+            <small>v2.8.0</small>
+        </th>
+    
+        <th>
+            Liquid<br>
+            <small>v3.0.6</small>
+        </th>
+    
+        <th>
+            Nunjucks<br>
+            <small>v2.5.0</small>
+        </th>
+    
+        <th>
+            Swig<br>
+            <small>v1.4.2</small>
+        </th>
+    
+        <th>
+            Twig<br>
+            <small>v1.24.2</small>
+        </th>
+    
+    </thead>
+
+    <tbody>
+        <tr>
+            <th><a href="tags/if/"><code>if</code></a></th>
+            
+                <td>
+                
+                    <a class="support-full" href="tags/if/" title="Full support">
+                        &nbsp;<span class="a11y-only">Full support</span>
+                    </a>
+                
+                </td>
+            
+                <td>
+                
+                    <a class="support-full" href="tags/if/" title="Full support">
+                        &nbsp;<span class="a11y-only">Full support</span>
+                    </a>
+                
+                </td>
+            
+                <td>
+                
+                    <a class="support-part" href="tags/if/" title="Partial support">
+                        &nbsp;<span class="a11y-only">Partial support</span>
+                    </a>
+                
+                </td>
+            
+                <td>
+                
+                    <a class="support-full" href="tags/if/" title="Full support">
+                        &nbsp;<span class="a11y-only">Full support</span>
+                    </a>
+                
+                </td>
+            
+                <td>
+                
+                    <a class="support-part" href="tags/if/" title="Partial support">
+                        &nbsp;<span class="a11y-only">Partial support</span>
+                    </a>
+                
+                </td>
+            
+                <td>
+                
+                    <a class="support-full" href="tags/if/" title="Full support">
+                        &nbsp;<span class="a11y-only">Full support</span>
+                    </a>
+                
+                </td>
+            
+        </tr>
+    
+        <tr>
+            <th><a href="tags/raw/"><code>raw</code></a></th>
+            
+                <td>
+                
+                    <a class="support-none" href="tags/raw/" title="No support">
+                        &nbsp;<span class="a11y-only">No support</span>
+                    </a>
+                
+                </td>
+            
+                <td>
+                
+                    <a class="support-part" href="tags/raw/" title="Partial support">
+                        &nbsp;<span class="a11y-only">Partial support</span>
+                    </a>
+                
+                </td>
+            
+                <td>
+                
+                    <a class="support-part" href="tags/raw/" title="Partial support">
+                        &nbsp;<span class="a11y-only">Partial support</span>
+                    </a>
+                
+                </td>
+            
+                <td>
+                
+                    <a class="support-full" href="tags/raw/" title="Full support">
+                        &nbsp;<span class="a11y-only">Full support</span>
+                    </a>
+                
+                </td>
+            
+                <td>
+                
+                    <a class="support-part" href="tags/raw/" title="Partial support">
+                        &nbsp;<span class="a11y-only">Partial support</span>
+                    </a>
+                
+                </td>
+            
+                <td>
+                
+                    <a class="support-part" href="tags/raw/" title="Partial support">
+                        &nbsp;<span class="a11y-only">Partial support</span>
+                    </a>
+                
+                </td>
+            
+        </tr>
+    </tbody>
+    
+</table>
+
 
 
 <footer class="app-footer" role="contentinfo">
