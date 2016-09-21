@@ -13,6 +13,10 @@ $templateData = readJson($config['templateDataFile']);
 
 $fs = new Filesystem(); // http://symfony.com/doc/current/components/filesystem.html
 
+function onlyWhitespace($str) {
+    return strlen(trim($str)) == 0;
+}
+
 function readJson($filename) {
     return json_decode(file_get_contents($filename), true);
 }
@@ -48,6 +52,9 @@ foreach ($templateData as $templateName => $data) {
         $output = $twig->render($templateName . $config['templateExt'], $data);
         if (startsWith(trim($output), 'Warning: ')) {
             throw new Twig_Warning($output);
+        }
+        if (onlyWhitespace($output)) {
+            throw new Twig_Warning($config['noOutputMessage']);
         }
         $fs->dumpFile($outputDir . $templateName . $config['templateExt'], $output);
     } catch (Exception $e) {
