@@ -1,5 +1,6 @@
 'use strict';
 
+const onlyWhitespace = require('./lib/only-whitespace');
 const path = require('path');
 const series = require('async').series;
 const saveFile = require('./lib/save-file');
@@ -24,6 +25,10 @@ const consoleError = console.error;
 const storeConsoleErrorToVar = message => { errorMessage = message; };
 const restoreConsoleErrorLog = () => { console.error = console.Error; };
 
+const templatesWithMemoryIssues = [
+    'functions/range/negative-step'
+];
+
 renderAllTemplates();
 
 /**
@@ -43,9 +48,16 @@ function renderAllTemplates() {
 
 function renderTemplate(templateName, data) {
     return function(callback) {
+        if(templatesWithMemoryIssues.indexOf(templateName) >= 0) {
+            return saveError(templateName, { message: '(out of memory)' })
+                .then(() => callback());
+        }
         const templateFilename = templateName + config.templateExt;
         const options = Object.assign({}, data, { settings: twigSettings });
         twig.renderFile(inputDir + templateFilename, options, (err, output) => {
+            if (!err && onlyWhitespace(output)) {
+                err = { message: config.noOutputMessage }
+            }
             if (output === 'undefined') {
                 err = {message: errorMessage};
             }
