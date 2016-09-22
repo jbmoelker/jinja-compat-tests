@@ -18,6 +18,12 @@
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.5.1/themes/prism.css">
 <style type="text/css">
+    article { overflow: auto; zoom: 1; }
+    .page-title { font-size: 2rem; }
+    .page-nav { float: left; margin-right: 2.5em; }
+    .page-nav ul, .page-nav ol { list-style: none; padding-left: 0; }
+    .page-content { float: left; }
+
     h4 { margin-bottom: 0; }
     h4 small { float: right; font-weight: normal; font-style: italic; }
     label { padding-right: 1em; cursor: pointer; }
@@ -28,6 +34,17 @@
     .error { border: 2px solid red; white-space: normal; }
 
     [data-engine-enabled="false"] { display:none; }
+
+    .a11y-only {
+        border: 0;
+        clip: rect(0 0 0 0);
+        height: 1px;
+        margin: -1px;
+        overflow: hidden;
+        padding: 0;
+        position: absolute;
+        width: 1px;
+    }
 </style>
 
 <header>
@@ -77,372 +94,381 @@
 </header>
 
 <article>
-    <h1><code>indent</code> filter</h1>
+    <h1 class="page-title"><code>indent</code> filter</h1>
 
-    <section id="docs">
-        <h2><a class="permalink" href="#docs">Docs</a></h2>
-        <ul>
-        
+    <div class="page-nav">
+        <nav id="docs">
+            <h2><a class="permalink" href="#docs">Docs</a></h2>
+            <ul>
             
-        
-            
-            <li>
-                <a href="http://jinja.pocoo.org/docs/dev/templates/#indent">Jinja2</a>
-            </li>
-            
-        
-            
-        
-            
-            <li>
-                <a href="https://mozilla.github.io/nunjucks/templating.html#indent">Nunjucks</a>
-            </li>
-            
-        
-            
-        
-            
-        
-        </ul>
-    </section>
-
-    <h2 id="tests">
-        <a class="permalink" href="#tests">Tests</a>
-    </h2>
-    <ol>
-    
-        <li><a href="#custom-spacing">custom-spacing</a></li>
-    
-        <li><a href="#default">default</a></li>
-    
-        <li><a href="#include-first-line">include-first-line</a></li>
-    
-    </ol>
-    
-    
-    <section class="section" id="custom-spacing">
-        <h3><a class="permalink" href="#custom-spacing">Test: custom-spacing</a></h3>
-
-        <h4>Template</h4>
-        <div class="test"><pre class="language-twig"><code><span class="token tag" ><span class="token ld" ><span class="token punctuation" >{{</span></span> <span class="token string" ><span class="token punctuation" >"</span>one\ntwo\nthree<span class="token punctuation" >"</span></span> <span class="token operator" >|</span> <span class="token property" >indent</span><span class="token punctuation" >(</span><span class="token number" >6</span><span class="token punctuation" >)</span> <span class="token rd" ><span class="token punctuation" >}}</span></span></span></code></pre></div>
-
-        
-
-        
-        
-        
-        <section id="custom-spacing-django" data-engine="django">
-            <h4>
-                <a class="permalink" href="#custom-spacing-django">Output Django</a>
-                (error)
-                <small>v1.10.1</small>
-            </h4>
-            
-                <pre class="error"><code>Invalid filter: 'indent'</code></pre>
-            
-        </section>
-        
-        
-        
-        <section id="custom-spacing-jinja2" data-engine="jinja2">
-            <h4>
-                <a class="permalink" href="#custom-spacing-jinja2">Output Jinja2</a>
                 
-                <small>v2.8.0</small>
-            </h4>
             
-                <pre class="result"><code>one
+                
+                <li>
+                    <a href="http://jinja.pocoo.org/docs/dev/templates/#indent">Jinja2</a>
+                </li>
+                
+            
+                
+            
+                
+                <li>
+                    <a href="https://mozilla.github.io/nunjucks/templating.html#indent">Nunjucks</a>
+                </li>
+                
+            
+                
+            
+                
+            
+            </ul>
+        </nav>
+
+        <nav id="toc">
+            <h2>Tests</h2>
+            <ol>
+                
+                    <li><a href="#custom-spacing">custom-spacing</a></li>
+                
+                    <li><a href="#default">default</a></li>
+                
+                    <li><a href="#include-first-line">include-first-line</a></li>
+                
+            </ol>
+        </nav>
+    </div>
+
+    <div class="page-content">
+        <h2 id="tests" class="a11y-only">
+            <a class="permalink" href="#tests">Tests</a>
+        </h2>
+        
+        
+        <section class="section" id="custom-spacing">
+            <h3><a class="permalink" href="#custom-spacing">Test: custom-spacing</a></h3>
+
+            <h4>Template</h4>
+            <div class="test"><pre class="language-twig"><code><span class="token tag" ><span class="token ld" ><span class="token punctuation" >{{</span></span> <span class="token string" ><span class="token punctuation" >"</span>one\ntwo\nthree<span class="token punctuation" >"</span></span> <span class="token operator" >|</span> <span class="token property" >indent</span><span class="token punctuation" >(</span><span class="token number" >6</span><span class="token punctuation" >)</span> <span class="token rd" ><span class="token punctuation" >}}</span></span></span></code></pre></div>
+
+            
+
+            
+            
+            
+            <section id="custom-spacing-django" data-engine="django">
+                <h4>
+                    <a class="permalink" href="#custom-spacing-django">Output Django</a>
+                    (error)
+                    <small>v1.10.1</small>
+                </h4>
+                
+                    <pre class="error"><code>Invalid filter: 'indent'</code></pre>
+                
+            </section>
+            
+            
+            
+            <section id="custom-spacing-jinja2" data-engine="jinja2">
+                <h4>
+                    <a class="permalink" href="#custom-spacing-jinja2">Output Jinja2</a>
+                    
+                    <small>v2.8.0</small>
+                </h4>
+                
+                    <pre class="result"><code>one
       two
       three</code></pre>
-            
-        </section>
-        
-        
-        
-        <section id="custom-spacing-liquid" data-engine="liquid">
-            <h4>
-                <a class="permalink" href="#custom-spacing-liquid">Output Liquid</a>
                 
-                <small>v3.0.6</small>
-            </h4>
+            </section>
             
-                <pre class="result"><code>one\ntwo\nthree</code></pre>
             
-        </section>
-        
-        
-        
-        <section id="custom-spacing-nunjucks" data-engine="nunjucks">
-            <h4>
-                <a class="permalink" href="#custom-spacing-nunjucks">Output Nunjucks</a>
+            
+            <section id="custom-spacing-liquid" data-engine="liquid">
+                <h4>
+                    <a class="permalink" href="#custom-spacing-liquid">Output Liquid</a>
+                    
+                    <small>v3.0.6</small>
+                </h4>
                 
-                <small>v2.5.0</small>
-            </h4>
+                    <pre class="result"><code>one\ntwo\nthree</code></pre>
+                
+            </section>
             
-                <pre class="result"><code>one
+            
+            
+            <section id="custom-spacing-nunjucks" data-engine="nunjucks">
+                <h4>
+                    <a class="permalink" href="#custom-spacing-nunjucks">Output Nunjucks</a>
+                    
+                    <small>v2.5.0</small>
+                </h4>
+                
+                    <pre class="result"><code>one
       two
       three
 </code></pre>
-            
-        </section>
-        
-        
-        
-        <section id="custom-spacing-swig" data-engine="swig">
-            <h4>
-                <a class="permalink" href="#custom-spacing-swig">Output Swig</a>
-                (error)
-                <small>v1.4.2</small>
-            </h4>
-            
-                <pre class="error"><code>Invalid filter "indent".</code></pre>
-            
-        </section>
-        
-        
-        
-        <section id="custom-spacing-twig" data-engine="twig">
-            <h4>
-                <a class="permalink" href="#custom-spacing-twig">Output Twig</a>
-                (error)
-                <small>v1.24.2</small>
-            </h4>
-            
-                <pre class="error"><code>Unknown "indent" filter.</code></pre>
-            
-        </section>
-        
-        
-        
-        <section id="custom-spacing-twigjs" data-engine="twigjs">
-            <h4>
-                <a class="permalink" href="#custom-spacing-twigjs">Output Twigjs</a>
-                (error)
-                <small>v0.9.5</small>
-            </h4>
-            
-                <pre class="error"><code>Unable to find filter indent</code></pre>
-            
-        </section>
-        
-    </section>
-    
-    
-    <section class="section" id="default">
-        <h3><a class="permalink" href="#default">Test: default</a></h3>
-
-        <h4>Template</h4>
-        <div class="test"><pre class="language-twig"><code><span class="token tag" ><span class="token ld" ><span class="token punctuation" >{{</span></span> <span class="token string" ><span class="token punctuation" >"</span>one\ntwo\nthree<span class="token punctuation" >"</span></span> <span class="token operator" >|</span> <span class="token property" >indent</span> <span class="token rd" ><span class="token punctuation" >}}</span></span></span></code></pre></div>
-
-        
-
-        
-        
-        
-        <section id="default-django" data-engine="django">
-            <h4>
-                <a class="permalink" href="#default-django">Output Django</a>
-                (error)
-                <small>v1.10.1</small>
-            </h4>
-            
-                <pre class="error"><code>Invalid filter: 'indent'</code></pre>
-            
-        </section>
-        
-        
-        
-        <section id="default-jinja2" data-engine="jinja2">
-            <h4>
-                <a class="permalink" href="#default-jinja2">Output Jinja2</a>
                 
-                <small>v2.8.0</small>
-            </h4>
+            </section>
             
-                <pre class="result"><code>one
+            
+            
+            <section id="custom-spacing-swig" data-engine="swig">
+                <h4>
+                    <a class="permalink" href="#custom-spacing-swig">Output Swig</a>
+                    (error)
+                    <small>v1.4.2</small>
+                </h4>
+                
+                    <pre class="error"><code>Invalid filter "indent".</code></pre>
+                
+            </section>
+            
+            
+            
+            <section id="custom-spacing-twig" data-engine="twig">
+                <h4>
+                    <a class="permalink" href="#custom-spacing-twig">Output Twig</a>
+                    (error)
+                    <small>v1.24.2</small>
+                </h4>
+                
+                    <pre class="error"><code>Unknown "indent" filter.</code></pre>
+                
+            </section>
+            
+            
+            
+            <section id="custom-spacing-twigjs" data-engine="twigjs">
+                <h4>
+                    <a class="permalink" href="#custom-spacing-twigjs">Output Twigjs</a>
+                    (error)
+                    <small>v0.9.5</small>
+                </h4>
+                
+                    <pre class="error"><code>Unable to find filter indent</code></pre>
+                
+            </section>
+            
+        </section>
+        
+        
+        <section class="section" id="default">
+            <h3><a class="permalink" href="#default">Test: default</a></h3>
+
+            <h4>Template</h4>
+            <div class="test"><pre class="language-twig"><code><span class="token tag" ><span class="token ld" ><span class="token punctuation" >{{</span></span> <span class="token string" ><span class="token punctuation" >"</span>one\ntwo\nthree<span class="token punctuation" >"</span></span> <span class="token operator" >|</span> <span class="token property" >indent</span> <span class="token rd" ><span class="token punctuation" >}}</span></span></span></code></pre></div>
+
+            
+
+            
+            
+            
+            <section id="default-django" data-engine="django">
+                <h4>
+                    <a class="permalink" href="#default-django">Output Django</a>
+                    (error)
+                    <small>v1.10.1</small>
+                </h4>
+                
+                    <pre class="error"><code>Invalid filter: 'indent'</code></pre>
+                
+            </section>
+            
+            
+            
+            <section id="default-jinja2" data-engine="jinja2">
+                <h4>
+                    <a class="permalink" href="#default-jinja2">Output Jinja2</a>
+                    
+                    <small>v2.8.0</small>
+                </h4>
+                
+                    <pre class="result"><code>one
     two
     three</code></pre>
-            
-        </section>
-        
-        
-        
-        <section id="default-liquid" data-engine="liquid">
-            <h4>
-                <a class="permalink" href="#default-liquid">Output Liquid</a>
                 
-                <small>v3.0.6</small>
-            </h4>
+            </section>
             
-                <pre class="result"><code>one\ntwo\nthree</code></pre>
             
-        </section>
-        
-        
-        
-        <section id="default-nunjucks" data-engine="nunjucks">
-            <h4>
-                <a class="permalink" href="#default-nunjucks">Output Nunjucks</a>
+            
+            <section id="default-liquid" data-engine="liquid">
+                <h4>
+                    <a class="permalink" href="#default-liquid">Output Liquid</a>
+                    
+                    <small>v3.0.6</small>
+                </h4>
                 
-                <small>v2.5.0</small>
-            </h4>
+                    <pre class="result"><code>one\ntwo\nthree</code></pre>
+                
+            </section>
             
-                <pre class="result"><code>one
+            
+            
+            <section id="default-nunjucks" data-engine="nunjucks">
+                <h4>
+                    <a class="permalink" href="#default-nunjucks">Output Nunjucks</a>
+                    
+                    <small>v2.5.0</small>
+                </h4>
+                
+                    <pre class="result"><code>one
     two
     three
 </code></pre>
-            
-        </section>
-        
-        
-        
-        <section id="default-swig" data-engine="swig">
-            <h4>
-                <a class="permalink" href="#default-swig">Output Swig</a>
-                (error)
-                <small>v1.4.2</small>
-            </h4>
-            
-                <pre class="error"><code>Invalid filter "indent".</code></pre>
-            
-        </section>
-        
-        
-        
-        <section id="default-twig" data-engine="twig">
-            <h4>
-                <a class="permalink" href="#default-twig">Output Twig</a>
-                (error)
-                <small>v1.24.2</small>
-            </h4>
-            
-                <pre class="error"><code>Unknown "indent" filter.</code></pre>
-            
-        </section>
-        
-        
-        
-        <section id="default-twigjs" data-engine="twigjs">
-            <h4>
-                <a class="permalink" href="#default-twigjs">Output Twigjs</a>
-                (error)
-                <small>v0.9.5</small>
-            </h4>
-            
-                <pre class="error"><code>Unable to find filter indent</code></pre>
-            
-        </section>
-        
-    </section>
-    
-    
-    <section class="section" id="include-first-line">
-        <h3><a class="permalink" href="#include-first-line">Test: include-first-line</a></h3>
-
-        <h4>Template</h4>
-        <div class="test"><pre class="language-twig"><code><span class="token tag" ><span class="token ld" ><span class="token punctuation" >{{</span></span> <span class="token string" ><span class="token punctuation" >"</span>one\ntwo\nthree<span class="token punctuation" >"</span></span> <span class="token operator" >|</span> <span class="token property" >indent</span><span class="token punctuation" >(</span><span class="token number" >6</span><span class="token punctuation" >,</span> <span class="token boolean" >true</span><span class="token punctuation" >)</span> <span class="token rd" ><span class="token punctuation" >}}</span></span></span></code></pre></div>
-
-        
-
-        
-        
-        
-        <section id="include-first-line-django" data-engine="django">
-            <h4>
-                <a class="permalink" href="#include-first-line-django">Output Django</a>
-                (error)
-                <small>v1.10.1</small>
-            </h4>
-            
-                <pre class="error"><code>Invalid filter: 'indent'</code></pre>
-            
-        </section>
-        
-        
-        
-        <section id="include-first-line-jinja2" data-engine="jinja2">
-            <h4>
-                <a class="permalink" href="#include-first-line-jinja2">Output Jinja2</a>
                 
-                <small>v2.8.0</small>
-            </h4>
+            </section>
             
-                <pre class="result"><code>      one
+            
+            
+            <section id="default-swig" data-engine="swig">
+                <h4>
+                    <a class="permalink" href="#default-swig">Output Swig</a>
+                    (error)
+                    <small>v1.4.2</small>
+                </h4>
+                
+                    <pre class="error"><code>Invalid filter "indent".</code></pre>
+                
+            </section>
+            
+            
+            
+            <section id="default-twig" data-engine="twig">
+                <h4>
+                    <a class="permalink" href="#default-twig">Output Twig</a>
+                    (error)
+                    <small>v1.24.2</small>
+                </h4>
+                
+                    <pre class="error"><code>Unknown "indent" filter.</code></pre>
+                
+            </section>
+            
+            
+            
+            <section id="default-twigjs" data-engine="twigjs">
+                <h4>
+                    <a class="permalink" href="#default-twigjs">Output Twigjs</a>
+                    (error)
+                    <small>v0.9.5</small>
+                </h4>
+                
+                    <pre class="error"><code>Unable to find filter indent</code></pre>
+                
+            </section>
+            
+        </section>
+        
+        
+        <section class="section" id="include-first-line">
+            <h3><a class="permalink" href="#include-first-line">Test: include-first-line</a></h3>
+
+            <h4>Template</h4>
+            <div class="test"><pre class="language-twig"><code><span class="token tag" ><span class="token ld" ><span class="token punctuation" >{{</span></span> <span class="token string" ><span class="token punctuation" >"</span>one\ntwo\nthree<span class="token punctuation" >"</span></span> <span class="token operator" >|</span> <span class="token property" >indent</span><span class="token punctuation" >(</span><span class="token number" >6</span><span class="token punctuation" >,</span> <span class="token boolean" >true</span><span class="token punctuation" >)</span> <span class="token rd" ><span class="token punctuation" >}}</span></span></span></code></pre></div>
+
+            
+
+            
+            
+            
+            <section id="include-first-line-django" data-engine="django">
+                <h4>
+                    <a class="permalink" href="#include-first-line-django">Output Django</a>
+                    (error)
+                    <small>v1.10.1</small>
+                </h4>
+                
+                    <pre class="error"><code>Invalid filter: 'indent'</code></pre>
+                
+            </section>
+            
+            
+            
+            <section id="include-first-line-jinja2" data-engine="jinja2">
+                <h4>
+                    <a class="permalink" href="#include-first-line-jinja2">Output Jinja2</a>
+                    
+                    <small>v2.8.0</small>
+                </h4>
+                
+                    <pre class="result"><code>      one
       two
       three</code></pre>
-            
-        </section>
-        
-        
-        
-        <section id="include-first-line-liquid" data-engine="liquid">
-            <h4>
-                <a class="permalink" href="#include-first-line-liquid">Output Liquid</a>
                 
-                <small>v3.0.6</small>
-            </h4>
+            </section>
             
-                <pre class="result"><code>one\ntwo\nthree</code></pre>
             
-        </section>
-        
-        
-        
-        <section id="include-first-line-nunjucks" data-engine="nunjucks">
-            <h4>
-                <a class="permalink" href="#include-first-line-nunjucks">Output Nunjucks</a>
+            
+            <section id="include-first-line-liquid" data-engine="liquid">
+                <h4>
+                    <a class="permalink" href="#include-first-line-liquid">Output Liquid</a>
+                    
+                    <small>v3.0.6</small>
+                </h4>
                 
-                <small>v2.5.0</small>
-            </h4>
+                    <pre class="result"><code>one\ntwo\nthree</code></pre>
+                
+            </section>
             
-                <pre class="result"><code>      one
+            
+            
+            <section id="include-first-line-nunjucks" data-engine="nunjucks">
+                <h4>
+                    <a class="permalink" href="#include-first-line-nunjucks">Output Nunjucks</a>
+                    
+                    <small>v2.5.0</small>
+                </h4>
+                
+                    <pre class="result"><code>      one
       two
       three
 </code></pre>
+                
+            </section>
+            
+            
+            
+            <section id="include-first-line-swig" data-engine="swig">
+                <h4>
+                    <a class="permalink" href="#include-first-line-swig">Output Swig</a>
+                    (error)
+                    <small>v1.4.2</small>
+                </h4>
+                
+                    <pre class="error"><code>Invalid filter "indent".</code></pre>
+                
+            </section>
+            
+            
+            
+            <section id="include-first-line-twig" data-engine="twig">
+                <h4>
+                    <a class="permalink" href="#include-first-line-twig">Output Twig</a>
+                    (error)
+                    <small>v1.24.2</small>
+                </h4>
+                
+                    <pre class="error"><code>Unknown "indent" filter.</code></pre>
+                
+            </section>
+            
+            
+            
+            <section id="include-first-line-twigjs" data-engine="twigjs">
+                <h4>
+                    <a class="permalink" href="#include-first-line-twigjs">Output Twigjs</a>
+                    (error)
+                    <small>v0.9.5</small>
+                </h4>
+                
+                    <pre class="error"><code>Unable to find filter indent</code></pre>
+                
+            </section>
             
         </section>
         
-        
-        
-        <section id="include-first-line-swig" data-engine="swig">
-            <h4>
-                <a class="permalink" href="#include-first-line-swig">Output Swig</a>
-                (error)
-                <small>v1.4.2</small>
-            </h4>
-            
-                <pre class="error"><code>Invalid filter "indent".</code></pre>
-            
-        </section>
-        
-        
-        
-        <section id="include-first-line-twig" data-engine="twig">
-            <h4>
-                <a class="permalink" href="#include-first-line-twig">Output Twig</a>
-                (error)
-                <small>v1.24.2</small>
-            </h4>
-            
-                <pre class="error"><code>Unknown "indent" filter.</code></pre>
-            
-        </section>
-        
-        
-        
-        <section id="include-first-line-twigjs" data-engine="twigjs">
-            <h4>
-                <a class="permalink" href="#include-first-line-twigjs">Output Twigjs</a>
-                (error)
-                <small>v0.9.5</small>
-            </h4>
-            
-                <pre class="error"><code>Unable to find filter indent</code></pre>
-            
-        </section>
-        
-    </section>
-    
+    </div>
+
 </article>
 
 <script>(function engineEnabler(){

@@ -18,6 +18,12 @@
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.5.1/themes/prism.css">
 <style type="text/css">
+    article { overflow: auto; zoom: 1; }
+    .page-title { font-size: 2rem; }
+    .page-nav { float: left; margin-right: 2.5em; }
+    .page-nav ul, .page-nav ol { list-style: none; padding-left: 0; }
+    .page-content { float: left; }
+
     h4 { margin-bottom: 0; }
     h4 small { float: right; font-weight: normal; font-style: italic; }
     label { padding-right: 1em; cursor: pointer; }
@@ -28,6 +34,17 @@
     .error { border: 2px solid red; white-space: normal; }
 
     [data-engine-enabled="false"] { display:none; }
+
+    .a11y-only {
+        border: 0;
+        clip: rect(0 0 0 0);
+        height: 1px;
+        margin: -1px;
+        overflow: hidden;
+        padding: 0;
+        position: absolute;
+        width: 1px;
+    }
 </style>
 
 <header>
@@ -77,777 +94,786 @@
 </header>
 
 <article>
-    <h1><code>int</code> filter</h1>
+    <h1 class="page-title"><code>int</code> filter</h1>
 
-    <section id="docs">
-        <h2><a class="permalink" href="#docs">Docs</a></h2>
-        <ul>
-        
+    <div class="page-nav">
+        <nav id="docs">
+            <h2><a class="permalink" href="#docs">Docs</a></h2>
+            <ul>
             
-        
-            
-            <li>
-                <a href="http://jinja.pocoo.org/docs/dev/templates/#int">Jinja2</a>
-            </li>
-            
-        
-            
-        
-            
-            <li>
-                <a href="https://mozilla.github.io/nunjucks/templating.html#int">Nunjucks</a>
-            </li>
-            
-        
-            
-        
-            
-        
-        </ul>
-    </section>
-
-    <h2 id="tests">
-        <a class="permalink" href="#tests">Tests</a>
-    </h2>
-    <ol>
-    
-        <li><a href="#base-16">base-16</a></li>
-    
-        <li><a href="#base-8">base-8</a></li>
-    
-        <li><a href="#custom-fallback">custom-fallback</a></li>
-    
-        <li><a href="#float">float</a></li>
-    
-        <li><a href="#force-fallback">force-fallback</a></li>
-    
-        <li><a href="#integer">integer</a></li>
-    
-        <li><a href="#string">string</a></li>
-    
-    </ol>
-    
-    
-    <section class="section" id="base-16">
-        <h3><a class="permalink" href="#base-16">Test: base-16</a></h3>
-
-        <h4>Template</h4>
-        <div class="test"><pre class="language-twig"><code><span class="token tag" ><span class="token ld" ><span class="token punctuation" >{{</span></span> <span class="token string" ><span class="token punctuation" >"</span>0x4d32<span class="token punctuation" >"</span></span><span class="token operator" >|</span><span class="token property" >int</span><span class="token punctuation" >(</span><span class="token number" >0</span><span class="token punctuation" >,</span> <span class="token number" >16</span><span class="token punctuation" >)</span> <span class="token rd" ><span class="token punctuation" >}}</span></span></span></code></pre></div>
-
-        
-
-        
-        
-        
-        <section id="base-16-django" data-engine="django">
-            <h4>
-                <a class="permalink" href="#base-16-django">Output Django</a>
-                (error)
-                <small>v1.10.1</small>
-            </h4>
-            
-                <pre class="error"><code>Invalid filter: 'int'</code></pre>
-            
-        </section>
-        
-        
-        
-        <section id="base-16-jinja2" data-engine="jinja2">
-            <h4>
-                <a class="permalink" href="#base-16-jinja2">Output Jinja2</a>
                 
-                <small>v2.8.0</small>
-            </h4>
             
-                <pre class="result"><code>19762</code></pre>
-            
-        </section>
-        
-        
-        
-        <section id="base-16-liquid" data-engine="liquid">
-            <h4>
-                <a class="permalink" href="#base-16-liquid">Output Liquid</a>
                 
-                <small>v3.0.6</small>
-            </h4>
-            
-                <pre class="result"><code>0x4d32</code></pre>
-            
-        </section>
-        
-        
-        
-        <section id="base-16-nunjucks" data-engine="nunjucks">
-            <h4>
-                <a class="permalink" href="#base-16-nunjucks">Output Nunjucks</a>
+                <li>
+                    <a href="http://jinja.pocoo.org/docs/dev/templates/#int">Jinja2</a>
+                </li>
                 
-                <small>v2.5.0</small>
-            </h4>
             
-                <pre class="result"><code>0</code></pre>
-            
-        </section>
-        
-        
-        
-        <section id="base-16-swig" data-engine="swig">
-            <h4>
-                <a class="permalink" href="#base-16-swig">Output Swig</a>
-                (error)
-                <small>v1.4.2</small>
-            </h4>
-            
-                <pre class="error"><code>Invalid filter "int".</code></pre>
-            
-        </section>
-        
-        
-        
-        <section id="base-16-twig" data-engine="twig">
-            <h4>
-                <a class="permalink" href="#base-16-twig">Output Twig</a>
-                (error)
-                <small>v1.24.2</small>
-            </h4>
-            
-                <pre class="error"><code>Unknown "int" filter.</code></pre>
-            
-        </section>
-        
-        
-        
-        <section id="base-16-twigjs" data-engine="twigjs">
-            <h4>
-                <a class="permalink" href="#base-16-twigjs">Output Twigjs</a>
-                (error)
-                <small>v0.9.5</small>
-            </h4>
-            
-                <pre class="error"><code>Unable to find filter int</code></pre>
-            
-        </section>
-        
-    </section>
-    
-    
-    <section class="section" id="base-8">
-        <h3><a class="permalink" href="#base-8">Test: base-8</a></h3>
-
-        <h4>Template</h4>
-        <div class="test"><pre class="language-twig"><code><span class="token tag" ><span class="token ld" ><span class="token punctuation" >{{</span></span> <span class="token string" ><span class="token punctuation" >"</span>011<span class="token punctuation" >"</span></span><span class="token operator" >|</span><span class="token property" >int</span><span class="token punctuation" >(</span><span class="token number" >0</span><span class="token punctuation" >,</span> <span class="token number" >8</span><span class="token punctuation" >)</span> <span class="token rd" ><span class="token punctuation" >}}</span></span></span></code></pre></div>
-
-        
-
-        
-        
-        
-        <section id="base-8-django" data-engine="django">
-            <h4>
-                <a class="permalink" href="#base-8-django">Output Django</a>
-                (error)
-                <small>v1.10.1</small>
-            </h4>
-            
-                <pre class="error"><code>Invalid filter: 'int'</code></pre>
-            
-        </section>
-        
-        
-        
-        <section id="base-8-jinja2" data-engine="jinja2">
-            <h4>
-                <a class="permalink" href="#base-8-jinja2">Output Jinja2</a>
                 
-                <small>v2.8.0</small>
-            </h4>
             
-                <pre class="result"><code>9</code></pre>
-            
-        </section>
-        
-        
-        
-        <section id="base-8-liquid" data-engine="liquid">
-            <h4>
-                <a class="permalink" href="#base-8-liquid">Output Liquid</a>
                 
-                <small>v3.0.6</small>
-            </h4>
-            
-                <pre class="result"><code>011</code></pre>
-            
-        </section>
-        
-        
-        
-        <section id="base-8-nunjucks" data-engine="nunjucks">
-            <h4>
-                <a class="permalink" href="#base-8-nunjucks">Output Nunjucks</a>
+                <li>
+                    <a href="https://mozilla.github.io/nunjucks/templating.html#int">Nunjucks</a>
+                </li>
                 
-                <small>v2.5.0</small>
-            </h4>
             
-                <pre class="result"><code>11</code></pre>
-            
-        </section>
-        
-        
-        
-        <section id="base-8-swig" data-engine="swig">
-            <h4>
-                <a class="permalink" href="#base-8-swig">Output Swig</a>
-                (error)
-                <small>v1.4.2</small>
-            </h4>
-            
-                <pre class="error"><code>Invalid filter "int".</code></pre>
-            
-        </section>
-        
-        
-        
-        <section id="base-8-twig" data-engine="twig">
-            <h4>
-                <a class="permalink" href="#base-8-twig">Output Twig</a>
-                (error)
-                <small>v1.24.2</small>
-            </h4>
-            
-                <pre class="error"><code>Unknown "int" filter.</code></pre>
-            
-        </section>
-        
-        
-        
-        <section id="base-8-twigjs" data-engine="twigjs">
-            <h4>
-                <a class="permalink" href="#base-8-twigjs">Output Twigjs</a>
-                (error)
-                <small>v0.9.5</small>
-            </h4>
-            
-                <pre class="error"><code>Unable to find filter int</code></pre>
-            
-        </section>
-        
-    </section>
-    
-    
-    <section class="section" id="custom-fallback">
-        <h3><a class="permalink" href="#custom-fallback">Test: custom-fallback</a></h3>
-
-        <h4>Template</h4>
-        <div class="test"><pre class="language-twig"><code><span class="token tag" ><span class="token ld" ><span class="token punctuation" >{{</span></span> <span class="token string" ><span class="token punctuation" >"</span><span class="token punctuation" >"</span></span><span class="token operator" >|</span><span class="token property" >int</span><span class="token punctuation" >(</span><span class="token number" >5</span><span class="token punctuation" >)</span> <span class="token rd" ><span class="token punctuation" >}}</span></span></span></code></pre></div>
-
-        
-
-        
-        
-        
-        <section id="custom-fallback-django" data-engine="django">
-            <h4>
-                <a class="permalink" href="#custom-fallback-django">Output Django</a>
-                (error)
-                <small>v1.10.1</small>
-            </h4>
-            
-                <pre class="error"><code>Invalid filter: 'int'</code></pre>
-            
-        </section>
-        
-        
-        
-        <section id="custom-fallback-jinja2" data-engine="jinja2">
-            <h4>
-                <a class="permalink" href="#custom-fallback-jinja2">Output Jinja2</a>
                 
-                <small>v2.8.0</small>
-            </h4>
             
-                <pre class="result"><code>5</code></pre>
-            
-        </section>
-        
-        
-        
-        <section id="custom-fallback-liquid" data-engine="liquid">
-            <h4>
-                <a class="permalink" href="#custom-fallback-liquid">Output Liquid</a>
-                (error)
-                <small>v3.0.6</small>
-            </h4>
-            
-                <pre class="error"><code>(no output)</code></pre>
-            
-        </section>
-        
-        
-        
-        <section id="custom-fallback-nunjucks" data-engine="nunjucks">
-            <h4>
-                <a class="permalink" href="#custom-fallback-nunjucks">Output Nunjucks</a>
                 
-                <small>v2.5.0</small>
-            </h4>
             
-                <pre class="result"><code>5</code></pre>
-            
-        </section>
-        
-        
-        
-        <section id="custom-fallback-swig" data-engine="swig">
-            <h4>
-                <a class="permalink" href="#custom-fallback-swig">Output Swig</a>
-                (error)
-                <small>v1.4.2</small>
-            </h4>
-            
-                <pre class="error"><code>Invalid filter "int".</code></pre>
-            
-        </section>
-        
-        
-        
-        <section id="custom-fallback-twig" data-engine="twig">
-            <h4>
-                <a class="permalink" href="#custom-fallback-twig">Output Twig</a>
-                (error)
-                <small>v1.24.2</small>
-            </h4>
-            
-                <pre class="error"><code>Unknown "int" filter.</code></pre>
-            
-        </section>
-        
-        
-        
-        <section id="custom-fallback-twigjs" data-engine="twigjs">
-            <h4>
-                <a class="permalink" href="#custom-fallback-twigjs">Output Twigjs</a>
-                (error)
-                <small>v0.9.5</small>
-            </h4>
-            
-                <pre class="error"><code>Unable to find filter int</code></pre>
-            
-        </section>
-        
-    </section>
-    
-    
-    <section class="section" id="float">
-        <h3><a class="permalink" href="#float">Test: float</a></h3>
+            </ul>
+        </nav>
 
-        <h4>Template</h4>
-        <div class="test"><pre class="language-twig"><code><span class="token tag" ><span class="token ld" ><span class="token punctuation" >{{</span></span> <span class="token number" >3.52</span><span class="token operator" >|</span><span class="token property" >int</span> <span class="token rd" ><span class="token punctuation" >}}</span></span></span></code></pre></div>
-
-        
-
-        
-        
-        
-        <section id="float-django" data-engine="django">
-            <h4>
-                <a class="permalink" href="#float-django">Output Django</a>
-                (error)
-                <small>v1.10.1</small>
-            </h4>
-            
-                <pre class="error"><code>Invalid filter: 'int'</code></pre>
-            
-        </section>
-        
-        
-        
-        <section id="float-jinja2" data-engine="jinja2">
-            <h4>
-                <a class="permalink" href="#float-jinja2">Output Jinja2</a>
+        <nav id="toc">
+            <h2>Tests</h2>
+            <ol>
                 
-                <small>v2.8.0</small>
-            </h4>
-            
-                <pre class="result"><code>3</code></pre>
-            
-        </section>
-        
-        
-        
-        <section id="float-liquid" data-engine="liquid">
-            <h4>
-                <a class="permalink" href="#float-liquid">Output Liquid</a>
+                    <li><a href="#base-16">base-16</a></li>
                 
-                <small>v3.0.6</small>
-            </h4>
-            
-                <pre class="result"><code>3.52</code></pre>
-            
-        </section>
-        
-        
-        
-        <section id="float-nunjucks" data-engine="nunjucks">
-            <h4>
-                <a class="permalink" href="#float-nunjucks">Output Nunjucks</a>
+                    <li><a href="#base-8">base-8</a></li>
                 
-                <small>v2.5.0</small>
-            </h4>
-            
-                <pre class="result"><code>3</code></pre>
-            
-        </section>
-        
-        
-        
-        <section id="float-swig" data-engine="swig">
-            <h4>
-                <a class="permalink" href="#float-swig">Output Swig</a>
-                (error)
-                <small>v1.4.2</small>
-            </h4>
-            
-                <pre class="error"><code>Invalid filter "int".</code></pre>
-            
-        </section>
-        
-        
-        
-        <section id="float-twig" data-engine="twig">
-            <h4>
-                <a class="permalink" href="#float-twig">Output Twig</a>
-                (error)
-                <small>v1.24.2</small>
-            </h4>
-            
-                <pre class="error"><code>Unknown "int" filter.</code></pre>
-            
-        </section>
-        
-        
-        
-        <section id="float-twigjs" data-engine="twigjs">
-            <h4>
-                <a class="permalink" href="#float-twigjs">Output Twigjs</a>
-                (error)
-                <small>v0.9.5</small>
-            </h4>
-            
-                <pre class="error"><code>Unable to find filter int</code></pre>
-            
-        </section>
-        
-    </section>
-    
-    
-    <section class="section" id="force-fallback">
-        <h3><a class="permalink" href="#force-fallback">Test: force-fallback</a></h3>
-
-        <h4>Template</h4>
-        <div class="test"><pre class="language-twig"><code><span class="token tag" ><span class="token ld" ><span class="token punctuation" >{{</span></span> <span class="token string" ><span class="token punctuation" >"</span><span class="token punctuation" >"</span></span><span class="token operator" >|</span><span class="token property" >int</span> <span class="token rd" ><span class="token punctuation" >}}</span></span></span></code></pre></div>
-
-        
-
-        
-        
-        
-        <section id="force-fallback-django" data-engine="django">
-            <h4>
-                <a class="permalink" href="#force-fallback-django">Output Django</a>
-                (error)
-                <small>v1.10.1</small>
-            </h4>
-            
-                <pre class="error"><code>Invalid filter: 'int'</code></pre>
-            
-        </section>
-        
-        
-        
-        <section id="force-fallback-jinja2" data-engine="jinja2">
-            <h4>
-                <a class="permalink" href="#force-fallback-jinja2">Output Jinja2</a>
+                    <li><a href="#custom-fallback">custom-fallback</a></li>
                 
-                <small>v2.8.0</small>
-            </h4>
-            
-                <pre class="result"><code>0</code></pre>
-            
-        </section>
-        
-        
-        
-        <section id="force-fallback-liquid" data-engine="liquid">
-            <h4>
-                <a class="permalink" href="#force-fallback-liquid">Output Liquid</a>
-                (error)
-                <small>v3.0.6</small>
-            </h4>
-            
-                <pre class="error"><code>(no output)</code></pre>
-            
-        </section>
-        
-        
-        
-        <section id="force-fallback-nunjucks" data-engine="nunjucks">
-            <h4>
-                <a class="permalink" href="#force-fallback-nunjucks">Output Nunjucks</a>
-                (error)
-                <small>v2.5.0</small>
-            </h4>
-            
-                <pre class="error"><code>(no output)</code></pre>
-            
-        </section>
-        
-        
-        
-        <section id="force-fallback-swig" data-engine="swig">
-            <h4>
-                <a class="permalink" href="#force-fallback-swig">Output Swig</a>
-                (error)
-                <small>v1.4.2</small>
-            </h4>
-            
-                <pre class="error"><code>Invalid filter "int".</code></pre>
-            
-        </section>
-        
-        
-        
-        <section id="force-fallback-twig" data-engine="twig">
-            <h4>
-                <a class="permalink" href="#force-fallback-twig">Output Twig</a>
-                (error)
-                <small>v1.24.2</small>
-            </h4>
-            
-                <pre class="error"><code>Unknown "int" filter.</code></pre>
-            
-        </section>
-        
-        
-        
-        <section id="force-fallback-twigjs" data-engine="twigjs">
-            <h4>
-                <a class="permalink" href="#force-fallback-twigjs">Output Twigjs</a>
-                (error)
-                <small>v0.9.5</small>
-            </h4>
-            
-                <pre class="error"><code>Unable to find filter int</code></pre>
-            
-        </section>
-        
-    </section>
-    
-    
-    <section class="section" id="integer">
-        <h3><a class="permalink" href="#integer">Test: integer</a></h3>
-
-        <h4>Template</h4>
-        <div class="test"><pre class="language-twig"><code><span class="token tag" ><span class="token ld" ><span class="token punctuation" >{{</span></span> <span class="token number" >3</span><span class="token operator" >|</span><span class="token property" >int</span> <span class="token rd" ><span class="token punctuation" >}}</span></span></span></code></pre></div>
-
-        
-
-        
-        
-        
-        <section id="integer-django" data-engine="django">
-            <h4>
-                <a class="permalink" href="#integer-django">Output Django</a>
-                (error)
-                <small>v1.10.1</small>
-            </h4>
-            
-                <pre class="error"><code>Invalid filter: 'int'</code></pre>
-            
-        </section>
-        
-        
-        
-        <section id="integer-jinja2" data-engine="jinja2">
-            <h4>
-                <a class="permalink" href="#integer-jinja2">Output Jinja2</a>
+                    <li><a href="#float">float</a></li>
                 
-                <small>v2.8.0</small>
-            </h4>
-            
-                <pre class="result"><code>3</code></pre>
-            
-        </section>
-        
-        
-        
-        <section id="integer-liquid" data-engine="liquid">
-            <h4>
-                <a class="permalink" href="#integer-liquid">Output Liquid</a>
+                    <li><a href="#force-fallback">force-fallback</a></li>
                 
-                <small>v3.0.6</small>
-            </h4>
-            
-                <pre class="result"><code>3</code></pre>
-            
-        </section>
-        
-        
-        
-        <section id="integer-nunjucks" data-engine="nunjucks">
-            <h4>
-                <a class="permalink" href="#integer-nunjucks">Output Nunjucks</a>
+                    <li><a href="#integer">integer</a></li>
                 
-                <small>v2.5.0</small>
-            </h4>
-            
-                <pre class="result"><code>3</code></pre>
-            
-        </section>
-        
-        
-        
-        <section id="integer-swig" data-engine="swig">
-            <h4>
-                <a class="permalink" href="#integer-swig">Output Swig</a>
-                (error)
-                <small>v1.4.2</small>
-            </h4>
-            
-                <pre class="error"><code>Invalid filter "int".</code></pre>
-            
-        </section>
-        
-        
-        
-        <section id="integer-twig" data-engine="twig">
-            <h4>
-                <a class="permalink" href="#integer-twig">Output Twig</a>
-                (error)
-                <small>v1.24.2</small>
-            </h4>
-            
-                <pre class="error"><code>Unknown "int" filter.</code></pre>
-            
-        </section>
-        
-        
-        
-        <section id="integer-twigjs" data-engine="twigjs">
-            <h4>
-                <a class="permalink" href="#integer-twigjs">Output Twigjs</a>
-                (error)
-                <small>v0.9.5</small>
-            </h4>
-            
-                <pre class="error"><code>Unable to find filter int</code></pre>
-            
-        </section>
-        
-    </section>
-    
-    
-    <section class="section" id="string">
-        <h3><a class="permalink" href="#string">Test: string</a></h3>
+                    <li><a href="#string">string</a></li>
+                
+            </ol>
+        </nav>
+    </div>
 
-        <h4>Template</h4>
-        <div class="test"><pre class="language-twig"><code><span class="token tag" ><span class="token ld" ><span class="token punctuation" >{{</span></span> <span class="token string" ><span class="token punctuation" >"</span>3.52<span class="token punctuation" >"</span></span><span class="token operator" >|</span><span class="token property" >int</span> <span class="token rd" ><span class="token punctuation" >}}</span></span></span></code></pre></div>
+    <div class="page-content">
+        <h2 id="tests" class="a11y-only">
+            <a class="permalink" href="#tests">Tests</a>
+        </h2>
+        
+        
+        <section class="section" id="base-16">
+            <h3><a class="permalink" href="#base-16">Test: base-16</a></h3>
 
-        
+            <h4>Template</h4>
+            <div class="test"><pre class="language-twig"><code><span class="token tag" ><span class="token ld" ><span class="token punctuation" >{{</span></span> <span class="token string" ><span class="token punctuation" >"</span>0x4d32<span class="token punctuation" >"</span></span><span class="token operator" >|</span><span class="token property" >int</span><span class="token punctuation" >(</span><span class="token number" >0</span><span class="token punctuation" >,</span> <span class="token number" >16</span><span class="token punctuation" >)</span> <span class="token rd" ><span class="token punctuation" >}}</span></span></span></code></pre></div>
 
-        
-        
-        
-        <section id="string-django" data-engine="django">
-            <h4>
-                <a class="permalink" href="#string-django">Output Django</a>
-                (error)
-                <small>v1.10.1</small>
-            </h4>
             
-                <pre class="error"><code>Invalid filter: 'int'</code></pre>
+
             
-        </section>
-        
-        
-        
-        <section id="string-jinja2" data-engine="jinja2">
-            <h4>
-                <a class="permalink" href="#string-jinja2">Output Jinja2</a>
+            
+            
+            <section id="base-16-django" data-engine="django">
+                <h4>
+                    <a class="permalink" href="#base-16-django">Output Django</a>
+                    (error)
+                    <small>v1.10.1</small>
+                </h4>
                 
-                <small>v2.8.0</small>
-            </h4>
-            
-                <pre class="result"><code>3</code></pre>
-            
-        </section>
-        
-        
-        
-        <section id="string-liquid" data-engine="liquid">
-            <h4>
-                <a class="permalink" href="#string-liquid">Output Liquid</a>
+                    <pre class="error"><code>Invalid filter: 'int'</code></pre>
                 
-                <small>v3.0.6</small>
-            </h4>
+            </section>
             
-                <pre class="result"><code>3.52</code></pre>
             
-        </section>
-        
-        
-        
-        <section id="string-nunjucks" data-engine="nunjucks">
-            <h4>
-                <a class="permalink" href="#string-nunjucks">Output Nunjucks</a>
+            
+            <section id="base-16-jinja2" data-engine="jinja2">
+                <h4>
+                    <a class="permalink" href="#base-16-jinja2">Output Jinja2</a>
+                    
+                    <small>v2.8.0</small>
+                </h4>
                 
-                <small>v2.5.0</small>
-            </h4>
+                    <pre class="result"><code>19762</code></pre>
+                
+            </section>
             
-                <pre class="result"><code>3</code></pre>
+            
+            
+            <section id="base-16-liquid" data-engine="liquid">
+                <h4>
+                    <a class="permalink" href="#base-16-liquid">Output Liquid</a>
+                    
+                    <small>v3.0.6</small>
+                </h4>
+                
+                    <pre class="result"><code>0x4d32</code></pre>
+                
+            </section>
+            
+            
+            
+            <section id="base-16-nunjucks" data-engine="nunjucks">
+                <h4>
+                    <a class="permalink" href="#base-16-nunjucks">Output Nunjucks</a>
+                    
+                    <small>v2.5.0</small>
+                </h4>
+                
+                    <pre class="result"><code>0</code></pre>
+                
+            </section>
+            
+            
+            
+            <section id="base-16-swig" data-engine="swig">
+                <h4>
+                    <a class="permalink" href="#base-16-swig">Output Swig</a>
+                    (error)
+                    <small>v1.4.2</small>
+                </h4>
+                
+                    <pre class="error"><code>Invalid filter "int".</code></pre>
+                
+            </section>
+            
+            
+            
+            <section id="base-16-twig" data-engine="twig">
+                <h4>
+                    <a class="permalink" href="#base-16-twig">Output Twig</a>
+                    (error)
+                    <small>v1.24.2</small>
+                </h4>
+                
+                    <pre class="error"><code>Unknown "int" filter.</code></pre>
+                
+            </section>
+            
+            
+            
+            <section id="base-16-twigjs" data-engine="twigjs">
+                <h4>
+                    <a class="permalink" href="#base-16-twigjs">Output Twigjs</a>
+                    (error)
+                    <small>v0.9.5</small>
+                </h4>
+                
+                    <pre class="error"><code>Unable to find filter int</code></pre>
+                
+            </section>
             
         </section>
         
         
-        
-        <section id="string-swig" data-engine="swig">
-            <h4>
-                <a class="permalink" href="#string-swig">Output Swig</a>
-                (error)
-                <small>v1.4.2</small>
-            </h4>
+        <section class="section" id="base-8">
+            <h3><a class="permalink" href="#base-8">Test: base-8</a></h3>
+
+            <h4>Template</h4>
+            <div class="test"><pre class="language-twig"><code><span class="token tag" ><span class="token ld" ><span class="token punctuation" >{{</span></span> <span class="token string" ><span class="token punctuation" >"</span>011<span class="token punctuation" >"</span></span><span class="token operator" >|</span><span class="token property" >int</span><span class="token punctuation" >(</span><span class="token number" >0</span><span class="token punctuation" >,</span> <span class="token number" >8</span><span class="token punctuation" >)</span> <span class="token rd" ><span class="token punctuation" >}}</span></span></span></code></pre></div>
+
             
-                <pre class="error"><code>Invalid filter "int".</code></pre>
+
+            
+            
+            
+            <section id="base-8-django" data-engine="django">
+                <h4>
+                    <a class="permalink" href="#base-8-django">Output Django</a>
+                    (error)
+                    <small>v1.10.1</small>
+                </h4>
+                
+                    <pre class="error"><code>Invalid filter: 'int'</code></pre>
+                
+            </section>
+            
+            
+            
+            <section id="base-8-jinja2" data-engine="jinja2">
+                <h4>
+                    <a class="permalink" href="#base-8-jinja2">Output Jinja2</a>
+                    
+                    <small>v2.8.0</small>
+                </h4>
+                
+                    <pre class="result"><code>9</code></pre>
+                
+            </section>
+            
+            
+            
+            <section id="base-8-liquid" data-engine="liquid">
+                <h4>
+                    <a class="permalink" href="#base-8-liquid">Output Liquid</a>
+                    
+                    <small>v3.0.6</small>
+                </h4>
+                
+                    <pre class="result"><code>011</code></pre>
+                
+            </section>
+            
+            
+            
+            <section id="base-8-nunjucks" data-engine="nunjucks">
+                <h4>
+                    <a class="permalink" href="#base-8-nunjucks">Output Nunjucks</a>
+                    
+                    <small>v2.5.0</small>
+                </h4>
+                
+                    <pre class="result"><code>11</code></pre>
+                
+            </section>
+            
+            
+            
+            <section id="base-8-swig" data-engine="swig">
+                <h4>
+                    <a class="permalink" href="#base-8-swig">Output Swig</a>
+                    (error)
+                    <small>v1.4.2</small>
+                </h4>
+                
+                    <pre class="error"><code>Invalid filter "int".</code></pre>
+                
+            </section>
+            
+            
+            
+            <section id="base-8-twig" data-engine="twig">
+                <h4>
+                    <a class="permalink" href="#base-8-twig">Output Twig</a>
+                    (error)
+                    <small>v1.24.2</small>
+                </h4>
+                
+                    <pre class="error"><code>Unknown "int" filter.</code></pre>
+                
+            </section>
+            
+            
+            
+            <section id="base-8-twigjs" data-engine="twigjs">
+                <h4>
+                    <a class="permalink" href="#base-8-twigjs">Output Twigjs</a>
+                    (error)
+                    <small>v0.9.5</small>
+                </h4>
+                
+                    <pre class="error"><code>Unable to find filter int</code></pre>
+                
+            </section>
             
         </section>
         
         
-        
-        <section id="string-twig" data-engine="twig">
-            <h4>
-                <a class="permalink" href="#string-twig">Output Twig</a>
-                (error)
-                <small>v1.24.2</small>
-            </h4>
+        <section class="section" id="custom-fallback">
+            <h3><a class="permalink" href="#custom-fallback">Test: custom-fallback</a></h3>
+
+            <h4>Template</h4>
+            <div class="test"><pre class="language-twig"><code><span class="token tag" ><span class="token ld" ><span class="token punctuation" >{{</span></span> <span class="token string" ><span class="token punctuation" >"</span><span class="token punctuation" >"</span></span><span class="token operator" >|</span><span class="token property" >int</span><span class="token punctuation" >(</span><span class="token number" >5</span><span class="token punctuation" >)</span> <span class="token rd" ><span class="token punctuation" >}}</span></span></span></code></pre></div>
+
             
-                <pre class="error"><code>Unknown "int" filter.</code></pre>
+
+            
+            
+            
+            <section id="custom-fallback-django" data-engine="django">
+                <h4>
+                    <a class="permalink" href="#custom-fallback-django">Output Django</a>
+                    (error)
+                    <small>v1.10.1</small>
+                </h4>
+                
+                    <pre class="error"><code>Invalid filter: 'int'</code></pre>
+                
+            </section>
+            
+            
+            
+            <section id="custom-fallback-jinja2" data-engine="jinja2">
+                <h4>
+                    <a class="permalink" href="#custom-fallback-jinja2">Output Jinja2</a>
+                    
+                    <small>v2.8.0</small>
+                </h4>
+                
+                    <pre class="result"><code>5</code></pre>
+                
+            </section>
+            
+            
+            
+            <section id="custom-fallback-liquid" data-engine="liquid">
+                <h4>
+                    <a class="permalink" href="#custom-fallback-liquid">Output Liquid</a>
+                    (error)
+                    <small>v3.0.6</small>
+                </h4>
+                
+                    <pre class="error"><code>(no output)</code></pre>
+                
+            </section>
+            
+            
+            
+            <section id="custom-fallback-nunjucks" data-engine="nunjucks">
+                <h4>
+                    <a class="permalink" href="#custom-fallback-nunjucks">Output Nunjucks</a>
+                    
+                    <small>v2.5.0</small>
+                </h4>
+                
+                    <pre class="result"><code>5</code></pre>
+                
+            </section>
+            
+            
+            
+            <section id="custom-fallback-swig" data-engine="swig">
+                <h4>
+                    <a class="permalink" href="#custom-fallback-swig">Output Swig</a>
+                    (error)
+                    <small>v1.4.2</small>
+                </h4>
+                
+                    <pre class="error"><code>Invalid filter "int".</code></pre>
+                
+            </section>
+            
+            
+            
+            <section id="custom-fallback-twig" data-engine="twig">
+                <h4>
+                    <a class="permalink" href="#custom-fallback-twig">Output Twig</a>
+                    (error)
+                    <small>v1.24.2</small>
+                </h4>
+                
+                    <pre class="error"><code>Unknown "int" filter.</code></pre>
+                
+            </section>
+            
+            
+            
+            <section id="custom-fallback-twigjs" data-engine="twigjs">
+                <h4>
+                    <a class="permalink" href="#custom-fallback-twigjs">Output Twigjs</a>
+                    (error)
+                    <small>v0.9.5</small>
+                </h4>
+                
+                    <pre class="error"><code>Unable to find filter int</code></pre>
+                
+            </section>
             
         </section>
         
         
-        
-        <section id="string-twigjs" data-engine="twigjs">
-            <h4>
-                <a class="permalink" href="#string-twigjs">Output Twigjs</a>
-                (error)
-                <small>v0.9.5</small>
-            </h4>
+        <section class="section" id="float">
+            <h3><a class="permalink" href="#float">Test: float</a></h3>
+
+            <h4>Template</h4>
+            <div class="test"><pre class="language-twig"><code><span class="token tag" ><span class="token ld" ><span class="token punctuation" >{{</span></span> <span class="token number" >3.52</span><span class="token operator" >|</span><span class="token property" >int</span> <span class="token rd" ><span class="token punctuation" >}}</span></span></span></code></pre></div>
+
             
-                <pre class="error"><code>Unable to find filter int</code></pre>
+
+            
+            
+            
+            <section id="float-django" data-engine="django">
+                <h4>
+                    <a class="permalink" href="#float-django">Output Django</a>
+                    (error)
+                    <small>v1.10.1</small>
+                </h4>
+                
+                    <pre class="error"><code>Invalid filter: 'int'</code></pre>
+                
+            </section>
+            
+            
+            
+            <section id="float-jinja2" data-engine="jinja2">
+                <h4>
+                    <a class="permalink" href="#float-jinja2">Output Jinja2</a>
+                    
+                    <small>v2.8.0</small>
+                </h4>
+                
+                    <pre class="result"><code>3</code></pre>
+                
+            </section>
+            
+            
+            
+            <section id="float-liquid" data-engine="liquid">
+                <h4>
+                    <a class="permalink" href="#float-liquid">Output Liquid</a>
+                    
+                    <small>v3.0.6</small>
+                </h4>
+                
+                    <pre class="result"><code>3.52</code></pre>
+                
+            </section>
+            
+            
+            
+            <section id="float-nunjucks" data-engine="nunjucks">
+                <h4>
+                    <a class="permalink" href="#float-nunjucks">Output Nunjucks</a>
+                    
+                    <small>v2.5.0</small>
+                </h4>
+                
+                    <pre class="result"><code>3</code></pre>
+                
+            </section>
+            
+            
+            
+            <section id="float-swig" data-engine="swig">
+                <h4>
+                    <a class="permalink" href="#float-swig">Output Swig</a>
+                    (error)
+                    <small>v1.4.2</small>
+                </h4>
+                
+                    <pre class="error"><code>Invalid filter "int".</code></pre>
+                
+            </section>
+            
+            
+            
+            <section id="float-twig" data-engine="twig">
+                <h4>
+                    <a class="permalink" href="#float-twig">Output Twig</a>
+                    (error)
+                    <small>v1.24.2</small>
+                </h4>
+                
+                    <pre class="error"><code>Unknown "int" filter.</code></pre>
+                
+            </section>
+            
+            
+            
+            <section id="float-twigjs" data-engine="twigjs">
+                <h4>
+                    <a class="permalink" href="#float-twigjs">Output Twigjs</a>
+                    (error)
+                    <small>v0.9.5</small>
+                </h4>
+                
+                    <pre class="error"><code>Unable to find filter int</code></pre>
+                
+            </section>
             
         </section>
         
-    </section>
-    
+        
+        <section class="section" id="force-fallback">
+            <h3><a class="permalink" href="#force-fallback">Test: force-fallback</a></h3>
+
+            <h4>Template</h4>
+            <div class="test"><pre class="language-twig"><code><span class="token tag" ><span class="token ld" ><span class="token punctuation" >{{</span></span> <span class="token string" ><span class="token punctuation" >"</span><span class="token punctuation" >"</span></span><span class="token operator" >|</span><span class="token property" >int</span> <span class="token rd" ><span class="token punctuation" >}}</span></span></span></code></pre></div>
+
+            
+
+            
+            
+            
+            <section id="force-fallback-django" data-engine="django">
+                <h4>
+                    <a class="permalink" href="#force-fallback-django">Output Django</a>
+                    (error)
+                    <small>v1.10.1</small>
+                </h4>
+                
+                    <pre class="error"><code>Invalid filter: 'int'</code></pre>
+                
+            </section>
+            
+            
+            
+            <section id="force-fallback-jinja2" data-engine="jinja2">
+                <h4>
+                    <a class="permalink" href="#force-fallback-jinja2">Output Jinja2</a>
+                    
+                    <small>v2.8.0</small>
+                </h4>
+                
+                    <pre class="result"><code>0</code></pre>
+                
+            </section>
+            
+            
+            
+            <section id="force-fallback-liquid" data-engine="liquid">
+                <h4>
+                    <a class="permalink" href="#force-fallback-liquid">Output Liquid</a>
+                    (error)
+                    <small>v3.0.6</small>
+                </h4>
+                
+                    <pre class="error"><code>(no output)</code></pre>
+                
+            </section>
+            
+            
+            
+            <section id="force-fallback-nunjucks" data-engine="nunjucks">
+                <h4>
+                    <a class="permalink" href="#force-fallback-nunjucks">Output Nunjucks</a>
+                    (error)
+                    <small>v2.5.0</small>
+                </h4>
+                
+                    <pre class="error"><code>(no output)</code></pre>
+                
+            </section>
+            
+            
+            
+            <section id="force-fallback-swig" data-engine="swig">
+                <h4>
+                    <a class="permalink" href="#force-fallback-swig">Output Swig</a>
+                    (error)
+                    <small>v1.4.2</small>
+                </h4>
+                
+                    <pre class="error"><code>Invalid filter "int".</code></pre>
+                
+            </section>
+            
+            
+            
+            <section id="force-fallback-twig" data-engine="twig">
+                <h4>
+                    <a class="permalink" href="#force-fallback-twig">Output Twig</a>
+                    (error)
+                    <small>v1.24.2</small>
+                </h4>
+                
+                    <pre class="error"><code>Unknown "int" filter.</code></pre>
+                
+            </section>
+            
+            
+            
+            <section id="force-fallback-twigjs" data-engine="twigjs">
+                <h4>
+                    <a class="permalink" href="#force-fallback-twigjs">Output Twigjs</a>
+                    (error)
+                    <small>v0.9.5</small>
+                </h4>
+                
+                    <pre class="error"><code>Unable to find filter int</code></pre>
+                
+            </section>
+            
+        </section>
+        
+        
+        <section class="section" id="integer">
+            <h3><a class="permalink" href="#integer">Test: integer</a></h3>
+
+            <h4>Template</h4>
+            <div class="test"><pre class="language-twig"><code><span class="token tag" ><span class="token ld" ><span class="token punctuation" >{{</span></span> <span class="token number" >3</span><span class="token operator" >|</span><span class="token property" >int</span> <span class="token rd" ><span class="token punctuation" >}}</span></span></span></code></pre></div>
+
+            
+
+            
+            
+            
+            <section id="integer-django" data-engine="django">
+                <h4>
+                    <a class="permalink" href="#integer-django">Output Django</a>
+                    (error)
+                    <small>v1.10.1</small>
+                </h4>
+                
+                    <pre class="error"><code>Invalid filter: 'int'</code></pre>
+                
+            </section>
+            
+            
+            
+            <section id="integer-jinja2" data-engine="jinja2">
+                <h4>
+                    <a class="permalink" href="#integer-jinja2">Output Jinja2</a>
+                    
+                    <small>v2.8.0</small>
+                </h4>
+                
+                    <pre class="result"><code>3</code></pre>
+                
+            </section>
+            
+            
+            
+            <section id="integer-liquid" data-engine="liquid">
+                <h4>
+                    <a class="permalink" href="#integer-liquid">Output Liquid</a>
+                    
+                    <small>v3.0.6</small>
+                </h4>
+                
+                    <pre class="result"><code>3</code></pre>
+                
+            </section>
+            
+            
+            
+            <section id="integer-nunjucks" data-engine="nunjucks">
+                <h4>
+                    <a class="permalink" href="#integer-nunjucks">Output Nunjucks</a>
+                    
+                    <small>v2.5.0</small>
+                </h4>
+                
+                    <pre class="result"><code>3</code></pre>
+                
+            </section>
+            
+            
+            
+            <section id="integer-swig" data-engine="swig">
+                <h4>
+                    <a class="permalink" href="#integer-swig">Output Swig</a>
+                    (error)
+                    <small>v1.4.2</small>
+                </h4>
+                
+                    <pre class="error"><code>Invalid filter "int".</code></pre>
+                
+            </section>
+            
+            
+            
+            <section id="integer-twig" data-engine="twig">
+                <h4>
+                    <a class="permalink" href="#integer-twig">Output Twig</a>
+                    (error)
+                    <small>v1.24.2</small>
+                </h4>
+                
+                    <pre class="error"><code>Unknown "int" filter.</code></pre>
+                
+            </section>
+            
+            
+            
+            <section id="integer-twigjs" data-engine="twigjs">
+                <h4>
+                    <a class="permalink" href="#integer-twigjs">Output Twigjs</a>
+                    (error)
+                    <small>v0.9.5</small>
+                </h4>
+                
+                    <pre class="error"><code>Unable to find filter int</code></pre>
+                
+            </section>
+            
+        </section>
+        
+        
+        <section class="section" id="string">
+            <h3><a class="permalink" href="#string">Test: string</a></h3>
+
+            <h4>Template</h4>
+            <div class="test"><pre class="language-twig"><code><span class="token tag" ><span class="token ld" ><span class="token punctuation" >{{</span></span> <span class="token string" ><span class="token punctuation" >"</span>3.52<span class="token punctuation" >"</span></span><span class="token operator" >|</span><span class="token property" >int</span> <span class="token rd" ><span class="token punctuation" >}}</span></span></span></code></pre></div>
+
+            
+
+            
+            
+            
+            <section id="string-django" data-engine="django">
+                <h4>
+                    <a class="permalink" href="#string-django">Output Django</a>
+                    (error)
+                    <small>v1.10.1</small>
+                </h4>
+                
+                    <pre class="error"><code>Invalid filter: 'int'</code></pre>
+                
+            </section>
+            
+            
+            
+            <section id="string-jinja2" data-engine="jinja2">
+                <h4>
+                    <a class="permalink" href="#string-jinja2">Output Jinja2</a>
+                    
+                    <small>v2.8.0</small>
+                </h4>
+                
+                    <pre class="result"><code>3</code></pre>
+                
+            </section>
+            
+            
+            
+            <section id="string-liquid" data-engine="liquid">
+                <h4>
+                    <a class="permalink" href="#string-liquid">Output Liquid</a>
+                    
+                    <small>v3.0.6</small>
+                </h4>
+                
+                    <pre class="result"><code>3.52</code></pre>
+                
+            </section>
+            
+            
+            
+            <section id="string-nunjucks" data-engine="nunjucks">
+                <h4>
+                    <a class="permalink" href="#string-nunjucks">Output Nunjucks</a>
+                    
+                    <small>v2.5.0</small>
+                </h4>
+                
+                    <pre class="result"><code>3</code></pre>
+                
+            </section>
+            
+            
+            
+            <section id="string-swig" data-engine="swig">
+                <h4>
+                    <a class="permalink" href="#string-swig">Output Swig</a>
+                    (error)
+                    <small>v1.4.2</small>
+                </h4>
+                
+                    <pre class="error"><code>Invalid filter "int".</code></pre>
+                
+            </section>
+            
+            
+            
+            <section id="string-twig" data-engine="twig">
+                <h4>
+                    <a class="permalink" href="#string-twig">Output Twig</a>
+                    (error)
+                    <small>v1.24.2</small>
+                </h4>
+                
+                    <pre class="error"><code>Unknown "int" filter.</code></pre>
+                
+            </section>
+            
+            
+            
+            <section id="string-twigjs" data-engine="twigjs">
+                <h4>
+                    <a class="permalink" href="#string-twigjs">Output Twigjs</a>
+                    (error)
+                    <small>v0.9.5</small>
+                </h4>
+                
+                    <pre class="error"><code>Unable to find filter int</code></pre>
+                
+            </section>
+            
+        </section>
+        
+    </div>
+
 </article>
 
 <script>(function engineEnabler(){

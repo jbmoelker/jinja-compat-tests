@@ -18,6 +18,12 @@
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.5.1/themes/prism.css">
 <style type="text/css">
+    article { overflow: auto; zoom: 1; }
+    .page-title { font-size: 2rem; }
+    .page-nav { float: left; margin-right: 2.5em; }
+    .page-nav ul, .page-nav ol { list-style: none; padding-left: 0; }
+    .page-content { float: left; }
+
     h4 { margin-bottom: 0; }
     h4 small { float: right; font-weight: normal; font-style: italic; }
     label { padding-right: 1em; cursor: pointer; }
@@ -28,6 +34,17 @@
     .error { border: 2px solid red; white-space: normal; }
 
     [data-engine-enabled="false"] { display:none; }
+
+    .a11y-only {
+        border: 0;
+        clip: rect(0 0 0 0);
+        height: 1px;
+        margin: -1px;
+        overflow: hidden;
+        padding: 0;
+        position: absolute;
+        width: 1px;
+    }
 </style>
 
 <header>
@@ -77,66 +94,73 @@
 </header>
 
 <article>
-    <h1><code>dictsort</code> filter</h1>
+    <h1 class="page-title"><code>dictsort</code> filter</h1>
 
-    <section id="docs">
-        <h2><a class="permalink" href="#docs">Docs</a></h2>
-        <ul>
-        
+    <div class="page-nav">
+        <nav id="docs">
+            <h2><a class="permalink" href="#docs">Docs</a></h2>
+            <ul>
             
-            <li>
-                <a href="https://docs.djangoproject.com/en/1.10/ref/templates/builtins/#dictsort">Django</a>
-            </li>
+                
+                <li>
+                    <a href="https://docs.djangoproject.com/en/1.10/ref/templates/builtins/#dictsort">Django</a>
+                </li>
+                
             
-        
+                
+                <li>
+                    <a href="http://jinja.pocoo.org/docs/dev/templates/#dictsort">Jinja2</a>
+                </li>
+                
             
-            <li>
-                <a href="http://jinja.pocoo.org/docs/dev/templates/#dictsort">Jinja2</a>
-            </li>
+                
             
-        
+                
+                <li>
+                    <a href="https://mozilla.github.io/nunjucks/templating.html#dictsort">Nunjucks</a>
+                </li>
+                
             
-        
+                
             
-            <li>
-                <a href="https://mozilla.github.io/nunjucks/templating.html#dictsort">Nunjucks</a>
-            </li>
+                
             
-        
-            
-        
-            
-        
-        </ul>
-    </section>
+            </ul>
+        </nav>
 
-    <h2 id="tests">
-        <a class="permalink" href="#tests">Tests</a>
-    </h2>
-    <ol>
-    
-        <li><a href="#by-value">by-value</a></li>
-    
-        <li><a href="#case-insensitive">case-insensitive</a></li>
-    
-        <li><a href="#case-sensitive">case-sensitive</a></li>
-    
-        <li><a href="#default">default</a></li>
-    
-    </ol>
-    
-    
-    <section class="section" id="by-value">
-        <h3><a class="permalink" href="#by-value">Test: by-value</a></h3>
+        <nav id="toc">
+            <h2>Tests</h2>
+            <ol>
+                
+                    <li><a href="#by-value">by-value</a></li>
+                
+                    <li><a href="#case-insensitive">case-insensitive</a></li>
+                
+                    <li><a href="#case-sensitive">case-sensitive</a></li>
+                
+                    <li><a href="#default">default</a></li>
+                
+            </ol>
+        </nav>
+    </div>
 
-        <h4>Template</h4>
-        <div class="test"><pre class="language-twig"><code><span class="token tag" ><span class="token ld" ><span class="token punctuation" >{%-</span> <span class="token keyword" >for</span></span> <span class="token property" >key</span><span class="token punctuation" >,</span> <span class="token property" >value</span> <span class="token operator" >in</span> <span class="token property" >items</span> <span class="token operator" >|</span> <span class="token property" >dictsort</span><span class="token punctuation" >(</span><span class="token boolean" >false</span><span class="token punctuation" >,</span> <span class="token string" ><span class="token punctuation" >'</span>value<span class="token punctuation" >'</span></span><span class="token punctuation" >)</span> <span class="token rd" ><span class="token punctuation" >-%}</span></span></span>
+    <div class="page-content">
+        <h2 id="tests" class="a11y-only">
+            <a class="permalink" href="#tests">Tests</a>
+        </h2>
+        
+        
+        <section class="section" id="by-value">
+            <h3><a class="permalink" href="#by-value">Test: by-value</a></h3>
+
+            <h4>Template</h4>
+            <div class="test"><pre class="language-twig"><code><span class="token tag" ><span class="token ld" ><span class="token punctuation" >{%-</span> <span class="token keyword" >for</span></span> <span class="token property" >key</span><span class="token punctuation" >,</span> <span class="token property" >value</span> <span class="token operator" >in</span> <span class="token property" >items</span> <span class="token operator" >|</span> <span class="token property" >dictsort</span><span class="token punctuation" >(</span><span class="token boolean" >false</span><span class="token punctuation" >,</span> <span class="token string" ><span class="token punctuation" >'</span>value<span class="token punctuation" >'</span></span><span class="token punctuation" >)</span> <span class="token rd" ><span class="token punctuation" >-%}</span></span></span>
 <span class="token tag" ><span class="token ld" ><span class="token punctuation" >{{</span></span> <span class="token property" >value</span> <span class="token rd" ><span class="token punctuation" >}}</span></span></span><span class="token other" >:</span><span class="token tag" ><span class="token ld" ><span class="token punctuation" >{{</span></span> <span class="token property" >key</span> <span class="token rd" ><span class="token punctuation" >}}</span></span></span>
 <span class="token tag" ><span class="token ld" ><span class="token punctuation" >{%</span> <span class="token keyword" >endfor</span></span> <span class="token rd" ><span class="token punctuation" >%}</span></span></span></code></pre></div>
 
-        
-        <h4>Data</h4>
-        <div class="test"><pre class="language-json"><code><span class="token punctuation" >{</span>
+            
+            <h4>Data</h4>
+            <div class="test"><pre class="language-json"><code><span class="token punctuation" >{</span>
   <span class="token property" >"items"</span><span class="token operator" >:</span> <span class="token punctuation" >{</span>
     <span class="token property" >"a"</span><span class="token operator" >:</span> <span class="token number" >5</span><span class="token punctuation" >,</span>
     <span class="token property" >"b"</span><span class="token operator" >:</span> <span class="token number" >2</span><span class="token punctuation" >,</span>
@@ -146,126 +170,126 @@
     <span class="token property" >"f"</span><span class="token operator" >:</span> <span class="token number" >1</span>
   <span class="token punctuation" >}</span>
 <span class="token punctuation" >}</span></code></pre></div>
-        
+            
 
-        
-        
-        
-        <section id="by-value-django" data-engine="django">
-            <h4>
-                <a class="permalink" href="#by-value-django">Output Django</a>
-                (error)
-                <small>v1.10.1</small>
-            </h4>
             
-                <pre class="error"><code>Invalid block tag on line 1: '-'. Did you forget to register or load this tag?</code></pre>
             
-        </section>
-        
-        
-        
-        <section id="by-value-jinja2" data-engine="jinja2">
-            <h4>
-                <a class="permalink" href="#by-value-jinja2">Output Jinja2</a>
+            
+            <section id="by-value-django" data-engine="django">
+                <h4>
+                    <a class="permalink" href="#by-value-django">Output Django</a>
+                    (error)
+                    <small>v1.10.1</small>
+                </h4>
                 
-                <small>v2.8.0</small>
-            </h4>
+                    <pre class="error"><code>Invalid block tag on line 1: '-'. Did you forget to register or load this tag?</code></pre>
+                
+            </section>
             
-                <pre class="result"><code>1:f
+            
+            
+            <section id="by-value-jinja2" data-engine="jinja2">
+                <h4>
+                    <a class="permalink" href="#by-value-jinja2">Output Jinja2</a>
+                    
+                    <small>v2.8.0</small>
+                </h4>
+                
+                    <pre class="result"><code>1:f
 2:b
 3:e
 4:c
 5:a
 6:d
 </code></pre>
-            
-        </section>
-        
-        
-        
-        <section id="by-value-liquid" data-engine="liquid">
-            <h4>
-                <a class="permalink" href="#by-value-liquid">Output Liquid</a>
-                (error)
-                <small>v3.0.6</small>
-            </h4>
-            
-                <pre class="error"><code>Liquid syntax error: Tag '{%- for key, value in items | dictsort(false, 'value') -%}' was not properly terminated with regexp: /\%\}/</code></pre>
-            
-        </section>
-        
-        
-        
-        <section id="by-value-nunjucks" data-engine="nunjucks">
-            <h4>
-                <a class="permalink" href="#by-value-nunjucks">Output Nunjucks</a>
                 
-                <small>v2.5.0</small>
-            </h4>
+            </section>
             
-                <pre class="result"><code>1:f
+            
+            
+            <section id="by-value-liquid" data-engine="liquid">
+                <h4>
+                    <a class="permalink" href="#by-value-liquid">Output Liquid</a>
+                    (error)
+                    <small>v3.0.6</small>
+                </h4>
+                
+                    <pre class="error"><code>Liquid syntax error: Tag '{%- for key, value in items | dictsort(false, 'value') -%}' was not properly terminated with regexp: /\%\}/</code></pre>
+                
+            </section>
+            
+            
+            
+            <section id="by-value-nunjucks" data-engine="nunjucks">
+                <h4>
+                    <a class="permalink" href="#by-value-nunjucks">Output Nunjucks</a>
+                    
+                    <small>v2.5.0</small>
+                </h4>
+                
+                    <pre class="result"><code>1:f
 2:b
 3:e
 4:c
 5:a
 6:d
 </code></pre>
+                
+            </section>
+            
+            
+            
+            <section id="by-value-swig" data-engine="swig">
+                <h4>
+                    <a class="permalink" href="#by-value-swig">Output Swig</a>
+                    (error)
+                    <small>v1.4.2</small>
+                </h4>
+                
+                    <pre class="error"><code>Invalid filter "dictsort".</code></pre>
+                
+            </section>
+            
+            
+            
+            <section id="by-value-twig" data-engine="twig">
+                <h4>
+                    <a class="permalink" href="#by-value-twig">Output Twig</a>
+                    (error)
+                    <small>v1.24.2</small>
+                </h4>
+                
+                    <pre class="error"><code>Unknown "dictsort" filter.</code></pre>
+                
+            </section>
+            
+            
+            
+            <section id="by-value-twigjs" data-engine="twigjs">
+                <h4>
+                    <a class="permalink" href="#by-value-twigjs">Output Twigjs</a>
+                    (error)
+                    <small>v0.9.5</small>
+                </h4>
+                
+                    <pre class="error"><code>Unable to find filter dictsort</code></pre>
+                
+            </section>
             
         </section>
         
         
-        
-        <section id="by-value-swig" data-engine="swig">
-            <h4>
-                <a class="permalink" href="#by-value-swig">Output Swig</a>
-                (error)
-                <small>v1.4.2</small>
-            </h4>
-            
-                <pre class="error"><code>Invalid filter "dictsort".</code></pre>
-            
-        </section>
-        
-        
-        
-        <section id="by-value-twig" data-engine="twig">
-            <h4>
-                <a class="permalink" href="#by-value-twig">Output Twig</a>
-                (error)
-                <small>v1.24.2</small>
-            </h4>
-            
-                <pre class="error"><code>Unknown "dictsort" filter.</code></pre>
-            
-        </section>
-        
-        
-        
-        <section id="by-value-twigjs" data-engine="twigjs">
-            <h4>
-                <a class="permalink" href="#by-value-twigjs">Output Twigjs</a>
-                (error)
-                <small>v0.9.5</small>
-            </h4>
-            
-                <pre class="error"><code>Unable to find filter dictsort</code></pre>
-            
-        </section>
-        
-    </section>
-    
-    
-    <section class="section" id="case-insensitive">
-        <h3><a class="permalink" href="#case-insensitive">Test: case-insensitive</a></h3>
+        <section class="section" id="case-insensitive">
+            <h3><a class="permalink" href="#case-insensitive">Test: case-insensitive</a></h3>
 
-        <h4>Template</h4>
-        <div class="test"><pre class="language-twig"><code><span class="token tag" ><span class="token ld" ><span class="token punctuation" >{%-</span> <span class="token keyword" >for</span></span> <span class="token property" >key</span><span class="token punctuation" >,</span> <span class="token property" >value</span> <span class="token operator" >in</span> <span class="token property" >items</span> <span class="token operator" >|</span> <span class="token property" >dictsort</span><span class="token punctuation" >(</span><span class="token boolean" >false</span><span class="token punctuation" >)</span> <span class="token rd" ><span class="token punctuation" >-%}</span></span></span>
+            <h4>Template</h4>
+            <div class="test"><pre class="language-twig"><code><span class="token tag" ><span class="token ld" ><span class="token punctuation" >{%-</span> <span class="token keyword" >for</span></span> <span class="token property" >key</span><span class="token punctuation" >,</span> <span class="token property" >value</span> <span class="token operator" >in</span> <span class="token property" >items</span> <span class="token operator" >|</span> <span class="token property" >dictsort</span><span class="token punctuation" >(</span><span class="token boolean" >false</span><span class="token punctuation" >)</span> <span class="token rd" ><span class="token punctuation" >-%}</span></span></span>
 <span class="token tag" ><span class="token ld" ><span class="token punctuation" >{{</span></span> <span class="token property" >key</span> <span class="token rd" ><span class="token punctuation" >}}</span></span></span>
 <span class="token tag" ><span class="token ld" ><span class="token punctuation" >{%</span> <span class="token keyword" >endfor</span></span> <span class="token rd" ><span class="token punctuation" >%}</span></span></span></code></pre></div>
 
-        
-        <h4>Data</h4>
-        <div class="test"><pre class="language-json"><code><span class="token punctuation" >{</span>
+            
+            <h4>Data</h4>
+            <div class="test"><pre class="language-json"><code><span class="token punctuation" >{</span>
   <span class="token property" >"items"</span><span class="token operator" >:</span> <span class="token punctuation" >{</span>
     <span class="token property" >"b"</span><span class="token operator" >:</span> <span class="token number" >1</span><span class="token punctuation" >,</span>
     <span class="token property" >"B"</span><span class="token operator" >:</span> <span class="token number" >2</span><span class="token punctuation" >,</span>
@@ -275,126 +299,126 @@
     <span class="token property" >"C"</span><span class="token operator" >:</span> <span class="token number" >6</span>
   <span class="token punctuation" >}</span>
 <span class="token punctuation" >}</span></code></pre></div>
-        
+            
 
-        
-        
-        
-        <section id="case-insensitive-django" data-engine="django">
-            <h4>
-                <a class="permalink" href="#case-insensitive-django">Output Django</a>
-                (error)
-                <small>v1.10.1</small>
-            </h4>
             
-                <pre class="error"><code>Invalid block tag on line 1: '-'. Did you forget to register or load this tag?</code></pre>
             
-        </section>
-        
-        
-        
-        <section id="case-insensitive-jinja2" data-engine="jinja2">
-            <h4>
-                <a class="permalink" href="#case-insensitive-jinja2">Output Jinja2</a>
+            
+            <section id="case-insensitive-django" data-engine="django">
+                <h4>
+                    <a class="permalink" href="#case-insensitive-django">Output Django</a>
+                    (error)
+                    <small>v1.10.1</small>
+                </h4>
                 
-                <small>v2.8.0</small>
-            </h4>
+                    <pre class="error"><code>Invalid block tag on line 1: '-'. Did you forget to register or load this tag?</code></pre>
+                
+            </section>
             
-                <pre class="result"><code>A
+            
+            
+            <section id="case-insensitive-jinja2" data-engine="jinja2">
+                <h4>
+                    <a class="permalink" href="#case-insensitive-jinja2">Output Jinja2</a>
+                    
+                    <small>v2.8.0</small>
+                </h4>
+                
+                    <pre class="result"><code>A
 a
 B
 b
 c
 C
 </code></pre>
-            
-        </section>
-        
-        
-        
-        <section id="case-insensitive-liquid" data-engine="liquid">
-            <h4>
-                <a class="permalink" href="#case-insensitive-liquid">Output Liquid</a>
-                (error)
-                <small>v3.0.6</small>
-            </h4>
-            
-                <pre class="error"><code>Liquid syntax error: Tag '{%- for key, value in items | dictsort(false) -%}' was not properly terminated with regexp: /\%\}/</code></pre>
-            
-        </section>
-        
-        
-        
-        <section id="case-insensitive-nunjucks" data-engine="nunjucks">
-            <h4>
-                <a class="permalink" href="#case-insensitive-nunjucks">Output Nunjucks</a>
                 
-                <small>v2.5.0</small>
-            </h4>
+            </section>
             
-                <pre class="result"><code>A
+            
+            
+            <section id="case-insensitive-liquid" data-engine="liquid">
+                <h4>
+                    <a class="permalink" href="#case-insensitive-liquid">Output Liquid</a>
+                    (error)
+                    <small>v3.0.6</small>
+                </h4>
+                
+                    <pre class="error"><code>Liquid syntax error: Tag '{%- for key, value in items | dictsort(false) -%}' was not properly terminated with regexp: /\%\}/</code></pre>
+                
+            </section>
+            
+            
+            
+            <section id="case-insensitive-nunjucks" data-engine="nunjucks">
+                <h4>
+                    <a class="permalink" href="#case-insensitive-nunjucks">Output Nunjucks</a>
+                    
+                    <small>v2.5.0</small>
+                </h4>
+                
+                    <pre class="result"><code>A
 a
 b
 B
 c
 C
 </code></pre>
+                
+            </section>
+            
+            
+            
+            <section id="case-insensitive-swig" data-engine="swig">
+                <h4>
+                    <a class="permalink" href="#case-insensitive-swig">Output Swig</a>
+                    (error)
+                    <small>v1.4.2</small>
+                </h4>
+                
+                    <pre class="error"><code>Invalid filter "dictsort".</code></pre>
+                
+            </section>
+            
+            
+            
+            <section id="case-insensitive-twig" data-engine="twig">
+                <h4>
+                    <a class="permalink" href="#case-insensitive-twig">Output Twig</a>
+                    (error)
+                    <small>v1.24.2</small>
+                </h4>
+                
+                    <pre class="error"><code>Unknown "dictsort" filter.</code></pre>
+                
+            </section>
+            
+            
+            
+            <section id="case-insensitive-twigjs" data-engine="twigjs">
+                <h4>
+                    <a class="permalink" href="#case-insensitive-twigjs">Output Twigjs</a>
+                    (error)
+                    <small>v0.9.5</small>
+                </h4>
+                
+                    <pre class="error"><code>Unable to find filter dictsort</code></pre>
+                
+            </section>
             
         </section>
         
         
-        
-        <section id="case-insensitive-swig" data-engine="swig">
-            <h4>
-                <a class="permalink" href="#case-insensitive-swig">Output Swig</a>
-                (error)
-                <small>v1.4.2</small>
-            </h4>
-            
-                <pre class="error"><code>Invalid filter "dictsort".</code></pre>
-            
-        </section>
-        
-        
-        
-        <section id="case-insensitive-twig" data-engine="twig">
-            <h4>
-                <a class="permalink" href="#case-insensitive-twig">Output Twig</a>
-                (error)
-                <small>v1.24.2</small>
-            </h4>
-            
-                <pre class="error"><code>Unknown "dictsort" filter.</code></pre>
-            
-        </section>
-        
-        
-        
-        <section id="case-insensitive-twigjs" data-engine="twigjs">
-            <h4>
-                <a class="permalink" href="#case-insensitive-twigjs">Output Twigjs</a>
-                (error)
-                <small>v0.9.5</small>
-            </h4>
-            
-                <pre class="error"><code>Unable to find filter dictsort</code></pre>
-            
-        </section>
-        
-    </section>
-    
-    
-    <section class="section" id="case-sensitive">
-        <h3><a class="permalink" href="#case-sensitive">Test: case-sensitive</a></h3>
+        <section class="section" id="case-sensitive">
+            <h3><a class="permalink" href="#case-sensitive">Test: case-sensitive</a></h3>
 
-        <h4>Template</h4>
-        <div class="test"><pre class="language-twig"><code><span class="token tag" ><span class="token ld" ><span class="token punctuation" >{%-</span> <span class="token keyword" >for</span></span> <span class="token property" >key</span><span class="token punctuation" >,</span> <span class="token property" >value</span> <span class="token operator" >in</span> <span class="token property" >items</span> <span class="token operator" >|</span> <span class="token property" >dictsort</span><span class="token punctuation" >(</span><span class="token boolean" >true</span><span class="token punctuation" >)</span> <span class="token rd" ><span class="token punctuation" >-%}</span></span></span>
+            <h4>Template</h4>
+            <div class="test"><pre class="language-twig"><code><span class="token tag" ><span class="token ld" ><span class="token punctuation" >{%-</span> <span class="token keyword" >for</span></span> <span class="token property" >key</span><span class="token punctuation" >,</span> <span class="token property" >value</span> <span class="token operator" >in</span> <span class="token property" >items</span> <span class="token operator" >|</span> <span class="token property" >dictsort</span><span class="token punctuation" >(</span><span class="token boolean" >true</span><span class="token punctuation" >)</span> <span class="token rd" ><span class="token punctuation" >-%}</span></span></span>
 <span class="token tag" ><span class="token ld" ><span class="token punctuation" >{{</span></span> <span class="token property" >key</span> <span class="token rd" ><span class="token punctuation" >}}</span></span></span>
 <span class="token tag" ><span class="token ld" ><span class="token punctuation" >{%</span> <span class="token keyword" >endfor</span></span> <span class="token rd" ><span class="token punctuation" >%}</span></span></span></code></pre></div>
 
-        
-        <h4>Data</h4>
-        <div class="test"><pre class="language-json"><code><span class="token punctuation" >{</span>
+            
+            <h4>Data</h4>
+            <div class="test"><pre class="language-json"><code><span class="token punctuation" >{</span>
   <span class="token property" >"items"</span><span class="token operator" >:</span> <span class="token punctuation" >{</span>
     <span class="token property" >"b"</span><span class="token operator" >:</span> <span class="token number" >1</span><span class="token punctuation" >,</span>
     <span class="token property" >"B"</span><span class="token operator" >:</span> <span class="token number" >2</span><span class="token punctuation" >,</span>
@@ -404,126 +428,126 @@ C
     <span class="token property" >"C"</span><span class="token operator" >:</span> <span class="token number" >6</span>
   <span class="token punctuation" >}</span>
 <span class="token punctuation" >}</span></code></pre></div>
-        
+            
 
-        
-        
-        
-        <section id="case-sensitive-django" data-engine="django">
-            <h4>
-                <a class="permalink" href="#case-sensitive-django">Output Django</a>
-                (error)
-                <small>v1.10.1</small>
-            </h4>
             
-                <pre class="error"><code>Invalid block tag on line 1: '-'. Did you forget to register or load this tag?</code></pre>
             
-        </section>
-        
-        
-        
-        <section id="case-sensitive-jinja2" data-engine="jinja2">
-            <h4>
-                <a class="permalink" href="#case-sensitive-jinja2">Output Jinja2</a>
+            
+            <section id="case-sensitive-django" data-engine="django">
+                <h4>
+                    <a class="permalink" href="#case-sensitive-django">Output Django</a>
+                    (error)
+                    <small>v1.10.1</small>
+                </h4>
                 
-                <small>v2.8.0</small>
-            </h4>
+                    <pre class="error"><code>Invalid block tag on line 1: '-'. Did you forget to register or load this tag?</code></pre>
+                
+            </section>
             
-                <pre class="result"><code>A
+            
+            
+            <section id="case-sensitive-jinja2" data-engine="jinja2">
+                <h4>
+                    <a class="permalink" href="#case-sensitive-jinja2">Output Jinja2</a>
+                    
+                    <small>v2.8.0</small>
+                </h4>
+                
+                    <pre class="result"><code>A
 B
 C
 a
 b
 c
 </code></pre>
-            
-        </section>
-        
-        
-        
-        <section id="case-sensitive-liquid" data-engine="liquid">
-            <h4>
-                <a class="permalink" href="#case-sensitive-liquid">Output Liquid</a>
-                (error)
-                <small>v3.0.6</small>
-            </h4>
-            
-                <pre class="error"><code>Liquid syntax error: Tag '{%- for key, value in items | dictsort(true) -%}' was not properly terminated with regexp: /\%\}/</code></pre>
-            
-        </section>
-        
-        
-        
-        <section id="case-sensitive-nunjucks" data-engine="nunjucks">
-            <h4>
-                <a class="permalink" href="#case-sensitive-nunjucks">Output Nunjucks</a>
                 
-                <small>v2.5.0</small>
-            </h4>
+            </section>
             
-                <pre class="result"><code>A
+            
+            
+            <section id="case-sensitive-liquid" data-engine="liquid">
+                <h4>
+                    <a class="permalink" href="#case-sensitive-liquid">Output Liquid</a>
+                    (error)
+                    <small>v3.0.6</small>
+                </h4>
+                
+                    <pre class="error"><code>Liquid syntax error: Tag '{%- for key, value in items | dictsort(true) -%}' was not properly terminated with regexp: /\%\}/</code></pre>
+                
+            </section>
+            
+            
+            
+            <section id="case-sensitive-nunjucks" data-engine="nunjucks">
+                <h4>
+                    <a class="permalink" href="#case-sensitive-nunjucks">Output Nunjucks</a>
+                    
+                    <small>v2.5.0</small>
+                </h4>
+                
+                    <pre class="result"><code>A
 B
 C
 a
 b
 c
 </code></pre>
+                
+            </section>
+            
+            
+            
+            <section id="case-sensitive-swig" data-engine="swig">
+                <h4>
+                    <a class="permalink" href="#case-sensitive-swig">Output Swig</a>
+                    (error)
+                    <small>v1.4.2</small>
+                </h4>
+                
+                    <pre class="error"><code>Invalid filter "dictsort".</code></pre>
+                
+            </section>
+            
+            
+            
+            <section id="case-sensitive-twig" data-engine="twig">
+                <h4>
+                    <a class="permalink" href="#case-sensitive-twig">Output Twig</a>
+                    (error)
+                    <small>v1.24.2</small>
+                </h4>
+                
+                    <pre class="error"><code>Unknown "dictsort" filter.</code></pre>
+                
+            </section>
+            
+            
+            
+            <section id="case-sensitive-twigjs" data-engine="twigjs">
+                <h4>
+                    <a class="permalink" href="#case-sensitive-twigjs">Output Twigjs</a>
+                    (error)
+                    <small>v0.9.5</small>
+                </h4>
+                
+                    <pre class="error"><code>Unable to find filter dictsort</code></pre>
+                
+            </section>
             
         </section>
         
         
-        
-        <section id="case-sensitive-swig" data-engine="swig">
-            <h4>
-                <a class="permalink" href="#case-sensitive-swig">Output Swig</a>
-                (error)
-                <small>v1.4.2</small>
-            </h4>
-            
-                <pre class="error"><code>Invalid filter "dictsort".</code></pre>
-            
-        </section>
-        
-        
-        
-        <section id="case-sensitive-twig" data-engine="twig">
-            <h4>
-                <a class="permalink" href="#case-sensitive-twig">Output Twig</a>
-                (error)
-                <small>v1.24.2</small>
-            </h4>
-            
-                <pre class="error"><code>Unknown "dictsort" filter.</code></pre>
-            
-        </section>
-        
-        
-        
-        <section id="case-sensitive-twigjs" data-engine="twigjs">
-            <h4>
-                <a class="permalink" href="#case-sensitive-twigjs">Output Twigjs</a>
-                (error)
-                <small>v0.9.5</small>
-            </h4>
-            
-                <pre class="error"><code>Unable to find filter dictsort</code></pre>
-            
-        </section>
-        
-    </section>
-    
-    
-    <section class="section" id="default">
-        <h3><a class="permalink" href="#default">Test: default</a></h3>
+        <section class="section" id="default">
+            <h3><a class="permalink" href="#default">Test: default</a></h3>
 
-        <h4>Template</h4>
-        <div class="test"><pre class="language-twig"><code><span class="token tag" ><span class="token ld" ><span class="token punctuation" >{%-</span> <span class="token keyword" >for</span></span> <span class="token property" >key</span><span class="token punctuation" >,</span> <span class="token property" >value</span> <span class="token operator" >in</span> <span class="token property" >items</span> <span class="token operator" >|</span> <span class="token property" >dictsort</span> <span class="token rd" ><span class="token punctuation" >-%}</span></span></span>
+            <h4>Template</h4>
+            <div class="test"><pre class="language-twig"><code><span class="token tag" ><span class="token ld" ><span class="token punctuation" >{%-</span> <span class="token keyword" >for</span></span> <span class="token property" >key</span><span class="token punctuation" >,</span> <span class="token property" >value</span> <span class="token operator" >in</span> <span class="token property" >items</span> <span class="token operator" >|</span> <span class="token property" >dictsort</span> <span class="token rd" ><span class="token punctuation" >-%}</span></span></span>
 <span class="token tag" ><span class="token ld" ><span class="token punctuation" >{{</span></span> <span class="token property" >key</span> <span class="token rd" ><span class="token punctuation" >}}</span></span></span>
 <span class="token tag" ><span class="token ld" ><span class="token punctuation" >{%</span> <span class="token keyword" >endfor</span></span> <span class="token rd" ><span class="token punctuation" >%}</span></span></span></code></pre></div>
 
-        
-        <h4>Data</h4>
-        <div class="test"><pre class="language-json"><code><span class="token punctuation" >{</span>
+            
+            <h4>Data</h4>
+            <div class="test"><pre class="language-json"><code><span class="token punctuation" >{</span>
   <span class="token property" >"items"</span><span class="token operator" >:</span> <span class="token punctuation" >{</span>
     <span class="token property" >"E"</span><span class="token operator" >:</span> <span class="token number" >1</span><span class="token punctuation" >,</span>
     <span class="token property" >"d"</span><span class="token operator" >:</span> <span class="token number" >2</span><span class="token punctuation" >,</span>
@@ -533,114 +557,116 @@ c
     <span class="token property" >"b"</span><span class="token operator" >:</span> <span class="token number" >6</span>
   <span class="token punctuation" >}</span>
 <span class="token punctuation" >}</span></code></pre></div>
-        
+            
 
-        
-        
-        
-        <section id="default-django" data-engine="django">
-            <h4>
-                <a class="permalink" href="#default-django">Output Django</a>
-                (error)
-                <small>v1.10.1</small>
-            </h4>
             
-                <pre class="error"><code>Invalid block tag on line 1: '-'. Did you forget to register or load this tag?</code></pre>
             
-        </section>
-        
-        
-        
-        <section id="default-jinja2" data-engine="jinja2">
-            <h4>
-                <a class="permalink" href="#default-jinja2">Output Jinja2</a>
+            
+            <section id="default-django" data-engine="django">
+                <h4>
+                    <a class="permalink" href="#default-django">Output Django</a>
+                    (error)
+                    <small>v1.10.1</small>
+                </h4>
                 
-                <small>v2.8.0</small>
-            </h4>
+                    <pre class="error"><code>Invalid block tag on line 1: '-'. Did you forget to register or load this tag?</code></pre>
+                
+            </section>
             
-                <pre class="result"><code>a
+            
+            
+            <section id="default-jinja2" data-engine="jinja2">
+                <h4>
+                    <a class="permalink" href="#default-jinja2">Output Jinja2</a>
+                    
+                    <small>v2.8.0</small>
+                </h4>
+                
+                    <pre class="result"><code>a
 b
 C
 d
 E
 f
 </code></pre>
-            
-        </section>
-        
-        
-        
-        <section id="default-liquid" data-engine="liquid">
-            <h4>
-                <a class="permalink" href="#default-liquid">Output Liquid</a>
-                (error)
-                <small>v3.0.6</small>
-            </h4>
-            
-                <pre class="error"><code>Liquid syntax error: Tag '{%- for key, value in items | dictsort -%}' was not properly terminated with regexp: /\%\}/</code></pre>
-            
-        </section>
-        
-        
-        
-        <section id="default-nunjucks" data-engine="nunjucks">
-            <h4>
-                <a class="permalink" href="#default-nunjucks">Output Nunjucks</a>
                 
-                <small>v2.5.0</small>
-            </h4>
+            </section>
             
-                <pre class="result"><code>a
+            
+            
+            <section id="default-liquid" data-engine="liquid">
+                <h4>
+                    <a class="permalink" href="#default-liquid">Output Liquid</a>
+                    (error)
+                    <small>v3.0.6</small>
+                </h4>
+                
+                    <pre class="error"><code>Liquid syntax error: Tag '{%- for key, value in items | dictsort -%}' was not properly terminated with regexp: /\%\}/</code></pre>
+                
+            </section>
+            
+            
+            
+            <section id="default-nunjucks" data-engine="nunjucks">
+                <h4>
+                    <a class="permalink" href="#default-nunjucks">Output Nunjucks</a>
+                    
+                    <small>v2.5.0</small>
+                </h4>
+                
+                    <pre class="result"><code>a
 b
 C
 d
 E
 f
 </code></pre>
+                
+            </section>
+            
+            
+            
+            <section id="default-swig" data-engine="swig">
+                <h4>
+                    <a class="permalink" href="#default-swig">Output Swig</a>
+                    (error)
+                    <small>v1.4.2</small>
+                </h4>
+                
+                    <pre class="error"><code>Invalid filter "dictsort".</code></pre>
+                
+            </section>
+            
+            
+            
+            <section id="default-twig" data-engine="twig">
+                <h4>
+                    <a class="permalink" href="#default-twig">Output Twig</a>
+                    (error)
+                    <small>v1.24.2</small>
+                </h4>
+                
+                    <pre class="error"><code>Unknown "dictsort" filter.</code></pre>
+                
+            </section>
+            
+            
+            
+            <section id="default-twigjs" data-engine="twigjs">
+                <h4>
+                    <a class="permalink" href="#default-twigjs">Output Twigjs</a>
+                    (error)
+                    <small>v0.9.5</small>
+                </h4>
+                
+                    <pre class="error"><code>Unable to find filter dictsort</code></pre>
+                
+            </section>
             
         </section>
         
-        
-        
-        <section id="default-swig" data-engine="swig">
-            <h4>
-                <a class="permalink" href="#default-swig">Output Swig</a>
-                (error)
-                <small>v1.4.2</small>
-            </h4>
-            
-                <pre class="error"><code>Invalid filter "dictsort".</code></pre>
-            
-        </section>
-        
-        
-        
-        <section id="default-twig" data-engine="twig">
-            <h4>
-                <a class="permalink" href="#default-twig">Output Twig</a>
-                (error)
-                <small>v1.24.2</small>
-            </h4>
-            
-                <pre class="error"><code>Unknown "dictsort" filter.</code></pre>
-            
-        </section>
-        
-        
-        
-        <section id="default-twigjs" data-engine="twigjs">
-            <h4>
-                <a class="permalink" href="#default-twigjs">Output Twigjs</a>
-                (error)
-                <small>v0.9.5</small>
-            </h4>
-            
-                <pre class="error"><code>Unable to find filter dictsort</code></pre>
-            
-        </section>
-        
-    </section>
-    
+    </div>
+
 </article>
 
 <script>(function engineEnabler(){

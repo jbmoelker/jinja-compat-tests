@@ -18,6 +18,12 @@
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.5.1/themes/prism.css">
 <style type="text/css">
+    article { overflow: auto; zoom: 1; }
+    .page-title { font-size: 2rem; }
+    .page-nav { float: left; margin-right: 2.5em; }
+    .page-nav ul, .page-nav ol { list-style: none; padding-left: 0; }
+    .page-content { float: left; }
+
     h4 { margin-bottom: 0; }
     h4 small { float: right; font-weight: normal; font-style: italic; }
     label { padding-right: 1em; cursor: pointer; }
@@ -28,6 +34,17 @@
     .error { border: 2px solid red; white-space: normal; }
 
     [data-engine-enabled="false"] { display:none; }
+
+    .a11y-only {
+        border: 0;
+        clip: rect(0 0 0 0);
+        height: 1px;
+        margin: -1px;
+        overflow: hidden;
+        padding: 0;
+        position: absolute;
+        width: 1px;
+    }
 </style>
 
 <header>
@@ -77,734 +94,743 @@
 </header>
 
 <article>
-    <h1><code>capitalize</code> filter</h1>
+    <h1 class="page-title"><code>capitalize</code> filter</h1>
 
-    <section id="docs">
-        <h2><a class="permalink" href="#docs">Docs</a></h2>
-        <ul>
-        
+    <div class="page-nav">
+        <nav id="docs">
+            <h2><a class="permalink" href="#docs">Docs</a></h2>
+            <ul>
             
-        
+                
             
-            <li>
-                <a href="http://jinja.pocoo.org/docs/dev/templates/#capitalize">Jinja2</a>
-            </li>
+                
+                <li>
+                    <a href="http://jinja.pocoo.org/docs/dev/templates/#capitalize">Jinja2</a>
+                </li>
+                
             
-        
+                
+                <li>
+                    <a href="https://shopify.github.io/liquid/filters/capitalize/">Liquid</a>
+                </li>
+                
             
-            <li>
-                <a href="https://shopify.github.io/liquid/filters/capitalize/">Liquid</a>
-            </li>
+                
+                <li>
+                    <a href="https://mozilla.github.io/nunjucks/templating.html#capitalize">Nunjucks</a>
+                </li>
+                
             
-        
+                
+                <li>
+                    <a href="https://voorhoede.github.io/swig/docs/filters/#capitalize">Swig</a>
+                </li>
+                
             
-            <li>
-                <a href="https://mozilla.github.io/nunjucks/templating.html#capitalize">Nunjucks</a>
-            </li>
+                
+                <li>
+                    <a href="http://twig.sensiolabs.org/doc/filters/capitalize.html">Twig</a>
+                </li>
+                
             
-        
-            
-            <li>
-                <a href="https://voorhoede.github.io/swig/docs/filters/#capitalize">Swig</a>
-            </li>
-            
-        
-            
-            <li>
-                <a href="http://twig.sensiolabs.org/doc/filters/capitalize.html">Twig</a>
-            </li>
-            
-        
-        </ul>
-    </section>
+            </ul>
+        </nav>
 
-    <h2 id="tests">
-        <a class="permalink" href="#tests">Tests</a>
-    </h2>
-    <ol>
-    
-        <li><a href="#array">array</a></li>
-    
-        <li><a href="#mixed-case">mixed-case</a></li>
-    
-        <li><a href="#number">number</a></li>
-    
-        <li><a href="#sentence">sentence</a></li>
-    
-        <li><a href="#starts-with-number">starts-with-number</a></li>
-    
-        <li><a href="#word">word</a></li>
-    
-    </ol>
-    
-    
-    <section class="section" id="array">
-        <h3><a class="permalink" href="#array">Test: array</a></h3>
+        <nav id="toc">
+            <h2>Tests</h2>
+            <ol>
+                
+                    <li><a href="#array">array</a></li>
+                
+                    <li><a href="#mixed-case">mixed-case</a></li>
+                
+                    <li><a href="#number">number</a></li>
+                
+                    <li><a href="#sentence">sentence</a></li>
+                
+                    <li><a href="#starts-with-number">starts-with-number</a></li>
+                
+                    <li><a href="#word">word</a></li>
+                
+            </ol>
+        </nav>
+    </div>
 
-        <h4>Template</h4>
-        <div class="test"><pre class="language-twig"><code><span class="token tag" ><span class="token ld" ><span class="token punctuation" >{{</span></span> <span class="token property" >items</span><span class="token operator" >|</span><span class="token property" >capitalize</span> <span class="token rd" ><span class="token punctuation" >}}</span></span></span></code></pre></div>
-
+    <div class="page-content">
+        <h2 id="tests" class="a11y-only">
+            <a class="permalink" href="#tests">Tests</a>
+        </h2>
         
-        <h4>Data</h4>
-        <div class="test"><pre class="language-json"><code><span class="token punctuation" >{</span>
+        
+        <section class="section" id="array">
+            <h3><a class="permalink" href="#array">Test: array</a></h3>
+
+            <h4>Template</h4>
+            <div class="test"><pre class="language-twig"><code><span class="token tag" ><span class="token ld" ><span class="token punctuation" >{{</span></span> <span class="token property" >items</span><span class="token operator" >|</span><span class="token property" >capitalize</span> <span class="token rd" ><span class="token punctuation" >}}</span></span></span></code></pre></div>
+
+            
+            <h4>Data</h4>
+            <div class="test"><pre class="language-json"><code><span class="token punctuation" >{</span>
   <span class="token property" >"items"</span><span class="token operator" >:</span> <span class="token punctuation" >[</span>
     <span class="token string" >"my first car"</span><span class="token punctuation" >,</span>
     <span class="token string" >"my Second car"</span><span class="token punctuation" >,</span>
     <span class="token string" >"my THIRD car"</span>
   <span class="token punctuation" >]</span>
 <span class="token punctuation" >}</span></code></pre></div>
-        
+            
 
-        
-        
-        
-        <section id="array-django" data-engine="django">
-            <h4>
-                <a class="permalink" href="#array-django">Output Django</a>
-                (error)
-                <small>v1.10.1</small>
-            </h4>
             
-                <pre class="error"><code>Invalid filter: 'capitalize'</code></pre>
             
-        </section>
-        
-        
-        
-        <section id="array-jinja2" data-engine="jinja2">
-            <h4>
-                <a class="permalink" href="#array-jinja2">Output Jinja2</a>
+            
+            <section id="array-django" data-engine="django">
+                <h4>
+                    <a class="permalink" href="#array-django">Output Django</a>
+                    (error)
+                    <small>v1.10.1</small>
+                </h4>
                 
-                <small>v2.8.0</small>
-            </h4>
-            
-                <pre class="result"><code>[u'my first car', u'my second car', u'my third car']</code></pre>
-            
-        </section>
-        
-        
-        
-        <section id="array-liquid" data-engine="liquid">
-            <h4>
-                <a class="permalink" href="#array-liquid">Output Liquid</a>
+                    <pre class="error"><code>Invalid filter: 'capitalize'</code></pre>
                 
-                <small>v3.0.6</small>
-            </h4>
+            </section>
             
-                <pre class="result"><code>["my first car", "my second car", "my third car"]</code></pre>
             
-        </section>
-        
-        
-        
-        <section id="array-nunjucks" data-engine="nunjucks">
-            <h4>
-                <a class="permalink" href="#array-nunjucks">Output Nunjucks</a>
-                (error)
-                <small>v2.5.0</small>
-            </h4>
             
-                <pre class="error"><code>
+            <section id="array-jinja2" data-engine="jinja2">
+                <h4>
+                    <a class="permalink" href="#array-jinja2">Output Jinja2</a>
+                    
+                    <small>v2.8.0</small>
+                </h4>
+                
+                    <pre class="result"><code>[u'my first car', u'my second car', u'my third car']</code></pre>
+                
+            </section>
+            
+            
+            
+            <section id="array-liquid" data-engine="liquid">
+                <h4>
+                    <a class="permalink" href="#array-liquid">Output Liquid</a>
+                    
+                    <small>v3.0.6</small>
+                </h4>
+                
+                    <pre class="result"><code>["my first car", "my second car", "my third car"]</code></pre>
+                
+            </section>
+            
+            
+            
+            <section id="array-nunjucks" data-engine="nunjucks">
+                <h4>
+                    <a class="permalink" href="#array-nunjucks">Output Nunjucks</a>
+                    (error)
+                    <small>v2.5.0</small>
+                </h4>
+                
+                    <pre class="error"><code>
   TypeError: str.toLowerCase is not a function</code></pre>
-            
-        </section>
-        
-        
-        
-        <section id="array-swig" data-engine="swig">
-            <h4>
-                <a class="permalink" href="#array-swig">Output Swig</a>
                 
-                <small>v1.4.2</small>
-            </h4>
+            </section>
             
-                <pre class="result"><code>My first car,My second car,My third car</code></pre>
             
-        </section>
-        
-        
-        
-        <section id="array-twig" data-engine="twig">
-            <h4>
-                <a class="permalink" href="#array-twig">Output Twig</a>
-                (error)
-                <small>v1.24.2</small>
-            </h4>
             
-                <pre class="error"><code>
+            <section id="array-swig" data-engine="swig">
+                <h4>
+                    <a class="permalink" href="#array-swig">Output Swig</a>
+                    
+                    <small>v1.4.2</small>
+                </h4>
+                
+                    <pre class="result"><code>My first car,My second car,My third car</code></pre>
+                
+            </section>
+            
+            
+            
+            <section id="array-twig" data-engine="twig">
+                <h4>
+                    <a class="permalink" href="#array-twig">Output Twig</a>
+                    (error)
+                    <small>v1.24.2</small>
+                </h4>
+                
+                    <pre class="error"><code>
 Warning: mb_substr() expects parameter 1 to be string, array given
 
 Call Stack:
     0.0003     377880   1. {main}() /home/travis/build/jbmoelker/jinja-compat-tests/test-twig.php:0
-    0.1315    3163888   2. Twig_Environment->render() /home/travis/build/jbmoelker/jinja-compat-tests/test-twig.php:52
-    0.1340    3168144   3. Twig_Template->render() /home/travis/build/jbmoelker/jinja-compat-tests/vendor/twig/twig/lib/Twig/Environment.php:347
-    0.1340    3184608   4. Twig_Template->display() /home/travis/build/jbmoelker/jinja-compat-tests/vendor/twig/twig/lib/Twig/Template.php:366
-    0.1340    3184720   5. Twig_Template->displayWithErrorHandling() /home/travis/build/jbmoelker/jinja-compat-tests/vendor/twig/twig/lib/Twig/Template.php:355
-    0.1340    3184720   6. __TwigTemplate_87bb27d19dd7eb1fa0e1dff126ade1f469b3fb5428af45b33db341068c6dbc5d->doDisplay() /home/travis/build/jbmoelker/jinja-compat-tests/vendor/twig/twig/lib/Twig/Template.php:387
-    0.1340    3184720   7. twig_capitalize_string_filter() /home/travis/build/jbmoelker/jinja-compat-tests/vendor/twig/twig/lib/Twig/Environment.php(403) : eval()'d code:19
-    0.1340    3184720   8. mb_substr() /home/travis/build/jbmoelker/jinja-compat-tests/vendor/twig/twig/lib/Twig/Extension/Core.php:1331
+    0.3034    3163888   2. Twig_Environment->render() /home/travis/build/jbmoelker/jinja-compat-tests/test-twig.php:52
+    0.3060    3168144   3. Twig_Template->render() /home/travis/build/jbmoelker/jinja-compat-tests/vendor/twig/twig/lib/Twig/Environment.php:347
+    0.3060    3184608   4. Twig_Template->display() /home/travis/build/jbmoelker/jinja-compat-tests/vendor/twig/twig/lib/Twig/Template.php:366
+    0.3060    3184720   5. Twig_Template->displayWithErrorHandling() /home/travis/build/jbmoelker/jinja-compat-tests/vendor/twig/twig/lib/Twig/Template.php:355
+    0.3060    3184720   6. __TwigTemplate_87bb27d19dd7eb1fa0e1dff126ade1f469b3fb5428af45b33db341068c6dbc5d->doDisplay() /home/travis/build/jbmoelker/jinja-compat-tests/vendor/twig/twig/lib/Twig/Template.php:387
+    0.3060    3184720   7. twig_capitalize_string_filter() /home/travis/build/jbmoelker/jinja-compat-tests/vendor/twig/twig/lib/Twig/Environment.php(403) : eval()'d code:19
+    0.3060    3184720   8. mb_substr() /home/travis/build/jbmoelker/jinja-compat-tests/vendor/twig/twig/lib/Twig/Extension/Core.php:1331
 
 
 Warning: mb_strlen() expects parameter 1 to be string, array given
 
 Call Stack:
     0.0003     377880   1. {main}() /home/travis/build/jbmoelker/jinja-compat-tests/test-twig.php:0
-    0.1315    3163888   2. Twig_Environment->render() /home/travis/build/jbmoelker/jinja-compat-tests/test-twig.php:52
-    0.1340    3168144   3. Twig_Template->render() /home/travis/build/jbmoelker/jinja-compat-tests/vendor/twig/twig/lib/Twig/Environment.php:347
-    0.1340    3184608   4. Twig_Template->display() /home/travis/build/jbmoelker/jinja-compat-tests/vendor/twig/twig/lib/Twig/Template.php:366
-    0.1340    3184720   5. Twig_Template->displayWithErrorHandling() /home/travis/build/jbmoelker/jinja-compat-tests/vendor/twig/twig/lib/Twig/Template.php:355
-    0.1340    3184720   6. __TwigTemplate_87bb27d19dd7eb1fa0e1dff126ade1f469b3fb5428af45b33db341068c6dbc5d->doDisplay() /home/travis/build/jbmoelker/jinja-compat-tests/vendor/twig/twig/lib/Twig/Template.php:387
-    0.1340    3184720   7. twig_capitalize_string_filter() /home/travis/build/jbmoelker/jinja-compat-tests/vendor/twig/twig/lib/Twig/Environment.php(403) : eval()'d code:19
-    0.1342    3184752   8. mb_strlen() /home/travis/build/jbmoelker/jinja-compat-tests/vendor/twig/twig/lib/Twig/Extension/Core.php:1331
+    0.3034    3163888   2. Twig_Environment->render() /home/travis/build/jbmoelker/jinja-compat-tests/test-twig.php:52
+    0.3060    3168144   3. Twig_Template->render() /home/travis/build/jbmoelker/jinja-compat-tests/vendor/twig/twig/lib/Twig/Environment.php:347
+    0.3060    3184608   4. Twig_Template->display() /home/travis/build/jbmoelker/jinja-compat-tests/vendor/twig/twig/lib/Twig/Template.php:366
+    0.3060    3184720   5. Twig_Template->displayWithErrorHandling() /home/travis/build/jbmoelker/jinja-compat-tests/vendor/twig/twig/lib/Twig/Template.php:355
+    0.3060    3184720   6. __TwigTemplate_87bb27d19dd7eb1fa0e1dff126ade1f469b3fb5428af45b33db341068c6dbc5d->doDisplay() /home/travis/build/jbmoelker/jinja-compat-tests/vendor/twig/twig/lib/Twig/Template.php:387
+    0.3060    3184720   7. twig_capitalize_string_filter() /home/travis/build/jbmoelker/jinja-compat-tests/vendor/twig/twig/lib/Twig/Environment.php(403) : eval()'d code:19
+    0.3062    3184752   8. mb_strlen() /home/travis/build/jbmoelker/jinja-compat-tests/vendor/twig/twig/lib/Twig/Extension/Core.php:1331
 
 
 Warning: mb_substr() expects parameter 1 to be string, array given
 
 Call Stack:
     0.0003     377880   1. {main}() /home/travis/build/jbmoelker/jinja-compat-tests/test-twig.php:0
-    0.1315    3163888   2. Twig_Environment->render() /home/travis/build/jbmoelker/jinja-compat-tests/test-twig.php:52
-    0.1340    3168144   3. Twig_Template->render() /home/travis/build/jbmoelker/jinja-compat-tests/vendor/twig/twig/lib/Twig/Environment.php:347
-    0.1340    3184608   4. Twig_Template->display() /home/travis/build/jbmoelker/jinja-compat-tests/vendor/twig/twig/lib/Twig/Template.php:366
-    0.1340    3184720   5. Twig_Template->displayWithErrorHandling() /home/travis/build/jbmoelker/jinja-compat-tests/vendor/twig/twig/lib/Twig/Template.php:355
-    0.1340    3184720   6. __TwigTemplate_87bb27d19dd7eb1fa0e1dff126ade1f469b3fb5428af45b33db341068c6dbc5d->doDisplay() /home/travis/build/jbmoelker/jinja-compat-tests/vendor/twig/twig/lib/Twig/Template.php:387
-    0.1340    3184720   7. twig_capitalize_string_filter() /home/travis/build/jbmoelker/jinja-compat-tests/vendor/twig/twig/lib/Twig/Environment.php(403) : eval()'d code:19
-    0.1343    3184752   8. mb_substr() /home/travis/build/jbmoelker/jinja-compat-tests/vendor/twig/twig/lib/Twig/Extension/Core.php:1331
+    0.3034    3163888   2. Twig_Environment->render() /home/travis/build/jbmoelker/jinja-compat-tests/test-twig.php:52
+    0.3060    3168144   3. Twig_Template->render() /home/travis/build/jbmoelker/jinja-compat-tests/vendor/twig/twig/lib/Twig/Environment.php:347
+    0.3060    3184608   4. Twig_Template->display() /home/travis/build/jbmoelker/jinja-compat-tests/vendor/twig/twig/lib/Twig/Template.php:366
+    0.3060    3184720   5. Twig_Template->displayWithErrorHandling() /home/travis/build/jbmoelker/jinja-compat-tests/vendor/twig/twig/lib/Twig/Template.php:355
+    0.3060    3184720   6. __TwigTemplate_87bb27d19dd7eb1fa0e1dff126ade1f469b3fb5428af45b33db341068c6dbc5d->doDisplay() /home/travis/build/jbmoelker/jinja-compat-tests/vendor/twig/twig/lib/Twig/Template.php:387
+    0.3060    3184720   7. twig_capitalize_string_filter() /home/travis/build/jbmoelker/jinja-compat-tests/vendor/twig/twig/lib/Twig/Environment.php(403) : eval()'d code:19
+    0.3064    3184752   8. mb_substr() /home/travis/build/jbmoelker/jinja-compat-tests/vendor/twig/twig/lib/Twig/Extension/Core.php:1331
 
 </code></pre>
-            
-        </section>
-        
-        
-        
-        <section id="array-twigjs" data-engine="twigjs">
-            <h4>
-                <a class="permalink" href="#array-twigjs">Output Twigjs</a>
                 
-                <small>v0.9.5</small>
-            </h4>
+            </section>
             
-                <pre class="result"><code>my first car,my Second car,my THIRD car</code></pre>
+            
+            
+            <section id="array-twigjs" data-engine="twigjs">
+                <h4>
+                    <a class="permalink" href="#array-twigjs">Output Twigjs</a>
+                    
+                    <small>v0.9.5</small>
+                </h4>
+                
+                    <pre class="result"><code>my first car,my Second car,my THIRD car</code></pre>
+                
+            </section>
             
         </section>
         
-    </section>
-    
-    
-    <section class="section" id="mixed-case">
-        <h3><a class="permalink" href="#mixed-case">Test: mixed-case</a></h3>
+        
+        <section class="section" id="mixed-case">
+            <h3><a class="permalink" href="#mixed-case">Test: mixed-case</a></h3>
 
-        <h4>Template</h4>
-        <div class="test"><pre class="language-twig"><code><span class="token tag" ><span class="token ld" ><span class="token punctuation" >{{</span></span> <span class="token string" ><span class="token punctuation" >'</span>my First cAR<span class="token punctuation" >'</span></span><span class="token operator" >|</span><span class="token property" >capitalize</span> <span class="token rd" ><span class="token punctuation" >}}</span></span></span></code></pre></div>
+            <h4>Template</h4>
+            <div class="test"><pre class="language-twig"><code><span class="token tag" ><span class="token ld" ><span class="token punctuation" >{{</span></span> <span class="token string" ><span class="token punctuation" >'</span>my First cAR<span class="token punctuation" >'</span></span><span class="token operator" >|</span><span class="token property" >capitalize</span> <span class="token rd" ><span class="token punctuation" >}}</span></span></span></code></pre></div>
 
-        
+            
 
-        
-        
-        
-        <section id="mixed-case-django" data-engine="django">
-            <h4>
-                <a class="permalink" href="#mixed-case-django">Output Django</a>
-                (error)
-                <small>v1.10.1</small>
-            </h4>
             
-                <pre class="error"><code>Invalid filter: 'capitalize'</code></pre>
             
-        </section>
-        
-        
-        
-        <section id="mixed-case-jinja2" data-engine="jinja2">
-            <h4>
-                <a class="permalink" href="#mixed-case-jinja2">Output Jinja2</a>
+            
+            <section id="mixed-case-django" data-engine="django">
+                <h4>
+                    <a class="permalink" href="#mixed-case-django">Output Django</a>
+                    (error)
+                    <small>v1.10.1</small>
+                </h4>
                 
-                <small>v2.8.0</small>
-            </h4>
-            
-                <pre class="result"><code>My first car</code></pre>
-            
-        </section>
-        
-        
-        
-        <section id="mixed-case-liquid" data-engine="liquid">
-            <h4>
-                <a class="permalink" href="#mixed-case-liquid">Output Liquid</a>
+                    <pre class="error"><code>Invalid filter: 'capitalize'</code></pre>
                 
-                <small>v3.0.6</small>
-            </h4>
+            </section>
             
-                <pre class="result"><code>My first car</code></pre>
             
-        </section>
-        
-        
-        
-        <section id="mixed-case-nunjucks" data-engine="nunjucks">
-            <h4>
-                <a class="permalink" href="#mixed-case-nunjucks">Output Nunjucks</a>
+            
+            <section id="mixed-case-jinja2" data-engine="jinja2">
+                <h4>
+                    <a class="permalink" href="#mixed-case-jinja2">Output Jinja2</a>
+                    
+                    <small>v2.8.0</small>
+                </h4>
                 
-                <small>v2.5.0</small>
-            </h4>
-            
-                <pre class="result"><code>My first car</code></pre>
-            
-        </section>
-        
-        
-        
-        <section id="mixed-case-swig" data-engine="swig">
-            <h4>
-                <a class="permalink" href="#mixed-case-swig">Output Swig</a>
+                    <pre class="result"><code>My first car</code></pre>
                 
-                <small>v1.4.2</small>
-            </h4>
+            </section>
             
-                <pre class="result"><code>My first car</code></pre>
             
-        </section>
-        
-        
-        
-        <section id="mixed-case-twig" data-engine="twig">
-            <h4>
-                <a class="permalink" href="#mixed-case-twig">Output Twig</a>
+            
+            <section id="mixed-case-liquid" data-engine="liquid">
+                <h4>
+                    <a class="permalink" href="#mixed-case-liquid">Output Liquid</a>
+                    
+                    <small>v3.0.6</small>
+                </h4>
                 
-                <small>v1.24.2</small>
-            </h4>
-            
-                <pre class="result"><code>My first car</code></pre>
-            
-        </section>
-        
-        
-        
-        <section id="mixed-case-twigjs" data-engine="twigjs">
-            <h4>
-                <a class="permalink" href="#mixed-case-twigjs">Output Twigjs</a>
+                    <pre class="result"><code>My first car</code></pre>
                 
-                <small>v0.9.5</small>
-            </h4>
+            </section>
             
-                <pre class="result"><code>My first car</code></pre>
+            
+            
+            <section id="mixed-case-nunjucks" data-engine="nunjucks">
+                <h4>
+                    <a class="permalink" href="#mixed-case-nunjucks">Output Nunjucks</a>
+                    
+                    <small>v2.5.0</small>
+                </h4>
+                
+                    <pre class="result"><code>My first car</code></pre>
+                
+            </section>
+            
+            
+            
+            <section id="mixed-case-swig" data-engine="swig">
+                <h4>
+                    <a class="permalink" href="#mixed-case-swig">Output Swig</a>
+                    
+                    <small>v1.4.2</small>
+                </h4>
+                
+                    <pre class="result"><code>My first car</code></pre>
+                
+            </section>
+            
+            
+            
+            <section id="mixed-case-twig" data-engine="twig">
+                <h4>
+                    <a class="permalink" href="#mixed-case-twig">Output Twig</a>
+                    
+                    <small>v1.24.2</small>
+                </h4>
+                
+                    <pre class="result"><code>My first car</code></pre>
+                
+            </section>
+            
+            
+            
+            <section id="mixed-case-twigjs" data-engine="twigjs">
+                <h4>
+                    <a class="permalink" href="#mixed-case-twigjs">Output Twigjs</a>
+                    
+                    <small>v0.9.5</small>
+                </h4>
+                
+                    <pre class="result"><code>My first car</code></pre>
+                
+            </section>
             
         </section>
         
-    </section>
-    
-    
-    <section class="section" id="number">
-        <h3><a class="permalink" href="#number">Test: number</a></h3>
+        
+        <section class="section" id="number">
+            <h3><a class="permalink" href="#number">Test: number</a></h3>
 
-        <h4>Template</h4>
-        <div class="test"><pre class="language-twig"><code><span class="token tag" ><span class="token ld" ><span class="token punctuation" >{{</span></span> <span class="token number" >5</span><span class="token operator" >|</span><span class="token property" >capitalize</span> <span class="token rd" ><span class="token punctuation" >}}</span></span></span></code></pre></div>
+            <h4>Template</h4>
+            <div class="test"><pre class="language-twig"><code><span class="token tag" ><span class="token ld" ><span class="token punctuation" >{{</span></span> <span class="token number" >5</span><span class="token operator" >|</span><span class="token property" >capitalize</span> <span class="token rd" ><span class="token punctuation" >}}</span></span></span></code></pre></div>
 
-        
+            
 
-        
-        
-        
-        <section id="number-django" data-engine="django">
-            <h4>
-                <a class="permalink" href="#number-django">Output Django</a>
-                (error)
-                <small>v1.10.1</small>
-            </h4>
             
-                <pre class="error"><code>Invalid filter: 'capitalize'</code></pre>
             
-        </section>
-        
-        
-        
-        <section id="number-jinja2" data-engine="jinja2">
-            <h4>
-                <a class="permalink" href="#number-jinja2">Output Jinja2</a>
+            
+            <section id="number-django" data-engine="django">
+                <h4>
+                    <a class="permalink" href="#number-django">Output Django</a>
+                    (error)
+                    <small>v1.10.1</small>
+                </h4>
                 
-                <small>v2.8.0</small>
-            </h4>
-            
-                <pre class="result"><code>5</code></pre>
-            
-        </section>
-        
-        
-        
-        <section id="number-liquid" data-engine="liquid">
-            <h4>
-                <a class="permalink" href="#number-liquid">Output Liquid</a>
+                    <pre class="error"><code>Invalid filter: 'capitalize'</code></pre>
                 
-                <small>v3.0.6</small>
-            </h4>
+            </section>
             
-                <pre class="result"><code>5</code></pre>
             
-        </section>
-        
-        
-        
-        <section id="number-nunjucks" data-engine="nunjucks">
-            <h4>
-                <a class="permalink" href="#number-nunjucks">Output Nunjucks</a>
-                (error)
-                <small>v2.5.0</small>
-            </h4>
             
-                <pre class="error"><code>
+            <section id="number-jinja2" data-engine="jinja2">
+                <h4>
+                    <a class="permalink" href="#number-jinja2">Output Jinja2</a>
+                    
+                    <small>v2.8.0</small>
+                </h4>
+                
+                    <pre class="result"><code>5</code></pre>
+                
+            </section>
+            
+            
+            
+            <section id="number-liquid" data-engine="liquid">
+                <h4>
+                    <a class="permalink" href="#number-liquid">Output Liquid</a>
+                    
+                    <small>v3.0.6</small>
+                </h4>
+                
+                    <pre class="result"><code>5</code></pre>
+                
+            </section>
+            
+            
+            
+            <section id="number-nunjucks" data-engine="nunjucks">
+                <h4>
+                    <a class="permalink" href="#number-nunjucks">Output Nunjucks</a>
+                    (error)
+                    <small>v2.5.0</small>
+                </h4>
+                
+                    <pre class="error"><code>
   TypeError: str.toLowerCase is not a function</code></pre>
-            
-        </section>
-        
-        
-        
-        <section id="number-swig" data-engine="swig">
-            <h4>
-                <a class="permalink" href="#number-swig">Output Swig</a>
                 
-                <small>v1.4.2</small>
-            </h4>
+            </section>
             
-                <pre class="result"><code>5</code></pre>
             
-        </section>
-        
-        
-        
-        <section id="number-twig" data-engine="twig">
-            <h4>
-                <a class="permalink" href="#number-twig">Output Twig</a>
+            
+            <section id="number-swig" data-engine="swig">
+                <h4>
+                    <a class="permalink" href="#number-swig">Output Swig</a>
+                    
+                    <small>v1.4.2</small>
+                </h4>
                 
-                <small>v1.24.2</small>
-            </h4>
-            
-                <pre class="result"><code>5</code></pre>
-            
-        </section>
-        
-        
-        
-        <section id="number-twigjs" data-engine="twigjs">
-            <h4>
-                <a class="permalink" href="#number-twigjs">Output Twigjs</a>
+                    <pre class="result"><code>5</code></pre>
                 
-                <small>v0.9.5</small>
-            </h4>
+            </section>
             
-                <pre class="result"><code>5</code></pre>
+            
+            
+            <section id="number-twig" data-engine="twig">
+                <h4>
+                    <a class="permalink" href="#number-twig">Output Twig</a>
+                    
+                    <small>v1.24.2</small>
+                </h4>
+                
+                    <pre class="result"><code>5</code></pre>
+                
+            </section>
+            
+            
+            
+            <section id="number-twigjs" data-engine="twigjs">
+                <h4>
+                    <a class="permalink" href="#number-twigjs">Output Twigjs</a>
+                    
+                    <small>v0.9.5</small>
+                </h4>
+                
+                    <pre class="result"><code>5</code></pre>
+                
+            </section>
             
         </section>
         
-    </section>
-    
-    
-    <section class="section" id="sentence">
-        <h3><a class="permalink" href="#sentence">Test: sentence</a></h3>
+        
+        <section class="section" id="sentence">
+            <h3><a class="permalink" href="#sentence">Test: sentence</a></h3>
 
-        <h4>Template</h4>
-        <div class="test"><pre class="language-twig"><code><span class="token tag" ><span class="token ld" ><span class="token punctuation" >{{</span></span> <span class="token string" ><span class="token punctuation" >'</span>my first car<span class="token punctuation" >'</span></span><span class="token operator" >|</span><span class="token property" >capitalize</span> <span class="token rd" ><span class="token punctuation" >}}</span></span></span></code></pre></div>
+            <h4>Template</h4>
+            <div class="test"><pre class="language-twig"><code><span class="token tag" ><span class="token ld" ><span class="token punctuation" >{{</span></span> <span class="token string" ><span class="token punctuation" >'</span>my first car<span class="token punctuation" >'</span></span><span class="token operator" >|</span><span class="token property" >capitalize</span> <span class="token rd" ><span class="token punctuation" >}}</span></span></span></code></pre></div>
 
-        
+            
 
-        
-        
-        
-        <section id="sentence-django" data-engine="django">
-            <h4>
-                <a class="permalink" href="#sentence-django">Output Django</a>
-                (error)
-                <small>v1.10.1</small>
-            </h4>
             
-                <pre class="error"><code>Invalid filter: 'capitalize'</code></pre>
             
-        </section>
-        
-        
-        
-        <section id="sentence-jinja2" data-engine="jinja2">
-            <h4>
-                <a class="permalink" href="#sentence-jinja2">Output Jinja2</a>
+            
+            <section id="sentence-django" data-engine="django">
+                <h4>
+                    <a class="permalink" href="#sentence-django">Output Django</a>
+                    (error)
+                    <small>v1.10.1</small>
+                </h4>
                 
-                <small>v2.8.0</small>
-            </h4>
-            
-                <pre class="result"><code>My first car</code></pre>
-            
-        </section>
-        
-        
-        
-        <section id="sentence-liquid" data-engine="liquid">
-            <h4>
-                <a class="permalink" href="#sentence-liquid">Output Liquid</a>
+                    <pre class="error"><code>Invalid filter: 'capitalize'</code></pre>
                 
-                <small>v3.0.6</small>
-            </h4>
+            </section>
             
-                <pre class="result"><code>My first car</code></pre>
             
-        </section>
-        
-        
-        
-        <section id="sentence-nunjucks" data-engine="nunjucks">
-            <h4>
-                <a class="permalink" href="#sentence-nunjucks">Output Nunjucks</a>
+            
+            <section id="sentence-jinja2" data-engine="jinja2">
+                <h4>
+                    <a class="permalink" href="#sentence-jinja2">Output Jinja2</a>
+                    
+                    <small>v2.8.0</small>
+                </h4>
                 
-                <small>v2.5.0</small>
-            </h4>
-            
-                <pre class="result"><code>My first car</code></pre>
-            
-        </section>
-        
-        
-        
-        <section id="sentence-swig" data-engine="swig">
-            <h4>
-                <a class="permalink" href="#sentence-swig">Output Swig</a>
+                    <pre class="result"><code>My first car</code></pre>
                 
-                <small>v1.4.2</small>
-            </h4>
+            </section>
             
-                <pre class="result"><code>My first car</code></pre>
             
-        </section>
-        
-        
-        
-        <section id="sentence-twig" data-engine="twig">
-            <h4>
-                <a class="permalink" href="#sentence-twig">Output Twig</a>
+            
+            <section id="sentence-liquid" data-engine="liquid">
+                <h4>
+                    <a class="permalink" href="#sentence-liquid">Output Liquid</a>
+                    
+                    <small>v3.0.6</small>
+                </h4>
                 
-                <small>v1.24.2</small>
-            </h4>
-            
-                <pre class="result"><code>My first car</code></pre>
-            
-        </section>
-        
-        
-        
-        <section id="sentence-twigjs" data-engine="twigjs">
-            <h4>
-                <a class="permalink" href="#sentence-twigjs">Output Twigjs</a>
+                    <pre class="result"><code>My first car</code></pre>
                 
-                <small>v0.9.5</small>
-            </h4>
+            </section>
             
-                <pre class="result"><code>My first car</code></pre>
+            
+            
+            <section id="sentence-nunjucks" data-engine="nunjucks">
+                <h4>
+                    <a class="permalink" href="#sentence-nunjucks">Output Nunjucks</a>
+                    
+                    <small>v2.5.0</small>
+                </h4>
+                
+                    <pre class="result"><code>My first car</code></pre>
+                
+            </section>
+            
+            
+            
+            <section id="sentence-swig" data-engine="swig">
+                <h4>
+                    <a class="permalink" href="#sentence-swig">Output Swig</a>
+                    
+                    <small>v1.4.2</small>
+                </h4>
+                
+                    <pre class="result"><code>My first car</code></pre>
+                
+            </section>
+            
+            
+            
+            <section id="sentence-twig" data-engine="twig">
+                <h4>
+                    <a class="permalink" href="#sentence-twig">Output Twig</a>
+                    
+                    <small>v1.24.2</small>
+                </h4>
+                
+                    <pre class="result"><code>My first car</code></pre>
+                
+            </section>
+            
+            
+            
+            <section id="sentence-twigjs" data-engine="twigjs">
+                <h4>
+                    <a class="permalink" href="#sentence-twigjs">Output Twigjs</a>
+                    
+                    <small>v0.9.5</small>
+                </h4>
+                
+                    <pre class="result"><code>My first car</code></pre>
+                
+            </section>
             
         </section>
         
-    </section>
-    
-    
-    <section class="section" id="starts-with-number">
-        <h3><a class="permalink" href="#starts-with-number">Test: starts-with-number</a></h3>
+        
+        <section class="section" id="starts-with-number">
+            <h3><a class="permalink" href="#starts-with-number">Test: starts-with-number</a></h3>
 
-        <h4>Template</h4>
-        <div class="test"><pre class="language-twig"><code><span class="token tag" ><span class="token ld" ><span class="token punctuation" >{{</span></span> <span class="token string" ><span class="token punctuation" >'</span>2nd car<span class="token punctuation" >'</span></span><span class="token operator" >|</span><span class="token property" >capitalize</span> <span class="token rd" ><span class="token punctuation" >}}</span></span></span></code></pre></div>
+            <h4>Template</h4>
+            <div class="test"><pre class="language-twig"><code><span class="token tag" ><span class="token ld" ><span class="token punctuation" >{{</span></span> <span class="token string" ><span class="token punctuation" >'</span>2nd car<span class="token punctuation" >'</span></span><span class="token operator" >|</span><span class="token property" >capitalize</span> <span class="token rd" ><span class="token punctuation" >}}</span></span></span></code></pre></div>
 
-        
+            
 
-        
-        
-        
-        <section id="starts-with-number-django" data-engine="django">
-            <h4>
-                <a class="permalink" href="#starts-with-number-django">Output Django</a>
-                (error)
-                <small>v1.10.1</small>
-            </h4>
             
-                <pre class="error"><code>Invalid filter: 'capitalize'</code></pre>
             
-        </section>
-        
-        
-        
-        <section id="starts-with-number-jinja2" data-engine="jinja2">
-            <h4>
-                <a class="permalink" href="#starts-with-number-jinja2">Output Jinja2</a>
+            
+            <section id="starts-with-number-django" data-engine="django">
+                <h4>
+                    <a class="permalink" href="#starts-with-number-django">Output Django</a>
+                    (error)
+                    <small>v1.10.1</small>
+                </h4>
                 
-                <small>v2.8.0</small>
-            </h4>
-            
-                <pre class="result"><code>2nd car</code></pre>
-            
-        </section>
-        
-        
-        
-        <section id="starts-with-number-liquid" data-engine="liquid">
-            <h4>
-                <a class="permalink" href="#starts-with-number-liquid">Output Liquid</a>
+                    <pre class="error"><code>Invalid filter: 'capitalize'</code></pre>
                 
-                <small>v3.0.6</small>
-            </h4>
+            </section>
             
-                <pre class="result"><code>2nd car</code></pre>
             
-        </section>
-        
-        
-        
-        <section id="starts-with-number-nunjucks" data-engine="nunjucks">
-            <h4>
-                <a class="permalink" href="#starts-with-number-nunjucks">Output Nunjucks</a>
+            
+            <section id="starts-with-number-jinja2" data-engine="jinja2">
+                <h4>
+                    <a class="permalink" href="#starts-with-number-jinja2">Output Jinja2</a>
+                    
+                    <small>v2.8.0</small>
+                </h4>
                 
-                <small>v2.5.0</small>
-            </h4>
-            
-                <pre class="result"><code>2nd car</code></pre>
-            
-        </section>
-        
-        
-        
-        <section id="starts-with-number-swig" data-engine="swig">
-            <h4>
-                <a class="permalink" href="#starts-with-number-swig">Output Swig</a>
+                    <pre class="result"><code>2nd car</code></pre>
                 
-                <small>v1.4.2</small>
-            </h4>
+            </section>
             
-                <pre class="result"><code>2nd car</code></pre>
             
-        </section>
-        
-        
-        
-        <section id="starts-with-number-twig" data-engine="twig">
-            <h4>
-                <a class="permalink" href="#starts-with-number-twig">Output Twig</a>
+            
+            <section id="starts-with-number-liquid" data-engine="liquid">
+                <h4>
+                    <a class="permalink" href="#starts-with-number-liquid">Output Liquid</a>
+                    
+                    <small>v3.0.6</small>
+                </h4>
                 
-                <small>v1.24.2</small>
-            </h4>
-            
-                <pre class="result"><code>2nd car</code></pre>
-            
-        </section>
-        
-        
-        
-        <section id="starts-with-number-twigjs" data-engine="twigjs">
-            <h4>
-                <a class="permalink" href="#starts-with-number-twigjs">Output Twigjs</a>
+                    <pre class="result"><code>2nd car</code></pre>
                 
-                <small>v0.9.5</small>
-            </h4>
+            </section>
             
-                <pre class="result"><code>2nd car</code></pre>
+            
+            
+            <section id="starts-with-number-nunjucks" data-engine="nunjucks">
+                <h4>
+                    <a class="permalink" href="#starts-with-number-nunjucks">Output Nunjucks</a>
+                    
+                    <small>v2.5.0</small>
+                </h4>
+                
+                    <pre class="result"><code>2nd car</code></pre>
+                
+            </section>
+            
+            
+            
+            <section id="starts-with-number-swig" data-engine="swig">
+                <h4>
+                    <a class="permalink" href="#starts-with-number-swig">Output Swig</a>
+                    
+                    <small>v1.4.2</small>
+                </h4>
+                
+                    <pre class="result"><code>2nd car</code></pre>
+                
+            </section>
+            
+            
+            
+            <section id="starts-with-number-twig" data-engine="twig">
+                <h4>
+                    <a class="permalink" href="#starts-with-number-twig">Output Twig</a>
+                    
+                    <small>v1.24.2</small>
+                </h4>
+                
+                    <pre class="result"><code>2nd car</code></pre>
+                
+            </section>
+            
+            
+            
+            <section id="starts-with-number-twigjs" data-engine="twigjs">
+                <h4>
+                    <a class="permalink" href="#starts-with-number-twigjs">Output Twigjs</a>
+                    
+                    <small>v0.9.5</small>
+                </h4>
+                
+                    <pre class="result"><code>2nd car</code></pre>
+                
+            </section>
             
         </section>
         
-    </section>
-    
-    
-    <section class="section" id="word">
-        <h3><a class="permalink" href="#word">Test: word</a></h3>
+        
+        <section class="section" id="word">
+            <h3><a class="permalink" href="#word">Test: word</a></h3>
 
-        <h4>Template</h4>
-        <div class="test"><pre class="language-twig"><code><span class="token tag" ><span class="token ld" ><span class="token punctuation" >{{</span></span> <span class="token string" ><span class="token punctuation" >'</span>car<span class="token punctuation" >'</span></span><span class="token operator" >|</span><span class="token property" >capitalize</span> <span class="token rd" ><span class="token punctuation" >}}</span></span></span></code></pre></div>
+            <h4>Template</h4>
+            <div class="test"><pre class="language-twig"><code><span class="token tag" ><span class="token ld" ><span class="token punctuation" >{{</span></span> <span class="token string" ><span class="token punctuation" >'</span>car<span class="token punctuation" >'</span></span><span class="token operator" >|</span><span class="token property" >capitalize</span> <span class="token rd" ><span class="token punctuation" >}}</span></span></span></code></pre></div>
 
-        
+            
 
-        
-        
-        
-        <section id="word-django" data-engine="django">
-            <h4>
-                <a class="permalink" href="#word-django">Output Django</a>
-                (error)
-                <small>v1.10.1</small>
-            </h4>
             
-                <pre class="error"><code>Invalid filter: 'capitalize'</code></pre>
             
-        </section>
-        
-        
-        
-        <section id="word-jinja2" data-engine="jinja2">
-            <h4>
-                <a class="permalink" href="#word-jinja2">Output Jinja2</a>
+            
+            <section id="word-django" data-engine="django">
+                <h4>
+                    <a class="permalink" href="#word-django">Output Django</a>
+                    (error)
+                    <small>v1.10.1</small>
+                </h4>
                 
-                <small>v2.8.0</small>
-            </h4>
-            
-                <pre class="result"><code>Car</code></pre>
-            
-        </section>
-        
-        
-        
-        <section id="word-liquid" data-engine="liquid">
-            <h4>
-                <a class="permalink" href="#word-liquid">Output Liquid</a>
+                    <pre class="error"><code>Invalid filter: 'capitalize'</code></pre>
                 
-                <small>v3.0.6</small>
-            </h4>
+            </section>
             
-                <pre class="result"><code>Car</code></pre>
             
-        </section>
-        
-        
-        
-        <section id="word-nunjucks" data-engine="nunjucks">
-            <h4>
-                <a class="permalink" href="#word-nunjucks">Output Nunjucks</a>
+            
+            <section id="word-jinja2" data-engine="jinja2">
+                <h4>
+                    <a class="permalink" href="#word-jinja2">Output Jinja2</a>
+                    
+                    <small>v2.8.0</small>
+                </h4>
                 
-                <small>v2.5.0</small>
-            </h4>
-            
-                <pre class="result"><code>Car</code></pre>
-            
-        </section>
-        
-        
-        
-        <section id="word-swig" data-engine="swig">
-            <h4>
-                <a class="permalink" href="#word-swig">Output Swig</a>
+                    <pre class="result"><code>Car</code></pre>
                 
-                <small>v1.4.2</small>
-            </h4>
+            </section>
             
-                <pre class="result"><code>Car</code></pre>
             
-        </section>
-        
-        
-        
-        <section id="word-twig" data-engine="twig">
-            <h4>
-                <a class="permalink" href="#word-twig">Output Twig</a>
+            
+            <section id="word-liquid" data-engine="liquid">
+                <h4>
+                    <a class="permalink" href="#word-liquid">Output Liquid</a>
+                    
+                    <small>v3.0.6</small>
+                </h4>
                 
-                <small>v1.24.2</small>
-            </h4>
-            
-                <pre class="result"><code>Car</code></pre>
-            
-        </section>
-        
-        
-        
-        <section id="word-twigjs" data-engine="twigjs">
-            <h4>
-                <a class="permalink" href="#word-twigjs">Output Twigjs</a>
+                    <pre class="result"><code>Car</code></pre>
                 
-                <small>v0.9.5</small>
-            </h4>
+            </section>
             
-                <pre class="result"><code>Car</code></pre>
+            
+            
+            <section id="word-nunjucks" data-engine="nunjucks">
+                <h4>
+                    <a class="permalink" href="#word-nunjucks">Output Nunjucks</a>
+                    
+                    <small>v2.5.0</small>
+                </h4>
+                
+                    <pre class="result"><code>Car</code></pre>
+                
+            </section>
+            
+            
+            
+            <section id="word-swig" data-engine="swig">
+                <h4>
+                    <a class="permalink" href="#word-swig">Output Swig</a>
+                    
+                    <small>v1.4.2</small>
+                </h4>
+                
+                    <pre class="result"><code>Car</code></pre>
+                
+            </section>
+            
+            
+            
+            <section id="word-twig" data-engine="twig">
+                <h4>
+                    <a class="permalink" href="#word-twig">Output Twig</a>
+                    
+                    <small>v1.24.2</small>
+                </h4>
+                
+                    <pre class="result"><code>Car</code></pre>
+                
+            </section>
+            
+            
+            
+            <section id="word-twigjs" data-engine="twigjs">
+                <h4>
+                    <a class="permalink" href="#word-twigjs">Output Twigjs</a>
+                    
+                    <small>v0.9.5</small>
+                </h4>
+                
+                    <pre class="result"><code>Car</code></pre>
+                
+            </section>
             
         </section>
         
-    </section>
-    
+    </div>
+
 </article>
 
 <script>(function engineEnabler(){

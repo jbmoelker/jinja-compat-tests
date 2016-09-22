@@ -18,6 +18,12 @@
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.5.1/themes/prism.css">
 <style type="text/css">
+    article { overflow: auto; zoom: 1; }
+    .page-title { font-size: 2rem; }
+    .page-nav { float: left; margin-right: 2.5em; }
+    .page-nav ul, .page-nav ol { list-style: none; padding-left: 0; }
+    .page-content { float: left; }
+
     h4 { margin-bottom: 0; }
     h4 small { float: right; font-weight: normal; font-style: italic; }
     label { padding-right: 1em; cursor: pointer; }
@@ -28,6 +34,17 @@
     .error { border: 2px solid red; white-space: normal; }
 
     [data-engine-enabled="false"] { display:none; }
+
+    .a11y-only {
+        border: 0;
+        clip: rect(0 0 0 0);
+        height: 1px;
+        margin: -1px;
+        overflow: hidden;
+        padding: 0;
+        position: absolute;
+        width: 1px;
+    }
 </style>
 
 <header>
@@ -77,52 +94,59 @@
 </header>
 
 <article>
-    <h1><code>filesizeformat</code> filter</h1>
+    <h1 class="page-title"><code>filesizeformat</code> filter</h1>
 
-    <section id="docs">
-        <h2><a class="permalink" href="#docs">Docs</a></h2>
-        <ul>
-        
+    <div class="page-nav">
+        <nav id="docs">
+            <h2><a class="permalink" href="#docs">Docs</a></h2>
+            <ul>
             
-            <li>
-                <a href="https://docs.djangoproject.com/en/1.10/ref/templates/builtins/#filesizeformat">Django</a>
-            </li>
+                
+                <li>
+                    <a href="https://docs.djangoproject.com/en/1.10/ref/templates/builtins/#filesizeformat">Django</a>
+                </li>
+                
             
-        
+                
+                <li>
+                    <a href="http://jinja.pocoo.org/docs/dev/templates/#filesizeformat">Jinja2</a>
+                </li>
+                
             
-            <li>
-                <a href="http://jinja.pocoo.org/docs/dev/templates/#filesizeformat">Jinja2</a>
-            </li>
+                
             
-        
+                
             
-        
+                
             
-        
+                
             
-        
-            
-        
-        </ul>
-    </section>
+            </ul>
+        </nav>
 
-    <h2 id="tests">
-        <a class="permalink" href="#tests">Tests</a>
-    </h2>
-    <ol>
-    
-        <li><a href="#binary">binary</a></li>
-    
-        <li><a href="#default">default</a></li>
-    
-    </ol>
-    
-    
-    <section class="section" id="binary">
-        <h3><a class="permalink" href="#binary">Test: binary</a></h3>
+        <nav id="toc">
+            <h2>Tests</h2>
+            <ol>
+                
+                    <li><a href="#binary">binary</a></li>
+                
+                    <li><a href="#default">default</a></li>
+                
+            </ol>
+        </nav>
+    </div>
 
-        <h4>Template</h4>
-        <div class="test"><pre class="language-twig"><code><span class="token tag" ><span class="token ld" ><span class="token punctuation" >{{</span></span> <span class="token number" >0</span><span class="token operator" >|</span><span class="token property" >filesizeformat</span><span class="token punctuation" >(</span><span class="token boolean" >true</span><span class="token punctuation" >)</span> <span class="token rd" ><span class="token punctuation" >}}</span></span></span>
+    <div class="page-content">
+        <h2 id="tests" class="a11y-only">
+            <a class="permalink" href="#tests">Tests</a>
+        </h2>
+        
+        
+        <section class="section" id="binary">
+            <h3><a class="permalink" href="#binary">Test: binary</a></h3>
+
+            <h4>Template</h4>
+            <div class="test"><pre class="language-twig"><code><span class="token tag" ><span class="token ld" ><span class="token punctuation" >{{</span></span> <span class="token number" >0</span><span class="token operator" >|</span><span class="token property" >filesizeformat</span><span class="token punctuation" >(</span><span class="token boolean" >true</span><span class="token punctuation" >)</span> <span class="token rd" ><span class="token punctuation" >}}</span></span></span>
 <span class="token tag" ><span class="token ld" ><span class="token punctuation" >{{</span></span> <span class="token number" >1</span><span class="token operator" >|</span><span class="token property" >filesizeformat</span><span class="token punctuation" >(</span><span class="token boolean" >true</span><span class="token punctuation" >)</span> <span class="token rd" ><span class="token punctuation" >}}</span></span></span>
 <span class="token tag" ><span class="token ld" ><span class="token punctuation" >{{</span></span> <span class="token number" >2</span><span class="token operator" >|</span><span class="token property" >filesizeformat</span><span class="token punctuation" >(</span><span class="token boolean" >true</span><span class="token punctuation" >)</span> <span class="token rd" ><span class="token punctuation" >}}</span></span></span>
 <span class="token tag" ><span class="token ld" ><span class="token punctuation" >{{</span></span> <span class="token number" >10</span><span class="token operator" >|</span><span class="token property" >filesizeformat</span><span class="token punctuation" >(</span><span class="token boolean" >true</span><span class="token punctuation" >)</span> <span class="token rd" ><span class="token punctuation" >}}</span></span></span>
@@ -132,32 +156,32 @@
 <span class="token tag" ><span class="token ld" ><span class="token punctuation" >{{</span></span> <span class="token number" >1000000000</span><span class="token operator" >|</span><span class="token property" >filesizeformat</span><span class="token punctuation" >(</span><span class="token boolean" >true</span><span class="token punctuation" >)</span> <span class="token rd" ><span class="token punctuation" >}}</span></span></span>
 <span class="token tag" ><span class="token ld" ><span class="token punctuation" >{{</span></span> <span class="token number" >1000000000000</span><span class="token operator" >|</span><span class="token property" >filesizeformat</span><span class="token punctuation" >(</span><span class="token boolean" >true</span><span class="token punctuation" >)</span> <span class="token rd" ><span class="token punctuation" >}}</span></span></span></code></pre></div>
 
-        
+            
 
-        
-        
-        
-        <section id="binary-django" data-engine="django">
-            <h4>
-                <a class="permalink" href="#binary-django">Output Django</a>
-                (error)
-                <small>v1.10.1</small>
-            </h4>
             
-                <pre class="error"><code>Could not parse the remainder: '(true)' from '0|filesizeformat(true)'</code></pre>
             
-        </section>
-        
-        
-        
-        <section id="binary-jinja2" data-engine="jinja2">
-            <h4>
-                <a class="permalink" href="#binary-jinja2">Output Jinja2</a>
+            
+            <section id="binary-django" data-engine="django">
+                <h4>
+                    <a class="permalink" href="#binary-django">Output Django</a>
+                    (error)
+                    <small>v1.10.1</small>
+                </h4>
                 
-                <small>v2.8.0</small>
-            </h4>
+                    <pre class="error"><code>Could not parse the remainder: '(true)' from '0|filesizeformat(true)'</code></pre>
+                
+            </section>
             
-                <pre class="result"><code>0 Bytes
+            
+            
+            <section id="binary-jinja2" data-engine="jinja2">
+                <h4>
+                    <a class="permalink" href="#binary-jinja2">Output Jinja2</a>
+                    
+                    <small>v2.8.0</small>
+                </h4>
+                
+                    <pre class="result"><code>0 Bytes
 1 Byte
 2 Bytes
 10 Bytes
@@ -166,19 +190,19 @@
 976.6 KiB
 953.7 MiB
 931.3 GiB</code></pre>
-            
-        </section>
-        
-        
-        
-        <section id="binary-liquid" data-engine="liquid">
-            <h4>
-                <a class="permalink" href="#binary-liquid">Output Liquid</a>
                 
-                <small>v3.0.6</small>
-            </h4>
+            </section>
             
-                <pre class="result"><code>0
+            
+            
+            <section id="binary-liquid" data-engine="liquid">
+                <h4>
+                    <a class="permalink" href="#binary-liquid">Output Liquid</a>
+                    
+                    <small>v3.0.6</small>
+                </h4>
+                
+                    <pre class="result"><code>0
 1
 2
 10
@@ -187,70 +211,70 @@
 1000000
 1000000000
 1000000000000</code></pre>
+                
+            </section>
             
-        </section>
-        
-        
-        
-        <section id="binary-nunjucks" data-engine="nunjucks">
-            <h4>
-                <a class="permalink" href="#binary-nunjucks">Output Nunjucks</a>
-                (error)
-                <small>v2.5.0</small>
-            </h4>
             
-                <pre class="error"><code>
+            
+            <section id="binary-nunjucks" data-engine="nunjucks">
+                <h4>
+                    <a class="permalink" href="#binary-nunjucks">Output Nunjucks</a>
+                    (error)
+                    <small>v2.5.0</small>
+                </h4>
+                
+                    <pre class="error"><code>
   Error: filter not found: filesizeformat</code></pre>
+                
+            </section>
+            
+            
+            
+            <section id="binary-swig" data-engine="swig">
+                <h4>
+                    <a class="permalink" href="#binary-swig">Output Swig</a>
+                    (error)
+                    <small>v1.4.2</small>
+                </h4>
+                
+                    <pre class="error"><code>Invalid filter "filesizeformat".</code></pre>
+                
+            </section>
+            
+            
+            
+            <section id="binary-twig" data-engine="twig">
+                <h4>
+                    <a class="permalink" href="#binary-twig">Output Twig</a>
+                    (error)
+                    <small>v1.24.2</small>
+                </h4>
+                
+                    <pre class="error"><code>Unknown "filesizeformat" filter.</code></pre>
+                
+            </section>
+            
+            
+            
+            <section id="binary-twigjs" data-engine="twigjs">
+                <h4>
+                    <a class="permalink" href="#binary-twigjs">Output Twigjs</a>
+                    (error)
+                    <small>v0.9.5</small>
+                </h4>
+                
+                    <pre class="error"><code>Unable to find filter filesizeformat</code></pre>
+                
+            </section>
             
         </section>
         
         
-        
-        <section id="binary-swig" data-engine="swig">
-            <h4>
-                <a class="permalink" href="#binary-swig">Output Swig</a>
-                (error)
-                <small>v1.4.2</small>
-            </h4>
-            
-                <pre class="error"><code>Invalid filter "filesizeformat".</code></pre>
-            
-        </section>
-        
-        
-        
-        <section id="binary-twig" data-engine="twig">
-            <h4>
-                <a class="permalink" href="#binary-twig">Output Twig</a>
-                (error)
-                <small>v1.24.2</small>
-            </h4>
-            
-                <pre class="error"><code>Unknown "filesizeformat" filter.</code></pre>
-            
-        </section>
-        
-        
-        
-        <section id="binary-twigjs" data-engine="twigjs">
-            <h4>
-                <a class="permalink" href="#binary-twigjs">Output Twigjs</a>
-                (error)
-                <small>v0.9.5</small>
-            </h4>
-            
-                <pre class="error"><code>Unable to find filter filesizeformat</code></pre>
-            
-        </section>
-        
-    </section>
-    
-    
-    <section class="section" id="default">
-        <h3><a class="permalink" href="#default">Test: default</a></h3>
+        <section class="section" id="default">
+            <h3><a class="permalink" href="#default">Test: default</a></h3>
 
-        <h4>Template</h4>
-        <div class="test"><pre class="language-twig"><code><span class="token tag" ><span class="token ld" ><span class="token punctuation" >{{</span></span> <span class="token number" >0</span><span class="token operator" >|</span><span class="token property" >filesizeformat</span> <span class="token rd" ><span class="token punctuation" >}}</span></span></span>
+            <h4>Template</h4>
+            <div class="test"><pre class="language-twig"><code><span class="token tag" ><span class="token ld" ><span class="token punctuation" >{{</span></span> <span class="token number" >0</span><span class="token operator" >|</span><span class="token property" >filesizeformat</span> <span class="token rd" ><span class="token punctuation" >}}</span></span></span>
 <span class="token tag" ><span class="token ld" ><span class="token punctuation" >{{</span></span> <span class="token number" >1</span><span class="token operator" >|</span><span class="token property" >filesizeformat</span> <span class="token rd" ><span class="token punctuation" >}}</span></span></span>
 <span class="token tag" ><span class="token ld" ><span class="token punctuation" >{{</span></span> <span class="token number" >2</span><span class="token operator" >|</span><span class="token property" >filesizeformat</span> <span class="token rd" ><span class="token punctuation" >}}</span></span></span>
 <span class="token tag" ><span class="token ld" ><span class="token punctuation" >{{</span></span> <span class="token number" >10</span><span class="token operator" >|</span><span class="token property" >filesizeformat</span> <span class="token rd" ><span class="token punctuation" >}}</span></span></span>
@@ -260,32 +284,32 @@
 <span class="token tag" ><span class="token ld" ><span class="token punctuation" >{{</span></span> <span class="token number" >1000000000</span><span class="token operator" >|</span><span class="token property" >filesizeformat</span> <span class="token rd" ><span class="token punctuation" >}}</span></span></span>
 <span class="token tag" ><span class="token ld" ><span class="token punctuation" >{{</span></span> <span class="token number" >1000000000000</span><span class="token operator" >|</span><span class="token property" >filesizeformat</span> <span class="token rd" ><span class="token punctuation" >}}</span></span></span></code></pre></div>
 
-        
+            
 
-        
-        
-        
-        <section id="default-django" data-engine="django">
-            <h4>
-                <a class="permalink" href="#default-django">Output Django</a>
-                (error)
-                <small>v1.10.1</small>
-            </h4>
             
-                <pre class="error"><code>'ascii' codec can't encode character u'\xa0' in position 1: ordinal not in range(128)</code></pre>
             
-        </section>
-        
-        
-        
-        <section id="default-jinja2" data-engine="jinja2">
-            <h4>
-                <a class="permalink" href="#default-jinja2">Output Jinja2</a>
+            
+            <section id="default-django" data-engine="django">
+                <h4>
+                    <a class="permalink" href="#default-django">Output Django</a>
+                    (error)
+                    <small>v1.10.1</small>
+                </h4>
                 
-                <small>v2.8.0</small>
-            </h4>
+                    <pre class="error"><code>'ascii' codec can't encode character u'\xa0' in position 1: ordinal not in range(128)</code></pre>
+                
+            </section>
             
-                <pre class="result"><code>0 Bytes
+            
+            
+            <section id="default-jinja2" data-engine="jinja2">
+                <h4>
+                    <a class="permalink" href="#default-jinja2">Output Jinja2</a>
+                    
+                    <small>v2.8.0</small>
+                </h4>
+                
+                    <pre class="result"><code>0 Bytes
 1 Byte
 2 Bytes
 10 Bytes
@@ -294,19 +318,19 @@
 1.0 MB
 1.0 GB
 1.0 TB</code></pre>
-            
-        </section>
-        
-        
-        
-        <section id="default-liquid" data-engine="liquid">
-            <h4>
-                <a class="permalink" href="#default-liquid">Output Liquid</a>
                 
-                <small>v3.0.6</small>
-            </h4>
+            </section>
             
-                <pre class="result"><code>0
+            
+            
+            <section id="default-liquid" data-engine="liquid">
+                <h4>
+                    <a class="permalink" href="#default-liquid">Output Liquid</a>
+                    
+                    <small>v3.0.6</small>
+                </h4>
+                
+                    <pre class="result"><code>0
 1
 2
 10
@@ -315,64 +339,66 @@
 1000000
 1000000000
 1000000000000</code></pre>
+                
+            </section>
             
-        </section>
-        
-        
-        
-        <section id="default-nunjucks" data-engine="nunjucks">
-            <h4>
-                <a class="permalink" href="#default-nunjucks">Output Nunjucks</a>
-                (error)
-                <small>v2.5.0</small>
-            </h4>
             
-                <pre class="error"><code>
+            
+            <section id="default-nunjucks" data-engine="nunjucks">
+                <h4>
+                    <a class="permalink" href="#default-nunjucks">Output Nunjucks</a>
+                    (error)
+                    <small>v2.5.0</small>
+                </h4>
+                
+                    <pre class="error"><code>
   Error: filter not found: filesizeformat</code></pre>
+                
+            </section>
+            
+            
+            
+            <section id="default-swig" data-engine="swig">
+                <h4>
+                    <a class="permalink" href="#default-swig">Output Swig</a>
+                    (error)
+                    <small>v1.4.2</small>
+                </h4>
+                
+                    <pre class="error"><code>Invalid filter "filesizeformat".</code></pre>
+                
+            </section>
+            
+            
+            
+            <section id="default-twig" data-engine="twig">
+                <h4>
+                    <a class="permalink" href="#default-twig">Output Twig</a>
+                    (error)
+                    <small>v1.24.2</small>
+                </h4>
+                
+                    <pre class="error"><code>Unknown "filesizeformat" filter.</code></pre>
+                
+            </section>
+            
+            
+            
+            <section id="default-twigjs" data-engine="twigjs">
+                <h4>
+                    <a class="permalink" href="#default-twigjs">Output Twigjs</a>
+                    (error)
+                    <small>v0.9.5</small>
+                </h4>
+                
+                    <pre class="error"><code>Unable to find filter filesizeformat</code></pre>
+                
+            </section>
             
         </section>
         
-        
-        
-        <section id="default-swig" data-engine="swig">
-            <h4>
-                <a class="permalink" href="#default-swig">Output Swig</a>
-                (error)
-                <small>v1.4.2</small>
-            </h4>
-            
-                <pre class="error"><code>Invalid filter "filesizeformat".</code></pre>
-            
-        </section>
-        
-        
-        
-        <section id="default-twig" data-engine="twig">
-            <h4>
-                <a class="permalink" href="#default-twig">Output Twig</a>
-                (error)
-                <small>v1.24.2</small>
-            </h4>
-            
-                <pre class="error"><code>Unknown "filesizeformat" filter.</code></pre>
-            
-        </section>
-        
-        
-        
-        <section id="default-twigjs" data-engine="twigjs">
-            <h4>
-                <a class="permalink" href="#default-twigjs">Output Twigjs</a>
-                (error)
-                <small>v0.9.5</small>
-            </h4>
-            
-                <pre class="error"><code>Unable to find filter filesizeformat</code></pre>
-            
-        </section>
-        
-    </section>
-    
+    </div>
+
 </article>
 
 <script>(function engineEnabler(){

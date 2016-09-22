@@ -18,6 +18,12 @@
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.5.1/themes/prism.css">
 <style type="text/css">
+    article { overflow: auto; zoom: 1; }
+    .page-title { font-size: 2rem; }
+    .page-nav { float: left; margin-right: 2.5em; }
+    .page-nav ul, .page-nav ol { list-style: none; padding-left: 0; }
+    .page-content { float: left; }
+
     h4 { margin-bottom: 0; }
     h4 small { float: right; font-weight: normal; font-style: italic; }
     label { padding-right: 1em; cursor: pointer; }
@@ -28,6 +34,17 @@
     .error { border: 2px solid red; white-space: normal; }
 
     [data-engine-enabled="false"] { display:none; }
+
+    .a11y-only {
+        border: 0;
+        clip: rect(0 0 0 0);
+        height: 1px;
+        margin: -1px;
+        overflow: hidden;
+        padding: 0;
+        position: absolute;
+        width: 1px;
+    }
 </style>
 
 <header>
@@ -77,368 +94,377 @@
 </header>
 
 <article>
-    <h1><code>dump</code> filter</h1>
+    <h1 class="page-title"><code>dump</code> filter</h1>
 
-    <section id="docs">
-        <h2><a class="permalink" href="#docs">Docs</a></h2>
-        <ul>
-        
+    <div class="page-nav">
+        <nav id="docs">
+            <h2><a class="permalink" href="#docs">Docs</a></h2>
+            <ul>
             
-        
+                
             
-        
+                
             
-        
+                
             
-            <li>
-                <a href="https://mozilla.github.io/nunjucks/templating.html#dump-object">Nunjucks</a>
-            </li>
+                
+                <li>
+                    <a href="https://mozilla.github.io/nunjucks/templating.html#dump-object">Nunjucks</a>
+                </li>
+                
             
-        
+                
             
-        
+                
             
-        
-        </ul>
-    </section>
+            </ul>
+        </nav>
 
-    <h2 id="tests">
-        <a class="permalink" href="#tests">Tests</a>
-    </h2>
-    <ol>
-    
-        <li><a href="#default">default</a></li>
-    
-        <li><a href="#spaces">spaces</a></li>
-    
-        <li><a href="#tab">tab</a></li>
-    
-    </ol>
-    
-    
-    <section class="section" id="default">
-        <h3><a class="permalink" href="#default">Test: default</a></h3>
+        <nav id="toc">
+            <h2>Tests</h2>
+            <ol>
+                
+                    <li><a href="#default">default</a></li>
+                
+                    <li><a href="#spaces">spaces</a></li>
+                
+                    <li><a href="#tab">tab</a></li>
+                
+            </ol>
+        </nav>
+    </div>
 
-        <h4>Template</h4>
-        <div class="test"><pre class="language-twig"><code><span class="token tag" ><span class="token ld" ><span class="token punctuation" >{{</span></span> <span class="token property" >data</span><span class="token operator" >|</span><span class="token property" >dump</span> <span class="token rd" ><span class="token punctuation" >}}</span></span></span></code></pre></div>
-
+    <div class="page-content">
+        <h2 id="tests" class="a11y-only">
+            <a class="permalink" href="#tests">Tests</a>
+        </h2>
         
-        <h4>Data</h4>
-        <div class="test"><pre class="language-json"><code><span class="token punctuation" >{</span>
+        
+        <section class="section" id="default">
+            <h3><a class="permalink" href="#default">Test: default</a></h3>
+
+            <h4>Template</h4>
+            <div class="test"><pre class="language-twig"><code><span class="token tag" ><span class="token ld" ><span class="token punctuation" >{{</span></span> <span class="token property" >data</span><span class="token operator" >|</span><span class="token property" >dump</span> <span class="token rd" ><span class="token punctuation" >}}</span></span></span></code></pre></div>
+
+            
+            <h4>Data</h4>
+            <div class="test"><pre class="language-json"><code><span class="token punctuation" >{</span>
   <span class="token property" >"data"</span><span class="token operator" >:</span> <span class="token punctuation" >[</span><span class="token property" >"a", 1, { "b"</span><span class="token operator" >:</span> <span class="token boolean" >false</span> <span class="token punctuation" >}</span><span class="token punctuation" >]</span>
 <span class="token punctuation" >}</span></code></pre></div>
-        
+            
 
-        
-        
-        
-        <section id="default-django" data-engine="django">
-            <h4>
-                <a class="permalink" href="#default-django">Output Django</a>
-                (error)
-                <small>v1.10.1</small>
-            </h4>
             
-                <pre class="error"><code>Invalid filter: 'dump'</code></pre>
             
-        </section>
-        
-        
-        
-        <section id="default-jinja2" data-engine="jinja2">
-            <h4>
-                <a class="permalink" href="#default-jinja2">Output Jinja2</a>
-                (error)
-                <small>v2.8.0</small>
-            </h4>
             
-                <pre class="error"><code>no filter named 'dump'</code></pre>
-            
-        </section>
-        
-        
-        
-        <section id="default-liquid" data-engine="liquid">
-            <h4>
-                <a class="permalink" href="#default-liquid">Output Liquid</a>
+            <section id="default-django" data-engine="django">
+                <h4>
+                    <a class="permalink" href="#default-django">Output Django</a>
+                    (error)
+                    <small>v1.10.1</small>
+                </h4>
                 
-                <small>v3.0.6</small>
-            </h4>
-            
-                <pre class="result"><code>a1{"b"=>false}</code></pre>
-            
-        </section>
-        
-        
-        
-        <section id="default-nunjucks" data-engine="nunjucks">
-            <h4>
-                <a class="permalink" href="#default-nunjucks">Output Nunjucks</a>
+                    <pre class="error"><code>Invalid filter: 'dump'</code></pre>
                 
-                <small>v2.5.0</small>
-            </h4>
+            </section>
             
-                <pre class="result"><code>[&quot;a&quot;,1,{&quot;b&quot;:false}]</code></pre>
+            
+            
+            <section id="default-jinja2" data-engine="jinja2">
+                <h4>
+                    <a class="permalink" href="#default-jinja2">Output Jinja2</a>
+                    (error)
+                    <small>v2.8.0</small>
+                </h4>
+                
+                    <pre class="error"><code>no filter named 'dump'</code></pre>
+                
+            </section>
+            
+            
+            
+            <section id="default-liquid" data-engine="liquid">
+                <h4>
+                    <a class="permalink" href="#default-liquid">Output Liquid</a>
+                    
+                    <small>v3.0.6</small>
+                </h4>
+                
+                    <pre class="result"><code>a1{"b"=>false}</code></pre>
+                
+            </section>
+            
+            
+            
+            <section id="default-nunjucks" data-engine="nunjucks">
+                <h4>
+                    <a class="permalink" href="#default-nunjucks">Output Nunjucks</a>
+                    
+                    <small>v2.5.0</small>
+                </h4>
+                
+                    <pre class="result"><code>[&quot;a&quot;,1,{&quot;b&quot;:false}]</code></pre>
+                
+            </section>
+            
+            
+            
+            <section id="default-swig" data-engine="swig">
+                <h4>
+                    <a class="permalink" href="#default-swig">Output Swig</a>
+                    (error)
+                    <small>v1.4.2</small>
+                </h4>
+                
+                    <pre class="error"><code>Invalid filter "dump".</code></pre>
+                
+            </section>
+            
+            
+            
+            <section id="default-twig" data-engine="twig">
+                <h4>
+                    <a class="permalink" href="#default-twig">Output Twig</a>
+                    (error)
+                    <small>v1.24.2</small>
+                </h4>
+                
+                    <pre class="error"><code>Unknown "dump" filter.</code></pre>
+                
+            </section>
+            
+            
+            
+            <section id="default-twigjs" data-engine="twigjs">
+                <h4>
+                    <a class="permalink" href="#default-twigjs">Output Twigjs</a>
+                    (error)
+                    <small>v0.9.5</small>
+                </h4>
+                
+                    <pre class="error"><code>Unable to find filter dump</code></pre>
+                
+            </section>
             
         </section>
         
         
-        
-        <section id="default-swig" data-engine="swig">
-            <h4>
-                <a class="permalink" href="#default-swig">Output Swig</a>
-                (error)
-                <small>v1.4.2</small>
-            </h4>
-            
-                <pre class="error"><code>Invalid filter "dump".</code></pre>
-            
-        </section>
-        
-        
-        
-        <section id="default-twig" data-engine="twig">
-            <h4>
-                <a class="permalink" href="#default-twig">Output Twig</a>
-                (error)
-                <small>v1.24.2</small>
-            </h4>
-            
-                <pre class="error"><code>Unknown "dump" filter.</code></pre>
-            
-        </section>
-        
-        
-        
-        <section id="default-twigjs" data-engine="twigjs">
-            <h4>
-                <a class="permalink" href="#default-twigjs">Output Twigjs</a>
-                (error)
-                <small>v0.9.5</small>
-            </h4>
-            
-                <pre class="error"><code>Unable to find filter dump</code></pre>
-            
-        </section>
-        
-    </section>
-    
-    
-    <section class="section" id="spaces">
-        <h3><a class="permalink" href="#spaces">Test: spaces</a></h3>
+        <section class="section" id="spaces">
+            <h3><a class="permalink" href="#spaces">Test: spaces</a></h3>
 
-        <h4>Template</h4>
-        <div class="test"><pre class="language-twig"><code><span class="token tag" ><span class="token ld" ><span class="token punctuation" >{{</span></span> <span class="token property" >data</span><span class="token operator" >|</span><span class="token property" >dump</span><span class="token punctuation" >(</span><span class="token number" >2</span><span class="token punctuation" >)</span> <span class="token rd" ><span class="token punctuation" >}}</span></span></span></code></pre></div>
+            <h4>Template</h4>
+            <div class="test"><pre class="language-twig"><code><span class="token tag" ><span class="token ld" ><span class="token punctuation" >{{</span></span> <span class="token property" >data</span><span class="token operator" >|</span><span class="token property" >dump</span><span class="token punctuation" >(</span><span class="token number" >2</span><span class="token punctuation" >)</span> <span class="token rd" ><span class="token punctuation" >}}</span></span></span></code></pre></div>
 
-        
-        <h4>Data</h4>
-        <div class="test"><pre class="language-json"><code><span class="token punctuation" >{</span>
+            
+            <h4>Data</h4>
+            <div class="test"><pre class="language-json"><code><span class="token punctuation" >{</span>
   <span class="token property" >"data"</span><span class="token operator" >:</span> <span class="token punctuation" >[</span><span class="token property" >"a", 1, { "b"</span><span class="token operator" >:</span> <span class="token boolean" >false</span> <span class="token punctuation" >}</span><span class="token punctuation" >]</span>
 <span class="token punctuation" >}</span></code></pre></div>
-        
+            
 
-        
-        
-        
-        <section id="spaces-django" data-engine="django">
-            <h4>
-                <a class="permalink" href="#spaces-django">Output Django</a>
-                (error)
-                <small>v1.10.1</small>
-            </h4>
             
-                <pre class="error"><code>Invalid filter: 'dump'</code></pre>
             
-        </section>
-        
-        
-        
-        <section id="spaces-jinja2" data-engine="jinja2">
-            <h4>
-                <a class="permalink" href="#spaces-jinja2">Output Jinja2</a>
-                (error)
-                <small>v2.8.0</small>
-            </h4>
             
-                <pre class="error"><code>no filter named 'dump'</code></pre>
-            
-        </section>
-        
-        
-        
-        <section id="spaces-liquid" data-engine="liquid">
-            <h4>
-                <a class="permalink" href="#spaces-liquid">Output Liquid</a>
+            <section id="spaces-django" data-engine="django">
+                <h4>
+                    <a class="permalink" href="#spaces-django">Output Django</a>
+                    (error)
+                    <small>v1.10.1</small>
+                </h4>
                 
-                <small>v3.0.6</small>
-            </h4>
-            
-                <pre class="result"><code>a1{"b"=>false}</code></pre>
-            
-        </section>
-        
-        
-        
-        <section id="spaces-nunjucks" data-engine="nunjucks">
-            <h4>
-                <a class="permalink" href="#spaces-nunjucks">Output Nunjucks</a>
+                    <pre class="error"><code>Invalid filter: 'dump'</code></pre>
                 
-                <small>v2.5.0</small>
-            </h4>
+            </section>
             
-                <pre class="result"><code>[&quot;a&quot;,1,{&quot;b&quot;:false}]</code></pre>
+            
+            
+            <section id="spaces-jinja2" data-engine="jinja2">
+                <h4>
+                    <a class="permalink" href="#spaces-jinja2">Output Jinja2</a>
+                    (error)
+                    <small>v2.8.0</small>
+                </h4>
+                
+                    <pre class="error"><code>no filter named 'dump'</code></pre>
+                
+            </section>
+            
+            
+            
+            <section id="spaces-liquid" data-engine="liquid">
+                <h4>
+                    <a class="permalink" href="#spaces-liquid">Output Liquid</a>
+                    
+                    <small>v3.0.6</small>
+                </h4>
+                
+                    <pre class="result"><code>a1{"b"=>false}</code></pre>
+                
+            </section>
+            
+            
+            
+            <section id="spaces-nunjucks" data-engine="nunjucks">
+                <h4>
+                    <a class="permalink" href="#spaces-nunjucks">Output Nunjucks</a>
+                    
+                    <small>v2.5.0</small>
+                </h4>
+                
+                    <pre class="result"><code>[&quot;a&quot;,1,{&quot;b&quot;:false}]</code></pre>
+                
+            </section>
+            
+            
+            
+            <section id="spaces-swig" data-engine="swig">
+                <h4>
+                    <a class="permalink" href="#spaces-swig">Output Swig</a>
+                    (error)
+                    <small>v1.4.2</small>
+                </h4>
+                
+                    <pre class="error"><code>Invalid filter "dump".</code></pre>
+                
+            </section>
+            
+            
+            
+            <section id="spaces-twig" data-engine="twig">
+                <h4>
+                    <a class="permalink" href="#spaces-twig">Output Twig</a>
+                    (error)
+                    <small>v1.24.2</small>
+                </h4>
+                
+                    <pre class="error"><code>Unknown "dump" filter.</code></pre>
+                
+            </section>
+            
+            
+            
+            <section id="spaces-twigjs" data-engine="twigjs">
+                <h4>
+                    <a class="permalink" href="#spaces-twigjs">Output Twigjs</a>
+                    (error)
+                    <small>v0.9.5</small>
+                </h4>
+                
+                    <pre class="error"><code>Unable to find filter dump</code></pre>
+                
+            </section>
             
         </section>
         
         
-        
-        <section id="spaces-swig" data-engine="swig">
-            <h4>
-                <a class="permalink" href="#spaces-swig">Output Swig</a>
-                (error)
-                <small>v1.4.2</small>
-            </h4>
-            
-                <pre class="error"><code>Invalid filter "dump".</code></pre>
-            
-        </section>
-        
-        
-        
-        <section id="spaces-twig" data-engine="twig">
-            <h4>
-                <a class="permalink" href="#spaces-twig">Output Twig</a>
-                (error)
-                <small>v1.24.2</small>
-            </h4>
-            
-                <pre class="error"><code>Unknown "dump" filter.</code></pre>
-            
-        </section>
-        
-        
-        
-        <section id="spaces-twigjs" data-engine="twigjs">
-            <h4>
-                <a class="permalink" href="#spaces-twigjs">Output Twigjs</a>
-                (error)
-                <small>v0.9.5</small>
-            </h4>
-            
-                <pre class="error"><code>Unable to find filter dump</code></pre>
-            
-        </section>
-        
-    </section>
-    
-    
-    <section class="section" id="tab">
-        <h3><a class="permalink" href="#tab">Test: tab</a></h3>
+        <section class="section" id="tab">
+            <h3><a class="permalink" href="#tab">Test: tab</a></h3>
 
-        <h4>Template</h4>
-        <div class="test"><pre class="language-twig"><code><span class="token tag" ><span class="token ld" ><span class="token punctuation" >{{</span></span> <span class="token property" >data</span><span class="token operator" >|</span><span class="token property" >dump</span><span class="token punctuation" >(</span><span class="token string" ><span class="token punctuation" >'</span>\t<span class="token punctuation" >'</span></span><span class="token punctuation" >)</span> <span class="token rd" ><span class="token punctuation" >}}</span></span></span></code></pre></div>
+            <h4>Template</h4>
+            <div class="test"><pre class="language-twig"><code><span class="token tag" ><span class="token ld" ><span class="token punctuation" >{{</span></span> <span class="token property" >data</span><span class="token operator" >|</span><span class="token property" >dump</span><span class="token punctuation" >(</span><span class="token string" ><span class="token punctuation" >'</span>\t<span class="token punctuation" >'</span></span><span class="token punctuation" >)</span> <span class="token rd" ><span class="token punctuation" >}}</span></span></span></code></pre></div>
 
-        
-        <h4>Data</h4>
-        <div class="test"><pre class="language-json"><code><span class="token punctuation" >{</span>
+            
+            <h4>Data</h4>
+            <div class="test"><pre class="language-json"><code><span class="token punctuation" >{</span>
   <span class="token property" >"data"</span><span class="token operator" >:</span> <span class="token punctuation" >[</span><span class="token property" >"a", 1, { "b"</span><span class="token operator" >:</span> <span class="token boolean" >false</span> <span class="token punctuation" >}</span><span class="token punctuation" >]</span>
 <span class="token punctuation" >}</span></code></pre></div>
-        
+            
 
-        
-        
-        
-        <section id="tab-django" data-engine="django">
-            <h4>
-                <a class="permalink" href="#tab-django">Output Django</a>
-                (error)
-                <small>v1.10.1</small>
-            </h4>
             
-                <pre class="error"><code>Invalid filter: 'dump'</code></pre>
             
-        </section>
-        
-        
-        
-        <section id="tab-jinja2" data-engine="jinja2">
-            <h4>
-                <a class="permalink" href="#tab-jinja2">Output Jinja2</a>
-                (error)
-                <small>v2.8.0</small>
-            </h4>
             
-                <pre class="error"><code>no filter named 'dump'</code></pre>
-            
-        </section>
-        
-        
-        
-        <section id="tab-liquid" data-engine="liquid">
-            <h4>
-                <a class="permalink" href="#tab-liquid">Output Liquid</a>
+            <section id="tab-django" data-engine="django">
+                <h4>
+                    <a class="permalink" href="#tab-django">Output Django</a>
+                    (error)
+                    <small>v1.10.1</small>
+                </h4>
                 
-                <small>v3.0.6</small>
-            </h4>
-            
-                <pre class="result"><code>a1{"b"=>false}</code></pre>
-            
-        </section>
-        
-        
-        
-        <section id="tab-nunjucks" data-engine="nunjucks">
-            <h4>
-                <a class="permalink" href="#tab-nunjucks">Output Nunjucks</a>
+                    <pre class="error"><code>Invalid filter: 'dump'</code></pre>
                 
-                <small>v2.5.0</small>
-            </h4>
+            </section>
             
-                <pre class="result"><code>[&quot;a&quot;,1,{&quot;b&quot;:false}]</code></pre>
+            
+            
+            <section id="tab-jinja2" data-engine="jinja2">
+                <h4>
+                    <a class="permalink" href="#tab-jinja2">Output Jinja2</a>
+                    (error)
+                    <small>v2.8.0</small>
+                </h4>
+                
+                    <pre class="error"><code>no filter named 'dump'</code></pre>
+                
+            </section>
+            
+            
+            
+            <section id="tab-liquid" data-engine="liquid">
+                <h4>
+                    <a class="permalink" href="#tab-liquid">Output Liquid</a>
+                    
+                    <small>v3.0.6</small>
+                </h4>
+                
+                    <pre class="result"><code>a1{"b"=>false}</code></pre>
+                
+            </section>
+            
+            
+            
+            <section id="tab-nunjucks" data-engine="nunjucks">
+                <h4>
+                    <a class="permalink" href="#tab-nunjucks">Output Nunjucks</a>
+                    
+                    <small>v2.5.0</small>
+                </h4>
+                
+                    <pre class="result"><code>[&quot;a&quot;,1,{&quot;b&quot;:false}]</code></pre>
+                
+            </section>
+            
+            
+            
+            <section id="tab-swig" data-engine="swig">
+                <h4>
+                    <a class="permalink" href="#tab-swig">Output Swig</a>
+                    (error)
+                    <small>v1.4.2</small>
+                </h4>
+                
+                    <pre class="error"><code>Invalid filter "dump".</code></pre>
+                
+            </section>
+            
+            
+            
+            <section id="tab-twig" data-engine="twig">
+                <h4>
+                    <a class="permalink" href="#tab-twig">Output Twig</a>
+                    (error)
+                    <small>v1.24.2</small>
+                </h4>
+                
+                    <pre class="error"><code>Unknown "dump" filter.</code></pre>
+                
+            </section>
+            
+            
+            
+            <section id="tab-twigjs" data-engine="twigjs">
+                <h4>
+                    <a class="permalink" href="#tab-twigjs">Output Twigjs</a>
+                    (error)
+                    <small>v0.9.5</small>
+                </h4>
+                
+                    <pre class="error"><code>Unable to find filter dump</code></pre>
+                
+            </section>
             
         </section>
         
-        
-        
-        <section id="tab-swig" data-engine="swig">
-            <h4>
-                <a class="permalink" href="#tab-swig">Output Swig</a>
-                (error)
-                <small>v1.4.2</small>
-            </h4>
-            
-                <pre class="error"><code>Invalid filter "dump".</code></pre>
-            
-        </section>
-        
-        
-        
-        <section id="tab-twig" data-engine="twig">
-            <h4>
-                <a class="permalink" href="#tab-twig">Output Twig</a>
-                (error)
-                <small>v1.24.2</small>
-            </h4>
-            
-                <pre class="error"><code>Unknown "dump" filter.</code></pre>
-            
-        </section>
-        
-        
-        
-        <section id="tab-twigjs" data-engine="twigjs">
-            <h4>
-                <a class="permalink" href="#tab-twigjs">Output Twigjs</a>
-                (error)
-                <small>v0.9.5</small>
-            </h4>
-            
-                <pre class="error"><code>Unable to find filter dump</code></pre>
-            
-        </section>
-        
-    </section>
-    
+    </div>
+
 </article>
 
 <script>(function engineEnabler(){

@@ -18,6 +18,12 @@
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.5.1/themes/prism.css">
 <style type="text/css">
+    article { overflow: auto; zoom: 1; }
+    .page-title { font-size: 2rem; }
+    .page-nav { float: left; margin-right: 2.5em; }
+    .page-nav ul, .page-nav ol { list-style: none; padding-left: 0; }
+    .page-content { float: left; }
+
     h4 { margin-bottom: 0; }
     h4 small { float: right; font-weight: normal; font-style: italic; }
     label { padding-right: 1em; cursor: pointer; }
@@ -28,6 +34,17 @@
     .error { border: 2px solid red; white-space: normal; }
 
     [data-engine-enabled="false"] { display:none; }
+
+    .a11y-only {
+        border: 0;
+        clip: rect(0 0 0 0);
+        height: 1px;
+        margin: -1px;
+        overflow: hidden;
+        padding: 0;
+        position: absolute;
+        width: 1px;
+    }
 </style>
 
 <header>
@@ -77,373 +94,382 @@
 </header>
 
 <article>
-    <h1><code>escape</code> filter</h1>
+    <h1 class="page-title"><code>escape</code> filter</h1>
 
-    <section id="docs">
-        <h2><a class="permalink" href="#docs">Docs</a></h2>
-        <ul>
-        
+    <div class="page-nav">
+        <nav id="docs">
+            <h2><a class="permalink" href="#docs">Docs</a></h2>
+            <ul>
             
-            <li>
-                <a href="https://docs.djangoproject.com/en/1.10/ref/templates/builtins/#escape">Django</a>
-            </li>
+                
+                <li>
+                    <a href="https://docs.djangoproject.com/en/1.10/ref/templates/builtins/#escape">Django</a>
+                </li>
+                
             
-        
+                
+                <li>
+                    <a href="http://jinja.pocoo.org/docs/dev/templates/#escape">Jinja2</a>
+                </li>
+                
             
-            <li>
-                <a href="http://jinja.pocoo.org/docs/dev/templates/#escape">Jinja2</a>
-            </li>
+                
+                <li>
+                    <a href="https://shopify.github.io/liquid/filters/escape/">Liquid</a>
+                </li>
+                
             
-        
+                
+                <li>
+                    <a href="https://mozilla.github.io/nunjucks/templating.html#escape-aliased-as-e">Nunjucks</a>
+                </li>
+                
             
-            <li>
-                <a href="https://shopify.github.io/liquid/filters/escape/">Liquid</a>
-            </li>
+                
+                <li>
+                    <a href="https://voorhoede.github.io/swig/docs/filters/#escape">Swig</a>
+                </li>
+                
             
-        
+                
+                <li>
+                    <a href="http://twig.sensiolabs.org/doc/filters/escape.html">Twig</a>
+                </li>
+                
             
-            <li>
-                <a href="https://mozilla.github.io/nunjucks/templating.html#escape-aliased-as-e">Nunjucks</a>
-            </li>
-            
-        
-            
-            <li>
-                <a href="https://voorhoede.github.io/swig/docs/filters/#escape">Swig</a>
-            </li>
-            
-        
-            
-            <li>
-                <a href="http://twig.sensiolabs.org/doc/filters/escape.html">Twig</a>
-            </li>
-            
-        
-        </ul>
-    </section>
+            </ul>
+        </nav>
 
-    <h2 id="tests">
-        <a class="permalink" href="#tests">Tests</a>
-    </h2>
-    <ol>
-    
-        <li><a href="#alias-e">alias-e</a></li>
-    
-        <li><a href="#default">default</a></li>
-    
-        <li><a href="#double-escape">double-escape</a></li>
-    
-    </ol>
-    
-    
-    <section class="section" id="alias-e">
-        <h3><a class="permalink" href="#alias-e">Test: alias-e</a></h3>
+        <nav id="toc">
+            <h2>Tests</h2>
+            <ol>
+                
+                    <li><a href="#alias-e">alias-e</a></li>
+                
+                    <li><a href="#default">default</a></li>
+                
+                    <li><a href="#double-escape">double-escape</a></li>
+                
+            </ol>
+        </nav>
+    </div>
 
-        <h4>Template</h4>
-        <div class="test"><pre class="language-twig"><code><span class="token tag" ><span class="token ld" ><span class="token punctuation" >{{</span></span> <span class="token string" ><span class="token punctuation" >'</span>&lt;html><span class="token punctuation" >'</span></span><span class="token operator" >|</span><span class="token property" >e</span> <span class="token rd" ><span class="token punctuation" >}}</span></span></span></code></pre></div>
+    <div class="page-content">
+        <h2 id="tests" class="a11y-only">
+            <a class="permalink" href="#tests">Tests</a>
+        </h2>
+        
+        
+        <section class="section" id="alias-e">
+            <h3><a class="permalink" href="#alias-e">Test: alias-e</a></h3>
 
-        
+            <h4>Template</h4>
+            <div class="test"><pre class="language-twig"><code><span class="token tag" ><span class="token ld" ><span class="token punctuation" >{{</span></span> <span class="token string" ><span class="token punctuation" >'</span>&lt;html><span class="token punctuation" >'</span></span><span class="token operator" >|</span><span class="token property" >e</span> <span class="token rd" ><span class="token punctuation" >}}</span></span></span></code></pre></div>
 
-        
-        
-        
-        <section id="alias-e-django" data-engine="django">
-            <h4>
-                <a class="permalink" href="#alias-e-django">Output Django</a>
-                (error)
-                <small>v1.10.1</small>
-            </h4>
             
-                <pre class="error"><code>Invalid filter: 'e'</code></pre>
-            
-        </section>
-        
-        
-        
-        <section id="alias-e-jinja2" data-engine="jinja2">
-            <h4>
-                <a class="permalink" href="#alias-e-jinja2">Output Jinja2</a>
-                
-                <small>v2.8.0</small>
-            </h4>
-            
-                <pre class="result"><code>&amp;lt;html&amp;gt;</code></pre>
-            
-        </section>
-        
-        
-        
-        <section id="alias-e-liquid" data-engine="liquid">
-            <h4>
-                <a class="permalink" href="#alias-e-liquid">Output Liquid</a>
-                
-                <small>v3.0.6</small>
-            </h4>
-            
-                <pre class="result"><code>&lt;html&gt;</code></pre>
-            
-        </section>
-        
-        
-        
-        <section id="alias-e-nunjucks" data-engine="nunjucks">
-            <h4>
-                <a class="permalink" href="#alias-e-nunjucks">Output Nunjucks</a>
-                
-                <small>v2.5.0</small>
-            </h4>
-            
-                <pre class="result"><code>&amp;lt;html&amp;gt;</code></pre>
-            
-        </section>
-        
-        
-        
-        <section id="alias-e-swig" data-engine="swig">
-            <h4>
-                <a class="permalink" href="#alias-e-swig">Output Swig</a>
-                
-                <small>v1.4.2</small>
-            </h4>
-            
-                <pre class="result"><code>&amp;lt;html&amp;gt;</code></pre>
-            
-        </section>
-        
-        
-        
-        <section id="alias-e-twig" data-engine="twig">
-            <h4>
-                <a class="permalink" href="#alias-e-twig">Output Twig</a>
-                
-                <small>v1.24.2</small>
-            </h4>
-            
-                <pre class="result"><code>&amp;lt;html&amp;gt;</code></pre>
-            
-        </section>
-        
-        
-        
-        <section id="alias-e-twigjs" data-engine="twigjs">
-            <h4>
-                <a class="permalink" href="#alias-e-twigjs">Output Twigjs</a>
-                
-                <small>v0.9.5</small>
-            </h4>
-            
-                <pre class="result"><code>&amp;lt;html&amp;gt;</code></pre>
-            
-        </section>
-        
-    </section>
-    
-    
-    <section class="section" id="default">
-        <h3><a class="permalink" href="#default">Test: default</a></h3>
 
-        <h4>Template</h4>
-        <div class="test"><pre class="language-twig"><code><span class="token tag" ><span class="token ld" ><span class="token punctuation" >{{</span></span> <span class="token string" ><span class="token punctuation" >'</span>&lt;html><span class="token punctuation" >'</span></span><span class="token operator" >|</span><span class="token property" >escape</span> <span class="token rd" ><span class="token punctuation" >}}</span></span></span></code></pre></div>
+            
+            
+            
+            <section id="alias-e-django" data-engine="django">
+                <h4>
+                    <a class="permalink" href="#alias-e-django">Output Django</a>
+                    (error)
+                    <small>v1.10.1</small>
+                </h4>
+                
+                    <pre class="error"><code>Invalid filter: 'e'</code></pre>
+                
+            </section>
+            
+            
+            
+            <section id="alias-e-jinja2" data-engine="jinja2">
+                <h4>
+                    <a class="permalink" href="#alias-e-jinja2">Output Jinja2</a>
+                    
+                    <small>v2.8.0</small>
+                </h4>
+                
+                    <pre class="result"><code>&amp;lt;html&amp;gt;</code></pre>
+                
+            </section>
+            
+            
+            
+            <section id="alias-e-liquid" data-engine="liquid">
+                <h4>
+                    <a class="permalink" href="#alias-e-liquid">Output Liquid</a>
+                    
+                    <small>v3.0.6</small>
+                </h4>
+                
+                    <pre class="result"><code>&lt;html&gt;</code></pre>
+                
+            </section>
+            
+            
+            
+            <section id="alias-e-nunjucks" data-engine="nunjucks">
+                <h4>
+                    <a class="permalink" href="#alias-e-nunjucks">Output Nunjucks</a>
+                    
+                    <small>v2.5.0</small>
+                </h4>
+                
+                    <pre class="result"><code>&amp;lt;html&amp;gt;</code></pre>
+                
+            </section>
+            
+            
+            
+            <section id="alias-e-swig" data-engine="swig">
+                <h4>
+                    <a class="permalink" href="#alias-e-swig">Output Swig</a>
+                    
+                    <small>v1.4.2</small>
+                </h4>
+                
+                    <pre class="result"><code>&amp;lt;html&amp;gt;</code></pre>
+                
+            </section>
+            
+            
+            
+            <section id="alias-e-twig" data-engine="twig">
+                <h4>
+                    <a class="permalink" href="#alias-e-twig">Output Twig</a>
+                    
+                    <small>v1.24.2</small>
+                </h4>
+                
+                    <pre class="result"><code>&amp;lt;html&amp;gt;</code></pre>
+                
+            </section>
+            
+            
+            
+            <section id="alias-e-twigjs" data-engine="twigjs">
+                <h4>
+                    <a class="permalink" href="#alias-e-twigjs">Output Twigjs</a>
+                    
+                    <small>v0.9.5</small>
+                </h4>
+                
+                    <pre class="result"><code>&amp;lt;html&amp;gt;</code></pre>
+                
+            </section>
+            
+        </section>
+        
+        
+        <section class="section" id="default">
+            <h3><a class="permalink" href="#default">Test: default</a></h3>
 
-        
+            <h4>Template</h4>
+            <div class="test"><pre class="language-twig"><code><span class="token tag" ><span class="token ld" ><span class="token punctuation" >{{</span></span> <span class="token string" ><span class="token punctuation" >'</span>&lt;html><span class="token punctuation" >'</span></span><span class="token operator" >|</span><span class="token property" >escape</span> <span class="token rd" ><span class="token punctuation" >}}</span></span></span></code></pre></div>
 
-        
-        
-        
-        <section id="default-django" data-engine="django">
-            <h4>
-                <a class="permalink" href="#default-django">Output Django</a>
-                
-                <small>v1.10.1</small>
-            </h4>
             
-                <pre class="result"><code>&lt;html&gt;</code></pre>
-            
-        </section>
-        
-        
-        
-        <section id="default-jinja2" data-engine="jinja2">
-            <h4>
-                <a class="permalink" href="#default-jinja2">Output Jinja2</a>
-                
-                <small>v2.8.0</small>
-            </h4>
-            
-                <pre class="result"><code>&amp;lt;html&amp;gt;</code></pre>
-            
-        </section>
-        
-        
-        
-        <section id="default-liquid" data-engine="liquid">
-            <h4>
-                <a class="permalink" href="#default-liquid">Output Liquid</a>
-                
-                <small>v3.0.6</small>
-            </h4>
-            
-                <pre class="result"><code>&amp;lt;html&amp;gt;</code></pre>
-            
-        </section>
-        
-        
-        
-        <section id="default-nunjucks" data-engine="nunjucks">
-            <h4>
-                <a class="permalink" href="#default-nunjucks">Output Nunjucks</a>
-                
-                <small>v2.5.0</small>
-            </h4>
-            
-                <pre class="result"><code>&amp;lt;html&amp;gt;</code></pre>
-            
-        </section>
-        
-        
-        
-        <section id="default-swig" data-engine="swig">
-            <h4>
-                <a class="permalink" href="#default-swig">Output Swig</a>
-                
-                <small>v1.4.2</small>
-            </h4>
-            
-                <pre class="result"><code>&amp;lt;html&amp;gt;</code></pre>
-            
-        </section>
-        
-        
-        
-        <section id="default-twig" data-engine="twig">
-            <h4>
-                <a class="permalink" href="#default-twig">Output Twig</a>
-                
-                <small>v1.24.2</small>
-            </h4>
-            
-                <pre class="result"><code>&amp;lt;html&amp;gt;</code></pre>
-            
-        </section>
-        
-        
-        
-        <section id="default-twigjs" data-engine="twigjs">
-            <h4>
-                <a class="permalink" href="#default-twigjs">Output Twigjs</a>
-                
-                <small>v0.9.5</small>
-            </h4>
-            
-                <pre class="result"><code>&amp;lt;html&amp;gt;</code></pre>
-            
-        </section>
-        
-    </section>
-    
-    
-    <section class="section" id="double-escape">
-        <h3><a class="permalink" href="#double-escape">Test: double-escape</a></h3>
 
-        <h4>Template</h4>
-        <div class="test"><pre class="language-twig"><code><span class="token tag" ><span class="token ld" ><span class="token punctuation" >{{</span></span> <span class="token string" ><span class="token punctuation" >'</span>&lt;html><span class="token punctuation" >'</span></span><span class="token operator" >|</span><span class="token property" >escape</span><span class="token operator" >|</span><span class="token property" >escape</span> <span class="token rd" ><span class="token punctuation" >}}</span></span></span></code></pre></div>
+            
+            
+            
+            <section id="default-django" data-engine="django">
+                <h4>
+                    <a class="permalink" href="#default-django">Output Django</a>
+                    
+                    <small>v1.10.1</small>
+                </h4>
+                
+                    <pre class="result"><code>&lt;html&gt;</code></pre>
+                
+            </section>
+            
+            
+            
+            <section id="default-jinja2" data-engine="jinja2">
+                <h4>
+                    <a class="permalink" href="#default-jinja2">Output Jinja2</a>
+                    
+                    <small>v2.8.0</small>
+                </h4>
+                
+                    <pre class="result"><code>&amp;lt;html&amp;gt;</code></pre>
+                
+            </section>
+            
+            
+            
+            <section id="default-liquid" data-engine="liquid">
+                <h4>
+                    <a class="permalink" href="#default-liquid">Output Liquid</a>
+                    
+                    <small>v3.0.6</small>
+                </h4>
+                
+                    <pre class="result"><code>&amp;lt;html&amp;gt;</code></pre>
+                
+            </section>
+            
+            
+            
+            <section id="default-nunjucks" data-engine="nunjucks">
+                <h4>
+                    <a class="permalink" href="#default-nunjucks">Output Nunjucks</a>
+                    
+                    <small>v2.5.0</small>
+                </h4>
+                
+                    <pre class="result"><code>&amp;lt;html&amp;gt;</code></pre>
+                
+            </section>
+            
+            
+            
+            <section id="default-swig" data-engine="swig">
+                <h4>
+                    <a class="permalink" href="#default-swig">Output Swig</a>
+                    
+                    <small>v1.4.2</small>
+                </h4>
+                
+                    <pre class="result"><code>&amp;lt;html&amp;gt;</code></pre>
+                
+            </section>
+            
+            
+            
+            <section id="default-twig" data-engine="twig">
+                <h4>
+                    <a class="permalink" href="#default-twig">Output Twig</a>
+                    
+                    <small>v1.24.2</small>
+                </h4>
+                
+                    <pre class="result"><code>&amp;lt;html&amp;gt;</code></pre>
+                
+            </section>
+            
+            
+            
+            <section id="default-twigjs" data-engine="twigjs">
+                <h4>
+                    <a class="permalink" href="#default-twigjs">Output Twigjs</a>
+                    
+                    <small>v0.9.5</small>
+                </h4>
+                
+                    <pre class="result"><code>&amp;lt;html&amp;gt;</code></pre>
+                
+            </section>
+            
+        </section>
+        
+        
+        <section class="section" id="double-escape">
+            <h3><a class="permalink" href="#double-escape">Test: double-escape</a></h3>
 
-        
+            <h4>Template</h4>
+            <div class="test"><pre class="language-twig"><code><span class="token tag" ><span class="token ld" ><span class="token punctuation" >{{</span></span> <span class="token string" ><span class="token punctuation" >'</span>&lt;html><span class="token punctuation" >'</span></span><span class="token operator" >|</span><span class="token property" >escape</span><span class="token operator" >|</span><span class="token property" >escape</span> <span class="token rd" ><span class="token punctuation" >}}</span></span></span></code></pre></div>
 
-        
-        
-        
-        <section id="double-escape-django" data-engine="django">
-            <h4>
-                <a class="permalink" href="#double-escape-django">Output Django</a>
-                
-                <small>v1.10.1</small>
-            </h4>
             
-                <pre class="result"><code>&lt;html&gt;</code></pre>
+
+            
+            
+            
+            <section id="double-escape-django" data-engine="django">
+                <h4>
+                    <a class="permalink" href="#double-escape-django">Output Django</a>
+                    
+                    <small>v1.10.1</small>
+                </h4>
+                
+                    <pre class="result"><code>&lt;html&gt;</code></pre>
+                
+            </section>
+            
+            
+            
+            <section id="double-escape-jinja2" data-engine="jinja2">
+                <h4>
+                    <a class="permalink" href="#double-escape-jinja2">Output Jinja2</a>
+                    
+                    <small>v2.8.0</small>
+                </h4>
+                
+                    <pre class="result"><code>&amp;lt;html&amp;gt;</code></pre>
+                
+            </section>
+            
+            
+            
+            <section id="double-escape-liquid" data-engine="liquid">
+                <h4>
+                    <a class="permalink" href="#double-escape-liquid">Output Liquid</a>
+                    
+                    <small>v3.0.6</small>
+                </h4>
+                
+                    <pre class="result"><code>&amp;amp;lt;html&amp;amp;gt;</code></pre>
+                
+            </section>
+            
+            
+            
+            <section id="double-escape-nunjucks" data-engine="nunjucks">
+                <h4>
+                    <a class="permalink" href="#double-escape-nunjucks">Output Nunjucks</a>
+                    
+                    <small>v2.5.0</small>
+                </h4>
+                
+                    <pre class="result"><code>&amp;lt;html&amp;gt;</code></pre>
+                
+            </section>
+            
+            
+            
+            <section id="double-escape-swig" data-engine="swig">
+                <h4>
+                    <a class="permalink" href="#double-escape-swig">Output Swig</a>
+                    
+                    <small>v1.4.2</small>
+                </h4>
+                
+                    <pre class="result"><code>&amp;lt;html&amp;gt;</code></pre>
+                
+            </section>
+            
+            
+            
+            <section id="double-escape-twig" data-engine="twig">
+                <h4>
+                    <a class="permalink" href="#double-escape-twig">Output Twig</a>
+                    
+                    <small>v1.24.2</small>
+                </h4>
+                
+                    <pre class="result"><code>&amp;amp;lt;html&amp;amp;gt;</code></pre>
+                
+            </section>
+            
+            
+            
+            <section id="double-escape-twigjs" data-engine="twigjs">
+                <h4>
+                    <a class="permalink" href="#double-escape-twigjs">Output Twigjs</a>
+                    
+                    <small>v0.9.5</small>
+                </h4>
+                
+                    <pre class="result"><code>&amp;amp;lt;html&amp;amp;gt;</code></pre>
+                
+            </section>
             
         </section>
         
-        
-        
-        <section id="double-escape-jinja2" data-engine="jinja2">
-            <h4>
-                <a class="permalink" href="#double-escape-jinja2">Output Jinja2</a>
-                
-                <small>v2.8.0</small>
-            </h4>
-            
-                <pre class="result"><code>&amp;lt;html&amp;gt;</code></pre>
-            
-        </section>
-        
-        
-        
-        <section id="double-escape-liquid" data-engine="liquid">
-            <h4>
-                <a class="permalink" href="#double-escape-liquid">Output Liquid</a>
-                
-                <small>v3.0.6</small>
-            </h4>
-            
-                <pre class="result"><code>&amp;amp;lt;html&amp;amp;gt;</code></pre>
-            
-        </section>
-        
-        
-        
-        <section id="double-escape-nunjucks" data-engine="nunjucks">
-            <h4>
-                <a class="permalink" href="#double-escape-nunjucks">Output Nunjucks</a>
-                
-                <small>v2.5.0</small>
-            </h4>
-            
-                <pre class="result"><code>&amp;lt;html&amp;gt;</code></pre>
-            
-        </section>
-        
-        
-        
-        <section id="double-escape-swig" data-engine="swig">
-            <h4>
-                <a class="permalink" href="#double-escape-swig">Output Swig</a>
-                
-                <small>v1.4.2</small>
-            </h4>
-            
-                <pre class="result"><code>&amp;lt;html&amp;gt;</code></pre>
-            
-        </section>
-        
-        
-        
-        <section id="double-escape-twig" data-engine="twig">
-            <h4>
-                <a class="permalink" href="#double-escape-twig">Output Twig</a>
-                
-                <small>v1.24.2</small>
-            </h4>
-            
-                <pre class="result"><code>&amp;amp;lt;html&amp;amp;gt;</code></pre>
-            
-        </section>
-        
-        
-        
-        <section id="double-escape-twigjs" data-engine="twigjs">
-            <h4>
-                <a class="permalink" href="#double-escape-twigjs">Output Twigjs</a>
-                
-                <small>v0.9.5</small>
-            </h4>
-            
-                <pre class="result"><code>&amp;amp;lt;html&amp;amp;gt;</code></pre>
-            
-        </section>
-        
-    </section>
-    
+    </div>
+
 </article>
 
 <script>(function engineEnabler(){

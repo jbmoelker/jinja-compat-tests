@@ -18,6 +18,12 @@
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.5.1/themes/prism.css">
 <style type="text/css">
+    article { overflow: auto; zoom: 1; }
+    .page-title { font-size: 2rem; }
+    .page-nav { float: left; margin-right: 2.5em; }
+    .page-nav ul, .page-nav ol { list-style: none; padding-left: 0; }
+    .page-content { float: left; }
+
     h4 { margin-bottom: 0; }
     h4 small { float: right; font-weight: normal; font-style: italic; }
     label { padding-right: 1em; cursor: pointer; }
@@ -28,6 +34,17 @@
     .error { border: 2px solid red; white-space: normal; }
 
     [data-engine-enabled="false"] { display:none; }
+
+    .a11y-only {
+        border: 0;
+        clip: rect(0 0 0 0);
+        height: 1px;
+        margin: -1px;
+        overflow: hidden;
+        padding: 0;
+        position: absolute;
+        width: 1px;
+    }
 </style>
 
 <header>
@@ -77,286 +94,295 @@
 </header>
 
 <article>
-    <h1><code>cycle</code> function</h1>
+    <h1 class="page-title"><code>cycle</code> function</h1>
 
-    <section id="docs">
-        <h2><a class="permalink" href="#docs">Docs</a></h2>
-        <ul>
-        
+    <div class="page-nav">
+        <nav id="docs">
+            <h2><a class="permalink" href="#docs">Docs</a></h2>
+            <ul>
             
-        
+                
             
-        
+                
             
-        
+                
             
-        
+                
             
-        
+                
             
-            <li>
-                <a href="http://twig.sensiolabs.org/doc/functions/cycle.html">Twig</a>
-            </li>
+                
+                <li>
+                    <a href="http://twig.sensiolabs.org/doc/functions/cycle.html">Twig</a>
+                </li>
+                
             
-        
-        </ul>
-    </section>
+            </ul>
+        </nav>
 
-    <h2 id="tests">
-        <a class="permalink" href="#tests">Tests</a>
-    </h2>
-    <ol>
-    
-        <li><a href="#2-items">2-items</a></li>
-    
-        <li><a href="#3-items">3-items</a></li>
-    
-    </ol>
-    
-    
-    <section class="section" id="2-items">
-        <h3><a class="permalink" href="#2-items">Test: 2-items</a></h3>
+        <nav id="toc">
+            <h2>Tests</h2>
+            <ol>
+                
+                    <li><a href="#2-items">2-items</a></li>
+                
+                    <li><a href="#3-items">3-items</a></li>
+                
+            </ol>
+        </nav>
+    </div>
 
-        <h4>Template</h4>
-        <div class="test"><pre class="language-twig"><code><span class="token tag" ><span class="token ld" ><span class="token punctuation" >{%</span> <span class="token keyword" >for</span></span> <span class="token property" >i</span> <span class="token operator" >in</span> <span class="token property" >rows</span> <span class="token rd" ><span class="token punctuation" >%}</span></span></span>
+    <div class="page-content">
+        <h2 id="tests" class="a11y-only">
+            <a class="permalink" href="#tests">Tests</a>
+        </h2>
+        
+        
+        <section class="section" id="2-items">
+            <h3><a class="permalink" href="#2-items">Test: 2-items</a></h3>
+
+            <h4>Template</h4>
+            <div class="test"><pre class="language-twig"><code><span class="token tag" ><span class="token ld" ><span class="token punctuation" >{%</span> <span class="token keyword" >for</span></span> <span class="token property" >i</span> <span class="token operator" >in</span> <span class="token property" >rows</span> <span class="token rd" ><span class="token punctuation" >%}</span></span></span>
 <span class="token tag" ><span class="token ld" ><span class="token punctuation" >{{</span></span> <span class="token property" >cycle</span><span class="token punctuation" >(</span><span class="token property" >items</span><span class="token punctuation" >,</span> <span class="token property" >i</span><span class="token punctuation" >)</span> <span class="token rd" ><span class="token punctuation" >}}</span></span></span>
 <span class="token tag" ><span class="token ld" ><span class="token punctuation" >{%</span> <span class="token keyword" >endfor</span></span> <span class="token rd" ><span class="token punctuation" >%}</span></span></span></code></pre></div>
 
-        
-        <h4>Data</h4>
-        <div class="test"><pre class="language-json"><code><span class="token punctuation" >{</span>
+            
+            <h4>Data</h4>
+            <div class="test"><pre class="language-json"><code><span class="token punctuation" >{</span>
   <span class="token property" >"items"</span><span class="token operator" >:</span> <span class="token punctuation" >[</span><span class="token string" >"odd"</span><span class="token punctuation" >,</span> <span class="token string" >"even"</span><span class="token punctuation" >]</span><span class="token punctuation" >,</span>
   <span class="token property" >"rows"</span><span class="token operator" >:</span> <span class="token punctuation" >[</span><span class="token number" >1</span><span class="token punctuation" >,</span> <span class="token number" >2</span><span class="token punctuation" >,</span> <span class="token number" >3</span><span class="token punctuation" >,</span> <span class="token number" >4</span><span class="token punctuation" >,</span> <span class="token number" >5</span><span class="token punctuation" >]</span>
 <span class="token punctuation" >}</span></code></pre></div>
-        
+            
 
-        
-        
-        
-        <section id="2-items-django" data-engine="django">
-            <h4>
-                <a class="permalink" href="#2-items-django">Output Django</a>
-                (error)
-                <small>v1.10.1</small>
-            </h4>
             
-                <pre class="error"><code>Could not parse the remainder: '(items, i)' from 'cycle(items, i)'</code></pre>
             
-        </section>
-        
-        
-        
-        <section id="2-items-jinja2" data-engine="jinja2">
-            <h4>
-                <a class="permalink" href="#2-items-jinja2">Output Jinja2</a>
-                (error)
-                <small>v2.8.0</small>
-            </h4>
             
-                <pre class="error"><code>'cycle' is undefined</code></pre>
+            <section id="2-items-django" data-engine="django">
+                <h4>
+                    <a class="permalink" href="#2-items-django">Output Django</a>
+                    (error)
+                    <small>v1.10.1</small>
+                </h4>
+                
+                    <pre class="error"><code>Could not parse the remainder: '(items, i)' from 'cycle(items, i)'</code></pre>
+                
+            </section>
             
-        </section>
-        
-        
-        
-        <section id="2-items-liquid" data-engine="liquid">
-            <h4>
-                <a class="permalink" href="#2-items-liquid">Output Liquid</a>
-                (error)
-                <small>v3.0.6</small>
-            </h4>
             
-                <pre class="error"><code>(no output)</code></pre>
             
-        </section>
-        
-        
-        
-        <section id="2-items-nunjucks" data-engine="nunjucks">
-            <h4>
-                <a class="permalink" href="#2-items-nunjucks">Output Nunjucks</a>
-                (error)
-                <small>v2.5.0</small>
-            </h4>
+            <section id="2-items-jinja2" data-engine="jinja2">
+                <h4>
+                    <a class="permalink" href="#2-items-jinja2">Output Jinja2</a>
+                    (error)
+                    <small>v2.8.0</small>
+                </h4>
+                
+                    <pre class="error"><code>'cycle' is undefined</code></pre>
+                
+            </section>
             
-                <pre class="error"><code> [Line 1, Column 6]
+            
+            
+            <section id="2-items-liquid" data-engine="liquid">
+                <h4>
+                    <a class="permalink" href="#2-items-liquid">Output Liquid</a>
+                    (error)
+                    <small>v3.0.6</small>
+                </h4>
+                
+                    <pre class="error"><code>(no output)</code></pre>
+                
+            </section>
+            
+            
+            
+            <section id="2-items-nunjucks" data-engine="nunjucks">
+                <h4>
+                    <a class="permalink" href="#2-items-nunjucks">Output Nunjucks</a>
+                    (error)
+                    <small>v2.5.0</small>
+                </h4>
+                
+                    <pre class="error"><code> [Line 1, Column 6]
   Error: Unable to call `cycle`, which is undefined or falsey</code></pre>
-            
-        </section>
-        
-        
-        
-        <section id="2-items-swig" data-engine="swig">
-            <h4>
-                <a class="permalink" href="#2-items-swig">Output Swig</a>
-                (error)
-                <small>v1.4.2</small>
-            </h4>
-            
-                <pre class="error"><code>(no output)</code></pre>
-            
-        </section>
-        
-        
-        
-        <section id="2-items-twig" data-engine="twig">
-            <h4>
-                <a class="permalink" href="#2-items-twig">Output Twig</a>
                 
-                <small>v1.24.2</small>
-            </h4>
+            </section>
             
-                <pre class="result"><code>even
+            
+            
+            <section id="2-items-swig" data-engine="swig">
+                <h4>
+                    <a class="permalink" href="#2-items-swig">Output Swig</a>
+                    (error)
+                    <small>v1.4.2</small>
+                </h4>
+                
+                    <pre class="error"><code>(no output)</code></pre>
+                
+            </section>
+            
+            
+            
+            <section id="2-items-twig" data-engine="twig">
+                <h4>
+                    <a class="permalink" href="#2-items-twig">Output Twig</a>
+                    
+                    <small>v1.24.2</small>
+                </h4>
+                
+                    <pre class="result"><code>even
 odd
 even
 odd
 even
 </code></pre>
-            
-        </section>
-        
-        
-        
-        <section id="2-items-twigjs" data-engine="twigjs">
-            <h4>
-                <a class="permalink" href="#2-items-twigjs">Output Twigjs</a>
                 
-                <small>v0.9.5</small>
-            </h4>
+            </section>
             
-                <pre class="result"><code>even
+            
+            
+            <section id="2-items-twigjs" data-engine="twigjs">
+                <h4>
+                    <a class="permalink" href="#2-items-twigjs">Output Twigjs</a>
+                    
+                    <small>v0.9.5</small>
+                </h4>
+                
+                    <pre class="result"><code>even
 odd
 even
 odd
 even
 </code></pre>
+                
+            </section>
             
         </section>
         
-    </section>
-    
-    
-    <section class="section" id="3-items">
-        <h3><a class="permalink" href="#3-items">Test: 3-items</a></h3>
+        
+        <section class="section" id="3-items">
+            <h3><a class="permalink" href="#3-items">Test: 3-items</a></h3>
 
-        <h4>Template</h4>
-        <div class="test"><pre class="language-twig"><code><span class="token tag" ><span class="token ld" ><span class="token punctuation" >{%</span> <span class="token keyword" >for</span></span> <span class="token property" >i</span> <span class="token operator" >in</span> <span class="token property" >rows</span> <span class="token rd" ><span class="token punctuation" >%}</span></span></span>
+            <h4>Template</h4>
+            <div class="test"><pre class="language-twig"><code><span class="token tag" ><span class="token ld" ><span class="token punctuation" >{%</span> <span class="token keyword" >for</span></span> <span class="token property" >i</span> <span class="token operator" >in</span> <span class="token property" >rows</span> <span class="token rd" ><span class="token punctuation" >%}</span></span></span>
 <span class="token tag" ><span class="token ld" ><span class="token punctuation" >{{</span></span> <span class="token property" >cycle</span><span class="token punctuation" >(</span><span class="token property" >items</span><span class="token punctuation" >,</span> <span class="token property" >i</span><span class="token punctuation" >)</span> <span class="token rd" ><span class="token punctuation" >}}</span></span></span>
 <span class="token tag" ><span class="token ld" ><span class="token punctuation" >{%</span> <span class="token keyword" >endfor</span></span> <span class="token rd" ><span class="token punctuation" >%}</span></span></span></code></pre></div>
 
-        
-        <h4>Data</h4>
-        <div class="test"><pre class="language-json"><code><span class="token punctuation" >{</span>
+            
+            <h4>Data</h4>
+            <div class="test"><pre class="language-json"><code><span class="token punctuation" >{</span>
   <span class="token property" >"items"</span><span class="token operator" >:</span> <span class="token punctuation" >[</span><span class="token string" >"apple"</span><span class="token punctuation" >,</span> <span class="token string" >"orange"</span><span class="token punctuation" >,</span> <span class="token string" >"banana"</span><span class="token punctuation" >]</span><span class="token punctuation" >,</span>
   <span class="token property" >"rows"</span><span class="token operator" >:</span> <span class="token punctuation" >[</span><span class="token number" >1</span><span class="token punctuation" >,</span> <span class="token number" >2</span><span class="token punctuation" >,</span> <span class="token number" >3</span><span class="token punctuation" >,</span> <span class="token number" >4</span><span class="token punctuation" >,</span> <span class="token number" >5</span><span class="token punctuation" >]</span>
 <span class="token punctuation" >}</span></code></pre></div>
-        
+            
 
-        
-        
-        
-        <section id="3-items-django" data-engine="django">
-            <h4>
-                <a class="permalink" href="#3-items-django">Output Django</a>
-                (error)
-                <small>v1.10.1</small>
-            </h4>
             
-                <pre class="error"><code>Could not parse the remainder: '(items, i)' from 'cycle(items, i)'</code></pre>
             
-        </section>
-        
-        
-        
-        <section id="3-items-jinja2" data-engine="jinja2">
-            <h4>
-                <a class="permalink" href="#3-items-jinja2">Output Jinja2</a>
-                (error)
-                <small>v2.8.0</small>
-            </h4>
             
-                <pre class="error"><code>'cycle' is undefined</code></pre>
+            <section id="3-items-django" data-engine="django">
+                <h4>
+                    <a class="permalink" href="#3-items-django">Output Django</a>
+                    (error)
+                    <small>v1.10.1</small>
+                </h4>
+                
+                    <pre class="error"><code>Could not parse the remainder: '(items, i)' from 'cycle(items, i)'</code></pre>
+                
+            </section>
             
-        </section>
-        
-        
-        
-        <section id="3-items-liquid" data-engine="liquid">
-            <h4>
-                <a class="permalink" href="#3-items-liquid">Output Liquid</a>
-                (error)
-                <small>v3.0.6</small>
-            </h4>
             
-                <pre class="error"><code>(no output)</code></pre>
             
-        </section>
-        
-        
-        
-        <section id="3-items-nunjucks" data-engine="nunjucks">
-            <h4>
-                <a class="permalink" href="#3-items-nunjucks">Output Nunjucks</a>
-                (error)
-                <small>v2.5.0</small>
-            </h4>
+            <section id="3-items-jinja2" data-engine="jinja2">
+                <h4>
+                    <a class="permalink" href="#3-items-jinja2">Output Jinja2</a>
+                    (error)
+                    <small>v2.8.0</small>
+                </h4>
+                
+                    <pre class="error"><code>'cycle' is undefined</code></pre>
+                
+            </section>
             
-                <pre class="error"><code> [Line 1, Column 6]
+            
+            
+            <section id="3-items-liquid" data-engine="liquid">
+                <h4>
+                    <a class="permalink" href="#3-items-liquid">Output Liquid</a>
+                    (error)
+                    <small>v3.0.6</small>
+                </h4>
+                
+                    <pre class="error"><code>(no output)</code></pre>
+                
+            </section>
+            
+            
+            
+            <section id="3-items-nunjucks" data-engine="nunjucks">
+                <h4>
+                    <a class="permalink" href="#3-items-nunjucks">Output Nunjucks</a>
+                    (error)
+                    <small>v2.5.0</small>
+                </h4>
+                
+                    <pre class="error"><code> [Line 1, Column 6]
   Error: Unable to call `cycle`, which is undefined or falsey</code></pre>
-            
-        </section>
-        
-        
-        
-        <section id="3-items-swig" data-engine="swig">
-            <h4>
-                <a class="permalink" href="#3-items-swig">Output Swig</a>
-                (error)
-                <small>v1.4.2</small>
-            </h4>
-            
-                <pre class="error"><code>(no output)</code></pre>
-            
-        </section>
-        
-        
-        
-        <section id="3-items-twig" data-engine="twig">
-            <h4>
-                <a class="permalink" href="#3-items-twig">Output Twig</a>
                 
-                <small>v1.24.2</small>
-            </h4>
+            </section>
             
-                <pre class="result"><code>orange
+            
+            
+            <section id="3-items-swig" data-engine="swig">
+                <h4>
+                    <a class="permalink" href="#3-items-swig">Output Swig</a>
+                    (error)
+                    <small>v1.4.2</small>
+                </h4>
+                
+                    <pre class="error"><code>(no output)</code></pre>
+                
+            </section>
+            
+            
+            
+            <section id="3-items-twig" data-engine="twig">
+                <h4>
+                    <a class="permalink" href="#3-items-twig">Output Twig</a>
+                    
+                    <small>v1.24.2</small>
+                </h4>
+                
+                    <pre class="result"><code>orange
 banana
 apple
 orange
 banana
 </code></pre>
-            
-        </section>
-        
-        
-        
-        <section id="3-items-twigjs" data-engine="twigjs">
-            <h4>
-                <a class="permalink" href="#3-items-twigjs">Output Twigjs</a>
                 
-                <small>v0.9.5</small>
-            </h4>
+            </section>
             
-                <pre class="result"><code>orange
+            
+            
+            <section id="3-items-twigjs" data-engine="twigjs">
+                <h4>
+                    <a class="permalink" href="#3-items-twigjs">Output Twigjs</a>
+                    
+                    <small>v0.9.5</small>
+                </h4>
+                
+                    <pre class="result"><code>orange
 banana
 apple
 orange
 banana
 </code></pre>
+                
+            </section>
             
         </section>
         
-    </section>
-    
+    </div>
+
 </article>
 
 <script>(function engineEnabler(){

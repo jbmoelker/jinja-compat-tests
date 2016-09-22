@@ -18,6 +18,12 @@
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.5.1/themes/prism.css">
 <style type="text/css">
+    article { overflow: auto; zoom: 1; }
+    .page-title { font-size: 2rem; }
+    .page-nav { float: left; margin-right: 2.5em; }
+    .page-nav ul, .page-nav ol { list-style: none; padding-left: 0; }
+    .page-content { float: left; }
+
     h4 { margin-bottom: 0; }
     h4 small { float: right; font-weight: normal; font-style: italic; }
     label { padding-right: 1em; cursor: pointer; }
@@ -28,6 +34,17 @@
     .error { border: 2px solid red; white-space: normal; }
 
     [data-engine-enabled="false"] { display:none; }
+
+    .a11y-only {
+        border: 0;
+        clip: rect(0 0 0 0);
+        height: 1px;
+        margin: -1px;
+        overflow: hidden;
+        padding: 0;
+        position: absolute;
+        width: 1px;
+    }
 </style>
 
 <header>
@@ -77,384 +94,393 @@
 </header>
 
 <article>
-    <h1><code>cycler</code> function</h1>
+    <h1 class="page-title"><code>cycler</code> function</h1>
 
-    <section id="docs">
-        <h2><a class="permalink" href="#docs">Docs</a></h2>
-        <ul>
-        
+    <div class="page-nav">
+        <nav id="docs">
+            <h2><a class="permalink" href="#docs">Docs</a></h2>
+            <ul>
             
-        
+                
             
-            <li>
-                <a href="http://jinja.pocoo.org/docs/dev/templates/#cycler">Jinja2</a>
-            </li>
+                
+                <li>
+                    <a href="http://jinja.pocoo.org/docs/dev/templates/#cycler">Jinja2</a>
+                </li>
+                
             
-        
+                
             
-        
+                
+                <li>
+                    <a href="https://mozilla.github.io/nunjucks/templating.html#cycler-item1-item2-itemn">Nunjucks</a>
+                </li>
+                
             
-            <li>
-                <a href="https://mozilla.github.io/nunjucks/templating.html#cycler-item1-item2-itemn">Nunjucks</a>
-            </li>
+                
             
-        
+                
             
-        
-            
-        
-        </ul>
-    </section>
+            </ul>
+        </nav>
 
-    <h2 id="tests">
-        <a class="permalink" href="#tests">Tests</a>
-    </h2>
-    <ol>
-    
-        <li><a href="#next-next-current">next-next-current</a></li>
-    
-        <li><a href="#next-next-next">next-next-next</a></li>
-    
-        <li><a href="#next-reset-next">next-reset-next</a></li>
-    
-    </ol>
-    
-    
-    <section class="section" id="next-next-current">
-        <h3><a class="permalink" href="#next-next-current">Test: next-next-current</a></h3>
+        <nav id="toc">
+            <h2>Tests</h2>
+            <ol>
+                
+                    <li><a href="#next-next-current">next-next-current</a></li>
+                
+                    <li><a href="#next-next-next">next-next-next</a></li>
+                
+                    <li><a href="#next-reset-next">next-reset-next</a></li>
+                
+            </ol>
+        </nav>
+    </div>
 
-        <h4>Template</h4>
-        <div class="test"><pre class="language-twig"><code><span class="token tag" ><span class="token ld" ><span class="token punctuation" >{%</span> <span class="token keyword" >set</span></span> <span class="token property" >cls</span> <span class="token operator" >=</span> <span class="token property" >cycler</span><span class="token punctuation" >(</span><span class="token string" ><span class="token punctuation" >'</span>odd<span class="token punctuation" >'</span></span><span class="token punctuation" >,</span> <span class="token string" ><span class="token punctuation" >'</span>even<span class="token punctuation" >'</span></span><span class="token punctuation" >)</span> <span class="token rd" ><span class="token punctuation" >%}</span></span></span>
+    <div class="page-content">
+        <h2 id="tests" class="a11y-only">
+            <a class="permalink" href="#tests">Tests</a>
+        </h2>
+        
+        
+        <section class="section" id="next-next-current">
+            <h3><a class="permalink" href="#next-next-current">Test: next-next-current</a></h3>
+
+            <h4>Template</h4>
+            <div class="test"><pre class="language-twig"><code><span class="token tag" ><span class="token ld" ><span class="token punctuation" >{%</span> <span class="token keyword" >set</span></span> <span class="token property" >cls</span> <span class="token operator" >=</span> <span class="token property" >cycler</span><span class="token punctuation" >(</span><span class="token string" ><span class="token punctuation" >'</span>odd<span class="token punctuation" >'</span></span><span class="token punctuation" >,</span> <span class="token string" ><span class="token punctuation" >'</span>even<span class="token punctuation" >'</span></span><span class="token punctuation" >)</span> <span class="token rd" ><span class="token punctuation" >%}</span></span></span>
 <span class="token tag" ><span class="token ld" ><span class="token punctuation" >{{</span></span> <span class="token property" >cls</span><span class="token punctuation" >.</span><span class="token property" >next</span><span class="token punctuation" >(</span><span class="token punctuation" >)</span> <span class="token rd" ><span class="token punctuation" >}}</span></span></span>
 <span class="token tag" ><span class="token ld" ><span class="token punctuation" >{{</span></span> <span class="token property" >cls</span><span class="token punctuation" >.</span><span class="token property" >next</span><span class="token punctuation" >(</span><span class="token punctuation" >)</span> <span class="token rd" ><span class="token punctuation" >}}</span></span></span>
 <span class="token tag" ><span class="token ld" ><span class="token punctuation" >{{</span></span> <span class="token property" >cls</span><span class="token punctuation" >.</span><span class="token property" >current</span> <span class="token rd" ><span class="token punctuation" >}}</span></span></span></code></pre></div>
 
-        
+            
 
-        
-        
-        
-        <section id="next-next-current-django" data-engine="django">
-            <h4>
-                <a class="permalink" href="#next-next-current-django">Output Django</a>
-                (error)
-                <small>v1.10.1</small>
-            </h4>
             
-                <pre class="error"><code>Invalid block tag on line 1: 'set'. Did you forget to register or load this tag?</code></pre>
             
-        </section>
-        
-        
-        
-        <section id="next-next-current-jinja2" data-engine="jinja2">
-            <h4>
-                <a class="permalink" href="#next-next-current-jinja2">Output Jinja2</a>
+            
+            <section id="next-next-current-django" data-engine="django">
+                <h4>
+                    <a class="permalink" href="#next-next-current-django">Output Django</a>
+                    (error)
+                    <small>v1.10.1</small>
+                </h4>
                 
-                <small>v2.8.0</small>
-            </h4>
+                    <pre class="error"><code>Invalid block tag on line 1: 'set'. Did you forget to register or load this tag?</code></pre>
+                
+            </section>
             
-                <pre class="result"><code>
+            
+            
+            <section id="next-next-current-jinja2" data-engine="jinja2">
+                <h4>
+                    <a class="permalink" href="#next-next-current-jinja2">Output Jinja2</a>
+                    
+                    <small>v2.8.0</small>
+                </h4>
+                
+                    <pre class="result"><code>
 odd
 even
 odd</code></pre>
-            
-        </section>
-        
-        
-        
-        <section id="next-next-current-liquid" data-engine="liquid">
-            <h4>
-                <a class="permalink" href="#next-next-current-liquid">Output Liquid</a>
-                (error)
-                <small>v3.0.6</small>
-            </h4>
-            
-                <pre class="error"><code>Liquid syntax error: Unknown tag 'set'</code></pre>
-            
-        </section>
-        
-        
-        
-        <section id="next-next-current-nunjucks" data-engine="nunjucks">
-            <h4>
-                <a class="permalink" href="#next-next-current-nunjucks">Output Nunjucks</a>
                 
-                <small>v2.5.0</small>
-            </h4>
+            </section>
             
-                <pre class="result"><code>
+            
+            
+            <section id="next-next-current-liquid" data-engine="liquid">
+                <h4>
+                    <a class="permalink" href="#next-next-current-liquid">Output Liquid</a>
+                    (error)
+                    <small>v3.0.6</small>
+                </h4>
+                
+                    <pre class="error"><code>Liquid syntax error: Unknown tag 'set'</code></pre>
+                
+            </section>
+            
+            
+            
+            <section id="next-next-current-nunjucks" data-engine="nunjucks">
+                <h4>
+                    <a class="permalink" href="#next-next-current-nunjucks">Output Nunjucks</a>
+                    
+                    <small>v2.5.0</small>
+                </h4>
+                
+                    <pre class="result"><code>
 odd
 even
 even</code></pre>
+                
+            </section>
+            
+            
+            
+            <section id="next-next-current-swig" data-engine="swig">
+                <h4>
+                    <a class="permalink" href="#next-next-current-swig">Output Swig</a>
+                    (error)
+                    <small>v1.4.2</small>
+                </h4>
+                
+                    <pre class="error"><code>(no output)</code></pre>
+                
+            </section>
+            
+            
+            
+            <section id="next-next-current-twig" data-engine="twig">
+                <h4>
+                    <a class="permalink" href="#next-next-current-twig">Output Twig</a>
+                    (error)
+                    <small>v1.24.2</small>
+                </h4>
+                
+                    <pre class="error"><code>Unknown "cycler" function. Did you mean "cycle"?</code></pre>
+                
+            </section>
+            
+            
+            
+            <section id="next-next-current-twigjs" data-engine="twigjs">
+                <h4>
+                    <a class="permalink" href="#next-next-current-twigjs">Output Twigjs</a>
+                    (error)
+                    <small>v0.9.5</small>
+                </h4>
+                
+                    <pre class="error"><code>TwigException: cycler function does not exist and is not defined in the context</code></pre>
+                
+            </section>
             
         </section>
         
         
-        
-        <section id="next-next-current-swig" data-engine="swig">
-            <h4>
-                <a class="permalink" href="#next-next-current-swig">Output Swig</a>
-                (error)
-                <small>v1.4.2</small>
-            </h4>
-            
-                <pre class="error"><code>(no output)</code></pre>
-            
-        </section>
-        
-        
-        
-        <section id="next-next-current-twig" data-engine="twig">
-            <h4>
-                <a class="permalink" href="#next-next-current-twig">Output Twig</a>
-                (error)
-                <small>v1.24.2</small>
-            </h4>
-            
-                <pre class="error"><code>Unknown "cycler" function. Did you mean "cycle"?</code></pre>
-            
-        </section>
-        
-        
-        
-        <section id="next-next-current-twigjs" data-engine="twigjs">
-            <h4>
-                <a class="permalink" href="#next-next-current-twigjs">Output Twigjs</a>
-                (error)
-                <small>v0.9.5</small>
-            </h4>
-            
-                <pre class="error"><code>TwigException: cycler function does not exist and is not defined in the context</code></pre>
-            
-        </section>
-        
-    </section>
-    
-    
-    <section class="section" id="next-next-next">
-        <h3><a class="permalink" href="#next-next-next">Test: next-next-next</a></h3>
+        <section class="section" id="next-next-next">
+            <h3><a class="permalink" href="#next-next-next">Test: next-next-next</a></h3>
 
-        <h4>Template</h4>
-        <div class="test"><pre class="language-twig"><code><span class="token tag" ><span class="token ld" ><span class="token punctuation" >{%</span> <span class="token keyword" >set</span></span> <span class="token property" >cls</span> <span class="token operator" >=</span> <span class="token property" >cycler</span><span class="token punctuation" >(</span><span class="token string" ><span class="token punctuation" >'</span>odd<span class="token punctuation" >'</span></span><span class="token punctuation" >,</span> <span class="token string" ><span class="token punctuation" >'</span>even<span class="token punctuation" >'</span></span><span class="token punctuation" >)</span> <span class="token rd" ><span class="token punctuation" >%}</span></span></span>
+            <h4>Template</h4>
+            <div class="test"><pre class="language-twig"><code><span class="token tag" ><span class="token ld" ><span class="token punctuation" >{%</span> <span class="token keyword" >set</span></span> <span class="token property" >cls</span> <span class="token operator" >=</span> <span class="token property" >cycler</span><span class="token punctuation" >(</span><span class="token string" ><span class="token punctuation" >'</span>odd<span class="token punctuation" >'</span></span><span class="token punctuation" >,</span> <span class="token string" ><span class="token punctuation" >'</span>even<span class="token punctuation" >'</span></span><span class="token punctuation" >)</span> <span class="token rd" ><span class="token punctuation" >%}</span></span></span>
 <span class="token tag" ><span class="token ld" ><span class="token punctuation" >{{</span></span> <span class="token property" >cls</span><span class="token punctuation" >.</span><span class="token property" >next</span><span class="token punctuation" >(</span><span class="token punctuation" >)</span> <span class="token rd" ><span class="token punctuation" >}}</span></span></span>
 <span class="token tag" ><span class="token ld" ><span class="token punctuation" >{{</span></span> <span class="token property" >cls</span><span class="token punctuation" >.</span><span class="token property" >next</span><span class="token punctuation" >(</span><span class="token punctuation" >)</span> <span class="token rd" ><span class="token punctuation" >}}</span></span></span>
 <span class="token tag" ><span class="token ld" ><span class="token punctuation" >{{</span></span> <span class="token property" >cls</span><span class="token punctuation" >.</span><span class="token property" >next</span><span class="token punctuation" >(</span><span class="token punctuation" >)</span> <span class="token rd" ><span class="token punctuation" >}}</span></span></span></code></pre></div>
 
-        
+            
 
-        
-        
-        
-        <section id="next-next-next-django" data-engine="django">
-            <h4>
-                <a class="permalink" href="#next-next-next-django">Output Django</a>
-                (error)
-                <small>v1.10.1</small>
-            </h4>
             
-                <pre class="error"><code>Invalid block tag on line 1: 'set'. Did you forget to register or load this tag?</code></pre>
             
-        </section>
-        
-        
-        
-        <section id="next-next-next-jinja2" data-engine="jinja2">
-            <h4>
-                <a class="permalink" href="#next-next-next-jinja2">Output Jinja2</a>
+            
+            <section id="next-next-next-django" data-engine="django">
+                <h4>
+                    <a class="permalink" href="#next-next-next-django">Output Django</a>
+                    (error)
+                    <small>v1.10.1</small>
+                </h4>
                 
-                <small>v2.8.0</small>
-            </h4>
+                    <pre class="error"><code>Invalid block tag on line 1: 'set'. Did you forget to register or load this tag?</code></pre>
+                
+            </section>
             
-                <pre class="result"><code>
+            
+            
+            <section id="next-next-next-jinja2" data-engine="jinja2">
+                <h4>
+                    <a class="permalink" href="#next-next-next-jinja2">Output Jinja2</a>
+                    
+                    <small>v2.8.0</small>
+                </h4>
+                
+                    <pre class="result"><code>
 odd
 even
 odd</code></pre>
-            
-        </section>
-        
-        
-        
-        <section id="next-next-next-liquid" data-engine="liquid">
-            <h4>
-                <a class="permalink" href="#next-next-next-liquid">Output Liquid</a>
-                (error)
-                <small>v3.0.6</small>
-            </h4>
-            
-                <pre class="error"><code>Liquid syntax error: Unknown tag 'set'</code></pre>
-            
-        </section>
-        
-        
-        
-        <section id="next-next-next-nunjucks" data-engine="nunjucks">
-            <h4>
-                <a class="permalink" href="#next-next-next-nunjucks">Output Nunjucks</a>
                 
-                <small>v2.5.0</small>
-            </h4>
+            </section>
             
-                <pre class="result"><code>
+            
+            
+            <section id="next-next-next-liquid" data-engine="liquid">
+                <h4>
+                    <a class="permalink" href="#next-next-next-liquid">Output Liquid</a>
+                    (error)
+                    <small>v3.0.6</small>
+                </h4>
+                
+                    <pre class="error"><code>Liquid syntax error: Unknown tag 'set'</code></pre>
+                
+            </section>
+            
+            
+            
+            <section id="next-next-next-nunjucks" data-engine="nunjucks">
+                <h4>
+                    <a class="permalink" href="#next-next-next-nunjucks">Output Nunjucks</a>
+                    
+                    <small>v2.5.0</small>
+                </h4>
+                
+                    <pre class="result"><code>
 odd
 even
 odd</code></pre>
+                
+            </section>
+            
+            
+            
+            <section id="next-next-next-swig" data-engine="swig">
+                <h4>
+                    <a class="permalink" href="#next-next-next-swig">Output Swig</a>
+                    (error)
+                    <small>v1.4.2</small>
+                </h4>
+                
+                    <pre class="error"><code>(no output)</code></pre>
+                
+            </section>
+            
+            
+            
+            <section id="next-next-next-twig" data-engine="twig">
+                <h4>
+                    <a class="permalink" href="#next-next-next-twig">Output Twig</a>
+                    (error)
+                    <small>v1.24.2</small>
+                </h4>
+                
+                    <pre class="error"><code>Unknown "cycler" function. Did you mean "cycle"?</code></pre>
+                
+            </section>
+            
+            
+            
+            <section id="next-next-next-twigjs" data-engine="twigjs">
+                <h4>
+                    <a class="permalink" href="#next-next-next-twigjs">Output Twigjs</a>
+                    (error)
+                    <small>v0.9.5</small>
+                </h4>
+                
+                    <pre class="error"><code>TwigException: cycler function does not exist and is not defined in the context</code></pre>
+                
+            </section>
             
         </section>
         
         
-        
-        <section id="next-next-next-swig" data-engine="swig">
-            <h4>
-                <a class="permalink" href="#next-next-next-swig">Output Swig</a>
-                (error)
-                <small>v1.4.2</small>
-            </h4>
-            
-                <pre class="error"><code>(no output)</code></pre>
-            
-        </section>
-        
-        
-        
-        <section id="next-next-next-twig" data-engine="twig">
-            <h4>
-                <a class="permalink" href="#next-next-next-twig">Output Twig</a>
-                (error)
-                <small>v1.24.2</small>
-            </h4>
-            
-                <pre class="error"><code>Unknown "cycler" function. Did you mean "cycle"?</code></pre>
-            
-        </section>
-        
-        
-        
-        <section id="next-next-next-twigjs" data-engine="twigjs">
-            <h4>
-                <a class="permalink" href="#next-next-next-twigjs">Output Twigjs</a>
-                (error)
-                <small>v0.9.5</small>
-            </h4>
-            
-                <pre class="error"><code>TwigException: cycler function does not exist and is not defined in the context</code></pre>
-            
-        </section>
-        
-    </section>
-    
-    
-    <section class="section" id="next-reset-next">
-        <h3><a class="permalink" href="#next-reset-next">Test: next-reset-next</a></h3>
+        <section class="section" id="next-reset-next">
+            <h3><a class="permalink" href="#next-reset-next">Test: next-reset-next</a></h3>
 
-        <h4>Template</h4>
-        <div class="test"><pre class="language-twig"><code><span class="token tag" ><span class="token ld" ><span class="token punctuation" >{%</span> <span class="token keyword" >set</span></span> <span class="token property" >cls</span> <span class="token operator" >=</span> <span class="token property" >cycler</span><span class="token punctuation" >(</span><span class="token string" ><span class="token punctuation" >'</span>odd<span class="token punctuation" >'</span></span><span class="token punctuation" >,</span> <span class="token string" ><span class="token punctuation" >'</span>even<span class="token punctuation" >'</span></span><span class="token punctuation" >)</span> <span class="token rd" ><span class="token punctuation" >%}</span></span></span>
+            <h4>Template</h4>
+            <div class="test"><pre class="language-twig"><code><span class="token tag" ><span class="token ld" ><span class="token punctuation" >{%</span> <span class="token keyword" >set</span></span> <span class="token property" >cls</span> <span class="token operator" >=</span> <span class="token property" >cycler</span><span class="token punctuation" >(</span><span class="token string" ><span class="token punctuation" >'</span>odd<span class="token punctuation" >'</span></span><span class="token punctuation" >,</span> <span class="token string" ><span class="token punctuation" >'</span>even<span class="token punctuation" >'</span></span><span class="token punctuation" >)</span> <span class="token rd" ><span class="token punctuation" >%}</span></span></span>
 <span class="token tag" ><span class="token ld" ><span class="token punctuation" >{{</span></span> <span class="token property" >cls</span><span class="token punctuation" >.</span><span class="token property" >next</span><span class="token punctuation" >(</span><span class="token punctuation" >)</span> <span class="token rd" ><span class="token punctuation" >}}</span></span></span>
 <span class="token tag" ><span class="token ld" ><span class="token punctuation" >{{</span></span> <span class="token property" >cls</span><span class="token punctuation" >.</span><span class="token property" >reset</span><span class="token punctuation" >(</span><span class="token punctuation" >)</span> <span class="token rd" ><span class="token punctuation" >}}</span></span></span>
 <span class="token tag" ><span class="token ld" ><span class="token punctuation" >{{</span></span> <span class="token property" >cls</span><span class="token punctuation" >.</span><span class="token property" >next</span><span class="token punctuation" >(</span><span class="token punctuation" >)</span> <span class="token rd" ><span class="token punctuation" >}}</span></span></span></code></pre></div>
 
-        
+            
 
-        
-        
-        
-        <section id="next-reset-next-django" data-engine="django">
-            <h4>
-                <a class="permalink" href="#next-reset-next-django">Output Django</a>
-                (error)
-                <small>v1.10.1</small>
-            </h4>
             
-                <pre class="error"><code>Invalid block tag on line 1: 'set'. Did you forget to register or load this tag?</code></pre>
             
-        </section>
-        
-        
-        
-        <section id="next-reset-next-jinja2" data-engine="jinja2">
-            <h4>
-                <a class="permalink" href="#next-reset-next-jinja2">Output Jinja2</a>
+            
+            <section id="next-reset-next-django" data-engine="django">
+                <h4>
+                    <a class="permalink" href="#next-reset-next-django">Output Django</a>
+                    (error)
+                    <small>v1.10.1</small>
+                </h4>
                 
-                <small>v2.8.0</small>
-            </h4>
+                    <pre class="error"><code>Invalid block tag on line 1: 'set'. Did you forget to register or load this tag?</code></pre>
+                
+            </section>
             
-                <pre class="result"><code>
+            
+            
+            <section id="next-reset-next-jinja2" data-engine="jinja2">
+                <h4>
+                    <a class="permalink" href="#next-reset-next-jinja2">Output Jinja2</a>
+                    
+                    <small>v2.8.0</small>
+                </h4>
+                
+                    <pre class="result"><code>
 odd
 None
 odd</code></pre>
-            
-        </section>
-        
-        
-        
-        <section id="next-reset-next-liquid" data-engine="liquid">
-            <h4>
-                <a class="permalink" href="#next-reset-next-liquid">Output Liquid</a>
-                (error)
-                <small>v3.0.6</small>
-            </h4>
-            
-                <pre class="error"><code>Liquid syntax error: Unknown tag 'set'</code></pre>
-            
-        </section>
-        
-        
-        
-        <section id="next-reset-next-nunjucks" data-engine="nunjucks">
-            <h4>
-                <a class="permalink" href="#next-reset-next-nunjucks">Output Nunjucks</a>
                 
-                <small>v2.5.0</small>
-            </h4>
+            </section>
             
-                <pre class="result"><code>
+            
+            
+            <section id="next-reset-next-liquid" data-engine="liquid">
+                <h4>
+                    <a class="permalink" href="#next-reset-next-liquid">Output Liquid</a>
+                    (error)
+                    <small>v3.0.6</small>
+                </h4>
+                
+                    <pre class="error"><code>Liquid syntax error: Unknown tag 'set'</code></pre>
+                
+            </section>
+            
+            
+            
+            <section id="next-reset-next-nunjucks" data-engine="nunjucks">
+                <h4>
+                    <a class="permalink" href="#next-reset-next-nunjucks">Output Nunjucks</a>
+                    
+                    <small>v2.5.0</small>
+                </h4>
+                
+                    <pre class="result"><code>
 odd
 
 odd</code></pre>
+                
+            </section>
+            
+            
+            
+            <section id="next-reset-next-swig" data-engine="swig">
+                <h4>
+                    <a class="permalink" href="#next-reset-next-swig">Output Swig</a>
+                    (error)
+                    <small>v1.4.2</small>
+                </h4>
+                
+                    <pre class="error"><code>(no output)</code></pre>
+                
+            </section>
+            
+            
+            
+            <section id="next-reset-next-twig" data-engine="twig">
+                <h4>
+                    <a class="permalink" href="#next-reset-next-twig">Output Twig</a>
+                    (error)
+                    <small>v1.24.2</small>
+                </h4>
+                
+                    <pre class="error"><code>Unknown "cycler" function. Did you mean "cycle"?</code></pre>
+                
+            </section>
+            
+            
+            
+            <section id="next-reset-next-twigjs" data-engine="twigjs">
+                <h4>
+                    <a class="permalink" href="#next-reset-next-twigjs">Output Twigjs</a>
+                    (error)
+                    <small>v0.9.5</small>
+                </h4>
+                
+                    <pre class="error"><code>TwigException: cycler function does not exist and is not defined in the context</code></pre>
+                
+            </section>
             
         </section>
         
-        
-        
-        <section id="next-reset-next-swig" data-engine="swig">
-            <h4>
-                <a class="permalink" href="#next-reset-next-swig">Output Swig</a>
-                (error)
-                <small>v1.4.2</small>
-            </h4>
-            
-                <pre class="error"><code>(no output)</code></pre>
-            
-        </section>
-        
-        
-        
-        <section id="next-reset-next-twig" data-engine="twig">
-            <h4>
-                <a class="permalink" href="#next-reset-next-twig">Output Twig</a>
-                (error)
-                <small>v1.24.2</small>
-            </h4>
-            
-                <pre class="error"><code>Unknown "cycler" function. Did you mean "cycle"?</code></pre>
-            
-        </section>
-        
-        
-        
-        <section id="next-reset-next-twigjs" data-engine="twigjs">
-            <h4>
-                <a class="permalink" href="#next-reset-next-twigjs">Output Twigjs</a>
-                (error)
-                <small>v0.9.5</small>
-            </h4>
-            
-                <pre class="error"><code>TwigException: cycler function does not exist and is not defined in the context</code></pre>
-            
-        </section>
-        
-    </section>
-    
+    </div>
+
 </article>
 
 <script>(function engineEnabler(){

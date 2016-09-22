@@ -18,6 +18,12 @@
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.5.1/themes/prism.css">
 <style type="text/css">
+    article { overflow: auto; zoom: 1; }
+    .page-title { font-size: 2rem; }
+    .page-nav { float: left; margin-right: 2.5em; }
+    .page-nav ul, .page-nav ol { list-style: none; padding-left: 0; }
+    .page-content { float: left; }
+
     h4 { margin-bottom: 0; }
     h4 small { float: right; font-weight: normal; font-style: italic; }
     label { padding-right: 1em; cursor: pointer; }
@@ -28,6 +34,17 @@
     .error { border: 2px solid red; white-space: normal; }
 
     [data-engine-enabled="false"] { display:none; }
+
+    .a11y-only {
+        border: 0;
+        clip: rect(0 0 0 0);
+        height: 1px;
+        margin: -1px;
+        overflow: hidden;
+        padding: 0;
+        position: absolute;
+        width: 1px;
+    }
 </style>
 
 <header>
@@ -77,256 +94,265 @@
 </header>
 
 <article>
-    <h1><code>center</code> filter</h1>
+    <h1 class="page-title"><code>center</code> filter</h1>
 
-    <section id="docs">
-        <h2><a class="permalink" href="#docs">Docs</a></h2>
-        <ul>
-        
+    <div class="page-nav">
+        <nav id="docs">
+            <h2><a class="permalink" href="#docs">Docs</a></h2>
+            <ul>
             
-            <li>
-                <a href="https://docs.djangoproject.com/en/1.10/ref/templates/builtins/#center">Django</a>
-            </li>
-            
-        
-            
-            <li>
-                <a href="http://jinja.pocoo.org/docs/dev/templates/#center">Jinja2</a>
-            </li>
-            
-        
-            
-        
-            
-            <li>
-                <a href="https://mozilla.github.io/nunjucks/templating.html#center">Nunjucks</a>
-            </li>
-            
-        
-            
-        
-            
-        
-        </ul>
-    </section>
-
-    <h2 id="tests">
-        <a class="permalink" href="#tests">Tests</a>
-    </h2>
-    <ol>
-    
-        <li><a href="#default">default</a></li>
-    
-        <li><a href="#width-20">width-20</a></li>
-    
-    </ol>
-    
-    
-    <section class="section" id="default">
-        <h3><a class="permalink" href="#default">Test: default</a></h3>
-
-        <h4>Template</h4>
-        <div class="test"><pre class="language-twig"><code><span class="token other" ><span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>pre</span><span class="token punctuation" >></span></span></span><span class="token tag" ><span class="token ld" ><span class="token punctuation" >{{</span></span> <span class="token string" ><span class="token punctuation" >'</span>x<span class="token punctuation" >'</span></span><span class="token operator" >|</span><span class="token property" >center</span> <span class="token rd" ><span class="token punctuation" >}}</span></span></span><span class="token other" ><span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>pre</span><span class="token punctuation" >></span></span></span></code></pre></div>
-
-        
-
-        
-        
-        
-        <section id="default-django" data-engine="django">
-            <h4>
-                <a class="permalink" href="#default-django">Output Django</a>
-                (error)
-                <small>v1.10.1</small>
-            </h4>
-            
-                <pre class="error"><code>center requires 2 arguments, 1 provided</code></pre>
-            
-        </section>
-        
-        
-        
-        <section id="default-jinja2" data-engine="jinja2">
-            <h4>
-                <a class="permalink" href="#default-jinja2">Output Jinja2</a>
                 
-                <small>v2.8.0</small>
-            </h4>
-            
-                <pre class="result"><code>&lt;pre>                                       x                                        &lt;/pre></code></pre>
-            
-        </section>
-        
-        
-        
-        <section id="default-liquid" data-engine="liquid">
-            <h4>
-                <a class="permalink" href="#default-liquid">Output Liquid</a>
+                <li>
+                    <a href="https://docs.djangoproject.com/en/1.10/ref/templates/builtins/#center">Django</a>
+                </li>
                 
-                <small>v3.0.6</small>
-            </h4>
             
-                <pre class="result"><code>&lt;pre>x&lt;/pre></code></pre>
-            
-        </section>
-        
-        
-        
-        <section id="default-nunjucks" data-engine="nunjucks">
-            <h4>
-                <a class="permalink" href="#default-nunjucks">Output Nunjucks</a>
                 
-                <small>v2.5.0</small>
-            </h4>
+                <li>
+                    <a href="http://jinja.pocoo.org/docs/dev/templates/#center">Jinja2</a>
+                </li>
+                
             
-                <pre class="result"><code>&lt;pre>                                       x                                        &lt;/pre></code></pre>
+                
             
-        </section>
-        
-        
-        
-        <section id="default-swig" data-engine="swig">
-            <h4>
-                <a class="permalink" href="#default-swig">Output Swig</a>
-                (error)
-                <small>v1.4.2</small>
-            </h4>
+                
+                <li>
+                    <a href="https://mozilla.github.io/nunjucks/templating.html#center">Nunjucks</a>
+                </li>
+                
             
-                <pre class="error"><code>Invalid filter "center".</code></pre>
+                
             
-        </section>
-        
-        
-        
-        <section id="default-twig" data-engine="twig">
-            <h4>
-                <a class="permalink" href="#default-twig">Output Twig</a>
-                (error)
-                <small>v1.24.2</small>
-            </h4>
+                
             
-                <pre class="error"><code>Unknown "center" filter.</code></pre>
-            
-        </section>
-        
-        
-        
-        <section id="default-twigjs" data-engine="twigjs">
-            <h4>
-                <a class="permalink" href="#default-twigjs">Output Twigjs</a>
-                (error)
-                <small>v0.9.5</small>
-            </h4>
-            
-                <pre class="error"><code>Unable to find filter center</code></pre>
-            
-        </section>
-        
-    </section>
-    
-    
-    <section class="section" id="width-20">
-        <h3><a class="permalink" href="#width-20">Test: width-20</a></h3>
+            </ul>
+        </nav>
 
-        <h4>Template</h4>
-        <div class="test"><pre class="language-twig"><code><span class="token other" ><span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>pre</span><span class="token punctuation" >></span></span></span><span class="token tag" ><span class="token ld" ><span class="token punctuation" >{{</span></span> <span class="token string" ><span class="token punctuation" >'</span>x<span class="token punctuation" >'</span></span><span class="token operator" >|</span><span class="token property" >center</span><span class="token punctuation" >(</span><span class="token number" >20</span><span class="token punctuation" >)</span> <span class="token rd" ><span class="token punctuation" >}}</span></span></span><span class="token other" ><span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>pre</span><span class="token punctuation" >></span></span></span></code></pre></div>
+        <nav id="toc">
+            <h2>Tests</h2>
+            <ol>
+                
+                    <li><a href="#default">default</a></li>
+                
+                    <li><a href="#width-20">width-20</a></li>
+                
+            </ol>
+        </nav>
+    </div>
 
+    <div class="page-content">
+        <h2 id="tests" class="a11y-only">
+            <a class="permalink" href="#tests">Tests</a>
+        </h2>
         
+        
+        <section class="section" id="default">
+            <h3><a class="permalink" href="#default">Test: default</a></h3>
 
-        
-        
-        
-        <section id="width-20-django" data-engine="django">
-            <h4>
-                <a class="permalink" href="#width-20-django">Output Django</a>
-                (error)
-                <small>v1.10.1</small>
-            </h4>
+            <h4>Template</h4>
+            <div class="test"><pre class="language-twig"><code><span class="token other" ><span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>pre</span><span class="token punctuation" >></span></span></span><span class="token tag" ><span class="token ld" ><span class="token punctuation" >{{</span></span> <span class="token string" ><span class="token punctuation" >'</span>x<span class="token punctuation" >'</span></span><span class="token operator" >|</span><span class="token property" >center</span> <span class="token rd" ><span class="token punctuation" >}}</span></span></span><span class="token other" ><span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>pre</span><span class="token punctuation" >></span></span></span></code></pre></div>
+
             
-                <pre class="error"><code>center requires 2 arguments, 1 provided</code></pre>
+
             
-        </section>
-        
-        
-        
-        <section id="width-20-jinja2" data-engine="jinja2">
-            <h4>
-                <a class="permalink" href="#width-20-jinja2">Output Jinja2</a>
+            
+            
+            <section id="default-django" data-engine="django">
+                <h4>
+                    <a class="permalink" href="#default-django">Output Django</a>
+                    (error)
+                    <small>v1.10.1</small>
+                </h4>
                 
-                <small>v2.8.0</small>
-            </h4>
-            
-                <pre class="result"><code>&lt;pre>         x          &lt;/pre></code></pre>
-            
-        </section>
-        
-        
-        
-        <section id="width-20-liquid" data-engine="liquid">
-            <h4>
-                <a class="permalink" href="#width-20-liquid">Output Liquid</a>
+                    <pre class="error"><code>center requires 2 arguments, 1 provided</code></pre>
                 
-                <small>v3.0.6</small>
-            </h4>
+            </section>
             
-                <pre class="result"><code>&lt;pre>x&lt;/pre></code></pre>
             
-        </section>
-        
-        
-        
-        <section id="width-20-nunjucks" data-engine="nunjucks">
-            <h4>
-                <a class="permalink" href="#width-20-nunjucks">Output Nunjucks</a>
+            
+            <section id="default-jinja2" data-engine="jinja2">
+                <h4>
+                    <a class="permalink" href="#default-jinja2">Output Jinja2</a>
+                    
+                    <small>v2.8.0</small>
+                </h4>
                 
-                <small>v2.5.0</small>
-            </h4>
+                    <pre class="result"><code>&lt;pre>                                       x                                        &lt;/pre></code></pre>
+                
+            </section>
             
-                <pre class="result"><code>&lt;pre>         x          &lt;/pre></code></pre>
+            
+            
+            <section id="default-liquid" data-engine="liquid">
+                <h4>
+                    <a class="permalink" href="#default-liquid">Output Liquid</a>
+                    
+                    <small>v3.0.6</small>
+                </h4>
+                
+                    <pre class="result"><code>&lt;pre>x&lt;/pre></code></pre>
+                
+            </section>
+            
+            
+            
+            <section id="default-nunjucks" data-engine="nunjucks">
+                <h4>
+                    <a class="permalink" href="#default-nunjucks">Output Nunjucks</a>
+                    
+                    <small>v2.5.0</small>
+                </h4>
+                
+                    <pre class="result"><code>&lt;pre>                                       x                                        &lt;/pre></code></pre>
+                
+            </section>
+            
+            
+            
+            <section id="default-swig" data-engine="swig">
+                <h4>
+                    <a class="permalink" href="#default-swig">Output Swig</a>
+                    (error)
+                    <small>v1.4.2</small>
+                </h4>
+                
+                    <pre class="error"><code>Invalid filter "center".</code></pre>
+                
+            </section>
+            
+            
+            
+            <section id="default-twig" data-engine="twig">
+                <h4>
+                    <a class="permalink" href="#default-twig">Output Twig</a>
+                    (error)
+                    <small>v1.24.2</small>
+                </h4>
+                
+                    <pre class="error"><code>Unknown "center" filter.</code></pre>
+                
+            </section>
+            
+            
+            
+            <section id="default-twigjs" data-engine="twigjs">
+                <h4>
+                    <a class="permalink" href="#default-twigjs">Output Twigjs</a>
+                    (error)
+                    <small>v0.9.5</small>
+                </h4>
+                
+                    <pre class="error"><code>Unable to find filter center</code></pre>
+                
+            </section>
             
         </section>
         
         
-        
-        <section id="width-20-swig" data-engine="swig">
-            <h4>
-                <a class="permalink" href="#width-20-swig">Output Swig</a>
-                (error)
-                <small>v1.4.2</small>
-            </h4>
+        <section class="section" id="width-20">
+            <h3><a class="permalink" href="#width-20">Test: width-20</a></h3>
+
+            <h4>Template</h4>
+            <div class="test"><pre class="language-twig"><code><span class="token other" ><span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>pre</span><span class="token punctuation" >></span></span></span><span class="token tag" ><span class="token ld" ><span class="token punctuation" >{{</span></span> <span class="token string" ><span class="token punctuation" >'</span>x<span class="token punctuation" >'</span></span><span class="token operator" >|</span><span class="token property" >center</span><span class="token punctuation" >(</span><span class="token number" >20</span><span class="token punctuation" >)</span> <span class="token rd" ><span class="token punctuation" >}}</span></span></span><span class="token other" ><span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>pre</span><span class="token punctuation" >></span></span></span></code></pre></div>
+
             
-                <pre class="error"><code>Invalid filter "center".</code></pre>
+
+            
+            
+            
+            <section id="width-20-django" data-engine="django">
+                <h4>
+                    <a class="permalink" href="#width-20-django">Output Django</a>
+                    (error)
+                    <small>v1.10.1</small>
+                </h4>
+                
+                    <pre class="error"><code>center requires 2 arguments, 1 provided</code></pre>
+                
+            </section>
+            
+            
+            
+            <section id="width-20-jinja2" data-engine="jinja2">
+                <h4>
+                    <a class="permalink" href="#width-20-jinja2">Output Jinja2</a>
+                    
+                    <small>v2.8.0</small>
+                </h4>
+                
+                    <pre class="result"><code>&lt;pre>         x          &lt;/pre></code></pre>
+                
+            </section>
+            
+            
+            
+            <section id="width-20-liquid" data-engine="liquid">
+                <h4>
+                    <a class="permalink" href="#width-20-liquid">Output Liquid</a>
+                    
+                    <small>v3.0.6</small>
+                </h4>
+                
+                    <pre class="result"><code>&lt;pre>x&lt;/pre></code></pre>
+                
+            </section>
+            
+            
+            
+            <section id="width-20-nunjucks" data-engine="nunjucks">
+                <h4>
+                    <a class="permalink" href="#width-20-nunjucks">Output Nunjucks</a>
+                    
+                    <small>v2.5.0</small>
+                </h4>
+                
+                    <pre class="result"><code>&lt;pre>         x          &lt;/pre></code></pre>
+                
+            </section>
+            
+            
+            
+            <section id="width-20-swig" data-engine="swig">
+                <h4>
+                    <a class="permalink" href="#width-20-swig">Output Swig</a>
+                    (error)
+                    <small>v1.4.2</small>
+                </h4>
+                
+                    <pre class="error"><code>Invalid filter "center".</code></pre>
+                
+            </section>
+            
+            
+            
+            <section id="width-20-twig" data-engine="twig">
+                <h4>
+                    <a class="permalink" href="#width-20-twig">Output Twig</a>
+                    (error)
+                    <small>v1.24.2</small>
+                </h4>
+                
+                    <pre class="error"><code>Unknown "center" filter.</code></pre>
+                
+            </section>
+            
+            
+            
+            <section id="width-20-twigjs" data-engine="twigjs">
+                <h4>
+                    <a class="permalink" href="#width-20-twigjs">Output Twigjs</a>
+                    (error)
+                    <small>v0.9.5</small>
+                </h4>
+                
+                    <pre class="error"><code>Unable to find filter center</code></pre>
+                
+            </section>
             
         </section>
         
-        
-        
-        <section id="width-20-twig" data-engine="twig">
-            <h4>
-                <a class="permalink" href="#width-20-twig">Output Twig</a>
-                (error)
-                <small>v1.24.2</small>
-            </h4>
-            
-                <pre class="error"><code>Unknown "center" filter.</code></pre>
-            
-        </section>
-        
-        
-        
-        <section id="width-20-twigjs" data-engine="twigjs">
-            <h4>
-                <a class="permalink" href="#width-20-twigjs">Output Twigjs</a>
-                (error)
-                <small>v0.9.5</small>
-            </h4>
-            
-                <pre class="error"><code>Unable to find filter center</code></pre>
-            
-        </section>
-        
-    </section>
-    
+    </div>
+
 </article>
 
 <script>(function engineEnabler(){
