@@ -3,6 +3,12 @@
 {% block content %}
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.5.1/themes/prism.css">
 <style type="text/css">
+    article { overflow: auto; zoom: 1; }
+    .page-title { font-size: 2rem; }
+    .page-nav { float: left; margin-right: 2.5em; }
+    .page-nav ul, .page-nav ol { list-style: none; padding-left: 0; }
+    .page-content { float: left; }
+
     h4 { margin-bottom: 0; }
     h4 small { float: right; font-weight: normal; font-style: italic; }
     label { padding-right: 1em; cursor: pointer; }
@@ -13,6 +19,17 @@
     .error { border: 2px solid red; white-space: normal; }
 
     [data-engine-enabled="false"] { display:none; }
+
+    .a11y-only {
+        border: 0;
+        clip: rect(0 0 0 0);
+        height: 1px;
+        margin: -1px;
+        overflow: hidden;
+        padding: 0;
+        position: absolute;
+        width: 1px;
+    }
 </style>
 
 <header>
@@ -32,62 +49,71 @@
 </header>
 
 <article>
-    <h1><code>{{ name }}</code> {{ type|truncate(type.length-1, true, '') }}</h1>
+    <h1 class="page-title"><code>{{ name }}</code> {{ type|truncate(type.length-1, true, '') }}</h1>
 
-    <section id="docs">
-        <h2><a class="permalink" href="#docs">Docs</a></h2>
-        <ul>
-        {% for engine, data in docs %}
-            {% if data[type][name] %}
-            <li>
-                <a href="{{ data['_baseUrl'] }}{{ data[type][name] }}">{{ engine|title }}</a>
-            </li>
+    <div class="page-nav">
+        <nav id="docs">
+            <h2><a class="permalink" href="#docs">Docs</a></h2>
+            <ul>
+            {% for engine, data in docs %}
+                {% if data[type][name] %}
+                <li>
+                    <a href="{{ data['_baseUrl'] }}{{ data[type][name] }}">{{ engine|title }}</a>
+                </li>
+                {% endif %}
+            {% endfor %}
+            </ul>
+        </nav>
+
+        <nav id="toc">
+            <h2>Tests</h2>
+            <ol>
+                {% for test, html in tests %}
+                    <li><a href="#{{ test }}">{{ test }}</a></li>
+                {% endfor %}
+            </ol>
+        </nav>
+    </div>
+
+    <div class="page-content">
+        <h2 id="tests" class="a11y-only">
+            <a class="permalink" href="#tests">Tests</a>
+        </h2>
+        {% for test, html in tests %}
+        {% set data = inputData[type][name][test] %}
+        <section class="section" id="{{ test }}">
+            <h3><a class="permalink" href="#{{ test }}">Test: {{ test }}</a></h3>
+
+            <h4>Template</h4>
+            <div class="test">{{ html|prism('twig')|safe }}</div>
+
+            {% if data %}
+            <h4>Data</h4>
+            <div class="test">{{ data|prism('json')|safe }}</div>
             {% endif %}
-        {% endfor %}
-        </ul>
-    </section>
 
-    <h2 id="tests">
-        <a class="permalink" href="#tests">Tests</a>
-    </h2>
-    <ol>
-    {% for test, html in tests %}
-        <li><a href="#{{ test }}">{{ test }}</a></li>
-    {% endfor %}
-    </ol>
-    {% for test, html in tests %}
-    {% set data = inputData[type][name][test] %}
-    <section class="section" id="{{ test }}">
-        <h3><a class="permalink" href="#{{ test }}">Test: {{ test }}</a></h3>
-
-        <h4>Template</h4>
-        <div class="test">{{ html|prism('twig')|safe }}</div>
-
-        {% if data %}
-        <h4>Data</h4>
-        <div class="test">{{ data|prism('json')|safe }}</div>
-        {% endif %}
-
-        {% for engine, data in results %}
-        {% set error = errors[engine][type][name][test] %}
-        {% set result = data[type][name][test] %}
-        <section id="{{ test }}-{{ engine }}" data-engine="{{ engine }}">
-            <h4>
-                <a class="permalink" href="#{{ test }}-{{ engine }}">Output {{ engine|title }}</a>
-                {% if error %}(error){% endif %}
-                <small>v{{ versions[engine] }}</small>
-            </h4>
-            {% if error %}
-                <pre class="error"><code>{{ error|safe }}</code></pre>
-            {% else %}
-                <pre class="result"><code>
-                {%- if name == 'escape' %}{{ result }}{% else %}{{ result|replace('<','&lt;')|safe }}{% endif -%}
-                </code></pre>
-            {% endif %}
+            {% for engine, data in results %}
+            {% set error = errors[engine][type][name][test] %}
+            {% set result = data[type][name][test] %}
+            <section id="{{ test }}-{{ engine }}" data-engine="{{ engine }}">
+                <h4>
+                    <a class="permalink" href="#{{ test }}-{{ engine }}">Output {{ engine|title }}</a>
+                    {% if error %}(error){% endif %}
+                    <small>v{{ versions[engine] }}</small>
+                </h4>
+                {% if error %}
+                    <pre class="error"><code>{{ error|safe }}</code></pre>
+                {% else %}
+                    <pre class="result"><code>
+                    {%- if name == 'escape' %}{{ result }}{% else %}{{ result|replace('<','&lt;')|safe }}{% endif -%}
+                    </code></pre>
+                {% endif %}
+            </section>
+            {% endfor %}
         </section>
         {% endfor %}
-    </section>
-    {% endfor %}
+    </div>
+
 </article>
 
 <script>{% include "./feature.js" %}</script>
