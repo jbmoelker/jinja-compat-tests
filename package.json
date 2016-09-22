@@ -20,11 +20,13 @@
   "author": "Jasper Moelker <jasper@voorhoede.nl> (https://voorhoede.nl/)",
   "license": "MIT",
   "dependencies": {
+    "async": "2.0.1",
     "bluebird": "3.4.6",
     "glob": "7.0.6",
     "mkdirp": "0.5.1",
     "nunjucks": "2.5.0",
-    "swig": "1.4.2"
+    "swig": "1.4.2",
+    "twig": "0.9.5"
   },
   "devDependencies": {
     "dotty": "0.0.2",
