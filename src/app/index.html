@@ -7,9 +7,14 @@
     th, td { width: 5em; }
     th:first-child { text-align: left; width: 10em; }
     td a { display:block; text-decoration: none; }
+    .table-title { font-size: 2rem; }
     .support-full { background-color: #39b54a; }
     .support-part { background-color: #A8BD04; }
     .support-none { background-color: #c44230; }
+    .legend dt, dd { display: inline-block; margin:0; }
+    .legend dt { width: 1em; height: .8em; }
+    .legend dt + dd:before { display: inline-block; content: "="; margin-left: .2em; margin-right: .2em; }
+    .legend dd + dt { margin-left: .8em; }
     .a11y-only {
         border: 0;
         clip: rect(0 0 0 0);
@@ -23,7 +28,6 @@
 </style>
 
 <h1>Jinja Compat Tests</h1>
-<p>This project tests compatibility of the following template engines:</p>
 
 {% macro thead(title) %}
     <thead id="{{ title }}">
@@ -40,7 +44,14 @@
 {% endmacro %}
 
 <table>
-    <caption>Template feature support per engine</caption>
+    <caption>
+        <span class="table-title">Template feature support per engine</span>
+        <dl class="legend">
+            <dt class="support-full" title="dark green"><span class="a11y-only">dark green</span></dt><dd>full support</dd>
+            <dt class="support-part" title="light green"><span class="a11y-only">light green</span></dt><dd>partial support</dd>
+            <dt class="support-none" title="red"><span class="a11y-only">red</span></dt><dd>none support</dd>
+        </dl>
+    </caption>
     {%- for type, features in tests %}
     {{ thead(type) }}
     <tbody>
