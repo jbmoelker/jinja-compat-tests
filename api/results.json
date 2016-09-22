@@ -671,5 +671,120 @@
                 "text": "abc"
             }
         }
+    },
+    "twigjs": {
+        "expressions": {
+            "comparisons": {
+                "equal-to": "`varX` is equal to `varY`\n",
+                "greater-than-or-equal": "2 is greater than or equal to 1\n\n2 is greater than or equal to 2\n",
+                "greater-than": "2 is greater than 1\n",
+                "less-than-or-equal": "1 is less than or equal to 2\n\n1 is less than or equal to 1\n",
+                "less-than": "1 is less than 2\n",
+                "not-equal-to": "`varX` is not equal to `varY`\n"
+            },
+            "math": {
+                "addition": "5",
+                "devision": "2",
+                "multiplication": "10",
+                "power": "8",
+                "subtraction": "2"
+            },
+            "reserved-words": {
+                "class": "class",
+                "function": "function",
+                "var": "var",
+                "with": "with"
+            }
+        },
+        "filters": {
+            "abs": {
+                "negative-float": "3.14",
+                "negative-integer": "3",
+                "positive-float": "3.14",
+                "positive-integer": "3",
+                "string": "3.14",
+                "variable": "3",
+                "zero": "0"
+            },
+            "batch": {
+                "size-and-fill": " a  b  c  |\n d  e  f  |\n g  -  -  |\n",
+                "size-only": " a  b  c  |\n d  e  f  |\n g  |\n"
+            },
+            "capitalize": {
+                "array": "my first car,my Second car,my THIRD car",
+                "mixed-case": "My first car",
+                "number": "5",
+                "sentence": "My first car",
+                "starts-with-number": "2nd car",
+                "word": "Car"
+            },
+            "default": {
+                "empty-string": "passed string is empty.",
+                "undefined-property-bracket-notation": "\"x\" on \"vars\" is not defined",
+                "undefined-property-dot-notation": "\"x\" on \"vars\" is not defined\n",
+                "undefined-variable": "\"varX\" is not defined"
+            },
+            "escape": {
+                "alias-e": "&lt;html&gt;",
+                "default": "&lt;html&gt;",
+                "double-escape": "&amp;lt;html&amp;gt;"
+            },
+            "first": {
+                "array": "1",
+                "object": "1",
+                "string": "1"
+            },
+            "last": {
+                "array-as-variable": "4",
+                "array": "4",
+                "object": "4",
+                "string": "4"
+            },
+            "length": {
+                "array": "4",
+                "number": "0",
+                "object": "4",
+                "string": "4"
+            },
+            "lower": {
+                "array": "my first car,my Second car,my THIRD car",
+                "number": "5",
+                "string": "my first car"
+            },
+            "upper": {
+                "array": "my first car,my Second car,my THIRD car",
+                "number": "5",
+                "string": "MY FIRST CAR"
+            }
+        },
+        "functions": {
+            "cycle": {
+                "2-items": "even\nodd\neven\nodd\neven\n",
+                "3-items": "orange\nbanana\napple\norange\nbanana\n"
+            },
+            "range": {
+                "dot-dot-operator": "5 6 7 8 9 10 ",
+                "float-step": "5 7.5 10 ",
+                "negative-start": "-5 -4 -3 -2 -1 0 1 2 3 4 5 ",
+                "start-stop-step": "5 7 9 ",
+                "start-stop": "5 6 7 8 9 10 ",
+                "stop": "10 9 8 7 6 5 4 3 2 1 0 "
+            }
+        },
+        "tags": {
+            "if": {
+                "true-variable": "true",
+                "true": "true"
+            },
+            "raw": {
+                "broken-expression": "{{ x }",
+                "broken-tag": "{% if i_am_stupid }Still do your job well",
+                "comment": "{# test",
+                "multiline": "\n{{ varX }}\nvalue Y\n{{ varZ }}",
+                "multiple": "{{ varX }}value Y{{ varZ }}",
+                "tag": "hello {{ {% %} }}",
+                "text": "abc"
+            }
+        }
     }
 }

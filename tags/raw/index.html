@@ -67,6 +67,11 @@
                 Twig
             </label>
             
+            <label>
+                <input type="checkbox" checked name="engine" value="twigjs">
+                Twigjs
+            </label>
+            
         </fieldset>
     </form>
 </header>
@@ -220,6 +225,19 @@
             
         </section>
         
+        
+        
+        <section id="broken-expression-twigjs" data-engine="twigjs">
+            <h4>
+                <a class="permalink" href="#broken-expression-twigjs">Output Twigjs</a>
+                
+                <small>v0.9.5</small>
+            </h4>
+            
+                <pre class="result"><code>{{ x }</code></pre>
+            
+        </section>
+        
     </section>
     
     
@@ -304,6 +322,19 @@
                 <a class="permalink" href="#broken-tag-twig">Output Twig</a>
                 
                 <small>v1.24.2</small>
+            </h4>
+            
+                <pre class="result"><code>{% if i_am_stupid }Still do your job well</code></pre>
+            
+        </section>
+        
+        
+        
+        <section id="broken-tag-twigjs" data-engine="twigjs">
+            <h4>
+                <a class="permalink" href="#broken-tag-twigjs">Output Twigjs</a>
+                
+                <small>v0.9.5</small>
             </h4>
             
                 <pre class="result"><code>{% if i_am_stupid }Still do your job well</code></pre>
@@ -397,6 +428,19 @@
             </h4>
             
                 <pre class="result"><code>{# test </code></pre>
+            
+        </section>
+        
+        
+        
+        <section id="comment-twigjs" data-engine="twigjs">
+            <h4>
+                <a class="permalink" href="#comment-twigjs">Output Twigjs</a>
+                
+                <small>v0.9.5</small>
+            </h4>
+            
+                <pre class="result"><code>{# test</code></pre>
             
         </section>
         
@@ -527,6 +571,22 @@ value Y
             
         </section>
         
+        
+        
+        <section id="multiline-twigjs" data-engine="twigjs">
+            <h4>
+                <a class="permalink" href="#multiline-twigjs">Output Twigjs</a>
+                
+                <small>v0.9.5</small>
+            </h4>
+            
+                <pre class="result"><code>
+{{ varX }}
+value Y
+{{ varZ }}</code></pre>
+            
+        </section>
+        
     </section>
     
     
@@ -624,6 +684,19 @@ value Y
             
         </section>
         
+        
+        
+        <section id="multiple-twigjs" data-engine="twigjs">
+            <h4>
+                <a class="permalink" href="#multiple-twigjs">Output Twigjs</a>
+                
+                <small>v0.9.5</small>
+            </h4>
+            
+                <pre class="result"><code>{{ varX }}value Y{{ varZ }}</code></pre>
+            
+        </section>
+        
     </section>
     
     
@@ -711,6 +784,26 @@ value Y
             </h4>
             
                 <pre class="error"><code>Unknown "endraw" tag.</code></pre>
+            
+        </section>
+        
+        
+        
+        <section id="nested-raw-twigjs" data-engine="twigjs">
+            <h4>
+                <a class="permalink" href="#nested-raw-twigjs">Output Twigjs</a>
+                (error)
+                <small>v0.9.5</small>
+            </h4>
+            
+                <pre class="error"><code>TypeError: Cannot read property 'forEach' of undefined
+   
+   
+   
+   
+   
+   
+   </code></pre>
             
         </section>
         
@@ -804,6 +897,19 @@ value Y
             
         </section>
         
+        
+        
+        <section id="tag-twigjs" data-engine="twigjs">
+            <h4>
+                <a class="permalink" href="#tag-twigjs">Output Twigjs</a>
+                
+                <small>v0.9.5</small>
+            </h4>
+            
+                <pre class="result"><code>hello {{ {% %} }}</code></pre>
+            
+        </section>
+        
     </section>
     
     
@@ -888,6 +994,19 @@ value Y
                 <a class="permalink" href="#text-twig">Output Twig</a>
                 
                 <small>v1.24.2</small>
+            </h4>
+            
+                <pre class="result"><code>abc</code></pre>
+            
+        </section>
+        
+        
+        
+        <section id="text-twigjs" data-engine="twigjs">
+            <h4>
+                <a class="permalink" href="#text-twigjs">Output Twigjs</a>
+                
+                <small>v0.9.5</small>
             </h4>
             
                 <pre class="result"><code>abc</code></pre>

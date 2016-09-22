@@ -67,6 +67,11 @@
                 Twig
             </label>
             
+            <label>
+                <input type="checkbox" checked name="engine" value="twigjs">
+                Twigjs
+            </label>
+            
         </fieldset>
     </form>
 </header>
@@ -230,42 +235,55 @@
 Warning: mb_substr() expects parameter 1 to be string, array given
 
 Call Stack:
-    0.0004     377880   1. {main}() /home/travis/build/jbmoelker/jinja-compat-tests/test-twig.php:0
-    0.1538    3163888   2. Twig_Environment->render() /home/travis/build/jbmoelker/jinja-compat-tests/test-twig.php:52
-    0.1579    3168144   3. Twig_Template->render() /home/travis/build/jbmoelker/jinja-compat-tests/vendor/twig/twig/lib/Twig/Environment.php:347
-    0.1579    3184608   4. Twig_Template->display() /home/travis/build/jbmoelker/jinja-compat-tests/vendor/twig/twig/lib/Twig/Template.php:366
-    0.1579    3184720   5. Twig_Template->displayWithErrorHandling() /home/travis/build/jbmoelker/jinja-compat-tests/vendor/twig/twig/lib/Twig/Template.php:355
-    0.1579    3184720   6. __TwigTemplate_87bb27d19dd7eb1fa0e1dff126ade1f469b3fb5428af45b33db341068c6dbc5d->doDisplay() /home/travis/build/jbmoelker/jinja-compat-tests/vendor/twig/twig/lib/Twig/Template.php:387
-    0.1579    3184720   7. twig_capitalize_string_filter() /home/travis/build/jbmoelker/jinja-compat-tests/vendor/twig/twig/lib/Twig/Environment.php(403) : eval()'d code:19
-    0.1579    3184720   8. mb_substr() /home/travis/build/jbmoelker/jinja-compat-tests/vendor/twig/twig/lib/Twig/Extension/Core.php:1331
+    0.0003     377880   1. {main}() /home/travis/build/jbmoelker/jinja-compat-tests/test-twig.php:0
+    0.1315    3163888   2. Twig_Environment->render() /home/travis/build/jbmoelker/jinja-compat-tests/test-twig.php:52
+    0.1340    3168144   3. Twig_Template->render() /home/travis/build/jbmoelker/jinja-compat-tests/vendor/twig/twig/lib/Twig/Environment.php:347
+    0.1340    3184608   4. Twig_Template->display() /home/travis/build/jbmoelker/jinja-compat-tests/vendor/twig/twig/lib/Twig/Template.php:366
+    0.1340    3184720   5. Twig_Template->displayWithErrorHandling() /home/travis/build/jbmoelker/jinja-compat-tests/vendor/twig/twig/lib/Twig/Template.php:355
+    0.1340    3184720   6. __TwigTemplate_87bb27d19dd7eb1fa0e1dff126ade1f469b3fb5428af45b33db341068c6dbc5d->doDisplay() /home/travis/build/jbmoelker/jinja-compat-tests/vendor/twig/twig/lib/Twig/Template.php:387
+    0.1340    3184720   7. twig_capitalize_string_filter() /home/travis/build/jbmoelker/jinja-compat-tests/vendor/twig/twig/lib/Twig/Environment.php(403) : eval()'d code:19
+    0.1340    3184720   8. mb_substr() /home/travis/build/jbmoelker/jinja-compat-tests/vendor/twig/twig/lib/Twig/Extension/Core.php:1331
 
 
 Warning: mb_strlen() expects parameter 1 to be string, array given
 
 Call Stack:
-    0.0004     377880   1. {main}() /home/travis/build/jbmoelker/jinja-compat-tests/test-twig.php:0
-    0.1538    3163888   2. Twig_Environment->render() /home/travis/build/jbmoelker/jinja-compat-tests/test-twig.php:52
-    0.1579    3168144   3. Twig_Template->render() /home/travis/build/jbmoelker/jinja-compat-tests/vendor/twig/twig/lib/Twig/Environment.php:347
-    0.1579    3184608   4. Twig_Template->display() /home/travis/build/jbmoelker/jinja-compat-tests/vendor/twig/twig/lib/Twig/Template.php:366
-    0.1579    3184720   5. Twig_Template->displayWithErrorHandling() /home/travis/build/jbmoelker/jinja-compat-tests/vendor/twig/twig/lib/Twig/Template.php:355
-    0.1579    3184720   6. __TwigTemplate_87bb27d19dd7eb1fa0e1dff126ade1f469b3fb5428af45b33db341068c6dbc5d->doDisplay() /home/travis/build/jbmoelker/jinja-compat-tests/vendor/twig/twig/lib/Twig/Template.php:387
-    0.1579    3184720   7. twig_capitalize_string_filter() /home/travis/build/jbmoelker/jinja-compat-tests/vendor/twig/twig/lib/Twig/Environment.php(403) : eval()'d code:19
-    0.1582    3184752   8. mb_strlen() /home/travis/build/jbmoelker/jinja-compat-tests/vendor/twig/twig/lib/Twig/Extension/Core.php:1331
+    0.0003     377880   1. {main}() /home/travis/build/jbmoelker/jinja-compat-tests/test-twig.php:0
+    0.1315    3163888   2. Twig_Environment->render() /home/travis/build/jbmoelker/jinja-compat-tests/test-twig.php:52
+    0.1340    3168144   3. Twig_Template->render() /home/travis/build/jbmoelker/jinja-compat-tests/vendor/twig/twig/lib/Twig/Environment.php:347
+    0.1340    3184608   4. Twig_Template->display() /home/travis/build/jbmoelker/jinja-compat-tests/vendor/twig/twig/lib/Twig/Template.php:366
+    0.1340    3184720   5. Twig_Template->displayWithErrorHandling() /home/travis/build/jbmoelker/jinja-compat-tests/vendor/twig/twig/lib/Twig/Template.php:355
+    0.1340    3184720   6. __TwigTemplate_87bb27d19dd7eb1fa0e1dff126ade1f469b3fb5428af45b33db341068c6dbc5d->doDisplay() /home/travis/build/jbmoelker/jinja-compat-tests/vendor/twig/twig/lib/Twig/Template.php:387
+    0.1340    3184720   7. twig_capitalize_string_filter() /home/travis/build/jbmoelker/jinja-compat-tests/vendor/twig/twig/lib/Twig/Environment.php(403) : eval()'d code:19
+    0.1342    3184752   8. mb_strlen() /home/travis/build/jbmoelker/jinja-compat-tests/vendor/twig/twig/lib/Twig/Extension/Core.php:1331
 
 
 Warning: mb_substr() expects parameter 1 to be string, array given
 
 Call Stack:
-    0.0004     377880   1. {main}() /home/travis/build/jbmoelker/jinja-compat-tests/test-twig.php:0
-    0.1538    3163888   2. Twig_Environment->render() /home/travis/build/jbmoelker/jinja-compat-tests/test-twig.php:52
-    0.1579    3168144   3. Twig_Template->render() /home/travis/build/jbmoelker/jinja-compat-tests/vendor/twig/twig/lib/Twig/Environment.php:347
-    0.1579    3184608   4. Twig_Template->display() /home/travis/build/jbmoelker/jinja-compat-tests/vendor/twig/twig/lib/Twig/Template.php:366
-    0.1579    3184720   5. Twig_Template->displayWithErrorHandling() /home/travis/build/jbmoelker/jinja-compat-tests/vendor/twig/twig/lib/Twig/Template.php:355
-    0.1579    3184720   6. __TwigTemplate_87bb27d19dd7eb1fa0e1dff126ade1f469b3fb5428af45b33db341068c6dbc5d->doDisplay() /home/travis/build/jbmoelker/jinja-compat-tests/vendor/twig/twig/lib/Twig/Template.php:387
-    0.1579    3184720   7. twig_capitalize_string_filter() /home/travis/build/jbmoelker/jinja-compat-tests/vendor/twig/twig/lib/Twig/Environment.php(403) : eval()'d code:19
-    0.1584    3184752   8. mb_substr() /home/travis/build/jbmoelker/jinja-compat-tests/vendor/twig/twig/lib/Twig/Extension/Core.php:1331
+    0.0003     377880   1. {main}() /home/travis/build/jbmoelker/jinja-compat-tests/test-twig.php:0
+    0.1315    3163888   2. Twig_Environment->render() /home/travis/build/jbmoelker/jinja-compat-tests/test-twig.php:52
+    0.1340    3168144   3. Twig_Template->render() /home/travis/build/jbmoelker/jinja-compat-tests/vendor/twig/twig/lib/Twig/Environment.php:347
+    0.1340    3184608   4. Twig_Template->display() /home/travis/build/jbmoelker/jinja-compat-tests/vendor/twig/twig/lib/Twig/Template.php:366
+    0.1340    3184720   5. Twig_Template->displayWithErrorHandling() /home/travis/build/jbmoelker/jinja-compat-tests/vendor/twig/twig/lib/Twig/Template.php:355
+    0.1340    3184720   6. __TwigTemplate_87bb27d19dd7eb1fa0e1dff126ade1f469b3fb5428af45b33db341068c6dbc5d->doDisplay() /home/travis/build/jbmoelker/jinja-compat-tests/vendor/twig/twig/lib/Twig/Template.php:387
+    0.1340    3184720   7. twig_capitalize_string_filter() /home/travis/build/jbmoelker/jinja-compat-tests/vendor/twig/twig/lib/Twig/Environment.php(403) : eval()'d code:19
+    0.1343    3184752   8. mb_substr() /home/travis/build/jbmoelker/jinja-compat-tests/vendor/twig/twig/lib/Twig/Extension/Core.php:1331
 
 </code></pre>
+            
+        </section>
+        
+        
+        
+        <section id="array-twigjs" data-engine="twigjs">
+            <h4>
+                <a class="permalink" href="#array-twigjs">Output Twigjs</a>
+                
+                <small>v0.9.5</small>
+            </h4>
+            
+                <pre class="result"><code>my first car,my Second car,my THIRD car</code></pre>
             
         </section>
         
@@ -353,6 +371,19 @@ Call Stack:
                 <a class="permalink" href="#mixed-case-twig">Output Twig</a>
                 
                 <small>v1.24.2</small>
+            </h4>
+            
+                <pre class="result"><code>My first car</code></pre>
+            
+        </section>
+        
+        
+        
+        <section id="mixed-case-twigjs" data-engine="twigjs">
+            <h4>
+                <a class="permalink" href="#mixed-case-twigjs">Output Twigjs</a>
+                
+                <small>v0.9.5</small>
             </h4>
             
                 <pre class="result"><code>My first car</code></pre>
@@ -450,6 +481,19 @@ Call Stack:
             
         </section>
         
+        
+        
+        <section id="number-twigjs" data-engine="twigjs">
+            <h4>
+                <a class="permalink" href="#number-twigjs">Output Twigjs</a>
+                
+                <small>v0.9.5</small>
+            </h4>
+            
+                <pre class="result"><code>5</code></pre>
+            
+        </section>
+        
     </section>
     
     
@@ -534,6 +578,19 @@ Call Stack:
                 <a class="permalink" href="#sentence-twig">Output Twig</a>
                 
                 <small>v1.24.2</small>
+            </h4>
+            
+                <pre class="result"><code>My first car</code></pre>
+            
+        </section>
+        
+        
+        
+        <section id="sentence-twigjs" data-engine="twigjs">
+            <h4>
+                <a class="permalink" href="#sentence-twigjs">Output Twigjs</a>
+                
+                <small>v0.9.5</small>
             </h4>
             
                 <pre class="result"><code>My first car</code></pre>
@@ -630,6 +687,19 @@ Call Stack:
             
         </section>
         
+        
+        
+        <section id="starts-with-number-twigjs" data-engine="twigjs">
+            <h4>
+                <a class="permalink" href="#starts-with-number-twigjs">Output Twigjs</a>
+                
+                <small>v0.9.5</small>
+            </h4>
+            
+                <pre class="result"><code>2nd car</code></pre>
+            
+        </section>
+        
     </section>
     
     
@@ -714,6 +784,19 @@ Call Stack:
                 <a class="permalink" href="#word-twig">Output Twig</a>
                 
                 <small>v1.24.2</small>
+            </h4>
+            
+                <pre class="result"><code>Car</code></pre>
+            
+        </section>
+        
+        
+        
+        <section id="word-twigjs" data-engine="twigjs">
+            <h4>
+                <a class="permalink" href="#word-twigjs">Output Twigjs</a>
+                
+                <small>v0.9.5</small>
             </h4>
             
                 <pre class="result"><code>Car</code></pre>

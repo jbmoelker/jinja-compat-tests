@@ -67,6 +67,11 @@
                 Twig
             </label>
             
+            <label>
+                <input type="checkbox" checked name="engine" value="twigjs">
+                Twigjs
+            </label>
+            
         </fieldset>
     </form>
 </header>
@@ -224,6 +229,19 @@
             
         </section>
         
+        
+        
+        <section id="alias-d-twigjs" data-engine="twigjs">
+            <h4>
+                <a class="permalink" href="#alias-d-twigjs">Output Twigjs</a>
+                (error)
+                <small>v0.9.5</small>
+            </h4>
+            
+                <pre class="error"><code>Unable to find filter d</code></pre>
+            
+        </section>
+        
     </section>
     
     
@@ -311,6 +329,19 @@
             </h4>
             
                 <pre class="result"><code>passed string is empty</code></pre>
+            
+        </section>
+        
+        
+        
+        <section id="empty-string-strict-twigjs" data-engine="twigjs">
+            <h4>
+                <a class="permalink" href="#empty-string-strict-twigjs">Output Twigjs</a>
+                (error)
+                <small>v0.9.5</small>
+            </h4>
+            
+                <pre class="error"><code>TwigException: default filter expects one argument</code></pre>
             
         </section>
         
@@ -404,6 +435,19 @@
             
         </section>
         
+        
+        
+        <section id="empty-string-twigjs" data-engine="twigjs">
+            <h4>
+                <a class="permalink" href="#empty-string-twigjs">Output Twigjs</a>
+                
+                <small>v0.9.5</small>
+            </h4>
+            
+                <pre class="result"><code>passed string is empty.</code></pre>
+            
+        </section>
+        
     </section>
     
     
@@ -491,6 +535,19 @@
             </h4>
             
                 <pre class="result"><code>&quot;x&quot; on &quot;vars&quot; is not defined</code></pre>
+            
+        </section>
+        
+        
+        
+        <section id="undefined-property-bracket-notation-twigjs" data-engine="twigjs">
+            <h4>
+                <a class="permalink" href="#undefined-property-bracket-notation-twigjs">Output Twigjs</a>
+                
+                <small>v0.9.5</small>
+            </h4>
+            
+                <pre class="result"><code>"x" on "vars" is not defined</code></pre>
             
         </section>
         
@@ -588,6 +645,20 @@
             
         </section>
         
+        
+        
+        <section id="undefined-property-dot-notation-twigjs" data-engine="twigjs">
+            <h4>
+                <a class="permalink" href="#undefined-property-dot-notation-twigjs">Output Twigjs</a>
+                
+                <small>v0.9.5</small>
+            </h4>
+            
+                <pre class="result"><code>"x" on "vars" is not defined
+</code></pre>
+            
+        </section>
+        
     </section>
     
     
@@ -675,6 +746,19 @@
             </h4>
             
                 <pre class="result"><code>&quot;varX&quot; is not defined</code></pre>
+            
+        </section>
+        
+        
+        
+        <section id="undefined-variable-twigjs" data-engine="twigjs">
+            <h4>
+                <a class="permalink" href="#undefined-variable-twigjs">Output Twigjs</a>
+                
+                <small>v0.9.5</small>
+            </h4>
+            
+                <pre class="result"><code>"varX" is not defined</code></pre>
             
         </section>
         
