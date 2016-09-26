@@ -35,6 +35,9 @@
             "spaces": "{\n  \"data\": [\"a\", 1, { \"b\": false }]\n}",
             "tab": "{\n  \"data\": [\"a\", 1, { \"b\": false }]\n}"
         },
+        "groupby": {
+            "attribute": "{\n  \"items\": [\n    {\n      \"name\": \"james\",\n      \"type\": \"green\"\n    },\n    {\n      \"name\": \"john\",\n      \"type\": \"blue\"\n    },\n    {\n      \"name\": \"jim\",\n      \"type\": \"blue\"\n    },\n    {\n      \"name\": \"jessie\",\n      \"type\": \"green\"\n    }\n  ]\n}"
+        },
         "last": {
             "array-as-variable": "{\n  \"items\": [1, 2, 3, 4]\n}"
         },
@@ -46,9 +49,25 @@
         }
     },
     "functions": {
+        "attribute": {
+            "array": "{\n  \"items\": [\"alpha\", \"bravo\", \"charlie\", \"delta\"]\n}",
+            "object": "{\n  \"mapping\": {\n    \"x\": \"alpha\",\n    \"y\": \"bravo\",\n    \"z\": \"charlie\"\n  }\n}"
+        },
         "cycle": {
             "2-items": "{\n  \"items\": [\"odd\", \"even\"],\n  \"rows\": [1, 2, 3, 4, 5]\n}",
             "3-items": "{\n  \"items\": [\"apple\", \"orange\", \"banana\"],\n  \"rows\": [1, 2, 3, 4, 5]\n}"
+        },
+        "joiner": {
+            "custom-separator": "{\n  \"items\": [\"alpha\", \"beta\", \"charlie\"]\n}",
+            "default": "{\n  \"items\": [\"alpha\", \"beta\", \"charlie\"]\n}"
+        },
+        "max": {
+            "array": "{\n  \"numbers\": [1, 3, 2]\n}",
+            "object": "{\n  \"mapping\": {\n    \"1\": \"b\",\n    \"2\": \"e\",\n    \"3\": \"a\",\n    \"4\": \"c\",\n    \"5\": \"d\"\n  }\n}"
+        },
+        "min": {
+            "array": "{\n  \"numbers\": [1, 3, 2]\n}",
+            "object": "{\n  \"mapping\": {\n    \"1\": \"b\",\n    \"2\": \"e\",\n    \"3\": \"a\",\n    \"4\": \"c\",\n    \"5\": \"d\"\n  }\n}"
         }
     },
     "tags": {
@@ -56,6 +75,10 @@
             "true-variable": "{ \"varX\": true }"
         },
         "raw": {
+            "multiline": "{\n  \"varX\": \"value X\",\n  \"varY\": \"value Y\",\n  \"varZ\": \"value Z\"\n}",
+            "multiple": "{\n  \"varX\": \"value X\",\n  \"varY\": \"value Y\",\n  \"varZ\": \"value Z\"\n}"
+        },
+        "verbatim": {
             "multiline": "{\n  \"varX\": \"value X\",\n  \"varY\": \"value Y\",\n  \"varZ\": \"value Z\"\n}",
             "multiple": "{\n  \"varX\": \"value X\",\n  \"varY\": \"value Y\",\n  \"varZ\": \"value Z\"\n}"
         }

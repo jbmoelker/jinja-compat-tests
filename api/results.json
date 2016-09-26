@@ -57,6 +57,14 @@
                 "true-capitalized": "True",
                 "true-variable": "true",
                 "true": ""
+            },
+            "verbatim": {
+                "broken-expression": "{{ x }",
+                "comment": "{# test ",
+                "multiline": "\n{{ varX }}\nvalue Y\n\n    {{ varZ }}\n",
+                "multiple": "{{ varX }}value Y{{ varZ }}",
+                "tag": "hello {{ {% %} }}",
+                "text": "abc"
             }
         }
     },
@@ -143,6 +151,9 @@
                 "integer": "3.0",
                 "string": "3.52"
             },
+            "groupby": {
+                "attribute": "\nblue:\njohn jim \n\ngreen:\njames jessie \n"
+            },
             "indent": {
                 "custom-spacing": "one\n      two\n      three",
                 "default": "one\n    two\n    three",
@@ -184,6 +195,10 @@
                 "next-next-next": "\nodd\neven\nodd",
                 "next-reset-next": "\nodd\nNone\nodd"
             },
+            "joiner": {
+                "custom-separator": "\n alpha | beta | charlie",
+                "default": "\n alpha,  beta,  charlie"
+            },
             "range": {
                 "negative-start": "-5 -4 -3 -2 -1 0 1 2 3 4 ",
                 "negative-step": "10 9 8 7 6 ",
@@ -200,7 +215,7 @@
             },
             "raw": {
                 "broken-expression": "{{ x }",
-                "broken-tag": "{% if i_am_stupid }Still do your job well",
+                "broken-tag": "{% if im_broken }still work",
                 "comment": "{# test ",
                 "multiline": "\n{{ varX }}\nvalue Y\n\n    {{ varZ }}\n",
                 "multiple": "{{ varX }}value Y{{ varZ }}",
@@ -316,7 +331,7 @@
             },
             "raw": {
                 "broken-expression": "{{ x }",
-                "broken-tag": "{% if i_am_stupid }Still do your job well",
+                "broken-tag": "{% if im_broken }still work",
                 "comment": "{# test ",
                 "multiline": "\n{{ varX }}\nvalue Y\n\n    {{ varZ }}\n",
                 "multiple": "{{ varX }}value Y{{ varZ }}",
@@ -410,6 +425,9 @@
                 "integer": "3",
                 "string": "3.52"
             },
+            "groupby": {
+                "attribute": "\ngreen:\njames jessie \n\nblue:\njohn jim \n"
+            },
             "indent": {
                 "custom-spacing": "one\n      two\n      three\n",
                 "default": "one\n    two\n    three\n",
@@ -446,6 +464,10 @@
                 "next-next-next": "\nodd\neven\nodd",
                 "next-reset-next": "\nodd\n\nodd"
             },
+            "joiner": {
+                "custom-separator": "\n alpha | beta | charlie",
+                "default": "\n alpha, beta, charlie"
+            },
             "range": {
                 "float-step": "5 7.5 ",
                 "negative-start": "-5 -4 -3 -2 -1 0 1 2 3 4 ",
@@ -463,7 +485,7 @@
             },
             "raw": {
                 "broken-expression": "{{ x }",
-                "broken-tag": "{% if i_am_stupid }Still do your job well",
+                "broken-tag": "{% if im_broken }still work",
                 "comment": "{# test ",
                 "multiline": "\n{{ varX }}\nvalue Y\n\n    {{ varZ }}\n",
                 "multiple": "{{ varX }}value Y{{ varZ }}",
@@ -544,7 +566,7 @@
             },
             "raw": {
                 "broken-expression": "{{ x }",
-                "broken-tag": "{% if i_am_stupid }Still do your job well{% endraw %}",
+                "broken-tag": "{% if im_broken }still work{% endraw %}",
                 "comment": "{# test ",
                 "multiline": "\n{{ varX }}\nvalue Y\n\n    {{ varZ }}\n",
                 "multiple": "{{ varX }}value Y{{ varZ }}",
@@ -643,9 +665,23 @@
             }
         },
         "functions": {
+            "attribute": {
+                "array": "charlie",
+                "object": "alpha"
+            },
             "cycle": {
                 "2-items": "even\nodd\neven\nodd\neven\n",
                 "3-items": "orange\nbanana\napple\norange\nbanana\n"
+            },
+            "max": {
+                "array": "3",
+                "object": "e",
+                "sequence": "3"
+            },
+            "min": {
+                "array": "1",
+                "object": "a",
+                "sequence": "1"
             },
             "range": {
                 "dot-dot-operator": "5 6 7 8 9 10 ",
@@ -663,7 +699,16 @@
             },
             "raw": {
                 "broken-expression": "{{ x }",
-                "broken-tag": "{% if i_am_stupid }Still do your job well",
+                "broken-tag": "{% if im_broken }still work",
+                "comment": "{# test ",
+                "multiline": "\n{{ varX }}\nvalue Y\n\n    {{ varZ }}\n",
+                "multiple": "{{ varX }}value Y{{ varZ }}",
+                "tag": "hello {{ {% %} }}",
+                "text": "abc"
+            },
+            "verbatim": {
+                "broken-expression": "{{ x }",
+                "broken-tag": "{% if im_broken }still work",
                 "comment": "{# test ",
                 "multiline": "\n{{ varX }}\nvalue Y\n\n    {{ varZ }}\n",
                 "multiple": "{{ varX }}value Y{{ varZ }}",
@@ -758,9 +803,23 @@
             }
         },
         "functions": {
+            "attribute": {
+                "array": "charlie",
+                "object": "alpha"
+            },
             "cycle": {
                 "2-items": "even\nodd\neven\nodd\neven\n",
                 "3-items": "orange\nbanana\napple\norange\nbanana\n"
+            },
+            "max": {
+                "array": "3",
+                "object": "e",
+                "sequence": "3"
+            },
+            "min": {
+                "array": "1",
+                "object": "a",
+                "sequence": "1"
             },
             "range": {
                 "dot-dot-operator": "5 6 7 8 9 10 ",
@@ -778,7 +837,16 @@
             },
             "raw": {
                 "broken-expression": "{{ x }",
-                "broken-tag": "{% if i_am_stupid }Still do your job well",
+                "broken-tag": "{% if im_broken }still work",
+                "comment": "{# test",
+                "multiline": "\n{{ varX }}\nvalue Y\n{{ varZ }}",
+                "multiple": "{{ varX }}value Y{{ varZ }}",
+                "tag": "hello {{ {% %} }}",
+                "text": "abc"
+            },
+            "verbatim": {
+                "broken-expression": "{{ x }",
+                "broken-tag": "{% if im_broken }still work",
                 "comment": "{# test",
                 "multiline": "\n{{ varX }}\nvalue Y\n{{ varZ }}",
                 "multiple": "{{ varX }}value Y{{ varZ }}",

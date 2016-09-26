@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
 
-    <title>raw tag | Jinja Compat Tests</title>
+    <title>verbatim tag | Jinja Compat Tests</title>
     <style type="text/css">
         html { font-family: Arial, sans-serif; }
         .app-footer { border-top: 1px solid black; margin-top: 1rem; padding-top: .5rem; }
@@ -94,7 +94,7 @@
 </header>
 
 <article>
-    <h1 class="page-title"><code>raw</code> tag</h1>
+    <h1 class="page-title"><code>verbatim</code> tag</h1>
 
     <div class="page-nav">
         <nav id="docs">
@@ -102,30 +102,22 @@
             <ul>
             
                 
-            
-                
                 <li>
-                    <a href="http://jinja.pocoo.org/docs/dev/templates/#escaping">Jinja2</a>
+                    <a href="https://docs.djangoproject.com/en/1.10/ref/templates/builtins/#verbatim">Django</a>
                 </li>
                 
             
                 
             
                 
-                <li>
-                    <a href="https://mozilla.github.io/nunjucks/templating.html#raw">Nunjucks</a>
-                </li>
+            
+                
+            
                 
             
                 
                 <li>
-                    <a href="https://voorhoede.github.io/swig/docs/tags/#raw">Swig</a>
-                </li>
-                
-            
-                
-                <li>
-                    <a href="http://twig.sensiolabs.org/doc/tags/raw.html">Twig</a>
+                    <a href="http://twig.sensiolabs.org/doc/tags/verbatim.html">Twig</a>
                 </li>
                 
             
@@ -166,7 +158,7 @@
             <h3><a class="permalink" href="#broken-expression">Test: broken-expression</a></h3>
 
             <h4>Template</h4>
-            <div class="test"><pre class="language-twig"><code><span class="token tag" ><span class="token ld" ><span class="token punctuation" >{%</span> <span class="token keyword" >raw</span></span> <span class="token rd" ><span class="token punctuation" >%}</span></span></span><span class="token other" >{{ x }</span><span class="token tag" ><span class="token ld" ><span class="token punctuation" >{%</span> <span class="token keyword" >endraw</span></span> <span class="token rd" ><span class="token punctuation" >%}</span></span></span></code></pre></div>
+            <div class="test"><pre class="language-twig"><code><span class="token tag" ><span class="token ld" ><span class="token punctuation" >{%</span> <span class="token keyword" >verbatim</span></span> <span class="token rd" ><span class="token punctuation" >%}</span></span></span><span class="token other" >{{ x }</span><span class="token tag" ><span class="token ld" ><span class="token punctuation" >{%</span> <span class="token keyword" >endverbatim</span></span> <span class="token rd" ><span class="token punctuation" >%}</span></span></span></code></pre></div>
 
             
 
@@ -176,11 +168,11 @@
             <section id="broken-expression-django" data-engine="django">
                 <h4>
                     <a class="permalink" href="#broken-expression-django">Output Django</a>
-                    (error)
+                    
                     <small>v1.10.1</small>
                 </h4>
                 
-                    <pre class="error"><code>Invalid block tag on line 1: 'raw'. Did you forget to register or load this tag?</code></pre>
+                    <pre class="result"><code>{{ x }</code></pre>
                 
             </section>
             
@@ -189,11 +181,11 @@
             <section id="broken-expression-jinja2" data-engine="jinja2">
                 <h4>
                     <a class="permalink" href="#broken-expression-jinja2">Output Jinja2</a>
-                    
+                    (error)
                     <small>v2.8.0</small>
                 </h4>
                 
-                    <pre class="result"><code>{{ x }</code></pre>
+                    <pre class="error"><code>Encountered unknown tag 'verbatim'.</code></pre>
                 
             </section>
             
@@ -202,11 +194,11 @@
             <section id="broken-expression-liquid" data-engine="liquid">
                 <h4>
                     <a class="permalink" href="#broken-expression-liquid">Output Liquid</a>
-                    
+                    (error)
                     <small>v3.0.6</small>
                 </h4>
                 
-                    <pre class="result"><code>{{ x }</code></pre>
+                    <pre class="error"><code>Liquid syntax error: Unknown tag 'verbatim'</code></pre>
                 
             </section>
             
@@ -215,11 +207,12 @@
             <section id="broken-expression-nunjucks" data-engine="nunjucks">
                 <h4>
                     <a class="permalink" href="#broken-expression-nunjucks">Output Nunjucks</a>
-                    
+                    (error)
                     <small>v2.5.0</small>
                 </h4>
                 
-                    <pre class="result"><code>{{ x }</code></pre>
+                    <pre class="error"><code> [Line 1, Column 2]
+  unknown block tag: verbatim</code></pre>
                 
             </section>
             
@@ -228,11 +221,11 @@
             <section id="broken-expression-swig" data-engine="swig">
                 <h4>
                     <a class="permalink" href="#broken-expression-swig">Output Swig</a>
-                    
+                    (error)
                     <small>v1.4.2</small>
                 </h4>
                 
-                    <pre class="result"><code>{{ x }</code></pre>
+                    <pre class="error"><code>Unexpected tag "verbatim".</code></pre>
                 
             </section>
             
@@ -269,7 +262,7 @@
             <h3><a class="permalink" href="#broken-tag">Test: broken-tag</a></h3>
 
             <h4>Template</h4>
-            <div class="test"><pre class="language-twig"><code><span class="token tag" ><span class="token ld" ><span class="token punctuation" >{%</span> <span class="token keyword" >raw</span></span> <span class="token rd" ><span class="token punctuation" >%}</span></span></span><span class="token tag" ><span class="token ld" ><span class="token punctuation" >{%</span> <span class="token keyword" >if</span></span> <span class="token property" >im_broken</span> <span class="token punctuation" >}</span><span class="token property" >still</span> <span class="token property" >work</span><span class="token punctuation" >{</span><span class="token operator" >%</span> <span class="token property" >endraw</span> <span class="token rd" ><span class="token punctuation" >%}</span></span></span></code></pre></div>
+            <div class="test"><pre class="language-twig"><code><span class="token tag" ><span class="token ld" ><span class="token punctuation" >{%</span> <span class="token keyword" >verbatim</span></span> <span class="token rd" ><span class="token punctuation" >%}</span></span></span><span class="token tag" ><span class="token ld" ><span class="token punctuation" >{%</span> <span class="token keyword" >if</span></span> <span class="token property" >im_broken</span> <span class="token punctuation" >}</span><span class="token property" >still</span> <span class="token property" >work</span><span class="token punctuation" >{</span><span class="token operator" >%</span> <span class="token property" >endverbatim</span> <span class="token rd" ><span class="token punctuation" >%}</span></span></span></code></pre></div>
 
             
 
@@ -283,7 +276,7 @@
                     <small>v1.10.1</small>
                 </h4>
                 
-                    <pre class="error"><code>Invalid block tag on line 1: 'raw'. Did you forget to register or load this tag?</code></pre>
+                    <pre class="error"><code>Unclosed tag on line 1: 'verbatim'. Looking for one of: endverbatim.</code></pre>
                 
             </section>
             
@@ -292,11 +285,11 @@
             <section id="broken-tag-jinja2" data-engine="jinja2">
                 <h4>
                     <a class="permalink" href="#broken-tag-jinja2">Output Jinja2</a>
-                    
+                    (error)
                     <small>v2.8.0</small>
                 </h4>
                 
-                    <pre class="result"><code>{% if im_broken }still work</code></pre>
+                    <pre class="error"><code>Encountered unknown tag 'verbatim'.</code></pre>
                 
             </section>
             
@@ -305,11 +298,11 @@
             <section id="broken-tag-liquid" data-engine="liquid">
                 <h4>
                     <a class="permalink" href="#broken-tag-liquid">Output Liquid</a>
-                    
+                    (error)
                     <small>v3.0.6</small>
                 </h4>
                 
-                    <pre class="result"><code>{% if im_broken }still work</code></pre>
+                    <pre class="error"><code>Liquid syntax error: Unknown tag 'verbatim'</code></pre>
                 
             </section>
             
@@ -318,11 +311,12 @@
             <section id="broken-tag-nunjucks" data-engine="nunjucks">
                 <h4>
                     <a class="permalink" href="#broken-tag-nunjucks">Output Nunjucks</a>
-                    
+                    (error)
                     <small>v2.5.0</small>
                 </h4>
                 
-                    <pre class="result"><code>{% if im_broken }still work</code></pre>
+                    <pre class="error"><code> [Line 1, Column 2]
+  unknown block tag: verbatim</code></pre>
                 
             </section>
             
@@ -331,11 +325,11 @@
             <section id="broken-tag-swig" data-engine="swig">
                 <h4>
                     <a class="permalink" href="#broken-tag-swig">Output Swig</a>
-                    
+                    (error)
                     <small>v1.4.2</small>
                 </h4>
                 
-                    <pre class="result"><code>{% if im_broken }still work{% endraw %}</code></pre>
+                    <pre class="error"><code>Unexpected tag "verbatim".</code></pre>
                 
             </section>
             
@@ -372,7 +366,7 @@
             <h3><a class="permalink" href="#comment">Test: comment</a></h3>
 
             <h4>Template</h4>
-            <div class="test"><pre class="language-twig"><code><span class="token tag" ><span class="token ld" ><span class="token punctuation" >{%</span> <span class="token keyword" >raw</span></span> <span class="token rd" ><span class="token punctuation" >%}</span></span></span><span class="token other" >{# test</span> <span class="token tag" ><span class="token ld" ><span class="token punctuation" >{%</span> <span class="token keyword" >endraw</span></span> <span class="token rd" ><span class="token punctuation" >%}</span></span></span></code></pre></div>
+            <div class="test"><pre class="language-twig"><code><span class="token tag" ><span class="token ld" ><span class="token punctuation" >{%</span> <span class="token keyword" >verbatim</span></span> <span class="token rd" ><span class="token punctuation" >%}</span></span></span><span class="token other" >{# test</span> <span class="token tag" ><span class="token ld" ><span class="token punctuation" >{%</span> <span class="token keyword" >endverbatim</span></span> <span class="token rd" ><span class="token punctuation" >%}</span></span></span></code></pre></div>
 
             
 
@@ -382,11 +376,11 @@
             <section id="comment-django" data-engine="django">
                 <h4>
                     <a class="permalink" href="#comment-django">Output Django</a>
-                    (error)
+                    
                     <small>v1.10.1</small>
                 </h4>
                 
-                    <pre class="error"><code>Invalid block tag on line 1: 'raw'. Did you forget to register or load this tag?</code></pre>
+                    <pre class="result"><code>{# test </code></pre>
                 
             </section>
             
@@ -395,11 +389,11 @@
             <section id="comment-jinja2" data-engine="jinja2">
                 <h4>
                     <a class="permalink" href="#comment-jinja2">Output Jinja2</a>
-                    
+                    (error)
                     <small>v2.8.0</small>
                 </h4>
                 
-                    <pre class="result"><code>{# test </code></pre>
+                    <pre class="error"><code>Encountered unknown tag 'verbatim'.</code></pre>
                 
             </section>
             
@@ -408,11 +402,11 @@
             <section id="comment-liquid" data-engine="liquid">
                 <h4>
                     <a class="permalink" href="#comment-liquid">Output Liquid</a>
-                    
+                    (error)
                     <small>v3.0.6</small>
                 </h4>
                 
-                    <pre class="result"><code>{# test </code></pre>
+                    <pre class="error"><code>Liquid syntax error: Unknown tag 'verbatim'</code></pre>
                 
             </section>
             
@@ -421,11 +415,12 @@
             <section id="comment-nunjucks" data-engine="nunjucks">
                 <h4>
                     <a class="permalink" href="#comment-nunjucks">Output Nunjucks</a>
-                    
+                    (error)
                     <small>v2.5.0</small>
                 </h4>
                 
-                    <pre class="result"><code>{# test </code></pre>
+                    <pre class="error"><code> [Line 1, Column 2]
+  unknown block tag: verbatim</code></pre>
                 
             </section>
             
@@ -434,11 +429,11 @@
             <section id="comment-swig" data-engine="swig">
                 <h4>
                     <a class="permalink" href="#comment-swig">Output Swig</a>
-                    
+                    (error)
                     <small>v1.4.2</small>
                 </h4>
                 
-                    <pre class="result"><code>{# test </code></pre>
+                    <pre class="error"><code>Unexpected tag "verbatim".</code></pre>
                 
             </section>
             
@@ -476,11 +471,11 @@
 
             <h4>Template</h4>
             <div class="test"><pre class="language-twig"><code>
-<span class="token tag" ><span class="token ld" ><span class="token punctuation" >{%</span> <span class="token keyword" >raw</span></span> <span class="token rd" ><span class="token punctuation" >%}</span></span></span><span class="token tag" ><span class="token ld" ><span class="token punctuation" >{{</span></span> <span class="token property" >varX</span> <span class="token rd" ><span class="token punctuation" >}}</span></span></span><span class="token tag" ><span class="token ld" ><span class="token punctuation" >{%</span> <span class="token keyword" >endraw</span></span> <span class="token rd" ><span class="token punctuation" >%}</span></span></span>
+<span class="token tag" ><span class="token ld" ><span class="token punctuation" >{%</span> <span class="token keyword" >verbatim</span></span> <span class="token rd" ><span class="token punctuation" >%}</span></span></span><span class="token tag" ><span class="token ld" ><span class="token punctuation" >{{</span></span> <span class="token property" >varX</span> <span class="token rd" ><span class="token punctuation" >}}</span></span></span><span class="token tag" ><span class="token ld" ><span class="token punctuation" >{%</span> <span class="token keyword" >endverbatim</span></span> <span class="token rd" ><span class="token punctuation" >%}</span></span></span>
 <span class="token tag" ><span class="token ld" ><span class="token punctuation" >{{</span></span> <span class="token property" >varY</span> <span class="token rd" ><span class="token punctuation" >}}</span></span></span>
-<span class="token tag" ><span class="token ld" ><span class="token punctuation" >{%</span> <span class="token keyword" >raw</span></span> <span class="token rd" ><span class="token punctuation" >%}</span></span></span>
+<span class="token tag" ><span class="token ld" ><span class="token punctuation" >{%</span> <span class="token keyword" >verbatim</span></span> <span class="token rd" ><span class="token punctuation" >%}</span></span></span>
     <span class="token tag" ><span class="token ld" ><span class="token punctuation" >{{</span></span> <span class="token property" >varZ</span> <span class="token rd" ><span class="token punctuation" >}}</span></span></span>
-<span class="token tag" ><span class="token ld" ><span class="token punctuation" >{%</span> <span class="token keyword" >endraw</span></span> <span class="token rd" ><span class="token punctuation" >%}</span></span></span></code></pre></div>
+<span class="token tag" ><span class="token ld" ><span class="token punctuation" >{%</span> <span class="token keyword" >endverbatim</span></span> <span class="token rd" ><span class="token punctuation" >%}</span></span></span></code></pre></div>
 
             
             <h4>Data</h4>
@@ -497,11 +492,16 @@
             <section id="multiline-django" data-engine="django">
                 <h4>
                     <a class="permalink" href="#multiline-django">Output Django</a>
-                    (error)
+                    
                     <small>v1.10.1</small>
                 </h4>
                 
-                    <pre class="error"><code>Invalid block tag on line 2: 'raw'. Did you forget to register or load this tag?</code></pre>
+                    <pre class="result"><code>
+{{ varX }}
+value Y
+
+    {{ varZ }}
+</code></pre>
                 
             </section>
             
@@ -510,16 +510,11 @@
             <section id="multiline-jinja2" data-engine="jinja2">
                 <h4>
                     <a class="permalink" href="#multiline-jinja2">Output Jinja2</a>
-                    
+                    (error)
                     <small>v2.8.0</small>
                 </h4>
                 
-                    <pre class="result"><code>
-{{ varX }}
-value Y
-
-    {{ varZ }}
-</code></pre>
+                    <pre class="error"><code>Encountered unknown tag 'verbatim'.</code></pre>
                 
             </section>
             
@@ -528,16 +523,11 @@ value Y
             <section id="multiline-liquid" data-engine="liquid">
                 <h4>
                     <a class="permalink" href="#multiline-liquid">Output Liquid</a>
-                    
+                    (error)
                     <small>v3.0.6</small>
                 </h4>
                 
-                    <pre class="result"><code>
-{{ varX }}
-value Y
-
-    {{ varZ }}
-</code></pre>
+                    <pre class="error"><code>Liquid syntax error: Unknown tag 'verbatim'</code></pre>
                 
             </section>
             
@@ -546,16 +536,12 @@ value Y
             <section id="multiline-nunjucks" data-engine="nunjucks">
                 <h4>
                     <a class="permalink" href="#multiline-nunjucks">Output Nunjucks</a>
-                    
+                    (error)
                     <small>v2.5.0</small>
                 </h4>
                 
-                    <pre class="result"><code>
-{{ varX }}
-value Y
-
-    {{ varZ }}
-</code></pre>
+                    <pre class="error"><code> [Line 2, Column 2]
+  unknown block tag: verbatim</code></pre>
                 
             </section>
             
@@ -564,16 +550,11 @@ value Y
             <section id="multiline-swig" data-engine="swig">
                 <h4>
                     <a class="permalink" href="#multiline-swig">Output Swig</a>
-                    
+                    (error)
                     <small>v1.4.2</small>
                 </h4>
                 
-                    <pre class="result"><code>
-{{ varX }}
-value Y
-
-    {{ varZ }}
-</code></pre>
+                    <pre class="error"><code>Unexpected tag "verbatim".</code></pre>
                 
             </section>
             
@@ -618,7 +599,7 @@ value Y
             <h3><a class="permalink" href="#multiple">Test: multiple</a></h3>
 
             <h4>Template</h4>
-            <div class="test"><pre class="language-twig"><code><span class="token tag" ><span class="token ld" ><span class="token punctuation" >{%</span> <span class="token keyword" >raw</span></span> <span class="token rd" ><span class="token punctuation" >%}</span></span></span><span class="token tag" ><span class="token ld" ><span class="token punctuation" >{{</span></span> <span class="token property" >varX</span> <span class="token rd" ><span class="token punctuation" >}}</span></span></span><span class="token tag" ><span class="token ld" ><span class="token punctuation" >{%</span> <span class="token keyword" >endraw</span></span> <span class="token rd" ><span class="token punctuation" >%}</span></span></span><span class="token tag" ><span class="token ld" ><span class="token punctuation" >{{</span></span> <span class="token property" >varY</span> <span class="token rd" ><span class="token punctuation" >}}</span></span></span><span class="token tag" ><span class="token ld" ><span class="token punctuation" >{%</span> <span class="token keyword" >raw</span></span> <span class="token rd" ><span class="token punctuation" >%}</span></span></span><span class="token tag" ><span class="token ld" ><span class="token punctuation" >{{</span></span> <span class="token property" >varZ</span> <span class="token rd" ><span class="token punctuation" >}}</span></span></span><span class="token tag" ><span class="token ld" ><span class="token punctuation" >{%</span> <span class="token keyword" >endraw</span></span> <span class="token rd" ><span class="token punctuation" >%}</span></span></span></code></pre></div>
+            <div class="test"><pre class="language-twig"><code><span class="token tag" ><span class="token ld" ><span class="token punctuation" >{%</span> <span class="token keyword" >verbatim</span></span> <span class="token rd" ><span class="token punctuation" >%}</span></span></span><span class="token tag" ><span class="token ld" ><span class="token punctuation" >{{</span></span> <span class="token property" >varX</span> <span class="token rd" ><span class="token punctuation" >}}</span></span></span><span class="token tag" ><span class="token ld" ><span class="token punctuation" >{%</span> <span class="token keyword" >endverbatim</span></span> <span class="token rd" ><span class="token punctuation" >%}</span></span></span><span class="token tag" ><span class="token ld" ><span class="token punctuation" >{{</span></span> <span class="token property" >varY</span> <span class="token rd" ><span class="token punctuation" >}}</span></span></span><span class="token tag" ><span class="token ld" ><span class="token punctuation" >{%</span> <span class="token keyword" >verbatim</span></span> <span class="token rd" ><span class="token punctuation" >%}</span></span></span><span class="token tag" ><span class="token ld" ><span class="token punctuation" >{{</span></span> <span class="token property" >varZ</span> <span class="token rd" ><span class="token punctuation" >}}</span></span></span><span class="token tag" ><span class="token ld" ><span class="token punctuation" >{%</span> <span class="token keyword" >endverbatim</span></span> <span class="token rd" ><span class="token punctuation" >%}</span></span></span></code></pre></div>
 
             
             <h4>Data</h4>
@@ -635,11 +616,11 @@ value Y
             <section id="multiple-django" data-engine="django">
                 <h4>
                     <a class="permalink" href="#multiple-django">Output Django</a>
-                    (error)
+                    
                     <small>v1.10.1</small>
                 </h4>
                 
-                    <pre class="error"><code>Invalid block tag on line 1: 'raw'. Did you forget to register or load this tag?</code></pre>
+                    <pre class="result"><code>{{ varX }}value Y{{ varZ }}</code></pre>
                 
             </section>
             
@@ -648,11 +629,11 @@ value Y
             <section id="multiple-jinja2" data-engine="jinja2">
                 <h4>
                     <a class="permalink" href="#multiple-jinja2">Output Jinja2</a>
-                    
+                    (error)
                     <small>v2.8.0</small>
                 </h4>
                 
-                    <pre class="result"><code>{{ varX }}value Y{{ varZ }}</code></pre>
+                    <pre class="error"><code>Encountered unknown tag 'verbatim'.</code></pre>
                 
             </section>
             
@@ -661,11 +642,11 @@ value Y
             <section id="multiple-liquid" data-engine="liquid">
                 <h4>
                     <a class="permalink" href="#multiple-liquid">Output Liquid</a>
-                    
+                    (error)
                     <small>v3.0.6</small>
                 </h4>
                 
-                    <pre class="result"><code>{{ varX }}value Y{{ varZ }}</code></pre>
+                    <pre class="error"><code>Liquid syntax error: Unknown tag 'verbatim'</code></pre>
                 
             </section>
             
@@ -674,11 +655,12 @@ value Y
             <section id="multiple-nunjucks" data-engine="nunjucks">
                 <h4>
                     <a class="permalink" href="#multiple-nunjucks">Output Nunjucks</a>
-                    
+                    (error)
                     <small>v2.5.0</small>
                 </h4>
                 
-                    <pre class="result"><code>{{ varX }}value Y{{ varZ }}</code></pre>
+                    <pre class="error"><code> [Line 1, Column 2]
+  unknown block tag: verbatim</code></pre>
                 
             </section>
             
@@ -687,11 +669,11 @@ value Y
             <section id="multiple-swig" data-engine="swig">
                 <h4>
                     <a class="permalink" href="#multiple-swig">Output Swig</a>
-                    
+                    (error)
                     <small>v1.4.2</small>
                 </h4>
                 
-                    <pre class="result"><code>{{ varX }}value Y{{ varZ }}</code></pre>
+                    <pre class="error"><code>Unexpected tag "verbatim".</code></pre>
                 
             </section>
             
@@ -728,7 +710,7 @@ value Y
             <h3><a class="permalink" href="#nested-raw">Test: nested-raw</a></h3>
 
             <h4>Template</h4>
-            <div class="test"><pre class="language-twig"><code><span class="token tag" ><span class="token ld" ><span class="token punctuation" >{%</span> <span class="token keyword" >raw</span></span> <span class="token rd" ><span class="token punctuation" >%}</span></span></span><span class="token tag" ><span class="token ld" ><span class="token punctuation" >{%</span> <span class="token keyword" >raw</span></span> <span class="token rd" ><span class="token punctuation" >%}</span></span></span><span class="token other" >{{ x }</span><span class="token tag" ><span class="token ld" ><span class="token punctuation" >{%</span> <span class="token keyword" >endraw</span></span> <span class="token rd" ><span class="token punctuation" >%}</span></span></span><span class="token tag" ><span class="token ld" ><span class="token punctuation" >{%</span> <span class="token keyword" >endraw</span></span> <span class="token rd" ><span class="token punctuation" >%}</span></span></span></code></pre></div>
+            <div class="test"><pre class="language-twig"><code><span class="token tag" ><span class="token ld" ><span class="token punctuation" >{%</span> <span class="token keyword" >verbatim</span></span> <span class="token rd" ><span class="token punctuation" >%}</span></span></span><span class="token tag" ><span class="token ld" ><span class="token punctuation" >{%</span> <span class="token keyword" >verbatim</span></span> <span class="token rd" ><span class="token punctuation" >%}</span></span></span><span class="token other" >{{ x }</span><span class="token tag" ><span class="token ld" ><span class="token punctuation" >{%</span> <span class="token keyword" >endverbatim</span></span> <span class="token rd" ><span class="token punctuation" >%}</span></span></span><span class="token tag" ><span class="token ld" ><span class="token punctuation" >{%</span> <span class="token keyword" >endverbatim</span></span> <span class="token rd" ><span class="token punctuation" >%}</span></span></span></code></pre></div>
 
             
 
@@ -742,7 +724,7 @@ value Y
                     <small>v1.10.1</small>
                 </h4>
                 
-                    <pre class="error"><code>Invalid block tag on line 1: 'raw'. Did you forget to register or load this tag?</code></pre>
+                    <pre class="error"><code>Invalid block tag on line 1: 'endverbatim'. Did you forget to register or load this tag?</code></pre>
                 
             </section>
             
@@ -755,7 +737,7 @@ value Y
                     <small>v2.8.0</small>
                 </h4>
                 
-                    <pre class="error"><code>Encountered unknown tag 'endraw'.</code></pre>
+                    <pre class="error"><code>Encountered unknown tag 'verbatim'.</code></pre>
                 
             </section>
             
@@ -768,7 +750,7 @@ value Y
                     <small>v3.0.6</small>
                 </h4>
                 
-                    <pre class="error"><code>Liquid syntax error: Unknown tag 'endraw'</code></pre>
+                    <pre class="error"><code>Liquid syntax error: Unknown tag 'verbatim'</code></pre>
                 
             </section>
             
@@ -777,11 +759,12 @@ value Y
             <section id="nested-raw-nunjucks" data-engine="nunjucks">
                 <h4>
                     <a class="permalink" href="#nested-raw-nunjucks">Output Nunjucks</a>
-                    
+                    (error)
                     <small>v2.5.0</small>
                 </h4>
                 
-                    <pre class="result"><code>{% raw %}{{ x }{% endraw %}</code></pre>
+                    <pre class="error"><code> [Line 1, Column 2]
+  unknown block tag: verbatim</code></pre>
                 
             </section>
             
@@ -794,7 +777,7 @@ value Y
                     <small>v1.4.2</small>
                 </h4>
                 
-                    <pre class="error"><code>Unexpected end of tag "raw".</code></pre>
+                    <pre class="error"><code>Unexpected tag "verbatim".</code></pre>
                 
             </section>
             
@@ -807,7 +790,7 @@ value Y
                     <small>v1.24.2</small>
                 </h4>
                 
-                    <pre class="error"><code>Unknown "endraw" tag.</code></pre>
+                    <pre class="error"><code>Unknown "endverbatim" tag.</code></pre>
                 
             </section>
             
@@ -838,7 +821,7 @@ value Y
             <h3><a class="permalink" href="#tag">Test: tag</a></h3>
 
             <h4>Template</h4>
-            <div class="test"><pre class="language-twig"><code><span class="token tag" ><span class="token ld" ><span class="token punctuation" >{%</span> <span class="token keyword" >raw</span></span> <span class="token rd" ><span class="token punctuation" >%}</span></span></span><span class="token other" >hello</span> <span class="token tag" ><span class="token ld" ><span class="token punctuation" >{{</span></span> <span class="token punctuation" >{</span><span class="token operator" >%</span> <span class="token operator" >%</span><span class="token punctuation" >}</span> <span class="token rd" ><span class="token punctuation" >}}</span></span></span><span class="token tag" ><span class="token ld" ><span class="token punctuation" >{%</span> <span class="token keyword" >endraw</span></span> <span class="token rd" ><span class="token punctuation" >%}</span></span></span></code></pre></div>
+            <div class="test"><pre class="language-twig"><code><span class="token tag" ><span class="token ld" ><span class="token punctuation" >{%</span> <span class="token keyword" >verbatim</span></span> <span class="token rd" ><span class="token punctuation" >%}</span></span></span><span class="token other" >hello</span> <span class="token tag" ><span class="token ld" ><span class="token punctuation" >{{</span></span> <span class="token punctuation" >{</span><span class="token operator" >%</span> <span class="token operator" >%</span><span class="token punctuation" >}</span> <span class="token rd" ><span class="token punctuation" >}}</span></span></span><span class="token tag" ><span class="token ld" ><span class="token punctuation" >{%</span> <span class="token keyword" >endverbatim</span></span> <span class="token rd" ><span class="token punctuation" >%}</span></span></span></code></pre></div>
 
             
 
@@ -848,11 +831,11 @@ value Y
             <section id="tag-django" data-engine="django">
                 <h4>
                     <a class="permalink" href="#tag-django">Output Django</a>
-                    (error)
+                    
                     <small>v1.10.1</small>
                 </h4>
                 
-                    <pre class="error"><code>Invalid block tag on line 1: 'raw'. Did you forget to register or load this tag?</code></pre>
+                    <pre class="result"><code>hello {{ {% %} }}</code></pre>
                 
             </section>
             
@@ -861,11 +844,11 @@ value Y
             <section id="tag-jinja2" data-engine="jinja2">
                 <h4>
                     <a class="permalink" href="#tag-jinja2">Output Jinja2</a>
-                    
+                    (error)
                     <small>v2.8.0</small>
                 </h4>
                 
-                    <pre class="result"><code>hello {{ {% %} }}</code></pre>
+                    <pre class="error"><code>Encountered unknown tag 'verbatim'.</code></pre>
                 
             </section>
             
@@ -874,11 +857,11 @@ value Y
             <section id="tag-liquid" data-engine="liquid">
                 <h4>
                     <a class="permalink" href="#tag-liquid">Output Liquid</a>
-                    
+                    (error)
                     <small>v3.0.6</small>
                 </h4>
                 
-                    <pre class="result"><code>hello {{ {% %} }}</code></pre>
+                    <pre class="error"><code>Liquid syntax error: Unknown tag 'verbatim'</code></pre>
                 
             </section>
             
@@ -887,11 +870,12 @@ value Y
             <section id="tag-nunjucks" data-engine="nunjucks">
                 <h4>
                     <a class="permalink" href="#tag-nunjucks">Output Nunjucks</a>
-                    
+                    (error)
                     <small>v2.5.0</small>
                 </h4>
                 
-                    <pre class="result"><code>hello {{ {% %} }}</code></pre>
+                    <pre class="error"><code> [Line 1, Column 2]
+  unknown block tag: verbatim</code></pre>
                 
             </section>
             
@@ -900,11 +884,11 @@ value Y
             <section id="tag-swig" data-engine="swig">
                 <h4>
                     <a class="permalink" href="#tag-swig">Output Swig</a>
-                    
+                    (error)
                     <small>v1.4.2</small>
                 </h4>
                 
-                    <pre class="result"><code>hello {{ {% %} }}</code></pre>
+                    <pre class="error"><code>Unexpected tag "verbatim".</code></pre>
                 
             </section>
             
@@ -941,7 +925,7 @@ value Y
             <h3><a class="permalink" href="#text">Test: text</a></h3>
 
             <h4>Template</h4>
-            <div class="test"><pre class="language-twig"><code><span class="token tag" ><span class="token ld" ><span class="token punctuation" >{%</span> <span class="token keyword" >raw</span></span> <span class="token rd" ><span class="token punctuation" >%}</span></span></span><span class="token other" >abc</span><span class="token tag" ><span class="token ld" ><span class="token punctuation" >{%</span> <span class="token keyword" >endraw</span></span> <span class="token rd" ><span class="token punctuation" >%}</span></span></span></code></pre></div>
+            <div class="test"><pre class="language-twig"><code><span class="token tag" ><span class="token ld" ><span class="token punctuation" >{%</span> <span class="token keyword" >verbatim</span></span> <span class="token rd" ><span class="token punctuation" >%}</span></span></span><span class="token other" >abc</span><span class="token tag" ><span class="token ld" ><span class="token punctuation" >{%</span> <span class="token keyword" >endverbatim</span></span> <span class="token rd" ><span class="token punctuation" >%}</span></span></span></code></pre></div>
 
             
 
@@ -951,11 +935,11 @@ value Y
             <section id="text-django" data-engine="django">
                 <h4>
                     <a class="permalink" href="#text-django">Output Django</a>
-                    (error)
+                    
                     <small>v1.10.1</small>
                 </h4>
                 
-                    <pre class="error"><code>Invalid block tag on line 1: 'raw'. Did you forget to register or load this tag?</code></pre>
+                    <pre class="result"><code>abc</code></pre>
                 
             </section>
             
@@ -964,11 +948,11 @@ value Y
             <section id="text-jinja2" data-engine="jinja2">
                 <h4>
                     <a class="permalink" href="#text-jinja2">Output Jinja2</a>
-                    
+                    (error)
                     <small>v2.8.0</small>
                 </h4>
                 
-                    <pre class="result"><code>abc</code></pre>
+                    <pre class="error"><code>Encountered unknown tag 'verbatim'.</code></pre>
                 
             </section>
             
@@ -977,11 +961,11 @@ value Y
             <section id="text-liquid" data-engine="liquid">
                 <h4>
                     <a class="permalink" href="#text-liquid">Output Liquid</a>
-                    
+                    (error)
                     <small>v3.0.6</small>
                 </h4>
                 
-                    <pre class="result"><code>abc</code></pre>
+                    <pre class="error"><code>Liquid syntax error: Unknown tag 'verbatim'</code></pre>
                 
             </section>
             
@@ -990,11 +974,12 @@ value Y
             <section id="text-nunjucks" data-engine="nunjucks">
                 <h4>
                     <a class="permalink" href="#text-nunjucks">Output Nunjucks</a>
-                    
+                    (error)
                     <small>v2.5.0</small>
                 </h4>
                 
-                    <pre class="result"><code>abc</code></pre>
+                    <pre class="error"><code> [Line 1, Column 2]
+  unknown block tag: verbatim</code></pre>
                 
             </section>
             
@@ -1003,11 +988,11 @@ value Y
             <section id="text-swig" data-engine="swig">
                 <h4>
                     <a class="permalink" href="#text-swig">Output Swig</a>
-                    
+                    (error)
                     <small>v1.4.2</small>
                 </h4>
                 
-                    <pre class="result"><code>abc</code></pre>
+                    <pre class="error"><code>Unexpected tag "verbatim".</code></pre>
                 
             </section>
             

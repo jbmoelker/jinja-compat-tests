@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
 
-    <title>upper filter | Jinja Compat Tests</title>
+    <title>max function | Jinja Compat Tests</title>
     <style type="text/css">
         html { font-family: Arial, sans-serif; }
         .app-footer { border-top: 1px solid black; margin-top: 1rem; padding-top: .5rem; }
@@ -94,7 +94,7 @@
 </header>
 
 <article>
-    <h1 class="page-title"><code>upper</code> filter</h1>
+    <h1 class="page-title"><code>max</code> function</h1>
 
     <div class="page-nav">
         <nav id="docs">
@@ -102,34 +102,18 @@
             <ul>
             
                 
-                <li>
-                    <a href="https://docs.djangoproject.com/en/1.10/ref/templates/builtins/#upper">Django</a>
-                </li>
+            
                 
             
                 
-                <li>
-                    <a href="http://jinja.pocoo.org/docs/dev/templates/#upper">Jinja2</a>
-                </li>
+            
                 
             
                 
             
                 
                 <li>
-                    <a href="https://mozilla.github.io/nunjucks/templating.html#upper">Nunjucks</a>
-                </li>
-                
-            
-                
-                <li>
-                    <a href="https://voorhoede.github.io/swig/docs/filters/#upper">Swig</a>
-                </li>
-                
-            
-                
-                <li>
-                    <a href="http://twig.sensiolabs.org/doc/filters/upper.html">Twig</a>
+                    <a href="http://twig.sensiolabs.org/doc/functions/max.html">Twig</a>
                 </li>
                 
             
@@ -142,9 +126,9 @@
                 
                     <li><a href="#array">array</a></li>
                 
-                    <li><a href="#number">number</a></li>
+                    <li><a href="#object">object</a></li>
                 
-                    <li><a href="#string">string</a></li>
+                    <li><a href="#sequence">sequence</a></li>
                 
             </ol>
         </nav>
@@ -160,16 +144,12 @@
             <h3><a class="permalink" href="#array">Test: array</a></h3>
 
             <h4>Template</h4>
-            <div class="test"><pre class="language-twig"><code><span class="token tag" ><span class="token ld" ><span class="token punctuation" >{{</span></span> <span class="token property" >items</span><span class="token operator" >|</span><span class="token property" >upper</span> <span class="token rd" ><span class="token punctuation" >}}</span></span></span></code></pre></div>
+            <div class="test"><pre class="language-twig"><code><span class="token tag" ><span class="token ld" ><span class="token punctuation" >{{</span></span> <span class="token property" >max</span><span class="token punctuation" >(</span><span class="token property" >numbers</span><span class="token punctuation" >)</span> <span class="token rd" ><span class="token punctuation" >}}</span></span></span></code></pre></div>
 
             
             <h4>Data</h4>
             <div class="test"><pre class="language-json"><code><span class="token punctuation" >{</span>
-  <span class="token property" >"items"</span><span class="token operator" >:</span> <span class="token punctuation" >[</span>
-    <span class="token string" >"my first car"</span><span class="token punctuation" >,</span>
-    <span class="token string" >"my Second car"</span><span class="token punctuation" >,</span>
-    <span class="token string" >"my THIRD car"</span>
-  <span class="token punctuation" >]</span>
+  <span class="token property" >"numbers"</span><span class="token operator" >:</span> <span class="token punctuation" >[</span><span class="token number" >1</span><span class="token punctuation" >,</span> <span class="token number" >3</span><span class="token punctuation" >,</span> <span class="token number" >2</span><span class="token punctuation" >]</span>
 <span class="token punctuation" >}</span></code></pre></div>
             
 
@@ -179,11 +159,11 @@
             <section id="array-django" data-engine="django">
                 <h4>
                     <a class="permalink" href="#array-django">Output Django</a>
-                    
+                    (error)
                     <small>v1.10.1</small>
                 </h4>
                 
-                    <pre class="result"><code>[U&#39;MY FIRST CAR&#39;, U&#39;MY SECOND CAR&#39;, U&#39;MY THIRD CAR&#39;]</code></pre>
+                    <pre class="error"><code>Could not parse the remainder: '(numbers)' from 'max(numbers)'</code></pre>
                 
             </section>
             
@@ -192,11 +172,11 @@
             <section id="array-jinja2" data-engine="jinja2">
                 <h4>
                     <a class="permalink" href="#array-jinja2">Output Jinja2</a>
-                    
+                    (error)
                     <small>v2.8.0</small>
                 </h4>
                 
-                    <pre class="result"><code>[U'MY FIRST CAR', U'MY SECOND CAR', U'MY THIRD CAR']</code></pre>
+                    <pre class="error"><code>'max' is undefined</code></pre>
                 
             </section>
             
@@ -205,11 +185,11 @@
             <section id="array-liquid" data-engine="liquid">
                 <h4>
                     <a class="permalink" href="#array-liquid">Output Liquid</a>
-                    
+                    (error)
                     <small>v3.0.6</small>
                 </h4>
                 
-                    <pre class="result"><code>my first carmy Second carmy THIRD car</code></pre>
+                    <pre class="error"><code>(no output)</code></pre>
                 
             </section>
             
@@ -223,7 +203,7 @@
                 </h4>
                 
                     <pre class="error"><code>
-  TypeError: str.toUpperCase is not a function</code></pre>
+  Error: Unable to call `max`, which is undefined or falsey</code></pre>
                 
             </section>
             
@@ -232,11 +212,11 @@
             <section id="array-swig" data-engine="swig">
                 <h4>
                     <a class="permalink" href="#array-swig">Output Swig</a>
-                    
+                    (error)
                     <small>v1.4.2</small>
                 </h4>
                 
-                    <pre class="result"><code>MY FIRST CAR,MY SECOND CAR,MY THIRD CAR</code></pre>
+                    <pre class="error"><code>(no output)</code></pre>
                 
             </section>
             
@@ -245,24 +225,11 @@
             <section id="array-twig" data-engine="twig">
                 <h4>
                     <a class="permalink" href="#array-twig">Output Twig</a>
-                    (error)
+                    
                     <small>v1.24.2</small>
                 </h4>
                 
-                    <pre class="error"><code>
-Warning: mb_strtoupper() expects parameter 1 to be string, array given
-
-Call Stack:
-    0.0003     377880   1. {main}() /home/travis/build/jbmoelker/jinja-compat-tests/test-twig.php:0
-    0.2540    4041808   2. Twig_Environment->render() /home/travis/build/jbmoelker/jinja-compat-tests/test-twig.php:52
-    0.2564    4056160   3. Twig_Template->render() /home/travis/build/jbmoelker/jinja-compat-tests/vendor/twig/twig/lib/Twig/Environment.php:347
-    0.2564    4072624   4. Twig_Template->display() /home/travis/build/jbmoelker/jinja-compat-tests/vendor/twig/twig/lib/Twig/Template.php:366
-    0.2564    4072736   5. Twig_Template->displayWithErrorHandling() /home/travis/build/jbmoelker/jinja-compat-tests/vendor/twig/twig/lib/Twig/Template.php:355
-    0.2564    4072736   6. __TwigTemplate_33e1aa87391c73e66c8ab6095a05a75b9b83905f888d08f54576618d4adfa926->doDisplay() /home/travis/build/jbmoelker/jinja-compat-tests/vendor/twig/twig/lib/Twig/Template.php:387
-    0.2564    4072736   7. twig_upper_filter() /home/travis/build/jbmoelker/jinja-compat-tests/vendor/twig/twig/lib/Twig/Environment.php(403) : eval()'d code:19
-    0.2564    4072736   8. mb_strtoupper() /home/travis/build/jbmoelker/jinja-compat-tests/vendor/twig/twig/lib/Twig/Extension/Core.php:1280
-
-</code></pre>
+                    <pre class="result"><code>3</code></pre>
                 
             </section>
             
@@ -275,214 +242,226 @@ Call Stack:
                     <small>v0.9.5</small>
                 </h4>
                 
-                    <pre class="result"><code>my first car,my Second car,my THIRD car</code></pre>
+                    <pre class="result"><code>3</code></pre>
                 
             </section>
             
         </section>
         
         
-        <section class="section" id="number">
-            <h3><a class="permalink" href="#number">Test: number</a></h3>
+        <section class="section" id="object">
+            <h3><a class="permalink" href="#object">Test: object</a></h3>
 
             <h4>Template</h4>
-            <div class="test"><pre class="language-twig"><code><span class="token tag" ><span class="token ld" ><span class="token punctuation" >{{</span></span> <span class="token number" >5</span><span class="token operator" >|</span><span class="token property" >upper</span> <span class="token rd" ><span class="token punctuation" >}}</span></span></span></code></pre></div>
+            <div class="test"><pre class="language-twig"><code><span class="token tag" ><span class="token ld" ><span class="token punctuation" >{{</span></span> <span class="token property" >max</span><span class="token punctuation" >(</span><span class="token property" >mapping</span><span class="token punctuation" >)</span> <span class="token rd" ><span class="token punctuation" >}}</span></span></span></code></pre></div>
 
             
+            <h4>Data</h4>
+            <div class="test"><pre class="language-json"><code><span class="token punctuation" >{</span>
+  <span class="token property" >"mapping"</span><span class="token operator" >:</span> <span class="token punctuation" >{</span>
+    <span class="token property" >"1"</span><span class="token operator" >:</span> <span class="token string" >"b"</span><span class="token punctuation" >,</span>
+    <span class="token property" >"2"</span><span class="token operator" >:</span> <span class="token string" >"e"</span><span class="token punctuation" >,</span>
+    <span class="token property" >"3"</span><span class="token operator" >:</span> <span class="token string" >"a"</span><span class="token punctuation" >,</span>
+    <span class="token property" >"4"</span><span class="token operator" >:</span> <span class="token string" >"c"</span><span class="token punctuation" >,</span>
+    <span class="token property" >"5"</span><span class="token operator" >:</span> <span class="token string" >"d"</span>
+  <span class="token punctuation" >}</span>
+<span class="token punctuation" >}</span></code></pre></div>
+            
 
             
             
             
-            <section id="number-django" data-engine="django">
+            <section id="object-django" data-engine="django">
                 <h4>
-                    <a class="permalink" href="#number-django">Output Django</a>
-                    
+                    <a class="permalink" href="#object-django">Output Django</a>
+                    (error)
                     <small>v1.10.1</small>
                 </h4>
                 
-                    <pre class="result"><code>5</code></pre>
+                    <pre class="error"><code>Could not parse the remainder: '(mapping)' from 'max(mapping)'</code></pre>
                 
             </section>
             
             
             
-            <section id="number-jinja2" data-engine="jinja2">
+            <section id="object-jinja2" data-engine="jinja2">
                 <h4>
-                    <a class="permalink" href="#number-jinja2">Output Jinja2</a>
-                    
+                    <a class="permalink" href="#object-jinja2">Output Jinja2</a>
+                    (error)
                     <small>v2.8.0</small>
                 </h4>
                 
-                    <pre class="result"><code>5</code></pre>
+                    <pre class="error"><code>'max' is undefined</code></pre>
                 
             </section>
             
             
             
-            <section id="number-liquid" data-engine="liquid">
+            <section id="object-liquid" data-engine="liquid">
                 <h4>
-                    <a class="permalink" href="#number-liquid">Output Liquid</a>
-                    
+                    <a class="permalink" href="#object-liquid">Output Liquid</a>
+                    (error)
                     <small>v3.0.6</small>
                 </h4>
                 
-                    <pre class="result"><code>5</code></pre>
+                    <pre class="error"><code>(no output)</code></pre>
                 
             </section>
             
             
             
-            <section id="number-nunjucks" data-engine="nunjucks">
+            <section id="object-nunjucks" data-engine="nunjucks">
                 <h4>
-                    <a class="permalink" href="#number-nunjucks">Output Nunjucks</a>
+                    <a class="permalink" href="#object-nunjucks">Output Nunjucks</a>
                     (error)
                     <small>v2.5.0</small>
                 </h4>
                 
                     <pre class="error"><code>
-  TypeError: str.toUpperCase is not a function</code></pre>
+  Error: Unable to call `max`, which is undefined or falsey</code></pre>
                 
             </section>
             
             
             
-            <section id="number-swig" data-engine="swig">
+            <section id="object-swig" data-engine="swig">
                 <h4>
-                    <a class="permalink" href="#number-swig">Output Swig</a>
-                    
+                    <a class="permalink" href="#object-swig">Output Swig</a>
+                    (error)
                     <small>v1.4.2</small>
                 </h4>
                 
-                    <pre class="result"><code>5</code></pre>
+                    <pre class="error"><code>(no output)</code></pre>
                 
             </section>
             
             
             
-            <section id="number-twig" data-engine="twig">
+            <section id="object-twig" data-engine="twig">
                 <h4>
-                    <a class="permalink" href="#number-twig">Output Twig</a>
+                    <a class="permalink" href="#object-twig">Output Twig</a>
                     
                     <small>v1.24.2</small>
                 </h4>
                 
-                    <pre class="result"><code>5</code></pre>
+                    <pre class="result"><code>e</code></pre>
                 
             </section>
             
             
             
-            <section id="number-twigjs" data-engine="twigjs">
+            <section id="object-twigjs" data-engine="twigjs">
                 <h4>
-                    <a class="permalink" href="#number-twigjs">Output Twigjs</a>
+                    <a class="permalink" href="#object-twigjs">Output Twigjs</a>
                     
                     <small>v0.9.5</small>
                 </h4>
                 
-                    <pre class="result"><code>5</code></pre>
+                    <pre class="result"><code>e</code></pre>
                 
             </section>
             
         </section>
         
         
-        <section class="section" id="string">
-            <h3><a class="permalink" href="#string">Test: string</a></h3>
+        <section class="section" id="sequence">
+            <h3><a class="permalink" href="#sequence">Test: sequence</a></h3>
 
             <h4>Template</h4>
-            <div class="test"><pre class="language-twig"><code><span class="token tag" ><span class="token ld" ><span class="token punctuation" >{{</span></span> <span class="token string" ><span class="token punctuation" >'</span>My first CAR<span class="token punctuation" >'</span></span><span class="token operator" >|</span><span class="token property" >upper</span> <span class="token rd" ><span class="token punctuation" >}}</span></span></span></code></pre></div>
+            <div class="test"><pre class="language-twig"><code><span class="token tag" ><span class="token ld" ><span class="token punctuation" >{{</span></span> <span class="token property" >max</span><span class="token punctuation" >(</span><span class="token number" >1</span><span class="token punctuation" >,</span> <span class="token number" >3</span><span class="token punctuation" >,</span> <span class="token number" >2</span><span class="token punctuation" >)</span> <span class="token rd" ><span class="token punctuation" >}}</span></span></span></code></pre></div>
 
             
 
             
             
             
-            <section id="string-django" data-engine="django">
+            <section id="sequence-django" data-engine="django">
                 <h4>
-                    <a class="permalink" href="#string-django">Output Django</a>
-                    
+                    <a class="permalink" href="#sequence-django">Output Django</a>
+                    (error)
                     <small>v1.10.1</small>
                 </h4>
                 
-                    <pre class="result"><code>MY FIRST CAR</code></pre>
+                    <pre class="error"><code>Could not parse the remainder: '(1, 3, 2)' from 'max(1, 3, 2)'</code></pre>
                 
             </section>
             
             
             
-            <section id="string-jinja2" data-engine="jinja2">
+            <section id="sequence-jinja2" data-engine="jinja2">
                 <h4>
-                    <a class="permalink" href="#string-jinja2">Output Jinja2</a>
-                    
+                    <a class="permalink" href="#sequence-jinja2">Output Jinja2</a>
+                    (error)
                     <small>v2.8.0</small>
                 </h4>
                 
-                    <pre class="result"><code>MY FIRST CAR</code></pre>
+                    <pre class="error"><code>'max' is undefined</code></pre>
                 
             </section>
             
             
             
-            <section id="string-liquid" data-engine="liquid">
+            <section id="sequence-liquid" data-engine="liquid">
                 <h4>
-                    <a class="permalink" href="#string-liquid">Output Liquid</a>
-                    
+                    <a class="permalink" href="#sequence-liquid">Output Liquid</a>
+                    (error)
                     <small>v3.0.6</small>
                 </h4>
                 
-                    <pre class="result"><code>My first CAR</code></pre>
+                    <pre class="error"><code>(no output)</code></pre>
                 
             </section>
             
             
             
-            <section id="string-nunjucks" data-engine="nunjucks">
+            <section id="sequence-nunjucks" data-engine="nunjucks">
                 <h4>
-                    <a class="permalink" href="#string-nunjucks">Output Nunjucks</a>
-                    
+                    <a class="permalink" href="#sequence-nunjucks">Output Nunjucks</a>
+                    (error)
                     <small>v2.5.0</small>
                 </h4>
                 
-                    <pre class="result"><code>MY FIRST CAR</code></pre>
+                    <pre class="error"><code>
+  Error: Unable to call `max`, which is undefined or falsey</code></pre>
                 
             </section>
             
             
             
-            <section id="string-swig" data-engine="swig">
+            <section id="sequence-swig" data-engine="swig">
                 <h4>
-                    <a class="permalink" href="#string-swig">Output Swig</a>
-                    
+                    <a class="permalink" href="#sequence-swig">Output Swig</a>
+                    (error)
                     <small>v1.4.2</small>
                 </h4>
                 
-                    <pre class="result"><code>MY FIRST CAR</code></pre>
+                    <pre class="error"><code>(no output)</code></pre>
                 
             </section>
             
             
             
-            <section id="string-twig" data-engine="twig">
+            <section id="sequence-twig" data-engine="twig">
                 <h4>
-                    <a class="permalink" href="#string-twig">Output Twig</a>
+                    <a class="permalink" href="#sequence-twig">Output Twig</a>
                     
                     <small>v1.24.2</small>
                 </h4>
                 
-                    <pre class="result"><code>MY FIRST CAR</code></pre>
+                    <pre class="result"><code>3</code></pre>
                 
             </section>
             
             
             
-            <section id="string-twigjs" data-engine="twigjs">
+            <section id="sequence-twigjs" data-engine="twigjs">
                 <h4>
-                    <a class="permalink" href="#string-twigjs">Output Twigjs</a>
+                    <a class="permalink" href="#sequence-twigjs">Output Twigjs</a>
                     
                     <small>v0.9.5</small>
                 </h4>
                 
-                    <pre class="result"><code>MY FIRST CAR</code></pre>
+                    <pre class="result"><code>3</code></pre>
                 
             </section>
             
