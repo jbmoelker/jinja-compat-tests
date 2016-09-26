@@ -1,0 +1,4 @@
+{% for type, items in items | groupby('type') %}
+{{ type }}:
+{% for item in items %}{{ item.name }} {% endfor %}
+{% endfor %}
