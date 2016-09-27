@@ -1,4 +1,5 @@
-FROM alpine:3.4
+FROM mhart/alpine-node:6.6
+# Alpine 3.4 based node & npm image
 
 ENV BUILD_PACKAGES curl-dev ruby-dev build-base
 # ENV RUBY_PACKAGES ruby ruby-io-console ruby-bundler
@@ -40,3 +41,4 @@ WORKDIR /app
 # Run package installers
 RUN bundle install
 RUN pip install -r requirements.txt
+RUN npm install
