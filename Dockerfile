@@ -21,8 +21,6 @@ RUN apk add curl wget bash
 # Install ruby, ruby-io-console and ruby-bundler
 RUN apk add ruby ruby-io-console ruby-bundler
 
-# RUN bundle install
-
 # Clean APK cache
 RUN rm -rf /var/cache/apk/*
 
@@ -31,6 +29,7 @@ RUN apk add --update \
     python3-dev \
     py-pip \
   && rm -rf /var/cache/apk/*
+
 
 
 # Copy over project
@@ -42,3 +41,7 @@ WORKDIR /app
 RUN bundle install
 RUN pip install -r requirements.txt
 RUN npm install
+
+RUN apk --update add php5 php5-openssl php5-json php5-phar php5-ctype
+RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/bin --filename=composer 
+RUN composer install
