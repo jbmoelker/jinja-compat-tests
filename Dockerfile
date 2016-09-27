@@ -1,4 +1,4 @@
-FROM alpine:3.3
+FROM alpine:3.4
 
 ENV BUILD_PACKAGES curl-dev ruby-dev build-base
 # ENV RUBY_PACKAGES ruby ruby-io-console ruby-bundler
@@ -20,12 +20,23 @@ RUN apk add curl wget bash
 # Install ruby, ruby-io-console and ruby-bundler
 RUN apk add ruby ruby-io-console ruby-bundler
 
+# RUN bundle install
+
 # Clean APK cache
 RUN rm -rf /var/cache/apk/*
+
+RUN apk add --update \
+    python3 \
+    python3-dev \
+    py-pip \
+  && rm -rf /var/cache/apk/*
+
 
 # Copy over project
 ADD . /app
 WORKDIR /app
 
+
 # Run package installers
 RUN bundle install
+RUN pip install -r requirements.txt

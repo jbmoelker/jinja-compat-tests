@@ -1,5 +1,8 @@
 .git
 .gitignore
+.dockerignore
+Dockerfile
+
 
 # From .gitignore, manually maintained!
 
