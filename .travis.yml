@@ -1,33 +1,20 @@
-sudo: false
+sudo: required
 
-language: php
-php: '7.0'
+services:
+  - docker
 
 env:
   global:
-  - NODE_JS_VERSION: 5.8
   - GH_USER: jbmoelker
   - GH_REPO: jinja-compat-tests
   - secure: lx5dNWuhlo/1FIkaeRLzfk0aqdhRY5mbsho/3JHVJx1WgjoaxOfQ+msSOpnijTS1rxAHH6KvXRn27aJLK8W/1lb8P1dWxK7PX3HN8r9SrM4G12NqgHDHchmhMFkbsaLS6OxdFL7RQ0/Jp/SaueZyWc8EtdIvgVXhnlaHdiFV91wx8Sm2RHH5G8YApo+siLN6Rfg/4nzm6aAyIO3JEUpXDOIDwRLY8hmDMtSBkiKrbDrNXCNlDk/3Eimjg6Q1qLq2CYcdjWlNbgBkRJ3xjAkjk/R2v5DGlVtRkzBCAOKLiIyYayuLgCXa29Ul66foCoMMd73BukaJyEy0fZZbQVLjxX0CrvCBFaezSSAi0ch16mZHx3jYHHoPM0wBP/mBJRjHvX6Fn+Zbmhr7wPOFMQX27SRMCOpMwt+V3nxXdFrx9uKCWd4zXxd+hvW9muv2PfO76P2ufxNe/BDeG2jJ1lQtn6T898Mw4kDkeLPvOVoWkAiNfNbyAT/KRe4VxqstYokFK+EZCH6CTb8zjli7F8Qih1QXWeCy6z4nviJguhMMCaItgecPoixwnW338pYGLHjXdvI52/7dXFCsgorcKHEE56+5FmW1mB0xHnILPGquqSF2p4LbHbMA6QFJ8Xd2VfoVrOhr5rKSx7HJunTPAKUosjIIRAo75rC55b1txebOwOE=
 
-cache:
-  directories:
-  - node_modules
-  - vendor
-
-install:
-- curl -o ~/.nvm/nvm.sh https://raw.githubusercontent.com/creationix/nvm/v0.31.0/nvm.sh
-- bash -c "nvm use $NODE_JS_VERSION" || true
-- bash -c "source ~/.nvm/nvm.sh; nvm install $NODE_JS_VERSION; node --version"
-- npm install
-- pip install --user -r requirements.txt
-- composer install
-- gem install bundler
-- bundle install
+before_install:
+- docker build -t compat-travis-runner .
 
 script:
-- nvm use $NODE_JS_VERSION
-- ./build.sh
+- docker run compat-travis-runner sh build.sh
+- docker cp `docker ps -lq`:/app/dist ./dist
 
 after_success:
 - bash ./scripts/deploy.sh
