@@ -1,0 +1,7 @@
+{
+  "items": [
+    { "name": "alpha", "is_selected": false },
+    { "name": "bravo", "is_selected": true },
+    { "name": "delta", "is_selected": true }
+  ]
+}

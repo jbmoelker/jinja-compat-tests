@@ -1,0 +1,3 @@
+{% for item in items|selectattr('id', 'odd') %}
+{{ item.name }}
+{% endfor %}
