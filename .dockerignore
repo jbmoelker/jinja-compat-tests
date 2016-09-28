@@ -3,17 +3,4 @@
 .dockerignore
 Dockerfile
 
-
-# From .gitignore, manually maintained!
-
-*.pyc
-
-# node/npm dependencies
-node_modules/
-
-# php/composer dependencies
-vendor/
-
-# output of tests & build
-dist/
-output/
+# .gitignore automatically appended in Travis build
