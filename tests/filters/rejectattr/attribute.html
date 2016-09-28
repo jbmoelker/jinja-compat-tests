@@ -1,0 +1,3 @@
+{% for item in items|rejectattr('id', 'odd') %}
+{{ item.name }}
+{% endfor %}
