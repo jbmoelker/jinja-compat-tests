@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+
+    <title>list filter | Jinja Compat Tests</title>
+    <style type="text/css">
+        html { font-family: Arial, sans-serif; }
+        .app-footer { border-top: 1px solid black; margin-top: 1rem; padding-top: .5rem; }
+    </style>
+    
+</head>
+<body>
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.5.1/themes/prism.css">
+<style type="text/css">
+    article { overflow: auto; zoom: 1; }
+    .page-title { font-size: 2rem; }
+    .page-nav { float: left; margin-right: 2.5em; }
+    .page-nav ul, .page-nav ol { list-style: none; padding-left: 0; }
+    .page-content { float: left; }
+
+    h4 { margin-bottom: 0; }
+    h4 small { float: right; font-weight: normal; font-style: italic; }
+    label { padding-right: 1em; cursor: pointer; }
+    pre { padding: .5em; margin-top: .5rem; min-height: 1em; background: #f5f2f0; overflow-x: scroll; }
+    .section { margin-bottom: 2.5rem; }
+    .test pre { border: 2px solid deepskyblue; }
+    .result { border: 2px solid lawngreen; }
+    .error { border: 2px solid red; white-space: normal; }
+
+    [data-engine-enabled="false"] { display:none; }
+
+    .a11y-only {
+        border: 0;
+        clip: rect(0 0 0 0);
+        height: 1px;
+        margin: -1px;
+        overflow: hidden;
+        padding: 0;
+        position: absolute;
+        width: 1px;
+    }
+</style>
+
+<header>
+    <h1><a rel="home" href="../../">Jinja Compat Tests</a></h1>
+
+    <form data-engine-enabler>
+        <fieldset>
+            <legend>Enabled engines</legend>
+            
+            <label>
+                <input type="checkbox" checked name="engine" value="django">
+                Django
+            </label>
+            
+            <label>
+                <input type="checkbox" checked name="engine" value="jinja2">
+                Jinja2
+            </label>
+            
+            <label>
+                <input type="checkbox" checked name="engine" value="liquid">
+                Liquid
+            </label>
+            
+            <label>
+                <input type="checkbox" checked name="engine" value="nunjucks">
+                Nunjucks
+            </label>
+            
+            <label>
+                <input type="checkbox" checked name="engine" value="swig">
+                Swig
+            </label>
+            
+            <label>
+                <input type="checkbox" checked name="engine" value="twig">
+                Twig
+            </label>
+            
+            <label>
+                <input type="checkbox" checked name="engine" value="twigjs">
+                Twigjs
+            </label>
+            
+        </fieldset>
+    </form>
+</header>
+
+<article>
+    <h1 class="page-title"><code>list</code> filter</h1>
+
+    <div class="page-nav">
+        <nav id="docs">
+            <h2><a class="permalink" href="#docs">Docs</a></h2>
+            <ul>
+            
+                
+            
+                
+                <li>
+                    <a href="http://jinja.pocoo.org/docs/dev/templates/#list">Jinja2</a>
+                </li>
+                
+            
+                
+            
+                
+                <li>
+                    <a href="https://mozilla.github.io/nunjucks/templating.html#list">Nunjucks</a>
+                </li>
+                
+            
+                
+            
+                
+            
+            </ul>
+        </nav>
+
+        <nav id="toc">
+            <h2>Tests</h2>
+            <ol>
+                
+                    <li><a href="#string">string</a></li>
+                
+            </ol>
+        </nav>
+    </div>
+
+    <div class="page-content">
+        <h2 id="tests" class="a11y-only">
+            <a class="permalink" href="#tests">Tests</a>
+        </h2>
+        
+        
+        <section class="section" id="string">
+            <h3><a class="permalink" href="#string">Test: string</a></h3>
+
+            <h4>Template</h4>
+            <div class="test"><pre class="language-twig"><code><span class="token tag" ><span class="token ld" ><span class="token punctuation" >{%</span> <span class="token keyword" >for</span></span> <span class="token property" >i</span> <span class="token operator" >in</span> <span class="token string" ><span class="token punctuation" >'</span>template<span class="token punctuation" >'</span></span><span class="token operator" >|</span><span class="token property" >list</span> <span class="token rd" ><span class="token punctuation" >%}</span></span></span><span class="token tag" ><span class="token ld" ><span class="token punctuation" >{{</span></span> <span class="token property" >i</span> <span class="token rd" ><span class="token punctuation" >}}</span></span></span><span class="token other" >,</span> <span class="token tag" ><span class="token ld" ><span class="token punctuation" >{%</span> <span class="token keyword" >endfor</span></span> <span class="token rd" ><span class="token punctuation" >%}</span></span></span></code></pre></div>
+
+            
+
+            
+            
+            
+            <section id="string-django" data-engine="django">
+                <h4>
+                    <a class="permalink" href="#string-django">Output Django</a>
+                    (error)
+                    <small>v1.10.1</small>
+                </h4>
+                
+                    <pre class="error"><code>Invalid filter: 'list'</code></pre>
+                
+            </section>
+            
+            
+            
+            <section id="string-jinja2" data-engine="jinja2">
+                <h4>
+                    <a class="permalink" href="#string-jinja2">Output Jinja2</a>
+                    
+                    <small>v2.8.0</small>
+                </h4>
+                
+                    <pre class="result"><code>t, e, m, p, l, a, t, e, </code></pre>
+                
+            </section>
+            
+            
+            
+            <section id="string-liquid" data-engine="liquid">
+                <h4>
+                    <a class="permalink" href="#string-liquid">Output Liquid</a>
+                    
+                    <small>v3.0.6</small>
+                </h4>
+                
+                    <pre class="result"><code>template, </code></pre>
+                
+            </section>
+            
+            
+            
+            <section id="string-nunjucks" data-engine="nunjucks">
+                <h4>
+                    <a class="permalink" href="#string-nunjucks">Output Nunjucks</a>
+                    
+                    <small>v2.5.0</small>
+                </h4>
+                
+                    <pre class="result"><code>t, e, m, p, l, a, t, e, </code></pre>
+                
+            </section>
+            
+            
+            
+            <section id="string-swig" data-engine="swig">
+                <h4>
+                    <a class="permalink" href="#string-swig">Output Swig</a>
+                    (error)
+                    <small>v1.4.2</small>
+                </h4>
+                
+                    <pre class="error"><code>Invalid filter "list".</code></pre>
+                
+            </section>
+            
+            
+            
+            <section id="string-twig" data-engine="twig">
+                <h4>
+                    <a class="permalink" href="#string-twig">Output Twig</a>
+                    (error)
+                    <small>v1.24.2</small>
+                </h4>
+                
+                    <pre class="error"><code>Unknown "list" filter. Did you mean "last"?</code></pre>
+                
+            </section>
+            
+            
+            
+            <section id="string-twigjs" data-engine="twigjs">
+                <h4>
+                    <a class="permalink" href="#string-twigjs">Output Twigjs</a>
+                    (error)
+                    <small>v0.9.5</small>
+                </h4>
+                
+                    <pre class="error"><code>Unable to find filter list</code></pre>
+                
+            </section>
+            
+        </section>
+        
+    </div>
+
+</article>
+
+<script>(function engineEnabler(){
+    'use strict';
+
+    var CAPABLE_BROWSER = ('addEventListener' in window);
+    if (!CAPABLE_BROWSER) {
+        return;
+    }
+
+    var SUPPORTS_STORAGE = ('localStorage' in window);
+    var STORAGE_KEY = 'enabledEngines';
+    var FORM_SELECTOR = '[data-engine-enabler]';
+    var INPUT_NAME = 'engine';
+    var TARGET_ATTR = 'data-engine';
+    var ENABLED_ATTR = 'data-engine-enabled';
+
+    var form = document.querySelector(FORM_SELECTOR);
+    var inputs = [].slice.call(form[INPUT_NAME]);
+    var targets = [].slice.call(document.querySelectorAll('[' + TARGET_ATTR + ']'));
+
+    form.addEventListener('change', onEnableEngines);
+    restoreState();
+
+    function onEnableEngines() {
+        var state = getEngineState(this);
+        enableTargets(state);
+        saveState(state);
+    }
+
+    function getEngineState(form) {
+        return inputs.reduce(function(map, input){
+            map[input.value] = input.checked;
+            return map;
+        }, {});
+    }
+
+    function enableTargets(state) {
+        targets.forEach(function(target) {
+            var key = target.getAttribute(TARGET_ATTR);
+            target.setAttribute(ENABLED_ATTR, state[key]);
+        });
+    }
+
+    function saveState(state) {
+        if(!SUPPORTS_STORAGE) {
+            return;
+        }
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
+    }
+
+    function restoreState() {
+        if(!SUPPORTS_STORAGE) {
+            return;
+        }
+        var state = JSON.parse(localStorage.getItem(STORAGE_KEY));
+        restoreInputs(state);
+        enableTargets(state);
+    }
+
+    function restoreInputs(state) {
+        inputs.forEach(function(input) {
+           input.checked = state[input.value];
+        });
+    }
+
+}());</script>
+
+
+<footer class="app-footer" role="contentinfo">
+    <a href="https://github.com/jbmoelker/jinja-compat-tests">Source on GitHub</a>
+</footer>
+
+
+</body>
+</html>

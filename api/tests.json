@@ -112,6 +112,11 @@
             "integer": "{{ 3|int }}",
             "string": "{{ \"3.52\"|int }}"
         },
+        "join": {
+            "custom-glue": "{{ items | join('|') }}",
+            "default": "{{ items | join }}",
+            "object": "{{ items | join(', ', 'name') }}"
+        },
         "last": {
             "array-as-variable": "{{ items|last }}",
             "array": "{{ [1, 2, 3, 4]|last }}",
@@ -125,10 +130,45 @@
             "object": "{{ { a: 1, b: 2, c: 3, d: 4 }|length }}",
             "string": "{{ '1234'|length }}"
         },
+        "list": {
+            "string": "{% for i in 'template'|list %}{{ i }}, {% endfor %}"
+        },
         "lower": {
             "array": "{{ items|lower }}",
             "number": "{{ 5|lower }}",
             "string": "{{ 'My FIRST Car'|lower }}"
+        },
+        "random": {
+            "array": "{{ items|random }}"
+        },
+        "rejectattr": {
+            "attribute": "{% for item in items|rejectattr('id', 'odd') %}\n{{ item.name }}\n{% endfor %}",
+            "default": "{% for item in items|rejectattr('is_selected') %}\n{{ item.name }}\n{% endfor %}"
+        },
+        "replace": {
+            "count": "{{ 'aaabbbccc'|replace('b', '.', 2) }}",
+            "empty": "{{ 'aaabbbccc'|replace('', '.') }}",
+            "letter": "{{ 'aaabbbccc'|replace('b', '.') }}",
+            "number": "{{ 111222333|replace('2', '.') }}",
+            "pattern": "{{ 'aaabbbccc'|replace('b*', '.') }}"
+        },
+        "reverse": {
+            "array": "{% for item in items|reverse %}\n{{ item }}\n{% endfor %}",
+            "number": "{{ 1234|reverse }}",
+            "object-default": "{% for key, value in mapping|reverse %}\n{{ key }}: {{ value }}\n{% endfor %}\n",
+            "object-preserve-keys": "{% for key, value in mapping|reverse(true) %}\n{{ key }}: {{ value }}\n{% endfor %}\n",
+            "string": "{{ '1234'|reverse }}"
+        },
+        "round": {
+            "ceil": "{{ 42.43|round(1, 'ceil') }}",
+            "common": "{{ 42.55|round(1, 'common') }}",
+            "default": "{{ 42.55|round }}",
+            "floor": "{{ 42.55|round(1, 'floor') }}",
+            "precision": "{{ 42.55|round(1) }}"
+        },
+        "selectattr": {
+            "attribute": "{% for item in items|selectattr('id', 'odd') %}\n{{ item.name }}\n{% endfor %}",
+            "default": "{% for item in items|selectattr('is_selected') %}\n{{ item.name }}\n{% endfor %}"
         },
         "upper": {
             "array": "{{ items|upper }}",
@@ -189,6 +229,12 @@
             "nested-raw": "{% raw %}{% raw %}{{ x }{% endraw %}{% endraw %}",
             "tag": "{% raw %}hello {{ {% %} }}{% endraw %}",
             "text": "{% raw %}abc{% endraw %}"
+        },
+        "spaceless": {
+            "attributes": "{% spaceless %}\n<input name=\" spaceless \"  value=\"  \"  required=\"  \">\n{% endspaceless %}",
+            "div": "{% spaceless %}\n    <div>\n        <strong>test</strong>\n    </div>\n{% endspaceless %}",
+            "pre": "{% spaceless %}\n<pre>\nFormatted text\n\n<strong>with empty lines\n    and tabs</strong>\n\n</pre>\n{% endspaceless %}",
+            "textarea": "{% spaceless %}\n<textarea>\nFormatted text\n\n<strong>with empty lines\n    and tabs</strong>\n\n</textarea>\n{% endspaceless %}"
         },
         "verbatim": {
             "broken-expression": "{% verbatim %}{{ x }{% endverbatim %}",

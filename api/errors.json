@@ -97,6 +97,11 @@
                 "integer": "Invalid filter: 'int'",
                 "string": "Invalid filter: 'int'"
             },
+            "join": {
+                "custom-glue": "join requires 2 arguments, 1 provided",
+                "default": "join requires 2 arguments, 1 provided",
+                "object": "join requires 2 arguments, 1 provided"
+            },
             "last": {
                 "array": "Could not parse some characters: |[1, 2, 3, 4]||last",
                 "number": "'int' object has no attribute '__getitem__'",
@@ -105,6 +110,38 @@
             "length": {
                 "array": "Could not parse some characters: |[1, 2, 3, 4]||length",
                 "object": "Could not parse some characters: |{ a: 1, b: 2, c: 3, d: 4 }||length"
+            },
+            "list": {
+                "string": "Invalid filter: 'list'"
+            },
+            "rejectattr": {
+                "attribute": "'for' statements should use the format 'for x in y': for item in items|rejectattr('id', 'odd')",
+                "default": "Invalid filter: 'rejectattr'"
+            },
+            "replace": {
+                "count": "Invalid filter: 'replace'",
+                "empty": "Invalid filter: 'replace'",
+                "letter": "Invalid filter: 'replace'",
+                "number": "Invalid filter: 'replace'",
+                "pattern": "Invalid filter: 'replace'"
+            },
+            "reverse": {
+                "array": "Invalid filter: 'reverse'",
+                "number": "Invalid filter: 'reverse'",
+                "object-default": "Invalid filter: 'reverse'",
+                "object-preserve-keys": "Invalid filter: 'reverse'",
+                "string": "Invalid filter: 'reverse'"
+            },
+            "round": {
+                "ceil": "Invalid filter: 'round'",
+                "common": "Invalid filter: 'round'",
+                "default": "Invalid filter: 'round'",
+                "floor": "Invalid filter: 'round'",
+                "precision": "Invalid filter: 'round'"
+            },
+            "selectattr": {
+                "attribute": "'for' statements should use the format 'for x in y': for item in items|selectattr('id', 'odd')",
+                "default": "Invalid filter: 'selectattr'"
             }
         },
         "functions": {
@@ -193,6 +230,11 @@
             },
             "length": {
                 "number": "object of type 'int' has no len()"
+            },
+            "reverse": {
+                "number": "argument must be iterable",
+                "object-default": "need more than 1 value to unpack",
+                "object-preserve-keys": "do_reverse() takes exactly 1 argument (2 given)"
             }
         },
         "functions": {
@@ -222,6 +264,12 @@
         "tags": {
             "raw": {
                 "nested-raw": "Encountered unknown tag 'endraw'."
+            },
+            "spaceless": {
+                "attributes": "Encountered unknown tag 'spaceless'.",
+                "div": "Encountered unknown tag 'spaceless'.",
+                "pre": "Encountered unknown tag 'spaceless'.",
+                "textarea": "Encountered unknown tag 'spaceless'."
             },
             "verbatim": {
                 "broken-expression": "Encountered unknown tag 'verbatim'.",
@@ -290,6 +338,10 @@
             "length": {
                 "array": "(no output)",
                 "object": "Liquid syntax error: Variable '{{ { a: 1, b: 2, c: 3, d: 4 }' was not properly terminated with regexp: /\\}\\}/"
+            },
+            "reverse": {
+                "object-default": "Liquid syntax error: Syntax Error in 'for loop' - Valid syntax: for [item] in [collection]",
+                "object-preserve-keys": "Liquid syntax error: Syntax Error in 'for loop' - Valid syntax: for [item] in [collection]"
             }
         },
         "functions": {
@@ -336,6 +388,12 @@
             },
             "raw": {
                 "nested-raw": "Liquid syntax error: Unknown tag 'endraw'"
+            },
+            "spaceless": {
+                "attributes": "Liquid syntax error: Unknown tag 'spaceless'",
+                "div": "Liquid syntax error: Unknown tag 'spaceless'",
+                "pre": "Liquid syntax error: Unknown tag 'spaceless'",
+                "textarea": "Liquid syntax error: Unknown tag 'spaceless'"
             },
             "verbatim": {
                 "broken-expression": "Liquid syntax error: Unknown tag 'verbatim'",
@@ -387,6 +445,14 @@
                 "array": "\n  TypeError: str.toLowerCase is not a function",
                 "number": "\n  TypeError: str.toLowerCase is not a function"
             },
+            "rejectattr": {
+                "attribute": "(no output)"
+            },
+            "reverse": {
+                "number": "(no output)",
+                "object-default": "(no output)",
+                "object-preserve-keys": "(no output)"
+            },
             "upper": {
                 "array": "\n  TypeError: str.toUpperCase is not a function",
                 "number": "\n  TypeError: str.toUpperCase is not a function"
@@ -416,6 +482,12 @@
             }
         },
         "tags": {
+            "spaceless": {
+                "attributes": " [Line 1, Column 2]\n  unknown block tag: spaceless",
+                "div": " [Line 1, Column 2]\n  unknown block tag: spaceless",
+                "pre": " [Line 1, Column 2]\n  unknown block tag: spaceless",
+                "textarea": " [Line 1, Column 2]\n  unknown block tag: spaceless"
+            },
             "verbatim": {
                 "broken-expression": " [Line 1, Column 2]\n  unknown block tag: verbatim",
                 "broken-tag": " [Line 1, Column 2]\n  unknown block tag: verbatim",
@@ -511,6 +583,31 @@
                 "number": "Invalid filter \"length\".",
                 "object": "Invalid filter \"length\".",
                 "string": "Invalid filter \"length\"."
+            },
+            "list": {
+                "string": "Invalid filter \"list\"."
+            },
+            "random": {
+                "array": "Invalid filter \"random\"."
+            },
+            "rejectattr": {
+                "attribute": "Invalid filter \"rejectattr\".",
+                "default": "Invalid filter \"rejectattr\"."
+            },
+            "replace": {
+                "count": "Invalid flags supplied to RegExp constructor '2'",
+                "number": "input.replace is not a function"
+            },
+            "round": {
+                "ceil": "Invalid filter \"round\".",
+                "common": "Invalid filter \"round\".",
+                "default": "Invalid filter \"round\".",
+                "floor": "Invalid filter \"round\".",
+                "precision": "Invalid filter \"round\"."
+            },
+            "selectattr": {
+                "attribute": "Invalid filter \"selectattr\".",
+                "default": "Invalid filter \"selectattr\"."
             }
         },
         "functions": {
@@ -627,8 +724,22 @@
                 "integer": "Unknown \"int\" filter.",
                 "string": "Unknown \"int\" filter."
             },
+            "list": {
+                "string": "Unknown \"list\" filter. Did you mean \"last\"?"
+            },
             "lower": {
                 "array": "(no output)"
+            },
+            "random": {
+                "array": "Unknown \"random\" filter."
+            },
+            "rejectattr": {
+                "attribute": "Unknown \"rejectattr\" filter.",
+                "default": "Unknown \"rejectattr\" filter."
+            },
+            "selectattr": {
+                "attribute": "Unknown \"selectattr\" filter.",
+                "default": "Unknown \"selectattr\" filter."
             },
             "upper": {
                 "array": "(no output)"
@@ -726,6 +837,26 @@
             },
             "last": {
                 "number": "(no output)"
+            },
+            "list": {
+                "string": "Unable to find filter list"
+            },
+            "random": {
+                "array": "Unable to find filter random"
+            },
+            "rejectattr": {
+                "attribute": "Unable to find filter rejectattr",
+                "default": "Unable to find filter rejectattr"
+            },
+            "replace": {
+                "number": "TypeError: string.split is not a function\n   \n   \n   \n   \n   \n   \n   \n   \n   \n   \n   \n   \n   \n   \n   \n   "
+            },
+            "reverse": {
+                "number": "(no output)"
+            },
+            "selectattr": {
+                "attribute": "Unable to find filter selectattr",
+                "default": "Unable to find filter selectattr"
             }
         },
         "functions": {

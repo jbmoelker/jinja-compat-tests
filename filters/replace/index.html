@@ -1,0 +1,770 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+
+    <title>replace filter | Jinja Compat Tests</title>
+    <style type="text/css">
+        html { font-family: Arial, sans-serif; }
+        .app-footer { border-top: 1px solid black; margin-top: 1rem; padding-top: .5rem; }
+    </style>
+    
+</head>
+<body>
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.5.1/themes/prism.css">
+<style type="text/css">
+    article { overflow: auto; zoom: 1; }
+    .page-title { font-size: 2rem; }
+    .page-nav { float: left; margin-right: 2.5em; }
+    .page-nav ul, .page-nav ol { list-style: none; padding-left: 0; }
+    .page-content { float: left; }
+
+    h4 { margin-bottom: 0; }
+    h4 small { float: right; font-weight: normal; font-style: italic; }
+    label { padding-right: 1em; cursor: pointer; }
+    pre { padding: .5em; margin-top: .5rem; min-height: 1em; background: #f5f2f0; overflow-x: scroll; }
+    .section { margin-bottom: 2.5rem; }
+    .test pre { border: 2px solid deepskyblue; }
+    .result { border: 2px solid lawngreen; }
+    .error { border: 2px solid red; white-space: normal; }
+
+    [data-engine-enabled="false"] { display:none; }
+
+    .a11y-only {
+        border: 0;
+        clip: rect(0 0 0 0);
+        height: 1px;
+        margin: -1px;
+        overflow: hidden;
+        padding: 0;
+        position: absolute;
+        width: 1px;
+    }
+</style>
+
+<header>
+    <h1><a rel="home" href="../../">Jinja Compat Tests</a></h1>
+
+    <form data-engine-enabler>
+        <fieldset>
+            <legend>Enabled engines</legend>
+            
+            <label>
+                <input type="checkbox" checked name="engine" value="django">
+                Django
+            </label>
+            
+            <label>
+                <input type="checkbox" checked name="engine" value="jinja2">
+                Jinja2
+            </label>
+            
+            <label>
+                <input type="checkbox" checked name="engine" value="liquid">
+                Liquid
+            </label>
+            
+            <label>
+                <input type="checkbox" checked name="engine" value="nunjucks">
+                Nunjucks
+            </label>
+            
+            <label>
+                <input type="checkbox" checked name="engine" value="swig">
+                Swig
+            </label>
+            
+            <label>
+                <input type="checkbox" checked name="engine" value="twig">
+                Twig
+            </label>
+            
+            <label>
+                <input type="checkbox" checked name="engine" value="twigjs">
+                Twigjs
+            </label>
+            
+        </fieldset>
+    </form>
+</header>
+
+<article>
+    <h1 class="page-title"><code>replace</code> filter</h1>
+
+    <div class="page-nav">
+        <nav id="docs">
+            <h2><a class="permalink" href="#docs">Docs</a></h2>
+            <ul>
+            
+                
+            
+                
+                <li>
+                    <a href="http://jinja.pocoo.org/docs/dev/templates/#replace">Jinja2</a>
+                </li>
+                
+            
+                
+                <li>
+                    <a href="https://shopify.github.io/liquid/filters/replace/">Liquid</a>
+                </li>
+                
+            
+                
+                <li>
+                    <a href="https://mozilla.github.io/nunjucks/templating.html#replace">Nunjucks</a>
+                </li>
+                
+            
+                
+                <li>
+                    <a href="https://voorhoede.github.io/swig/docs/filters/#replace">Swig</a>
+                </li>
+                
+            
+                
+                <li>
+                    <a href="http://twig.sensiolabs.org/doc/filters/replace.html">Twig</a>
+                </li>
+                
+            
+            </ul>
+        </nav>
+
+        <nav id="toc">
+            <h2>Tests</h2>
+            <ol>
+                
+                    <li><a href="#count">count</a></li>
+                
+                    <li><a href="#empty">empty</a></li>
+                
+                    <li><a href="#letter">letter</a></li>
+                
+                    <li><a href="#number">number</a></li>
+                
+                    <li><a href="#pattern">pattern</a></li>
+                
+            </ol>
+        </nav>
+    </div>
+
+    <div class="page-content">
+        <h2 id="tests" class="a11y-only">
+            <a class="permalink" href="#tests">Tests</a>
+        </h2>
+        
+        
+        <section class="section" id="count">
+            <h3><a class="permalink" href="#count">Test: count</a></h3>
+
+            <h4>Template</h4>
+            <div class="test"><pre class="language-twig"><code><span class="token tag" ><span class="token ld" ><span class="token punctuation" >{{</span></span> <span class="token string" ><span class="token punctuation" >'</span>aaabbbccc<span class="token punctuation" >'</span></span><span class="token operator" >|</span><span class="token property" >replace</span><span class="token punctuation" >(</span><span class="token string" ><span class="token punctuation" >'</span>b<span class="token punctuation" >'</span></span><span class="token punctuation" >,</span> <span class="token string" ><span class="token punctuation" >'</span>.<span class="token punctuation" >'</span></span><span class="token punctuation" >,</span> <span class="token number" >2</span><span class="token punctuation" >)</span> <span class="token rd" ><span class="token punctuation" >}}</span></span></span></code></pre></div>
+
+            
+
+            
+            
+            
+            <section id="count-django" data-engine="django">
+                <h4>
+                    <a class="permalink" href="#count-django">Output Django</a>
+                    (error)
+                    <small>v1.10.1</small>
+                </h4>
+                
+                    <pre class="error"><code>Invalid filter: 'replace'</code></pre>
+                
+            </section>
+            
+            
+            
+            <section id="count-jinja2" data-engine="jinja2">
+                <h4>
+                    <a class="permalink" href="#count-jinja2">Output Jinja2</a>
+                    
+                    <small>v2.8.0</small>
+                </h4>
+                
+                    <pre class="result"><code>aaa..bccc</code></pre>
+                
+            </section>
+            
+            
+            
+            <section id="count-liquid" data-engine="liquid">
+                <h4>
+                    <a class="permalink" href="#count-liquid">Output Liquid</a>
+                    
+                    <small>v3.0.6</small>
+                </h4>
+                
+                    <pre class="result"><code>aaabbbccc</code></pre>
+                
+            </section>
+            
+            
+            
+            <section id="count-nunjucks" data-engine="nunjucks">
+                <h4>
+                    <a class="permalink" href="#count-nunjucks">Output Nunjucks</a>
+                    
+                    <small>v2.5.0</small>
+                </h4>
+                
+                    <pre class="result"><code>aaa..bccc</code></pre>
+                
+            </section>
+            
+            
+            
+            <section id="count-swig" data-engine="swig">
+                <h4>
+                    <a class="permalink" href="#count-swig">Output Swig</a>
+                    (error)
+                    <small>v1.4.2</small>
+                </h4>
+                
+                    <pre class="error"><code>Invalid flags supplied to RegExp constructor '2'</code></pre>
+                
+            </section>
+            
+            
+            
+            <section id="count-twig" data-engine="twig">
+                <h4>
+                    <a class="permalink" href="#count-twig">Output Twig</a>
+                    
+                    <small>v1.24.2</small>
+                </h4>
+                
+                    <pre class="result"><code>aaa...ccc</code></pre>
+                
+            </section>
+            
+            
+            
+            <section id="count-twigjs" data-engine="twigjs">
+                <h4>
+                    <a class="permalink" href="#count-twigjs">Output Twigjs</a>
+                    
+                    <small>v0.9.5</small>
+                </h4>
+                
+                    <pre class="result"><code>aaabbbccc</code></pre>
+                
+            </section>
+            
+        </section>
+        
+        
+        <section class="section" id="empty">
+            <h3><a class="permalink" href="#empty">Test: empty</a></h3>
+
+            <h4>Template</h4>
+            <div class="test"><pre class="language-twig"><code><span class="token tag" ><span class="token ld" ><span class="token punctuation" >{{</span></span> <span class="token string" ><span class="token punctuation" >'</span>aaabbbccc<span class="token punctuation" >'</span></span><span class="token operator" >|</span><span class="token property" >replace</span><span class="token punctuation" >(</span><span class="token string" ><span class="token punctuation" >'</span><span class="token punctuation" >'</span></span><span class="token punctuation" >,</span> <span class="token string" ><span class="token punctuation" >'</span>.<span class="token punctuation" >'</span></span><span class="token punctuation" >)</span> <span class="token rd" ><span class="token punctuation" >}}</span></span></span></code></pre></div>
+
+            
+
+            
+            
+            
+            <section id="empty-django" data-engine="django">
+                <h4>
+                    <a class="permalink" href="#empty-django">Output Django</a>
+                    (error)
+                    <small>v1.10.1</small>
+                </h4>
+                
+                    <pre class="error"><code>Invalid filter: 'replace'</code></pre>
+                
+            </section>
+            
+            
+            
+            <section id="empty-jinja2" data-engine="jinja2">
+                <h4>
+                    <a class="permalink" href="#empty-jinja2">Output Jinja2</a>
+                    
+                    <small>v2.8.0</small>
+                </h4>
+                
+                    <pre class="result"><code>.a.a.a.b.b.b.c.c.c.</code></pre>
+                
+            </section>
+            
+            
+            
+            <section id="empty-liquid" data-engine="liquid">
+                <h4>
+                    <a class="permalink" href="#empty-liquid">Output Liquid</a>
+                    
+                    <small>v3.0.6</small>
+                </h4>
+                
+                    <pre class="result"><code>aaabbbccc</code></pre>
+                
+            </section>
+            
+            
+            
+            <section id="empty-nunjucks" data-engine="nunjucks">
+                <h4>
+                    <a class="permalink" href="#empty-nunjucks">Output Nunjucks</a>
+                    
+                    <small>v2.5.0</small>
+                </h4>
+                
+                    <pre class="result"><code>.a.a.a.b.b.b.c.c.c.</code></pre>
+                
+            </section>
+            
+            
+            
+            <section id="empty-swig" data-engine="swig">
+                <h4>
+                    <a class="permalink" href="#empty-swig">Output Swig</a>
+                    
+                    <small>v1.4.2</small>
+                </h4>
+                
+                    <pre class="result"><code>.aaabbbccc</code></pre>
+                
+            </section>
+            
+            
+            
+            <section id="empty-twig" data-engine="twig">
+                <h4>
+                    <a class="permalink" href="#empty-twig">Output Twig</a>
+                    
+                    <small>v1.24.2</small>
+                </h4>
+                
+                    <pre class="result"><code>aaabbbccc</code></pre>
+                
+            </section>
+            
+            
+            
+            <section id="empty-twigjs" data-engine="twigjs">
+                <h4>
+                    <a class="permalink" href="#empty-twigjs">Output Twigjs</a>
+                    
+                    <small>v0.9.5</small>
+                </h4>
+                
+                    <pre class="result"><code>aaabbbccc</code></pre>
+                
+            </section>
+            
+        </section>
+        
+        
+        <section class="section" id="letter">
+            <h3><a class="permalink" href="#letter">Test: letter</a></h3>
+
+            <h4>Template</h4>
+            <div class="test"><pre class="language-twig"><code><span class="token tag" ><span class="token ld" ><span class="token punctuation" >{{</span></span> <span class="token string" ><span class="token punctuation" >'</span>aaabbbccc<span class="token punctuation" >'</span></span><span class="token operator" >|</span><span class="token property" >replace</span><span class="token punctuation" >(</span><span class="token string" ><span class="token punctuation" >'</span>b<span class="token punctuation" >'</span></span><span class="token punctuation" >,</span> <span class="token string" ><span class="token punctuation" >'</span>.<span class="token punctuation" >'</span></span><span class="token punctuation" >)</span> <span class="token rd" ><span class="token punctuation" >}}</span></span></span></code></pre></div>
+
+            
+
+            
+            
+            
+            <section id="letter-django" data-engine="django">
+                <h4>
+                    <a class="permalink" href="#letter-django">Output Django</a>
+                    (error)
+                    <small>v1.10.1</small>
+                </h4>
+                
+                    <pre class="error"><code>Invalid filter: 'replace'</code></pre>
+                
+            </section>
+            
+            
+            
+            <section id="letter-jinja2" data-engine="jinja2">
+                <h4>
+                    <a class="permalink" href="#letter-jinja2">Output Jinja2</a>
+                    
+                    <small>v2.8.0</small>
+                </h4>
+                
+                    <pre class="result"><code>aaa...ccc</code></pre>
+                
+            </section>
+            
+            
+            
+            <section id="letter-liquid" data-engine="liquid">
+                <h4>
+                    <a class="permalink" href="#letter-liquid">Output Liquid</a>
+                    
+                    <small>v3.0.6</small>
+                </h4>
+                
+                    <pre class="result"><code>aaabbbccc</code></pre>
+                
+            </section>
+            
+            
+            
+            <section id="letter-nunjucks" data-engine="nunjucks">
+                <h4>
+                    <a class="permalink" href="#letter-nunjucks">Output Nunjucks</a>
+                    
+                    <small>v2.5.0</small>
+                </h4>
+                
+                    <pre class="result"><code>aaa...ccc</code></pre>
+                
+            </section>
+            
+            
+            
+            <section id="letter-swig" data-engine="swig">
+                <h4>
+                    <a class="permalink" href="#letter-swig">Output Swig</a>
+                    
+                    <small>v1.4.2</small>
+                </h4>
+                
+                    <pre class="result"><code>aaa.bbccc</code></pre>
+                
+            </section>
+            
+            
+            
+            <section id="letter-twig" data-engine="twig">
+                <h4>
+                    <a class="permalink" href="#letter-twig">Output Twig</a>
+                    
+                    <small>v1.24.2</small>
+                </h4>
+                
+                    <pre class="result"><code>aaa...ccc</code></pre>
+                
+            </section>
+            
+            
+            
+            <section id="letter-twigjs" data-engine="twigjs">
+                <h4>
+                    <a class="permalink" href="#letter-twigjs">Output Twigjs</a>
+                    
+                    <small>v0.9.5</small>
+                </h4>
+                
+                    <pre class="result"><code>aaabbbccc</code></pre>
+                
+            </section>
+            
+        </section>
+        
+        
+        <section class="section" id="number">
+            <h3><a class="permalink" href="#number">Test: number</a></h3>
+
+            <h4>Template</h4>
+            <div class="test"><pre class="language-twig"><code><span class="token tag" ><span class="token ld" ><span class="token punctuation" >{{</span></span> <span class="token number" >111222333</span><span class="token operator" >|</span><span class="token property" >replace</span><span class="token punctuation" >(</span><span class="token string" ><span class="token punctuation" >'</span>2<span class="token punctuation" >'</span></span><span class="token punctuation" >,</span> <span class="token string" ><span class="token punctuation" >'</span>.<span class="token punctuation" >'</span></span><span class="token punctuation" >)</span> <span class="token rd" ><span class="token punctuation" >}}</span></span></span></code></pre></div>
+
+            
+
+            
+            
+            
+            <section id="number-django" data-engine="django">
+                <h4>
+                    <a class="permalink" href="#number-django">Output Django</a>
+                    (error)
+                    <small>v1.10.1</small>
+                </h4>
+                
+                    <pre class="error"><code>Invalid filter: 'replace'</code></pre>
+                
+            </section>
+            
+            
+            
+            <section id="number-jinja2" data-engine="jinja2">
+                <h4>
+                    <a class="permalink" href="#number-jinja2">Output Jinja2</a>
+                    
+                    <small>v2.8.0</small>
+                </h4>
+                
+                    <pre class="result"><code>111...333</code></pre>
+                
+            </section>
+            
+            
+            
+            <section id="number-liquid" data-engine="liquid">
+                <h4>
+                    <a class="permalink" href="#number-liquid">Output Liquid</a>
+                    
+                    <small>v3.0.6</small>
+                </h4>
+                
+                    <pre class="result"><code>111222333</code></pre>
+                
+            </section>
+            
+            
+            
+            <section id="number-nunjucks" data-engine="nunjucks">
+                <h4>
+                    <a class="permalink" href="#number-nunjucks">Output Nunjucks</a>
+                    
+                    <small>v2.5.0</small>
+                </h4>
+                
+                    <pre class="result"><code>111...333</code></pre>
+                
+            </section>
+            
+            
+            
+            <section id="number-swig" data-engine="swig">
+                <h4>
+                    <a class="permalink" href="#number-swig">Output Swig</a>
+                    (error)
+                    <small>v1.4.2</small>
+                </h4>
+                
+                    <pre class="error"><code>input.replace is not a function</code></pre>
+                
+            </section>
+            
+            
+            
+            <section id="number-twig" data-engine="twig">
+                <h4>
+                    <a class="permalink" href="#number-twig">Output Twig</a>
+                    
+                    <small>v1.24.2</small>
+                </h4>
+                
+                    <pre class="result"><code>111...333</code></pre>
+                
+            </section>
+            
+            
+            
+            <section id="number-twigjs" data-engine="twigjs">
+                <h4>
+                    <a class="permalink" href="#number-twigjs">Output Twigjs</a>
+                    (error)
+                    <small>v0.9.5</small>
+                </h4>
+                
+                    <pre class="error"><code>TypeError: string.split is not a function
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   </code></pre>
+                
+            </section>
+            
+        </section>
+        
+        
+        <section class="section" id="pattern">
+            <h3><a class="permalink" href="#pattern">Test: pattern</a></h3>
+
+            <h4>Template</h4>
+            <div class="test"><pre class="language-twig"><code><span class="token tag" ><span class="token ld" ><span class="token punctuation" >{{</span></span> <span class="token string" ><span class="token punctuation" >'</span>aaabbbccc<span class="token punctuation" >'</span></span><span class="token operator" >|</span><span class="token property" >replace</span><span class="token punctuation" >(</span><span class="token string" ><span class="token punctuation" >'</span>b*<span class="token punctuation" >'</span></span><span class="token punctuation" >,</span> <span class="token string" ><span class="token punctuation" >'</span>.<span class="token punctuation" >'</span></span><span class="token punctuation" >)</span> <span class="token rd" ><span class="token punctuation" >}}</span></span></span></code></pre></div>
+
+            
+
+            
+            
+            
+            <section id="pattern-django" data-engine="django">
+                <h4>
+                    <a class="permalink" href="#pattern-django">Output Django</a>
+                    (error)
+                    <small>v1.10.1</small>
+                </h4>
+                
+                    <pre class="error"><code>Invalid filter: 'replace'</code></pre>
+                
+            </section>
+            
+            
+            
+            <section id="pattern-jinja2" data-engine="jinja2">
+                <h4>
+                    <a class="permalink" href="#pattern-jinja2">Output Jinja2</a>
+                    
+                    <small>v2.8.0</small>
+                </h4>
+                
+                    <pre class="result"><code>aaabbbccc</code></pre>
+                
+            </section>
+            
+            
+            
+            <section id="pattern-liquid" data-engine="liquid">
+                <h4>
+                    <a class="permalink" href="#pattern-liquid">Output Liquid</a>
+                    
+                    <small>v3.0.6</small>
+                </h4>
+                
+                    <pre class="result"><code>aaabbbccc</code></pre>
+                
+            </section>
+            
+            
+            
+            <section id="pattern-nunjucks" data-engine="nunjucks">
+                <h4>
+                    <a class="permalink" href="#pattern-nunjucks">Output Nunjucks</a>
+                    
+                    <small>v2.5.0</small>
+                </h4>
+                
+                    <pre class="result"><code>aaabbbccc</code></pre>
+                
+            </section>
+            
+            
+            
+            <section id="pattern-swig" data-engine="swig">
+                <h4>
+                    <a class="permalink" href="#pattern-swig">Output Swig</a>
+                    
+                    <small>v1.4.2</small>
+                </h4>
+                
+                    <pre class="result"><code>.aaabbbccc</code></pre>
+                
+            </section>
+            
+            
+            
+            <section id="pattern-twig" data-engine="twig">
+                <h4>
+                    <a class="permalink" href="#pattern-twig">Output Twig</a>
+                    
+                    <small>v1.24.2</small>
+                </h4>
+                
+                    <pre class="result"><code>aaa...ccc</code></pre>
+                
+            </section>
+            
+            
+            
+            <section id="pattern-twigjs" data-engine="twigjs">
+                <h4>
+                    <a class="permalink" href="#pattern-twigjs">Output Twigjs</a>
+                    
+                    <small>v0.9.5</small>
+                </h4>
+                
+                    <pre class="result"><code>aaabbbccc</code></pre>
+                
+            </section>
+            
+        </section>
+        
+    </div>
+
+</article>
+
+<script>(function engineEnabler(){
+    'use strict';
+
+    var CAPABLE_BROWSER = ('addEventListener' in window);
+    if (!CAPABLE_BROWSER) {
+        return;
+    }
+
+    var SUPPORTS_STORAGE = ('localStorage' in window);
+    var STORAGE_KEY = 'enabledEngines';
+    var FORM_SELECTOR = '[data-engine-enabler]';
+    var INPUT_NAME = 'engine';
+    var TARGET_ATTR = 'data-engine';
+    var ENABLED_ATTR = 'data-engine-enabled';
+
+    var form = document.querySelector(FORM_SELECTOR);
+    var inputs = [].slice.call(form[INPUT_NAME]);
+    var targets = [].slice.call(document.querySelectorAll('[' + TARGET_ATTR + ']'));
+
+    form.addEventListener('change', onEnableEngines);
+    restoreState();
+
+    function onEnableEngines() {
+        var state = getEngineState(this);
+        enableTargets(state);
+        saveState(state);
+    }
+
+    function getEngineState(form) {
+        return inputs.reduce(function(map, input){
+            map[input.value] = input.checked;
+            return map;
+        }, {});
+    }
+
+    function enableTargets(state) {
+        targets.forEach(function(target) {
+            var key = target.getAttribute(TARGET_ATTR);
+            target.setAttribute(ENABLED_ATTR, state[key]);
+        });
+    }
+
+    function saveState(state) {
+        if(!SUPPORTS_STORAGE) {
+            return;
+        }
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
+    }
+
+    function restoreState() {
+        if(!SUPPORTS_STORAGE) {
+            return;
+        }
+        var state = JSON.parse(localStorage.getItem(STORAGE_KEY));
+        restoreInputs(state);
+        enableTargets(state);
+    }
+
+    function restoreInputs(state) {
+        inputs.forEach(function(input) {
+           input.checked = state[input.value];
+        });
+    }
+
+}());</script>
+
+
+<footer class="app-footer" role="contentinfo">
+    <a href="https://github.com/jbmoelker/jinja-compat-tests">Source on GitHub</a>
+</footer>
+
+
+</body>
+</html>

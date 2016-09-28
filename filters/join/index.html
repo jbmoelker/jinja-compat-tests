@@ -1,0 +1,567 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+
+    <title>join filter | Jinja Compat Tests</title>
+    <style type="text/css">
+        html { font-family: Arial, sans-serif; }
+        .app-footer { border-top: 1px solid black; margin-top: 1rem; padding-top: .5rem; }
+    </style>
+    
+</head>
+<body>
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.5.1/themes/prism.css">
+<style type="text/css">
+    article { overflow: auto; zoom: 1; }
+    .page-title { font-size: 2rem; }
+    .page-nav { float: left; margin-right: 2.5em; }
+    .page-nav ul, .page-nav ol { list-style: none; padding-left: 0; }
+    .page-content { float: left; }
+
+    h4 { margin-bottom: 0; }
+    h4 small { float: right; font-weight: normal; font-style: italic; }
+    label { padding-right: 1em; cursor: pointer; }
+    pre { padding: .5em; margin-top: .5rem; min-height: 1em; background: #f5f2f0; overflow-x: scroll; }
+    .section { margin-bottom: 2.5rem; }
+    .test pre { border: 2px solid deepskyblue; }
+    .result { border: 2px solid lawngreen; }
+    .error { border: 2px solid red; white-space: normal; }
+
+    [data-engine-enabled="false"] { display:none; }
+
+    .a11y-only {
+        border: 0;
+        clip: rect(0 0 0 0);
+        height: 1px;
+        margin: -1px;
+        overflow: hidden;
+        padding: 0;
+        position: absolute;
+        width: 1px;
+    }
+</style>
+
+<header>
+    <h1><a rel="home" href="../../">Jinja Compat Tests</a></h1>
+
+    <form data-engine-enabler>
+        <fieldset>
+            <legend>Enabled engines</legend>
+            
+            <label>
+                <input type="checkbox" checked name="engine" value="django">
+                Django
+            </label>
+            
+            <label>
+                <input type="checkbox" checked name="engine" value="jinja2">
+                Jinja2
+            </label>
+            
+            <label>
+                <input type="checkbox" checked name="engine" value="liquid">
+                Liquid
+            </label>
+            
+            <label>
+                <input type="checkbox" checked name="engine" value="nunjucks">
+                Nunjucks
+            </label>
+            
+            <label>
+                <input type="checkbox" checked name="engine" value="swig">
+                Swig
+            </label>
+            
+            <label>
+                <input type="checkbox" checked name="engine" value="twig">
+                Twig
+            </label>
+            
+            <label>
+                <input type="checkbox" checked name="engine" value="twigjs">
+                Twigjs
+            </label>
+            
+        </fieldset>
+    </form>
+</header>
+
+<article>
+    <h1 class="page-title"><code>join</code> filter</h1>
+
+    <div class="page-nav">
+        <nav id="docs">
+            <h2><a class="permalink" href="#docs">Docs</a></h2>
+            <ul>
+            
+                
+                <li>
+                    <a href="https://docs.djangoproject.com/en/1.10/ref/templates/builtins/#join">Django</a>
+                </li>
+                
+            
+                
+                <li>
+                    <a href="http://jinja.pocoo.org/docs/dev/templates/#join">Jinja2</a>
+                </li>
+                
+            
+                
+                <li>
+                    <a href="https://shopify.github.io/liquid/filters/join/">Liquid</a>
+                </li>
+                
+            
+                
+                <li>
+                    <a href="https://mozilla.github.io/nunjucks/templating.html#join">Nunjucks</a>
+                </li>
+                
+            
+                
+                <li>
+                    <a href="https://voorhoede.github.io/swig/docs/filters/#join">Swig</a>
+                </li>
+                
+            
+                
+                <li>
+                    <a href="http://twig.sensiolabs.org/doc/filters/join.html">Twig</a>
+                </li>
+                
+            
+            </ul>
+        </nav>
+
+        <nav id="toc">
+            <h2>Tests</h2>
+            <ol>
+                
+                    <li><a href="#custom-glue">custom-glue</a></li>
+                
+                    <li><a href="#default">default</a></li>
+                
+                    <li><a href="#object">object</a></li>
+                
+            </ol>
+        </nav>
+    </div>
+
+    <div class="page-content">
+        <h2 id="tests" class="a11y-only">
+            <a class="permalink" href="#tests">Tests</a>
+        </h2>
+        
+        
+        <section class="section" id="custom-glue">
+            <h3><a class="permalink" href="#custom-glue">Test: custom-glue</a></h3>
+
+            <h4>Template</h4>
+            <div class="test"><pre class="language-twig"><code><span class="token tag" ><span class="token ld" ><span class="token punctuation" >{{</span></span> <span class="token property" >items</span> <span class="token operator" >|</span> <span class="token property" >join</span><span class="token punctuation" >(</span><span class="token string" ><span class="token punctuation" >'</span>|<span class="token punctuation" >'</span></span><span class="token punctuation" >)</span> <span class="token rd" ><span class="token punctuation" >}}</span></span></span></code></pre></div>
+
+            
+            <h4>Data</h4>
+            <div class="test"><pre class="language-json"><code><span class="token punctuation" >{</span>
+  <span class="token property" >"items"</span><span class="token operator" >:</span> <span class="token punctuation" >[</span><span class="token number" >1</span><span class="token punctuation" >,</span> <span class="token number" >2</span><span class="token punctuation" >,</span> <span class="token number" >3</span><span class="token punctuation" >]</span>
+<span class="token punctuation" >}</span></code></pre></div>
+            
+
+            
+            
+            
+            <section id="custom-glue-django" data-engine="django">
+                <h4>
+                    <a class="permalink" href="#custom-glue-django">Output Django</a>
+                    (error)
+                    <small>v1.10.1</small>
+                </h4>
+                
+                    <pre class="error"><code>join requires 2 arguments, 1 provided</code></pre>
+                
+            </section>
+            
+            
+            
+            <section id="custom-glue-jinja2" data-engine="jinja2">
+                <h4>
+                    <a class="permalink" href="#custom-glue-jinja2">Output Jinja2</a>
+                    
+                    <small>v2.8.0</small>
+                </h4>
+                
+                    <pre class="result"><code>1|2|3</code></pre>
+                
+            </section>
+            
+            
+            
+            <section id="custom-glue-liquid" data-engine="liquid">
+                <h4>
+                    <a class="permalink" href="#custom-glue-liquid">Output Liquid</a>
+                    
+                    <small>v3.0.6</small>
+                </h4>
+                
+                    <pre class="result"><code>1 2 3</code></pre>
+                
+            </section>
+            
+            
+            
+            <section id="custom-glue-nunjucks" data-engine="nunjucks">
+                <h4>
+                    <a class="permalink" href="#custom-glue-nunjucks">Output Nunjucks</a>
+                    
+                    <small>v2.5.0</small>
+                </h4>
+                
+                    <pre class="result"><code>1|2|3</code></pre>
+                
+            </section>
+            
+            
+            
+            <section id="custom-glue-swig" data-engine="swig">
+                <h4>
+                    <a class="permalink" href="#custom-glue-swig">Output Swig</a>
+                    
+                    <small>v1.4.2</small>
+                </h4>
+                
+                    <pre class="result"><code>1|2|3</code></pre>
+                
+            </section>
+            
+            
+            
+            <section id="custom-glue-twig" data-engine="twig">
+                <h4>
+                    <a class="permalink" href="#custom-glue-twig">Output Twig</a>
+                    
+                    <small>v1.24.2</small>
+                </h4>
+                
+                    <pre class="result"><code>1|2|3</code></pre>
+                
+            </section>
+            
+            
+            
+            <section id="custom-glue-twigjs" data-engine="twigjs">
+                <h4>
+                    <a class="permalink" href="#custom-glue-twigjs">Output Twigjs</a>
+                    
+                    <small>v0.9.5</small>
+                </h4>
+                
+                    <pre class="result"><code>1|2|3</code></pre>
+                
+            </section>
+            
+        </section>
+        
+        
+        <section class="section" id="default">
+            <h3><a class="permalink" href="#default">Test: default</a></h3>
+
+            <h4>Template</h4>
+            <div class="test"><pre class="language-twig"><code><span class="token tag" ><span class="token ld" ><span class="token punctuation" >{{</span></span> <span class="token property" >items</span> <span class="token operator" >|</span> <span class="token property" >join</span> <span class="token rd" ><span class="token punctuation" >}}</span></span></span></code></pre></div>
+
+            
+            <h4>Data</h4>
+            <div class="test"><pre class="language-json"><code><span class="token punctuation" >{</span>
+  <span class="token property" >"items"</span><span class="token operator" >:</span> <span class="token punctuation" >[</span><span class="token number" >1</span><span class="token punctuation" >,</span> <span class="token number" >2</span><span class="token punctuation" >,</span> <span class="token number" >3</span><span class="token punctuation" >]</span>
+<span class="token punctuation" >}</span></code></pre></div>
+            
+
+            
+            
+            
+            <section id="default-django" data-engine="django">
+                <h4>
+                    <a class="permalink" href="#default-django">Output Django</a>
+                    (error)
+                    <small>v1.10.1</small>
+                </h4>
+                
+                    <pre class="error"><code>join requires 2 arguments, 1 provided</code></pre>
+                
+            </section>
+            
+            
+            
+            <section id="default-jinja2" data-engine="jinja2">
+                <h4>
+                    <a class="permalink" href="#default-jinja2">Output Jinja2</a>
+                    
+                    <small>v2.8.0</small>
+                </h4>
+                
+                    <pre class="result"><code>123</code></pre>
+                
+            </section>
+            
+            
+            
+            <section id="default-liquid" data-engine="liquid">
+                <h4>
+                    <a class="permalink" href="#default-liquid">Output Liquid</a>
+                    
+                    <small>v3.0.6</small>
+                </h4>
+                
+                    <pre class="result"><code>1 2 3</code></pre>
+                
+            </section>
+            
+            
+            
+            <section id="default-nunjucks" data-engine="nunjucks">
+                <h4>
+                    <a class="permalink" href="#default-nunjucks">Output Nunjucks</a>
+                    
+                    <small>v2.5.0</small>
+                </h4>
+                
+                    <pre class="result"><code>123</code></pre>
+                
+            </section>
+            
+            
+            
+            <section id="default-swig" data-engine="swig">
+                <h4>
+                    <a class="permalink" href="#default-swig">Output Swig</a>
+                    
+                    <small>v1.4.2</small>
+                </h4>
+                
+                    <pre class="result"><code>1,2,3</code></pre>
+                
+            </section>
+            
+            
+            
+            <section id="default-twig" data-engine="twig">
+                <h4>
+                    <a class="permalink" href="#default-twig">Output Twig</a>
+                    
+                    <small>v1.24.2</small>
+                </h4>
+                
+                    <pre class="result"><code>123</code></pre>
+                
+            </section>
+            
+            
+            
+            <section id="default-twigjs" data-engine="twigjs">
+                <h4>
+                    <a class="permalink" href="#default-twigjs">Output Twigjs</a>
+                    
+                    <small>v0.9.5</small>
+                </h4>
+                
+                    <pre class="result"><code>123</code></pre>
+                
+            </section>
+            
+        </section>
+        
+        
+        <section class="section" id="object">
+            <h3><a class="permalink" href="#object">Test: object</a></h3>
+
+            <h4>Template</h4>
+            <div class="test"><pre class="language-twig"><code><span class="token tag" ><span class="token ld" ><span class="token punctuation" >{{</span></span> <span class="token property" >items</span> <span class="token operator" >|</span> <span class="token property" >join</span><span class="token punctuation" >(</span><span class="token string" ><span class="token punctuation" >'</span>, <span class="token punctuation" >'</span></span><span class="token punctuation" >,</span> <span class="token string" ><span class="token punctuation" >'</span>name<span class="token punctuation" >'</span></span><span class="token punctuation" >)</span> <span class="token rd" ><span class="token punctuation" >}}</span></span></span></code></pre></div>
+
+            
+            <h4>Data</h4>
+            <div class="test"><pre class="language-json"><code><span class="token punctuation" >{</span>
+  <span class="token property" >"items"</span><span class="token operator" >:</span> <span class="token punctuation" >[</span>
+    <span class="token punctuation" >{</span> <span class="token property" >"name"</span><span class="token operator" >:</span> <span class="token string" >"alpha"</span> <span class="token punctuation" >}</span><span class="token punctuation" >,</span>
+    <span class="token punctuation" >{</span> <span class="token property" >"name"</span><span class="token operator" >:</span> <span class="token string" >"bravo"</span> <span class="token punctuation" >}</span><span class="token punctuation" >,</span>
+    <span class="token punctuation" >{</span> <span class="token property" >"name"</span><span class="token operator" >:</span> <span class="token string" >"charlie"</span> <span class="token punctuation" >}</span>
+  <span class="token punctuation" >]</span>
+<span class="token punctuation" >}</span></code></pre></div>
+            
+
+            
+            
+            
+            <section id="object-django" data-engine="django">
+                <h4>
+                    <a class="permalink" href="#object-django">Output Django</a>
+                    (error)
+                    <small>v1.10.1</small>
+                </h4>
+                
+                    <pre class="error"><code>join requires 2 arguments, 1 provided</code></pre>
+                
+            </section>
+            
+            
+            
+            <section id="object-jinja2" data-engine="jinja2">
+                <h4>
+                    <a class="permalink" href="#object-jinja2">Output Jinja2</a>
+                    
+                    <small>v2.8.0</small>
+                </h4>
+                
+                    <pre class="result"><code>alpha, bravo, charlie</code></pre>
+                
+            </section>
+            
+            
+            
+            <section id="object-liquid" data-engine="liquid">
+                <h4>
+                    <a class="permalink" href="#object-liquid">Output Liquid</a>
+                    
+                    <small>v3.0.6</small>
+                </h4>
+                
+                    <pre class="result"><code>{"name"=>"alpha"}, {"name"=>"bravo"}, {"name"=>"charlie"}</code></pre>
+                
+            </section>
+            
+            
+            
+            <section id="object-nunjucks" data-engine="nunjucks">
+                <h4>
+                    <a class="permalink" href="#object-nunjucks">Output Nunjucks</a>
+                    
+                    <small>v2.5.0</small>
+                </h4>
+                
+                    <pre class="result"><code>alpha, bravo, charlie</code></pre>
+                
+            </section>
+            
+            
+            
+            <section id="object-swig" data-engine="swig">
+                <h4>
+                    <a class="permalink" href="#object-swig">Output Swig</a>
+                    
+                    <small>v1.4.2</small>
+                </h4>
+                
+                    <pre class="result"><code>[object Object], [object Object], [object Object]</code></pre>
+                
+            </section>
+            
+            
+            
+            <section id="object-twig" data-engine="twig">
+                <h4>
+                    <a class="permalink" href="#object-twig">Output Twig</a>
+                    
+                    <small>v1.24.2</small>
+                </h4>
+                
+                    <pre class="result"><code>Array, Array, Array</code></pre>
+                
+            </section>
+            
+            
+            
+            <section id="object-twigjs" data-engine="twigjs">
+                <h4>
+                    <a class="permalink" href="#object-twigjs">Output Twigjs</a>
+                    
+                    <small>v0.9.5</small>
+                </h4>
+                
+                    <pre class="result"><code>[object Object], [object Object], [object Object]</code></pre>
+                
+            </section>
+            
+        </section>
+        
+    </div>
+
+</article>
+
+<script>(function engineEnabler(){
+    'use strict';
+
+    var CAPABLE_BROWSER = ('addEventListener' in window);
+    if (!CAPABLE_BROWSER) {
+        return;
+    }
+
+    var SUPPORTS_STORAGE = ('localStorage' in window);
+    var STORAGE_KEY = 'enabledEngines';
+    var FORM_SELECTOR = '[data-engine-enabler]';
+    var INPUT_NAME = 'engine';
+    var TARGET_ATTR = 'data-engine';
+    var ENABLED_ATTR = 'data-engine-enabled';
+
+    var form = document.querySelector(FORM_SELECTOR);
+    var inputs = [].slice.call(form[INPUT_NAME]);
+    var targets = [].slice.call(document.querySelectorAll('[' + TARGET_ATTR + ']'));
+
+    form.addEventListener('change', onEnableEngines);
+    restoreState();
+
+    function onEnableEngines() {
+        var state = getEngineState(this);
+        enableTargets(state);
+        saveState(state);
+    }
+
+    function getEngineState(form) {
+        return inputs.reduce(function(map, input){
+            map[input.value] = input.checked;
+            return map;
+        }, {});
+    }
+
+    function enableTargets(state) {
+        targets.forEach(function(target) {
+            var key = target.getAttribute(TARGET_ATTR);
+            target.setAttribute(ENABLED_ATTR, state[key]);
+        });
+    }
+
+    function saveState(state) {
+        if(!SUPPORTS_STORAGE) {
+            return;
+        }
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
+    }
+
+    function restoreState() {
+        if(!SUPPORTS_STORAGE) {
+            return;
+        }
+        var state = JSON.parse(localStorage.getItem(STORAGE_KEY));
+        restoreInputs(state);
+        enableTargets(state);
+    }
+
+    function restoreInputs(state) {
+        inputs.forEach(function(input) {
+           input.checked = state[input.value];
+        });
+    }
+
+}());</script>
+
+
+<footer class="app-footer" role="contentinfo">
+    <a href="https://github.com/jbmoelker/jinja-compat-tests">Source on GitHub</a>
+</footer>
+
+
+</body>
+</html>

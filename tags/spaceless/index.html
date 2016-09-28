@@ -1,0 +1,699 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+
+    <title>spaceless tag | Jinja Compat Tests</title>
+    <style type="text/css">
+        html { font-family: Arial, sans-serif; }
+        .app-footer { border-top: 1px solid black; margin-top: 1rem; padding-top: .5rem; }
+    </style>
+    
+</head>
+<body>
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.5.1/themes/prism.css">
+<style type="text/css">
+    article { overflow: auto; zoom: 1; }
+    .page-title { font-size: 2rem; }
+    .page-nav { float: left; margin-right: 2.5em; }
+    .page-nav ul, .page-nav ol { list-style: none; padding-left: 0; }
+    .page-content { float: left; }
+
+    h4 { margin-bottom: 0; }
+    h4 small { float: right; font-weight: normal; font-style: italic; }
+    label { padding-right: 1em; cursor: pointer; }
+    pre { padding: .5em; margin-top: .5rem; min-height: 1em; background: #f5f2f0; overflow-x: scroll; }
+    .section { margin-bottom: 2.5rem; }
+    .test pre { border: 2px solid deepskyblue; }
+    .result { border: 2px solid lawngreen; }
+    .error { border: 2px solid red; white-space: normal; }
+
+    [data-engine-enabled="false"] { display:none; }
+
+    .a11y-only {
+        border: 0;
+        clip: rect(0 0 0 0);
+        height: 1px;
+        margin: -1px;
+        overflow: hidden;
+        padding: 0;
+        position: absolute;
+        width: 1px;
+    }
+</style>
+
+<header>
+    <h1><a rel="home" href="../../">Jinja Compat Tests</a></h1>
+
+    <form data-engine-enabler>
+        <fieldset>
+            <legend>Enabled engines</legend>
+            
+            <label>
+                <input type="checkbox" checked name="engine" value="django">
+                Django
+            </label>
+            
+            <label>
+                <input type="checkbox" checked name="engine" value="jinja2">
+                Jinja2
+            </label>
+            
+            <label>
+                <input type="checkbox" checked name="engine" value="liquid">
+                Liquid
+            </label>
+            
+            <label>
+                <input type="checkbox" checked name="engine" value="nunjucks">
+                Nunjucks
+            </label>
+            
+            <label>
+                <input type="checkbox" checked name="engine" value="swig">
+                Swig
+            </label>
+            
+            <label>
+                <input type="checkbox" checked name="engine" value="twig">
+                Twig
+            </label>
+            
+            <label>
+                <input type="checkbox" checked name="engine" value="twigjs">
+                Twigjs
+            </label>
+            
+        </fieldset>
+    </form>
+</header>
+
+<article>
+    <h1 class="page-title"><code>spaceless</code> tag</h1>
+
+    <div class="page-nav">
+        <nav id="docs">
+            <h2><a class="permalink" href="#docs">Docs</a></h2>
+            <ul>
+            
+                
+                <li>
+                    <a href="https://docs.djangoproject.com/en/1.10/ref/templates/builtins/#spaceless">Django</a>
+                </li>
+                
+            
+                
+            
+                
+            
+                
+            
+                
+                <li>
+                    <a href="https://voorhoede.github.io/swig/docs/tags/#spaceless">Swig</a>
+                </li>
+                
+            
+                
+                <li>
+                    <a href="http://twig.sensiolabs.org/doc/tags/spaceless.html">Twig</a>
+                </li>
+                
+            
+            </ul>
+        </nav>
+
+        <nav id="toc">
+            <h2>Tests</h2>
+            <ol>
+                
+                    <li><a href="#attributes">attributes</a></li>
+                
+                    <li><a href="#div">div</a></li>
+                
+                    <li><a href="#pre">pre</a></li>
+                
+                    <li><a href="#textarea">textarea</a></li>
+                
+            </ol>
+        </nav>
+    </div>
+
+    <div class="page-content">
+        <h2 id="tests" class="a11y-only">
+            <a class="permalink" href="#tests">Tests</a>
+        </h2>
+        
+        
+        <section class="section" id="attributes">
+            <h3><a class="permalink" href="#attributes">Test: attributes</a></h3>
+
+            <h4>Template</h4>
+            <div class="test"><pre class="language-twig"><code><span class="token tag" ><span class="token ld" ><span class="token punctuation" >{%</span> <span class="token keyword" >spaceless</span></span> <span class="token rd" ><span class="token punctuation" >%}</span></span></span>
+<span class="token other" ><span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>input</span> <span class="token attr-name" >name</span><span class="token attr-value" ><span class="token punctuation" >=</span><span class="token punctuation" >"</span> spaceless <span class="token punctuation" >"</span></span>  <span class="token attr-name" >value</span><span class="token attr-value" ><span class="token punctuation" >=</span><span class="token punctuation" >"</span>  <span class="token punctuation" >"</span></span>  <span class="token attr-name" >required</span><span class="token attr-value" ><span class="token punctuation" >=</span><span class="token punctuation" >"</span>  <span class="token punctuation" >"</span></span><span class="token punctuation" >></span></span></span>
+<span class="token tag" ><span class="token ld" ><span class="token punctuation" >{%</span> <span class="token keyword" >endspaceless</span></span> <span class="token rd" ><span class="token punctuation" >%}</span></span></span></code></pre></div>
+
+            
+
+            
+            
+            
+            <section id="attributes-django" data-engine="django">
+                <h4>
+                    <a class="permalink" href="#attributes-django">Output Django</a>
+                    
+                    <small>v1.10.1</small>
+                </h4>
+                
+                    <pre class="result"><code>&lt;input name=" spaceless "  value="  "  required="  "></code></pre>
+                
+            </section>
+            
+            
+            
+            <section id="attributes-jinja2" data-engine="jinja2">
+                <h4>
+                    <a class="permalink" href="#attributes-jinja2">Output Jinja2</a>
+                    (error)
+                    <small>v2.8.0</small>
+                </h4>
+                
+                    <pre class="error"><code>Encountered unknown tag 'spaceless'.</code></pre>
+                
+            </section>
+            
+            
+            
+            <section id="attributes-liquid" data-engine="liquid">
+                <h4>
+                    <a class="permalink" href="#attributes-liquid">Output Liquid</a>
+                    (error)
+                    <small>v3.0.6</small>
+                </h4>
+                
+                    <pre class="error"><code>Liquid syntax error: Unknown tag 'spaceless'</code></pre>
+                
+            </section>
+            
+            
+            
+            <section id="attributes-nunjucks" data-engine="nunjucks">
+                <h4>
+                    <a class="permalink" href="#attributes-nunjucks">Output Nunjucks</a>
+                    (error)
+                    <small>v2.5.0</small>
+                </h4>
+                
+                    <pre class="error"><code> [Line 1, Column 2]
+  unknown block tag: spaceless</code></pre>
+                
+            </section>
+            
+            
+            
+            <section id="attributes-swig" data-engine="swig">
+                <h4>
+                    <a class="permalink" href="#attributes-swig">Output Swig</a>
+                    
+                    <small>v1.4.2</small>
+                </h4>
+                
+                    <pre class="result"><code>&lt;input name=" spaceless "  value="  "  required="  "></code></pre>
+                
+            </section>
+            
+            
+            
+            <section id="attributes-twig" data-engine="twig">
+                <h4>
+                    <a class="permalink" href="#attributes-twig">Output Twig</a>
+                    
+                    <small>v1.24.2</small>
+                </h4>
+                
+                    <pre class="result"><code>&lt;input name=" spaceless "  value="  "  required="  "></code></pre>
+                
+            </section>
+            
+            
+            
+            <section id="attributes-twigjs" data-engine="twigjs">
+                <h4>
+                    <a class="permalink" href="#attributes-twigjs">Output Twigjs</a>
+                    
+                    <small>v0.9.5</small>
+                </h4>
+                
+                    <pre class="result"><code>&lt;input name=" spaceless "  value="  "  required="  "></code></pre>
+                
+            </section>
+            
+        </section>
+        
+        
+        <section class="section" id="div">
+            <h3><a class="permalink" href="#div">Test: div</a></h3>
+
+            <h4>Template</h4>
+            <div class="test"><pre class="language-twig"><code><span class="token tag" ><span class="token ld" ><span class="token punctuation" >{%</span> <span class="token keyword" >spaceless</span></span> <span class="token rd" ><span class="token punctuation" >%}</span></span></span>
+    <span class="token other" ><span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>div</span><span class="token punctuation" >></span></span>
+        <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>strong</span><span class="token punctuation" >></span></span>test<span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>strong</span><span class="token punctuation" >></span></span>
+    <span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>div</span><span class="token punctuation" >></span></span></span>
+<span class="token tag" ><span class="token ld" ><span class="token punctuation" >{%</span> <span class="token keyword" >endspaceless</span></span> <span class="token rd" ><span class="token punctuation" >%}</span></span></span></code></pre></div>
+
+            
+
+            
+            
+            
+            <section id="div-django" data-engine="django">
+                <h4>
+                    <a class="permalink" href="#div-django">Output Django</a>
+                    
+                    <small>v1.10.1</small>
+                </h4>
+                
+                    <pre class="result"><code>&lt;div>&lt;strong>test&lt;/strong>&lt;/div></code></pre>
+                
+            </section>
+            
+            
+            
+            <section id="div-jinja2" data-engine="jinja2">
+                <h4>
+                    <a class="permalink" href="#div-jinja2">Output Jinja2</a>
+                    (error)
+                    <small>v2.8.0</small>
+                </h4>
+                
+                    <pre class="error"><code>Encountered unknown tag 'spaceless'.</code></pre>
+                
+            </section>
+            
+            
+            
+            <section id="div-liquid" data-engine="liquid">
+                <h4>
+                    <a class="permalink" href="#div-liquid">Output Liquid</a>
+                    (error)
+                    <small>v3.0.6</small>
+                </h4>
+                
+                    <pre class="error"><code>Liquid syntax error: Unknown tag 'spaceless'</code></pre>
+                
+            </section>
+            
+            
+            
+            <section id="div-nunjucks" data-engine="nunjucks">
+                <h4>
+                    <a class="permalink" href="#div-nunjucks">Output Nunjucks</a>
+                    (error)
+                    <small>v2.5.0</small>
+                </h4>
+                
+                    <pre class="error"><code> [Line 1, Column 2]
+  unknown block tag: spaceless</code></pre>
+                
+            </section>
+            
+            
+            
+            <section id="div-swig" data-engine="swig">
+                <h4>
+                    <a class="permalink" href="#div-swig">Output Swig</a>
+                    
+                    <small>v1.4.2</small>
+                </h4>
+                
+                    <pre class="result"><code>&lt;div>&lt;strong>test&lt;/strong>&lt;/div></code></pre>
+                
+            </section>
+            
+            
+            
+            <section id="div-twig" data-engine="twig">
+                <h4>
+                    <a class="permalink" href="#div-twig">Output Twig</a>
+                    
+                    <small>v1.24.2</small>
+                </h4>
+                
+                    <pre class="result"><code>&lt;div>&lt;strong>test&lt;/strong>&lt;/div></code></pre>
+                
+            </section>
+            
+            
+            
+            <section id="div-twigjs" data-engine="twigjs">
+                <h4>
+                    <a class="permalink" href="#div-twigjs">Output Twigjs</a>
+                    
+                    <small>v0.9.5</small>
+                </h4>
+                
+                    <pre class="result"><code>&lt;div>&lt;strong>test&lt;/strong>&lt;/div></code></pre>
+                
+            </section>
+            
+        </section>
+        
+        
+        <section class="section" id="pre">
+            <h3><a class="permalink" href="#pre">Test: pre</a></h3>
+
+            <h4>Template</h4>
+            <div class="test"><pre class="language-twig"><code><span class="token tag" ><span class="token ld" ><span class="token punctuation" >{%</span> <span class="token keyword" >spaceless</span></span> <span class="token rd" ><span class="token punctuation" >%}</span></span></span>
+<span class="token other" ><span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>pre</span><span class="token punctuation" >></span></span>
+Formatted text
+
+<span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>strong</span><span class="token punctuation" >></span></span>with empty lines
+    and tabs<span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>strong</span><span class="token punctuation" >></span></span>
+
+<span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>pre</span><span class="token punctuation" >></span></span></span>
+<span class="token tag" ><span class="token ld" ><span class="token punctuation" >{%</span> <span class="token keyword" >endspaceless</span></span> <span class="token rd" ><span class="token punctuation" >%}</span></span></span></code></pre></div>
+
+            
+
+            
+            
+            
+            <section id="pre-django" data-engine="django">
+                <h4>
+                    <a class="permalink" href="#pre-django">Output Django</a>
+                    
+                    <small>v1.10.1</small>
+                </h4>
+                
+                    <pre class="result"><code>&lt;pre>
+Formatted text
+
+&lt;strong>with empty lines
+    and tabs&lt;/strong>&lt;/pre></code></pre>
+                
+            </section>
+            
+            
+            
+            <section id="pre-jinja2" data-engine="jinja2">
+                <h4>
+                    <a class="permalink" href="#pre-jinja2">Output Jinja2</a>
+                    (error)
+                    <small>v2.8.0</small>
+                </h4>
+                
+                    <pre class="error"><code>Encountered unknown tag 'spaceless'.</code></pre>
+                
+            </section>
+            
+            
+            
+            <section id="pre-liquid" data-engine="liquid">
+                <h4>
+                    <a class="permalink" href="#pre-liquid">Output Liquid</a>
+                    (error)
+                    <small>v3.0.6</small>
+                </h4>
+                
+                    <pre class="error"><code>Liquid syntax error: Unknown tag 'spaceless'</code></pre>
+                
+            </section>
+            
+            
+            
+            <section id="pre-nunjucks" data-engine="nunjucks">
+                <h4>
+                    <a class="permalink" href="#pre-nunjucks">Output Nunjucks</a>
+                    (error)
+                    <small>v2.5.0</small>
+                </h4>
+                
+                    <pre class="error"><code> [Line 1, Column 2]
+  unknown block tag: spaceless</code></pre>
+                
+            </section>
+            
+            
+            
+            <section id="pre-swig" data-engine="swig">
+                <h4>
+                    <a class="permalink" href="#pre-swig">Output Swig</a>
+                    
+                    <small>v1.4.2</small>
+                </h4>
+                
+                    <pre class="result"><code>&lt;pre>
+Formatted text
+
+&lt;strong>with empty lines
+    and tabs&lt;/strong>&lt;/pre></code></pre>
+                
+            </section>
+            
+            
+            
+            <section id="pre-twig" data-engine="twig">
+                <h4>
+                    <a class="permalink" href="#pre-twig">Output Twig</a>
+                    
+                    <small>v1.24.2</small>
+                </h4>
+                
+                    <pre class="result"><code>&lt;pre>
+Formatted text
+
+&lt;strong>with empty lines
+    and tabs&lt;/strong>&lt;/pre></code></pre>
+                
+            </section>
+            
+            
+            
+            <section id="pre-twigjs" data-engine="twigjs">
+                <h4>
+                    <a class="permalink" href="#pre-twigjs">Output Twigjs</a>
+                    
+                    <small>v0.9.5</small>
+                </h4>
+                
+                    <pre class="result"><code>&lt;pre>
+Formatted text
+
+&lt;strong>with empty lines
+    and tabs&lt;/strong>&lt;/pre></code></pre>
+                
+            </section>
+            
+        </section>
+        
+        
+        <section class="section" id="textarea">
+            <h3><a class="permalink" href="#textarea">Test: textarea</a></h3>
+
+            <h4>Template</h4>
+            <div class="test"><pre class="language-twig"><code><span class="token tag" ><span class="token ld" ><span class="token punctuation" >{%</span> <span class="token keyword" >spaceless</span></span> <span class="token rd" ><span class="token punctuation" >%}</span></span></span>
+<span class="token other" ><span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>textarea</span><span class="token punctuation" >></span></span>
+Formatted text
+
+<span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;</span>strong</span><span class="token punctuation" >></span></span>with empty lines
+    and tabs<span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>strong</span><span class="token punctuation" >></span></span>
+
+<span class="token tag" ><span class="token tag" ><span class="token punctuation" >&lt;/</span>textarea</span><span class="token punctuation" >></span></span></span>
+<span class="token tag" ><span class="token ld" ><span class="token punctuation" >{%</span> <span class="token keyword" >endspaceless</span></span> <span class="token rd" ><span class="token punctuation" >%}</span></span></span></code></pre></div>
+
+            
+
+            
+            
+            
+            <section id="textarea-django" data-engine="django">
+                <h4>
+                    <a class="permalink" href="#textarea-django">Output Django</a>
+                    
+                    <small>v1.10.1</small>
+                </h4>
+                
+                    <pre class="result"><code>&lt;textarea>
+Formatted text
+
+&lt;strong>with empty lines
+    and tabs&lt;/strong>&lt;/textarea></code></pre>
+                
+            </section>
+            
+            
+            
+            <section id="textarea-jinja2" data-engine="jinja2">
+                <h4>
+                    <a class="permalink" href="#textarea-jinja2">Output Jinja2</a>
+                    (error)
+                    <small>v2.8.0</small>
+                </h4>
+                
+                    <pre class="error"><code>Encountered unknown tag 'spaceless'.</code></pre>
+                
+            </section>
+            
+            
+            
+            <section id="textarea-liquid" data-engine="liquid">
+                <h4>
+                    <a class="permalink" href="#textarea-liquid">Output Liquid</a>
+                    (error)
+                    <small>v3.0.6</small>
+                </h4>
+                
+                    <pre class="error"><code>Liquid syntax error: Unknown tag 'spaceless'</code></pre>
+                
+            </section>
+            
+            
+            
+            <section id="textarea-nunjucks" data-engine="nunjucks">
+                <h4>
+                    <a class="permalink" href="#textarea-nunjucks">Output Nunjucks</a>
+                    (error)
+                    <small>v2.5.0</small>
+                </h4>
+                
+                    <pre class="error"><code> [Line 1, Column 2]
+  unknown block tag: spaceless</code></pre>
+                
+            </section>
+            
+            
+            
+            <section id="textarea-swig" data-engine="swig">
+                <h4>
+                    <a class="permalink" href="#textarea-swig">Output Swig</a>
+                    
+                    <small>v1.4.2</small>
+                </h4>
+                
+                    <pre class="result"><code>&lt;textarea>
+Formatted text
+
+&lt;strong>with empty lines
+    and tabs&lt;/strong>&lt;/textarea></code></pre>
+                
+            </section>
+            
+            
+            
+            <section id="textarea-twig" data-engine="twig">
+                <h4>
+                    <a class="permalink" href="#textarea-twig">Output Twig</a>
+                    
+                    <small>v1.24.2</small>
+                </h4>
+                
+                    <pre class="result"><code>&lt;textarea>
+Formatted text
+
+&lt;strong>with empty lines
+    and tabs&lt;/strong>&lt;/textarea></code></pre>
+                
+            </section>
+            
+            
+            
+            <section id="textarea-twigjs" data-engine="twigjs">
+                <h4>
+                    <a class="permalink" href="#textarea-twigjs">Output Twigjs</a>
+                    
+                    <small>v0.9.5</small>
+                </h4>
+                
+                    <pre class="result"><code>&lt;textarea>
+Formatted text
+
+&lt;strong>with empty lines
+    and tabs&lt;/strong>&lt;/textarea></code></pre>
+                
+            </section>
+            
+        </section>
+        
+    </div>
+
+</article>
+
+<script>(function engineEnabler(){
+    'use strict';
+
+    var CAPABLE_BROWSER = ('addEventListener' in window);
+    if (!CAPABLE_BROWSER) {
+        return;
+    }
+
+    var SUPPORTS_STORAGE = ('localStorage' in window);
+    var STORAGE_KEY = 'enabledEngines';
+    var FORM_SELECTOR = '[data-engine-enabler]';
+    var INPUT_NAME = 'engine';
+    var TARGET_ATTR = 'data-engine';
+    var ENABLED_ATTR = 'data-engine-enabled';
+
+    var form = document.querySelector(FORM_SELECTOR);
+    var inputs = [].slice.call(form[INPUT_NAME]);
+    var targets = [].slice.call(document.querySelectorAll('[' + TARGET_ATTR + ']'));
+
+    form.addEventListener('change', onEnableEngines);
+    restoreState();
+
+    function onEnableEngines() {
+        var state = getEngineState(this);
+        enableTargets(state);
+        saveState(state);
+    }
+
+    function getEngineState(form) {
+        return inputs.reduce(function(map, input){
+            map[input.value] = input.checked;
+            return map;
+        }, {});
+    }
+
+    function enableTargets(state) {
+        targets.forEach(function(target) {
+            var key = target.getAttribute(TARGET_ATTR);
+            target.setAttribute(ENABLED_ATTR, state[key]);
+        });
+    }
+
+    function saveState(state) {
+        if(!SUPPORTS_STORAGE) {
+            return;
+        }
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
+    }
+
+    function restoreState() {
+        if(!SUPPORTS_STORAGE) {
+            return;
+        }
+        var state = JSON.parse(localStorage.getItem(STORAGE_KEY));
+        restoreInputs(state);
+        enableTargets(state);
+    }
+
+    function restoreInputs(state) {
+        inputs.forEach(function(input) {
+           input.checked = state[input.value];
+        });
+    }
+
+}());</script>
+
+
+<footer class="app-footer" role="contentinfo">
+    <a href="https://github.com/jbmoelker/jinja-compat-tests">Source on GitHub</a>
+</footer>
+
+
+</body>
+</html>

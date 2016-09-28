@@ -41,6 +41,9 @@
                 "number": "5",
                 "string": "my first car"
             },
+            "random": {
+                "array": "9"
+            },
             "upper": {
                 "array": "[U&#39;MY FIRST CAR&#39;, U&#39;MY SECOND CAR&#39;, U&#39;MY THIRD CAR&#39;]",
                 "number": "5",
@@ -57,6 +60,12 @@
                 "true-capitalized": "True",
                 "true-variable": "true",
                 "true": ""
+            },
+            "spaceless": {
+                "attributes": "<input name=\" spaceless \"  value=\"  \"  required=\"  \">",
+                "div": "<div><strong>test</strong></div>",
+                "pre": "<pre>\nFormatted text\n\n<strong>with empty lines\n    and tabs</strong></pre>",
+                "textarea": "<textarea>\nFormatted text\n\n<strong>with empty lines\n    and tabs</strong></textarea>"
             },
             "verbatim": {
                 "broken-expression": "{{ x }",
@@ -168,6 +177,11 @@
                 "integer": "3",
                 "string": "3"
             },
+            "join": {
+                "custom-glue": "1|2|3",
+                "default": "123",
+                "object": "alpha, bravo, charlie"
+            },
             "last": {
                 "array-as-variable": "4",
                 "array": "4",
@@ -178,10 +192,42 @@
                 "object": "1",
                 "string": "4"
             },
+            "list": {
+                "string": "t, e, m, p, l, a, t, e, "
+            },
             "lower": {
                 "array": "[u'my first car', u'my second car', u'my third car']",
                 "number": "5",
                 "string": "my first car"
+            },
+            "random": {
+                "array": "9"
+            },
+            "rejectattr": {
+                "attribute": "\nbravo\n",
+                "default": "\nalpha\n"
+            },
+            "replace": {
+                "count": "aaa..bccc",
+                "empty": ".a.a.a.b.b.b.c.c.c.",
+                "letter": "aaa...ccc",
+                "number": "111...333",
+                "pattern": "aaabbbccc"
+            },
+            "reverse": {
+                "array": "\n4\n\n3\n\n2\n\n1\n",
+                "string": "4321"
+            },
+            "round": {
+                "ceil": "42.5",
+                "common": "42.5",
+                "default": "43.0",
+                "floor": "42.5",
+                "precision": "42.5"
+            },
+            "selectattr": {
+                "attribute": "\nalpha\n\ndelta\n",
+                "default": "\nbravo\n\ndelta\n"
             },
             "upper": {
                 "array": "[U'MY FIRST CAR', U'MY SECOND CAR', U'MY THIRD CAR']",
@@ -306,6 +352,11 @@
                 "integer": "3",
                 "string": "3.52"
             },
+            "join": {
+                "custom-glue": "1 2 3",
+                "default": "1 2 3",
+                "object": "{\"name\"=>\"alpha\"}, {\"name\"=>\"bravo\"}, {\"name\"=>\"charlie\"}"
+            },
             "last": {
                 "array-as-variable": "4"
             },
@@ -313,10 +364,43 @@
                 "number": "1234",
                 "string": "1234"
             },
+            "list": {
+                "string": "template, "
+            },
             "lower": {
                 "array": "my first carmy Second carmy THIRD car",
                 "number": "5",
                 "string": "My FIRST Car"
+            },
+            "random": {
+                "array": "123456789"
+            },
+            "rejectattr": {
+                "attribute": "\nalpha\n\nbravo\n\ndelta\n",
+                "default": "\nalpha\n\nbravo\n\ndelta\n"
+            },
+            "replace": {
+                "count": "aaabbbccc",
+                "empty": "aaabbbccc",
+                "letter": "aaabbbccc",
+                "number": "111222333",
+                "pattern": "aaabbbccc"
+            },
+            "reverse": {
+                "array": "\n1\n\n2\n\n3\n\n4\n",
+                "number": "1234",
+                "string": "1234"
+            },
+            "round": {
+                "ceil": "42.0",
+                "common": "43.0",
+                "default": "43",
+                "floor": "43.0",
+                "precision": "43"
+            },
+            "selectattr": {
+                "attribute": "\nalpha\n\nbravo\n\ndelta\n",
+                "default": "\nalpha\n\nbravo\n\ndelta\n"
             },
             "upper": {
                 "array": "my first carmy Second carmy THIRD car",
@@ -441,6 +525,11 @@
                 "integer": "3",
                 "string": "3"
             },
+            "join": {
+                "custom-glue": "1|2|3",
+                "default": "123",
+                "object": "alpha, bravo, charlie"
+            },
             "last": {
                 "array-as-variable": "4",
                 "array": "4",
@@ -451,8 +540,39 @@
                 "object": "4",
                 "string": "4"
             },
+            "list": {
+                "string": "t, e, m, p, l, a, t, e, "
+            },
             "lower": {
                 "string": "my first car"
+            },
+            "random": {
+                "array": "8"
+            },
+            "rejectattr": {
+                "default": "\nalpha\n"
+            },
+            "replace": {
+                "count": "aaa..bccc",
+                "empty": ".a.a.a.b.b.b.c.c.c.",
+                "letter": "aaa...ccc",
+                "number": "111...333",
+                "pattern": "aaabbbccc"
+            },
+            "reverse": {
+                "array": "\n4\n\n3\n\n2\n\n1\n",
+                "string": "4321"
+            },
+            "round": {
+                "ceil": "42.5",
+                "common": "42.6",
+                "default": "43",
+                "floor": "42.5",
+                "precision": "42.6"
+            },
+            "selectattr": {
+                "attribute": "\nalpha\n\nbravo\n\ndelta\n",
+                "default": "\nbravo\n\ndelta\n"
             },
             "upper": {
                 "string": "MY FIRST CAR"
@@ -541,6 +661,11 @@
                 "object": "1",
                 "string": "1"
             },
+            "join": {
+                "custom-glue": "1|2|3",
+                "default": "1,2,3",
+                "object": "[object Object], [object Object], [object Object]"
+            },
             "last": {
                 "array-as-variable": "4",
                 "array": "4",
@@ -552,6 +677,18 @@
                 "array": "my first car,my second car,my third car",
                 "number": "5",
                 "string": "my first car"
+            },
+            "replace": {
+                "empty": ".aaabbbccc",
+                "letter": "aaa.bbccc",
+                "pattern": ".aaabbbccc"
+            },
+            "reverse": {
+                "array": "\n4\n\n3\n\n2\n\n1\n",
+                "number": "1234",
+                "object-default": "\n0: 3\n\n1: 2\n\n2: 1\n\n",
+                "object-preserve-keys": "\n0: 3\n\n1: 2\n\n2: 1\n\n",
+                "string": "4321"
             },
             "upper": {
                 "array": "MY FIRST CAR,MY SECOND CAR,MY THIRD CAR",
@@ -572,6 +709,12 @@
                 "multiple": "{{ varX }}value Y{{ varZ }}",
                 "tag": "hello {{ {% %} }}",
                 "text": "abc"
+            },
+            "spaceless": {
+                "attributes": "<input name=\" spaceless \"  value=\"  \"  required=\"  \">",
+                "div": "<div><strong>test</strong></div>",
+                "pre": "<pre>\nFormatted text\n\n<strong>with empty lines\n    and tabs</strong></pre>",
+                "textarea": "<textarea>\nFormatted text\n\n<strong>with empty lines\n    and tabs</strong></textarea>"
             }
         }
     },
@@ -642,6 +785,11 @@
                 "object": "1",
                 "string": "1"
             },
+            "join": {
+                "custom-glue": "1|2|3",
+                "default": "123",
+                "object": "Array, Array, Array"
+            },
             "last": {
                 "array-as-variable": "4",
                 "array": "4",
@@ -658,6 +806,27 @@
             "lower": {
                 "number": "5",
                 "string": "my first car"
+            },
+            "replace": {
+                "count": "aaa...ccc",
+                "empty": "aaabbbccc",
+                "letter": "aaa...ccc",
+                "number": "111...333",
+                "pattern": "aaa...ccc"
+            },
+            "reverse": {
+                "array": "4\n3\n2\n1\n",
+                "number": "4321",
+                "object-default": "0: c\n1: b\n2: a\n",
+                "object-preserve-keys": "3: c\n2: b\n1: a\n",
+                "string": "4321"
+            },
+            "round": {
+                "ceil": "42.5",
+                "common": "42.6",
+                "default": "43",
+                "floor": "42.5",
+                "precision": "42.6"
             },
             "upper": {
                 "number": "5",
@@ -705,6 +874,12 @@
                 "multiple": "{{ varX }}value Y{{ varZ }}",
                 "tag": "hello {{ {% %} }}",
                 "text": "abc"
+            },
+            "spaceless": {
+                "attributes": "<input name=\" spaceless \"  value=\"  \"  required=\"  \">",
+                "div": "<div><strong>test</strong></div>",
+                "pre": "<pre>\nFormatted text\n\n<strong>with empty lines\n    and tabs</strong></pre>",
+                "textarea": "<textarea>\nFormatted text\n\n<strong>with empty lines\n    and tabs</strong></textarea>"
             },
             "verbatim": {
                 "broken-expression": "{{ x }",
@@ -779,6 +954,11 @@
                 "object": "1",
                 "string": "1"
             },
+            "join": {
+                "custom-glue": "1|2|3",
+                "default": "123",
+                "object": "[object Object], [object Object], [object Object]"
+            },
             "last": {
                 "array-as-variable": "4",
                 "array": "4",
@@ -795,6 +975,25 @@
                 "array": "my first car,my Second car,my THIRD car",
                 "number": "5",
                 "string": "my first car"
+            },
+            "replace": {
+                "count": "aaabbbccc",
+                "empty": "aaabbbccc",
+                "letter": "aaabbbccc",
+                "pattern": "aaabbbccc"
+            },
+            "reverse": {
+                "array": "4\n3\n2\n1\n",
+                "object-default": "3: c\n2: b\n1: a\n",
+                "object-preserve-keys": "3: c\n2: b\n1: a\n",
+                "string": "4321"
+            },
+            "round": {
+                "ceil": "42.5",
+                "common": "42.6",
+                "default": "43",
+                "floor": "42.5",
+                "precision": "42.6"
             },
             "upper": {
                 "array": "my first car,my Second car,my THIRD car",
@@ -843,6 +1042,12 @@
                 "multiple": "{{ varX }}value Y{{ varZ }}",
                 "tag": "hello {{ {% %} }}",
                 "text": "abc"
+            },
+            "spaceless": {
+                "attributes": "<input name=\" spaceless \"  value=\"  \"  required=\"  \">",
+                "div": "<div><strong>test</strong></div>",
+                "pre": "<pre>\nFormatted text\n\n<strong>with empty lines\n    and tabs</strong></pre>",
+                "textarea": "<textarea>\nFormatted text\n\n<strong>with empty lines\n    and tabs</strong></textarea>"
             },
             "verbatim": {
                 "broken-expression": "{{ x }",

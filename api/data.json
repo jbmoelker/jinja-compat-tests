@@ -38,11 +38,32 @@
         "groupby": {
             "attribute": "{\n  \"items\": [\n    {\n      \"name\": \"james\",\n      \"type\": \"green\"\n    },\n    {\n      \"name\": \"john\",\n      \"type\": \"blue\"\n    },\n    {\n      \"name\": \"jim\",\n      \"type\": \"blue\"\n    },\n    {\n      \"name\": \"jessie\",\n      \"type\": \"green\"\n    }\n  ]\n}"
         },
+        "join": {
+            "custom-glue": "{\n  \"items\": [1, 2, 3]\n}",
+            "default": "{\n  \"items\": [1, 2, 3]\n}",
+            "object": "{\n  \"items\": [\n    { \"name\": \"alpha\" },\n    { \"name\": \"bravo\" },\n    { \"name\": \"charlie\" }\n  ]\n}"
+        },
         "last": {
             "array-as-variable": "{\n  \"items\": [1, 2, 3, 4]\n}"
         },
         "lower": {
             "array": "{\n  \"items\": [\n    \"my first car\",\n    \"my Second car\",\n    \"my THIRD car\"\n  ]\n}"
+        },
+        "random": {
+            "array": "{\n  \"items\": [1,2,3,4,5,6,7,8,9]\n}"
+        },
+        "rejectattr": {
+            "attribute": "{\n  \"items\": [\n    { \"id\": 1, \"name\": \"alpha\" },\n    { \"id\": 2, \"name\": \"bravo\" },\n    { \"id\": 3, \"name\": \"delta\" }\n  ]\n}",
+            "default": "{\n  \"items\": [\n    { \"name\": \"alpha\", \"is_selected\": false },\n    { \"name\": \"bravo\", \"is_selected\": true },\n    { \"name\": \"delta\", \"is_selected\": true }\n  ]\n}"
+        },
+        "reverse": {
+            "array": "{\n  \"items\": [1, 2, 3, 4]\n}",
+            "object-default": "{\n  \"mapping\": { \"1\": \"a\", \"2\": \"b\", \"3\": \"c\" }\n}",
+            "object-preserve-keys": "{\n  \"mapping\": { \"1\": \"a\", \"2\": \"b\", \"3\": \"c\" }\n}"
+        },
+        "selectattr": {
+            "attribute": "{\n  \"items\": [\n    { \"id\": 1, \"name\": \"alpha\" },\n    { \"id\": 2, \"name\": \"bravo\" },\n    { \"id\": 3, \"name\": \"delta\" }\n  ]\n}",
+            "default": "{\n  \"items\": [\n    { \"name\": \"alpha\", \"is_selected\": false },\n    { \"name\": \"bravo\", \"is_selected\": true },\n    { \"name\": \"delta\", \"is_selected\": true }\n  ]\n}"
         },
         "upper": {
             "array": "{\n  \"items\": [\n    \"my first car\",\n    \"my Second car\",\n    \"my THIRD car\"\n  ]\n}"

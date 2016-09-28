@@ -1,0 +1,843 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+
+    <title>reverse filter | Jinja Compat Tests</title>
+    <style type="text/css">
+        html { font-family: Arial, sans-serif; }
+        .app-footer { border-top: 1px solid black; margin-top: 1rem; padding-top: .5rem; }
+    </style>
+    
+</head>
+<body>
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.5.1/themes/prism.css">
+<style type="text/css">
+    article { overflow: auto; zoom: 1; }
+    .page-title { font-size: 2rem; }
+    .page-nav { float: left; margin-right: 2.5em; }
+    .page-nav ul, .page-nav ol { list-style: none; padding-left: 0; }
+    .page-content { float: left; }
+
+    h4 { margin-bottom: 0; }
+    h4 small { float: right; font-weight: normal; font-style: italic; }
+    label { padding-right: 1em; cursor: pointer; }
+    pre { padding: .5em; margin-top: .5rem; min-height: 1em; background: #f5f2f0; overflow-x: scroll; }
+    .section { margin-bottom: 2.5rem; }
+    .test pre { border: 2px solid deepskyblue; }
+    .result { border: 2px solid lawngreen; }
+    .error { border: 2px solid red; white-space: normal; }
+
+    [data-engine-enabled="false"] { display:none; }
+
+    .a11y-only {
+        border: 0;
+        clip: rect(0 0 0 0);
+        height: 1px;
+        margin: -1px;
+        overflow: hidden;
+        padding: 0;
+        position: absolute;
+        width: 1px;
+    }
+</style>
+
+<header>
+    <h1><a rel="home" href="../../">Jinja Compat Tests</a></h1>
+
+    <form data-engine-enabler>
+        <fieldset>
+            <legend>Enabled engines</legend>
+            
+            <label>
+                <input type="checkbox" checked name="engine" value="django">
+                Django
+            </label>
+            
+            <label>
+                <input type="checkbox" checked name="engine" value="jinja2">
+                Jinja2
+            </label>
+            
+            <label>
+                <input type="checkbox" checked name="engine" value="liquid">
+                Liquid
+            </label>
+            
+            <label>
+                <input type="checkbox" checked name="engine" value="nunjucks">
+                Nunjucks
+            </label>
+            
+            <label>
+                <input type="checkbox" checked name="engine" value="swig">
+                Swig
+            </label>
+            
+            <label>
+                <input type="checkbox" checked name="engine" value="twig">
+                Twig
+            </label>
+            
+            <label>
+                <input type="checkbox" checked name="engine" value="twigjs">
+                Twigjs
+            </label>
+            
+        </fieldset>
+    </form>
+</header>
+
+<article>
+    <h1 class="page-title"><code>reverse</code> filter</h1>
+
+    <div class="page-nav">
+        <nav id="docs">
+            <h2><a class="permalink" href="#docs">Docs</a></h2>
+            <ul>
+            
+                
+            
+                
+                <li>
+                    <a href="http://jinja.pocoo.org/docs/dev/templates/#reverse">Jinja2</a>
+                </li>
+                
+            
+                
+                <li>
+                    <a href="https://shopify.github.io/liquid/filters/reverse/">Liquid</a>
+                </li>
+                
+            
+                
+                <li>
+                    <a href="https://mozilla.github.io/nunjucks/templating.html#reverse">Nunjucks</a>
+                </li>
+                
+            
+                
+                <li>
+                    <a href="https://voorhoede.github.io/swig/docs/filters/#reverse">Swig</a>
+                </li>
+                
+            
+                
+                <li>
+                    <a href="http://twig.sensiolabs.org/doc/filters/reverse.html">Twig</a>
+                </li>
+                
+            
+            </ul>
+        </nav>
+
+        <nav id="toc">
+            <h2>Tests</h2>
+            <ol>
+                
+                    <li><a href="#array">array</a></li>
+                
+                    <li><a href="#number">number</a></li>
+                
+                    <li><a href="#object-default">object-default</a></li>
+                
+                    <li><a href="#object-preserve-keys">object-preserve-keys</a></li>
+                
+                    <li><a href="#string">string</a></li>
+                
+            </ol>
+        </nav>
+    </div>
+
+    <div class="page-content">
+        <h2 id="tests" class="a11y-only">
+            <a class="permalink" href="#tests">Tests</a>
+        </h2>
+        
+        
+        <section class="section" id="array">
+            <h3><a class="permalink" href="#array">Test: array</a></h3>
+
+            <h4>Template</h4>
+            <div class="test"><pre class="language-twig"><code><span class="token tag" ><span class="token ld" ><span class="token punctuation" >{%</span> <span class="token keyword" >for</span></span> <span class="token property" >item</span> <span class="token operator" >in</span> <span class="token property" >items</span><span class="token operator" >|</span><span class="token property" >reverse</span> <span class="token rd" ><span class="token punctuation" >%}</span></span></span>
+<span class="token tag" ><span class="token ld" ><span class="token punctuation" >{{</span></span> <span class="token property" >item</span> <span class="token rd" ><span class="token punctuation" >}}</span></span></span>
+<span class="token tag" ><span class="token ld" ><span class="token punctuation" >{%</span> <span class="token keyword" >endfor</span></span> <span class="token rd" ><span class="token punctuation" >%}</span></span></span></code></pre></div>
+
+            
+            <h4>Data</h4>
+            <div class="test"><pre class="language-json"><code><span class="token punctuation" >{</span>
+  <span class="token property" >"items"</span><span class="token operator" >:</span> <span class="token punctuation" >[</span><span class="token number" >1</span><span class="token punctuation" >,</span> <span class="token number" >2</span><span class="token punctuation" >,</span> <span class="token number" >3</span><span class="token punctuation" >,</span> <span class="token number" >4</span><span class="token punctuation" >]</span>
+<span class="token punctuation" >}</span></code></pre></div>
+            
+
+            
+            
+            
+            <section id="array-django" data-engine="django">
+                <h4>
+                    <a class="permalink" href="#array-django">Output Django</a>
+                    (error)
+                    <small>v1.10.1</small>
+                </h4>
+                
+                    <pre class="error"><code>Invalid filter: 'reverse'</code></pre>
+                
+            </section>
+            
+            
+            
+            <section id="array-jinja2" data-engine="jinja2">
+                <h4>
+                    <a class="permalink" href="#array-jinja2">Output Jinja2</a>
+                    
+                    <small>v2.8.0</small>
+                </h4>
+                
+                    <pre class="result"><code>
+4
+
+3
+
+2
+
+1
+</code></pre>
+                
+            </section>
+            
+            
+            
+            <section id="array-liquid" data-engine="liquid">
+                <h4>
+                    <a class="permalink" href="#array-liquid">Output Liquid</a>
+                    
+                    <small>v3.0.6</small>
+                </h4>
+                
+                    <pre class="result"><code>
+1
+
+2
+
+3
+
+4
+</code></pre>
+                
+            </section>
+            
+            
+            
+            <section id="array-nunjucks" data-engine="nunjucks">
+                <h4>
+                    <a class="permalink" href="#array-nunjucks">Output Nunjucks</a>
+                    
+                    <small>v2.5.0</small>
+                </h4>
+                
+                    <pre class="result"><code>
+4
+
+3
+
+2
+
+1
+</code></pre>
+                
+            </section>
+            
+            
+            
+            <section id="array-swig" data-engine="swig">
+                <h4>
+                    <a class="permalink" href="#array-swig">Output Swig</a>
+                    
+                    <small>v1.4.2</small>
+                </h4>
+                
+                    <pre class="result"><code>
+4
+
+3
+
+2
+
+1
+</code></pre>
+                
+            </section>
+            
+            
+            
+            <section id="array-twig" data-engine="twig">
+                <h4>
+                    <a class="permalink" href="#array-twig">Output Twig</a>
+                    
+                    <small>v1.24.2</small>
+                </h4>
+                
+                    <pre class="result"><code>4
+3
+2
+1
+</code></pre>
+                
+            </section>
+            
+            
+            
+            <section id="array-twigjs" data-engine="twigjs">
+                <h4>
+                    <a class="permalink" href="#array-twigjs">Output Twigjs</a>
+                    
+                    <small>v0.9.5</small>
+                </h4>
+                
+                    <pre class="result"><code>4
+3
+2
+1
+</code></pre>
+                
+            </section>
+            
+        </section>
+        
+        
+        <section class="section" id="number">
+            <h3><a class="permalink" href="#number">Test: number</a></h3>
+
+            <h4>Template</h4>
+            <div class="test"><pre class="language-twig"><code><span class="token tag" ><span class="token ld" ><span class="token punctuation" >{{</span></span> <span class="token number" >1234</span><span class="token operator" >|</span><span class="token property" >reverse</span> <span class="token rd" ><span class="token punctuation" >}}</span></span></span></code></pre></div>
+
+            
+
+            
+            
+            
+            <section id="number-django" data-engine="django">
+                <h4>
+                    <a class="permalink" href="#number-django">Output Django</a>
+                    (error)
+                    <small>v1.10.1</small>
+                </h4>
+                
+                    <pre class="error"><code>Invalid filter: 'reverse'</code></pre>
+                
+            </section>
+            
+            
+            
+            <section id="number-jinja2" data-engine="jinja2">
+                <h4>
+                    <a class="permalink" href="#number-jinja2">Output Jinja2</a>
+                    (error)
+                    <small>v2.8.0</small>
+                </h4>
+                
+                    <pre class="error"><code>argument must be iterable</code></pre>
+                
+            </section>
+            
+            
+            
+            <section id="number-liquid" data-engine="liquid">
+                <h4>
+                    <a class="permalink" href="#number-liquid">Output Liquid</a>
+                    
+                    <small>v3.0.6</small>
+                </h4>
+                
+                    <pre class="result"><code>1234</code></pre>
+                
+            </section>
+            
+            
+            
+            <section id="number-nunjucks" data-engine="nunjucks">
+                <h4>
+                    <a class="permalink" href="#number-nunjucks">Output Nunjucks</a>
+                    (error)
+                    <small>v2.5.0</small>
+                </h4>
+                
+                    <pre class="error"><code>(no output)</code></pre>
+                
+            </section>
+            
+            
+            
+            <section id="number-swig" data-engine="swig">
+                <h4>
+                    <a class="permalink" href="#number-swig">Output Swig</a>
+                    
+                    <small>v1.4.2</small>
+                </h4>
+                
+                    <pre class="result"><code>1234</code></pre>
+                
+            </section>
+            
+            
+            
+            <section id="number-twig" data-engine="twig">
+                <h4>
+                    <a class="permalink" href="#number-twig">Output Twig</a>
+                    
+                    <small>v1.24.2</small>
+                </h4>
+                
+                    <pre class="result"><code>4321</code></pre>
+                
+            </section>
+            
+            
+            
+            <section id="number-twigjs" data-engine="twigjs">
+                <h4>
+                    <a class="permalink" href="#number-twigjs">Output Twigjs</a>
+                    (error)
+                    <small>v0.9.5</small>
+                </h4>
+                
+                    <pre class="error"><code>(no output)</code></pre>
+                
+            </section>
+            
+        </section>
+        
+        
+        <section class="section" id="object-default">
+            <h3><a class="permalink" href="#object-default">Test: object-default</a></h3>
+
+            <h4>Template</h4>
+            <div class="test"><pre class="language-twig"><code><span class="token tag" ><span class="token ld" ><span class="token punctuation" >{%</span> <span class="token keyword" >for</span></span> <span class="token property" >key</span><span class="token punctuation" >,</span> <span class="token property" >value</span> <span class="token operator" >in</span> <span class="token property" >mapping</span><span class="token operator" >|</span><span class="token property" >reverse</span> <span class="token rd" ><span class="token punctuation" >%}</span></span></span>
+<span class="token tag" ><span class="token ld" ><span class="token punctuation" >{{</span></span> <span class="token property" >key</span> <span class="token rd" ><span class="token punctuation" >}}</span></span></span><span class="token other" >:</span> <span class="token tag" ><span class="token ld" ><span class="token punctuation" >{{</span></span> <span class="token property" >value</span> <span class="token rd" ><span class="token punctuation" >}}</span></span></span>
+<span class="token tag" ><span class="token ld" ><span class="token punctuation" >{%</span> <span class="token keyword" >endfor</span></span> <span class="token rd" ><span class="token punctuation" >%}</span></span></span>
+</code></pre></div>
+
+            
+            <h4>Data</h4>
+            <div class="test"><pre class="language-json"><code><span class="token punctuation" >{</span>
+  <span class="token property" >"mapping"</span><span class="token operator" >:</span> <span class="token punctuation" >{</span> <span class="token property" >"1"</span><span class="token operator" >:</span> <span class="token property" >"a", "2"</span><span class="token operator" >:</span> <span class="token property" >"b", "3"</span><span class="token operator" >:</span> <span class="token string" >"c"</span> <span class="token punctuation" >}</span>
+<span class="token punctuation" >}</span></code></pre></div>
+            
+
+            
+            
+            
+            <section id="object-default-django" data-engine="django">
+                <h4>
+                    <a class="permalink" href="#object-default-django">Output Django</a>
+                    (error)
+                    <small>v1.10.1</small>
+                </h4>
+                
+                    <pre class="error"><code>Invalid filter: 'reverse'</code></pre>
+                
+            </section>
+            
+            
+            
+            <section id="object-default-jinja2" data-engine="jinja2">
+                <h4>
+                    <a class="permalink" href="#object-default-jinja2">Output Jinja2</a>
+                    (error)
+                    <small>v2.8.0</small>
+                </h4>
+                
+                    <pre class="error"><code>need more than 1 value to unpack</code></pre>
+                
+            </section>
+            
+            
+            
+            <section id="object-default-liquid" data-engine="liquid">
+                <h4>
+                    <a class="permalink" href="#object-default-liquid">Output Liquid</a>
+                    (error)
+                    <small>v3.0.6</small>
+                </h4>
+                
+                    <pre class="error"><code>Liquid syntax error: Syntax Error in 'for loop' - Valid syntax: for [item] in [collection]</code></pre>
+                
+            </section>
+            
+            
+            
+            <section id="object-default-nunjucks" data-engine="nunjucks">
+                <h4>
+                    <a class="permalink" href="#object-default-nunjucks">Output Nunjucks</a>
+                    (error)
+                    <small>v2.5.0</small>
+                </h4>
+                
+                    <pre class="error"><code>(no output)</code></pre>
+                
+            </section>
+            
+            
+            
+            <section id="object-default-swig" data-engine="swig">
+                <h4>
+                    <a class="permalink" href="#object-default-swig">Output Swig</a>
+                    
+                    <small>v1.4.2</small>
+                </h4>
+                
+                    <pre class="result"><code>
+0: 3
+
+1: 2
+
+2: 1
+
+</code></pre>
+                
+            </section>
+            
+            
+            
+            <section id="object-default-twig" data-engine="twig">
+                <h4>
+                    <a class="permalink" href="#object-default-twig">Output Twig</a>
+                    
+                    <small>v1.24.2</small>
+                </h4>
+                
+                    <pre class="result"><code>0: c
+1: b
+2: a
+</code></pre>
+                
+            </section>
+            
+            
+            
+            <section id="object-default-twigjs" data-engine="twigjs">
+                <h4>
+                    <a class="permalink" href="#object-default-twigjs">Output Twigjs</a>
+                    
+                    <small>v0.9.5</small>
+                </h4>
+                
+                    <pre class="result"><code>3: c
+2: b
+1: a
+</code></pre>
+                
+            </section>
+            
+        </section>
+        
+        
+        <section class="section" id="object-preserve-keys">
+            <h3><a class="permalink" href="#object-preserve-keys">Test: object-preserve-keys</a></h3>
+
+            <h4>Template</h4>
+            <div class="test"><pre class="language-twig"><code><span class="token tag" ><span class="token ld" ><span class="token punctuation" >{%</span> <span class="token keyword" >for</span></span> <span class="token property" >key</span><span class="token punctuation" >,</span> <span class="token property" >value</span> <span class="token operator" >in</span> <span class="token property" >mapping</span><span class="token operator" >|</span><span class="token property" >reverse</span><span class="token punctuation" >(</span><span class="token boolean" >true</span><span class="token punctuation" >)</span> <span class="token rd" ><span class="token punctuation" >%}</span></span></span>
+<span class="token tag" ><span class="token ld" ><span class="token punctuation" >{{</span></span> <span class="token property" >key</span> <span class="token rd" ><span class="token punctuation" >}}</span></span></span><span class="token other" >:</span> <span class="token tag" ><span class="token ld" ><span class="token punctuation" >{{</span></span> <span class="token property" >value</span> <span class="token rd" ><span class="token punctuation" >}}</span></span></span>
+<span class="token tag" ><span class="token ld" ><span class="token punctuation" >{%</span> <span class="token keyword" >endfor</span></span> <span class="token rd" ><span class="token punctuation" >%}</span></span></span>
+</code></pre></div>
+
+            
+            <h4>Data</h4>
+            <div class="test"><pre class="language-json"><code><span class="token punctuation" >{</span>
+  <span class="token property" >"mapping"</span><span class="token operator" >:</span> <span class="token punctuation" >{</span> <span class="token property" >"1"</span><span class="token operator" >:</span> <span class="token property" >"a", "2"</span><span class="token operator" >:</span> <span class="token property" >"b", "3"</span><span class="token operator" >:</span> <span class="token string" >"c"</span> <span class="token punctuation" >}</span>
+<span class="token punctuation" >}</span></code></pre></div>
+            
+
+            
+            
+            
+            <section id="object-preserve-keys-django" data-engine="django">
+                <h4>
+                    <a class="permalink" href="#object-preserve-keys-django">Output Django</a>
+                    (error)
+                    <small>v1.10.1</small>
+                </h4>
+                
+                    <pre class="error"><code>Invalid filter: 'reverse'</code></pre>
+                
+            </section>
+            
+            
+            
+            <section id="object-preserve-keys-jinja2" data-engine="jinja2">
+                <h4>
+                    <a class="permalink" href="#object-preserve-keys-jinja2">Output Jinja2</a>
+                    (error)
+                    <small>v2.8.0</small>
+                </h4>
+                
+                    <pre class="error"><code>do_reverse() takes exactly 1 argument (2 given)</code></pre>
+                
+            </section>
+            
+            
+            
+            <section id="object-preserve-keys-liquid" data-engine="liquid">
+                <h4>
+                    <a class="permalink" href="#object-preserve-keys-liquid">Output Liquid</a>
+                    (error)
+                    <small>v3.0.6</small>
+                </h4>
+                
+                    <pre class="error"><code>Liquid syntax error: Syntax Error in 'for loop' - Valid syntax: for [item] in [collection]</code></pre>
+                
+            </section>
+            
+            
+            
+            <section id="object-preserve-keys-nunjucks" data-engine="nunjucks">
+                <h4>
+                    <a class="permalink" href="#object-preserve-keys-nunjucks">Output Nunjucks</a>
+                    (error)
+                    <small>v2.5.0</small>
+                </h4>
+                
+                    <pre class="error"><code>(no output)</code></pre>
+                
+            </section>
+            
+            
+            
+            <section id="object-preserve-keys-swig" data-engine="swig">
+                <h4>
+                    <a class="permalink" href="#object-preserve-keys-swig">Output Swig</a>
+                    
+                    <small>v1.4.2</small>
+                </h4>
+                
+                    <pre class="result"><code>
+0: 3
+
+1: 2
+
+2: 1
+
+</code></pre>
+                
+            </section>
+            
+            
+            
+            <section id="object-preserve-keys-twig" data-engine="twig">
+                <h4>
+                    <a class="permalink" href="#object-preserve-keys-twig">Output Twig</a>
+                    
+                    <small>v1.24.2</small>
+                </h4>
+                
+                    <pre class="result"><code>3: c
+2: b
+1: a
+</code></pre>
+                
+            </section>
+            
+            
+            
+            <section id="object-preserve-keys-twigjs" data-engine="twigjs">
+                <h4>
+                    <a class="permalink" href="#object-preserve-keys-twigjs">Output Twigjs</a>
+                    
+                    <small>v0.9.5</small>
+                </h4>
+                
+                    <pre class="result"><code>3: c
+2: b
+1: a
+</code></pre>
+                
+            </section>
+            
+        </section>
+        
+        
+        <section class="section" id="string">
+            <h3><a class="permalink" href="#string">Test: string</a></h3>
+
+            <h4>Template</h4>
+            <div class="test"><pre class="language-twig"><code><span class="token tag" ><span class="token ld" ><span class="token punctuation" >{{</span></span> <span class="token string" ><span class="token punctuation" >'</span>1234<span class="token punctuation" >'</span></span><span class="token operator" >|</span><span class="token property" >reverse</span> <span class="token rd" ><span class="token punctuation" >}}</span></span></span></code></pre></div>
+
+            
+
+            
+            
+            
+            <section id="string-django" data-engine="django">
+                <h4>
+                    <a class="permalink" href="#string-django">Output Django</a>
+                    (error)
+                    <small>v1.10.1</small>
+                </h4>
+                
+                    <pre class="error"><code>Invalid filter: 'reverse'</code></pre>
+                
+            </section>
+            
+            
+            
+            <section id="string-jinja2" data-engine="jinja2">
+                <h4>
+                    <a class="permalink" href="#string-jinja2">Output Jinja2</a>
+                    
+                    <small>v2.8.0</small>
+                </h4>
+                
+                    <pre class="result"><code>4321</code></pre>
+                
+            </section>
+            
+            
+            
+            <section id="string-liquid" data-engine="liquid">
+                <h4>
+                    <a class="permalink" href="#string-liquid">Output Liquid</a>
+                    
+                    <small>v3.0.6</small>
+                </h4>
+                
+                    <pre class="result"><code>1234</code></pre>
+                
+            </section>
+            
+            
+            
+            <section id="string-nunjucks" data-engine="nunjucks">
+                <h4>
+                    <a class="permalink" href="#string-nunjucks">Output Nunjucks</a>
+                    
+                    <small>v2.5.0</small>
+                </h4>
+                
+                    <pre class="result"><code>4321</code></pre>
+                
+            </section>
+            
+            
+            
+            <section id="string-swig" data-engine="swig">
+                <h4>
+                    <a class="permalink" href="#string-swig">Output Swig</a>
+                    
+                    <small>v1.4.2</small>
+                </h4>
+                
+                    <pre class="result"><code>4321</code></pre>
+                
+            </section>
+            
+            
+            
+            <section id="string-twig" data-engine="twig">
+                <h4>
+                    <a class="permalink" href="#string-twig">Output Twig</a>
+                    
+                    <small>v1.24.2</small>
+                </h4>
+                
+                    <pre class="result"><code>4321</code></pre>
+                
+            </section>
+            
+            
+            
+            <section id="string-twigjs" data-engine="twigjs">
+                <h4>
+                    <a class="permalink" href="#string-twigjs">Output Twigjs</a>
+                    
+                    <small>v0.9.5</small>
+                </h4>
+                
+                    <pre class="result"><code>4321</code></pre>
+                
+            </section>
+            
+        </section>
+        
+    </div>
+
+</article>
+
+<script>(function engineEnabler(){
+    'use strict';
+
+    var CAPABLE_BROWSER = ('addEventListener' in window);
+    if (!CAPABLE_BROWSER) {
+        return;
+    }
+
+    var SUPPORTS_STORAGE = ('localStorage' in window);
+    var STORAGE_KEY = 'enabledEngines';
+    var FORM_SELECTOR = '[data-engine-enabler]';
+    var INPUT_NAME = 'engine';
+    var TARGET_ATTR = 'data-engine';
+    var ENABLED_ATTR = 'data-engine-enabled';
+
+    var form = document.querySelector(FORM_SELECTOR);
+    var inputs = [].slice.call(form[INPUT_NAME]);
+    var targets = [].slice.call(document.querySelectorAll('[' + TARGET_ATTR + ']'));
+
+    form.addEventListener('change', onEnableEngines);
+    restoreState();
+
+    function onEnableEngines() {
+        var state = getEngineState(this);
+        enableTargets(state);
+        saveState(state);
+    }
+
+    function getEngineState(form) {
+        return inputs.reduce(function(map, input){
+            map[input.value] = input.checked;
+            return map;
+        }, {});
+    }
+
+    function enableTargets(state) {
+        targets.forEach(function(target) {
+            var key = target.getAttribute(TARGET_ATTR);
+            target.setAttribute(ENABLED_ATTR, state[key]);
+        });
+    }
+
+    function saveState(state) {
+        if(!SUPPORTS_STORAGE) {
+            return;
+        }
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
+    }
+
+    function restoreState() {
+        if(!SUPPORTS_STORAGE) {
+            return;
+        }
+        var state = JSON.parse(localStorage.getItem(STORAGE_KEY));
+        restoreInputs(state);
+        enableTargets(state);
+    }
+
+    function restoreInputs(state) {
+        inputs.forEach(function(input) {
+           input.checked = state[input.value];
+        });
+    }
+
+}());</script>
+
+
+<footer class="app-footer" role="contentinfo">
+    <a href="https://github.com/jbmoelker/jinja-compat-tests">Source on GitHub</a>
+</footer>
+
+
+</body>
+</html>

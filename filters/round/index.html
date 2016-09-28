@@ -1,0 +1,750 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+
+    <title>round filter | Jinja Compat Tests</title>
+    <style type="text/css">
+        html { font-family: Arial, sans-serif; }
+        .app-footer { border-top: 1px solid black; margin-top: 1rem; padding-top: .5rem; }
+    </style>
+    
+</head>
+<body>
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.5.1/themes/prism.css">
+<style type="text/css">
+    article { overflow: auto; zoom: 1; }
+    .page-title { font-size: 2rem; }
+    .page-nav { float: left; margin-right: 2.5em; }
+    .page-nav ul, .page-nav ol { list-style: none; padding-left: 0; }
+    .page-content { float: left; }
+
+    h4 { margin-bottom: 0; }
+    h4 small { float: right; font-weight: normal; font-style: italic; }
+    label { padding-right: 1em; cursor: pointer; }
+    pre { padding: .5em; margin-top: .5rem; min-height: 1em; background: #f5f2f0; overflow-x: scroll; }
+    .section { margin-bottom: 2.5rem; }
+    .test pre { border: 2px solid deepskyblue; }
+    .result { border: 2px solid lawngreen; }
+    .error { border: 2px solid red; white-space: normal; }
+
+    [data-engine-enabled="false"] { display:none; }
+
+    .a11y-only {
+        border: 0;
+        clip: rect(0 0 0 0);
+        height: 1px;
+        margin: -1px;
+        overflow: hidden;
+        padding: 0;
+        position: absolute;
+        width: 1px;
+    }
+</style>
+
+<header>
+    <h1><a rel="home" href="../../">Jinja Compat Tests</a></h1>
+
+    <form data-engine-enabler>
+        <fieldset>
+            <legend>Enabled engines</legend>
+            
+            <label>
+                <input type="checkbox" checked name="engine" value="django">
+                Django
+            </label>
+            
+            <label>
+                <input type="checkbox" checked name="engine" value="jinja2">
+                Jinja2
+            </label>
+            
+            <label>
+                <input type="checkbox" checked name="engine" value="liquid">
+                Liquid
+            </label>
+            
+            <label>
+                <input type="checkbox" checked name="engine" value="nunjucks">
+                Nunjucks
+            </label>
+            
+            <label>
+                <input type="checkbox" checked name="engine" value="swig">
+                Swig
+            </label>
+            
+            <label>
+                <input type="checkbox" checked name="engine" value="twig">
+                Twig
+            </label>
+            
+            <label>
+                <input type="checkbox" checked name="engine" value="twigjs">
+                Twigjs
+            </label>
+            
+        </fieldset>
+    </form>
+</header>
+
+<article>
+    <h1 class="page-title"><code>round</code> filter</h1>
+
+    <div class="page-nav">
+        <nav id="docs">
+            <h2><a class="permalink" href="#docs">Docs</a></h2>
+            <ul>
+            
+                
+            
+                
+                <li>
+                    <a href="http://jinja.pocoo.org/docs/dev/templates/#round">Jinja2</a>
+                </li>
+                
+            
+                
+                <li>
+                    <a href="https://shopify.github.io/liquid/filters/round/">Liquid</a>
+                </li>
+                
+            
+                
+                <li>
+                    <a href="https://mozilla.github.io/nunjucks/templating.html#round">Nunjucks</a>
+                </li>
+                
+            
+                
+            
+                
+                <li>
+                    <a href="http://twig.sensiolabs.org/doc/filters/round.html">Twig</a>
+                </li>
+                
+            
+            </ul>
+        </nav>
+
+        <nav id="toc">
+            <h2>Tests</h2>
+            <ol>
+                
+                    <li><a href="#ceil">ceil</a></li>
+                
+                    <li><a href="#common">common</a></li>
+                
+                    <li><a href="#default">default</a></li>
+                
+                    <li><a href="#floor">floor</a></li>
+                
+                    <li><a href="#precision">precision</a></li>
+                
+            </ol>
+        </nav>
+    </div>
+
+    <div class="page-content">
+        <h2 id="tests" class="a11y-only">
+            <a class="permalink" href="#tests">Tests</a>
+        </h2>
+        
+        
+        <section class="section" id="ceil">
+            <h3><a class="permalink" href="#ceil">Test: ceil</a></h3>
+
+            <h4>Template</h4>
+            <div class="test"><pre class="language-twig"><code><span class="token tag" ><span class="token ld" ><span class="token punctuation" >{{</span></span> <span class="token number" >42.43</span><span class="token operator" >|</span><span class="token property" >round</span><span class="token punctuation" >(</span><span class="token number" >1</span><span class="token punctuation" >,</span> <span class="token string" ><span class="token punctuation" >'</span>ceil<span class="token punctuation" >'</span></span><span class="token punctuation" >)</span> <span class="token rd" ><span class="token punctuation" >}}</span></span></span></code></pre></div>
+
+            
+
+            
+            
+            
+            <section id="ceil-django" data-engine="django">
+                <h4>
+                    <a class="permalink" href="#ceil-django">Output Django</a>
+                    (error)
+                    <small>v1.10.1</small>
+                </h4>
+                
+                    <pre class="error"><code>Invalid filter: 'round'</code></pre>
+                
+            </section>
+            
+            
+            
+            <section id="ceil-jinja2" data-engine="jinja2">
+                <h4>
+                    <a class="permalink" href="#ceil-jinja2">Output Jinja2</a>
+                    
+                    <small>v2.8.0</small>
+                </h4>
+                
+                    <pre class="result"><code>42.5</code></pre>
+                
+            </section>
+            
+            
+            
+            <section id="ceil-liquid" data-engine="liquid">
+                <h4>
+                    <a class="permalink" href="#ceil-liquid">Output Liquid</a>
+                    
+                    <small>v3.0.6</small>
+                </h4>
+                
+                    <pre class="result"><code>42.0</code></pre>
+                
+            </section>
+            
+            
+            
+            <section id="ceil-nunjucks" data-engine="nunjucks">
+                <h4>
+                    <a class="permalink" href="#ceil-nunjucks">Output Nunjucks</a>
+                    
+                    <small>v2.5.0</small>
+                </h4>
+                
+                    <pre class="result"><code>42.5</code></pre>
+                
+            </section>
+            
+            
+            
+            <section id="ceil-swig" data-engine="swig">
+                <h4>
+                    <a class="permalink" href="#ceil-swig">Output Swig</a>
+                    (error)
+                    <small>v1.4.2</small>
+                </h4>
+                
+                    <pre class="error"><code>Invalid filter "round".</code></pre>
+                
+            </section>
+            
+            
+            
+            <section id="ceil-twig" data-engine="twig">
+                <h4>
+                    <a class="permalink" href="#ceil-twig">Output Twig</a>
+                    
+                    <small>v1.24.2</small>
+                </h4>
+                
+                    <pre class="result"><code>42.5</code></pre>
+                
+            </section>
+            
+            
+            
+            <section id="ceil-twigjs" data-engine="twigjs">
+                <h4>
+                    <a class="permalink" href="#ceil-twigjs">Output Twigjs</a>
+                    
+                    <small>v0.9.5</small>
+                </h4>
+                
+                    <pre class="result"><code>42.5</code></pre>
+                
+            </section>
+            
+        </section>
+        
+        
+        <section class="section" id="common">
+            <h3><a class="permalink" href="#common">Test: common</a></h3>
+
+            <h4>Template</h4>
+            <div class="test"><pre class="language-twig"><code><span class="token tag" ><span class="token ld" ><span class="token punctuation" >{{</span></span> <span class="token number" >42.55</span><span class="token operator" >|</span><span class="token property" >round</span><span class="token punctuation" >(</span><span class="token number" >1</span><span class="token punctuation" >,</span> <span class="token string" ><span class="token punctuation" >'</span>common<span class="token punctuation" >'</span></span><span class="token punctuation" >)</span> <span class="token rd" ><span class="token punctuation" >}}</span></span></span></code></pre></div>
+
+            
+
+            
+            
+            
+            <section id="common-django" data-engine="django">
+                <h4>
+                    <a class="permalink" href="#common-django">Output Django</a>
+                    (error)
+                    <small>v1.10.1</small>
+                </h4>
+                
+                    <pre class="error"><code>Invalid filter: 'round'</code></pre>
+                
+            </section>
+            
+            
+            
+            <section id="common-jinja2" data-engine="jinja2">
+                <h4>
+                    <a class="permalink" href="#common-jinja2">Output Jinja2</a>
+                    
+                    <small>v2.8.0</small>
+                </h4>
+                
+                    <pre class="result"><code>42.5</code></pre>
+                
+            </section>
+            
+            
+            
+            <section id="common-liquid" data-engine="liquid">
+                <h4>
+                    <a class="permalink" href="#common-liquid">Output Liquid</a>
+                    
+                    <small>v3.0.6</small>
+                </h4>
+                
+                    <pre class="result"><code>43.0</code></pre>
+                
+            </section>
+            
+            
+            
+            <section id="common-nunjucks" data-engine="nunjucks">
+                <h4>
+                    <a class="permalink" href="#common-nunjucks">Output Nunjucks</a>
+                    
+                    <small>v2.5.0</small>
+                </h4>
+                
+                    <pre class="result"><code>42.6</code></pre>
+                
+            </section>
+            
+            
+            
+            <section id="common-swig" data-engine="swig">
+                <h4>
+                    <a class="permalink" href="#common-swig">Output Swig</a>
+                    (error)
+                    <small>v1.4.2</small>
+                </h4>
+                
+                    <pre class="error"><code>Invalid filter "round".</code></pre>
+                
+            </section>
+            
+            
+            
+            <section id="common-twig" data-engine="twig">
+                <h4>
+                    <a class="permalink" href="#common-twig">Output Twig</a>
+                    
+                    <small>v1.24.2</small>
+                </h4>
+                
+                    <pre class="result"><code>42.6</code></pre>
+                
+            </section>
+            
+            
+            
+            <section id="common-twigjs" data-engine="twigjs">
+                <h4>
+                    <a class="permalink" href="#common-twigjs">Output Twigjs</a>
+                    
+                    <small>v0.9.5</small>
+                </h4>
+                
+                    <pre class="result"><code>42.6</code></pre>
+                
+            </section>
+            
+        </section>
+        
+        
+        <section class="section" id="default">
+            <h3><a class="permalink" href="#default">Test: default</a></h3>
+
+            <h4>Template</h4>
+            <div class="test"><pre class="language-twig"><code><span class="token tag" ><span class="token ld" ><span class="token punctuation" >{{</span></span> <span class="token number" >42.55</span><span class="token operator" >|</span><span class="token property" >round</span> <span class="token rd" ><span class="token punctuation" >}}</span></span></span></code></pre></div>
+
+            
+
+            
+            
+            
+            <section id="default-django" data-engine="django">
+                <h4>
+                    <a class="permalink" href="#default-django">Output Django</a>
+                    (error)
+                    <small>v1.10.1</small>
+                </h4>
+                
+                    <pre class="error"><code>Invalid filter: 'round'</code></pre>
+                
+            </section>
+            
+            
+            
+            <section id="default-jinja2" data-engine="jinja2">
+                <h4>
+                    <a class="permalink" href="#default-jinja2">Output Jinja2</a>
+                    
+                    <small>v2.8.0</small>
+                </h4>
+                
+                    <pre class="result"><code>43.0</code></pre>
+                
+            </section>
+            
+            
+            
+            <section id="default-liquid" data-engine="liquid">
+                <h4>
+                    <a class="permalink" href="#default-liquid">Output Liquid</a>
+                    
+                    <small>v3.0.6</small>
+                </h4>
+                
+                    <pre class="result"><code>43</code></pre>
+                
+            </section>
+            
+            
+            
+            <section id="default-nunjucks" data-engine="nunjucks">
+                <h4>
+                    <a class="permalink" href="#default-nunjucks">Output Nunjucks</a>
+                    
+                    <small>v2.5.0</small>
+                </h4>
+                
+                    <pre class="result"><code>43</code></pre>
+                
+            </section>
+            
+            
+            
+            <section id="default-swig" data-engine="swig">
+                <h4>
+                    <a class="permalink" href="#default-swig">Output Swig</a>
+                    (error)
+                    <small>v1.4.2</small>
+                </h4>
+                
+                    <pre class="error"><code>Invalid filter "round".</code></pre>
+                
+            </section>
+            
+            
+            
+            <section id="default-twig" data-engine="twig">
+                <h4>
+                    <a class="permalink" href="#default-twig">Output Twig</a>
+                    
+                    <small>v1.24.2</small>
+                </h4>
+                
+                    <pre class="result"><code>43</code></pre>
+                
+            </section>
+            
+            
+            
+            <section id="default-twigjs" data-engine="twigjs">
+                <h4>
+                    <a class="permalink" href="#default-twigjs">Output Twigjs</a>
+                    
+                    <small>v0.9.5</small>
+                </h4>
+                
+                    <pre class="result"><code>43</code></pre>
+                
+            </section>
+            
+        </section>
+        
+        
+        <section class="section" id="floor">
+            <h3><a class="permalink" href="#floor">Test: floor</a></h3>
+
+            <h4>Template</h4>
+            <div class="test"><pre class="language-twig"><code><span class="token tag" ><span class="token ld" ><span class="token punctuation" >{{</span></span> <span class="token number" >42.55</span><span class="token operator" >|</span><span class="token property" >round</span><span class="token punctuation" >(</span><span class="token number" >1</span><span class="token punctuation" >,</span> <span class="token string" ><span class="token punctuation" >'</span>floor<span class="token punctuation" >'</span></span><span class="token punctuation" >)</span> <span class="token rd" ><span class="token punctuation" >}}</span></span></span></code></pre></div>
+
+            
+
+            
+            
+            
+            <section id="floor-django" data-engine="django">
+                <h4>
+                    <a class="permalink" href="#floor-django">Output Django</a>
+                    (error)
+                    <small>v1.10.1</small>
+                </h4>
+                
+                    <pre class="error"><code>Invalid filter: 'round'</code></pre>
+                
+            </section>
+            
+            
+            
+            <section id="floor-jinja2" data-engine="jinja2">
+                <h4>
+                    <a class="permalink" href="#floor-jinja2">Output Jinja2</a>
+                    
+                    <small>v2.8.0</small>
+                </h4>
+                
+                    <pre class="result"><code>42.5</code></pre>
+                
+            </section>
+            
+            
+            
+            <section id="floor-liquid" data-engine="liquid">
+                <h4>
+                    <a class="permalink" href="#floor-liquid">Output Liquid</a>
+                    
+                    <small>v3.0.6</small>
+                </h4>
+                
+                    <pre class="result"><code>43.0</code></pre>
+                
+            </section>
+            
+            
+            
+            <section id="floor-nunjucks" data-engine="nunjucks">
+                <h4>
+                    <a class="permalink" href="#floor-nunjucks">Output Nunjucks</a>
+                    
+                    <small>v2.5.0</small>
+                </h4>
+                
+                    <pre class="result"><code>42.5</code></pre>
+                
+            </section>
+            
+            
+            
+            <section id="floor-swig" data-engine="swig">
+                <h4>
+                    <a class="permalink" href="#floor-swig">Output Swig</a>
+                    (error)
+                    <small>v1.4.2</small>
+                </h4>
+                
+                    <pre class="error"><code>Invalid filter "round".</code></pre>
+                
+            </section>
+            
+            
+            
+            <section id="floor-twig" data-engine="twig">
+                <h4>
+                    <a class="permalink" href="#floor-twig">Output Twig</a>
+                    
+                    <small>v1.24.2</small>
+                </h4>
+                
+                    <pre class="result"><code>42.5</code></pre>
+                
+            </section>
+            
+            
+            
+            <section id="floor-twigjs" data-engine="twigjs">
+                <h4>
+                    <a class="permalink" href="#floor-twigjs">Output Twigjs</a>
+                    
+                    <small>v0.9.5</small>
+                </h4>
+                
+                    <pre class="result"><code>42.5</code></pre>
+                
+            </section>
+            
+        </section>
+        
+        
+        <section class="section" id="precision">
+            <h3><a class="permalink" href="#precision">Test: precision</a></h3>
+
+            <h4>Template</h4>
+            <div class="test"><pre class="language-twig"><code><span class="token tag" ><span class="token ld" ><span class="token punctuation" >{{</span></span> <span class="token number" >42.55</span><span class="token operator" >|</span><span class="token property" >round</span><span class="token punctuation" >(</span><span class="token number" >1</span><span class="token punctuation" >)</span> <span class="token rd" ><span class="token punctuation" >}}</span></span></span></code></pre></div>
+
+            
+
+            
+            
+            
+            <section id="precision-django" data-engine="django">
+                <h4>
+                    <a class="permalink" href="#precision-django">Output Django</a>
+                    (error)
+                    <small>v1.10.1</small>
+                </h4>
+                
+                    <pre class="error"><code>Invalid filter: 'round'</code></pre>
+                
+            </section>
+            
+            
+            
+            <section id="precision-jinja2" data-engine="jinja2">
+                <h4>
+                    <a class="permalink" href="#precision-jinja2">Output Jinja2</a>
+                    
+                    <small>v2.8.0</small>
+                </h4>
+                
+                    <pre class="result"><code>42.5</code></pre>
+                
+            </section>
+            
+            
+            
+            <section id="precision-liquid" data-engine="liquid">
+                <h4>
+                    <a class="permalink" href="#precision-liquid">Output Liquid</a>
+                    
+                    <small>v3.0.6</small>
+                </h4>
+                
+                    <pre class="result"><code>43</code></pre>
+                
+            </section>
+            
+            
+            
+            <section id="precision-nunjucks" data-engine="nunjucks">
+                <h4>
+                    <a class="permalink" href="#precision-nunjucks">Output Nunjucks</a>
+                    
+                    <small>v2.5.0</small>
+                </h4>
+                
+                    <pre class="result"><code>42.6</code></pre>
+                
+            </section>
+            
+            
+            
+            <section id="precision-swig" data-engine="swig">
+                <h4>
+                    <a class="permalink" href="#precision-swig">Output Swig</a>
+                    (error)
+                    <small>v1.4.2</small>
+                </h4>
+                
+                    <pre class="error"><code>Invalid filter "round".</code></pre>
+                
+            </section>
+            
+            
+            
+            <section id="precision-twig" data-engine="twig">
+                <h4>
+                    <a class="permalink" href="#precision-twig">Output Twig</a>
+                    
+                    <small>v1.24.2</small>
+                </h4>
+                
+                    <pre class="result"><code>42.6</code></pre>
+                
+            </section>
+            
+            
+            
+            <section id="precision-twigjs" data-engine="twigjs">
+                <h4>
+                    <a class="permalink" href="#precision-twigjs">Output Twigjs</a>
+                    
+                    <small>v0.9.5</small>
+                </h4>
+                
+                    <pre class="result"><code>42.6</code></pre>
+                
+            </section>
+            
+        </section>
+        
+    </div>
+
+</article>
+
+<script>(function engineEnabler(){
+    'use strict';
+
+    var CAPABLE_BROWSER = ('addEventListener' in window);
+    if (!CAPABLE_BROWSER) {
+        return;
+    }
+
+    var SUPPORTS_STORAGE = ('localStorage' in window);
+    var STORAGE_KEY = 'enabledEngines';
+    var FORM_SELECTOR = '[data-engine-enabler]';
+    var INPUT_NAME = 'engine';
+    var TARGET_ATTR = 'data-engine';
+    var ENABLED_ATTR = 'data-engine-enabled';
+
+    var form = document.querySelector(FORM_SELECTOR);
+    var inputs = [].slice.call(form[INPUT_NAME]);
+    var targets = [].slice.call(document.querySelectorAll('[' + TARGET_ATTR + ']'));
+
+    form.addEventListener('change', onEnableEngines);
+    restoreState();
+
+    function onEnableEngines() {
+        var state = getEngineState(this);
+        enableTargets(state);
+        saveState(state);
+    }
+
+    function getEngineState(form) {
+        return inputs.reduce(function(map, input){
+            map[input.value] = input.checked;
+            return map;
+        }, {});
+    }
+
+    function enableTargets(state) {
+        targets.forEach(function(target) {
+            var key = target.getAttribute(TARGET_ATTR);
+            target.setAttribute(ENABLED_ATTR, state[key]);
+        });
+    }
+
+    function saveState(state) {
+        if(!SUPPORTS_STORAGE) {
+            return;
+        }
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
+    }
+
+    function restoreState() {
+        if(!SUPPORTS_STORAGE) {
+            return;
+        }
+        var state = JSON.parse(localStorage.getItem(STORAGE_KEY));
+        restoreInputs(state);
+        enableTargets(state);
+    }
+
+    function restoreInputs(state) {
+        inputs.forEach(function(input) {
+           input.checked = state[input.value];
+        });
+    }
+
+}());</script>
+
+
+<footer class="app-footer" role="contentinfo">
+    <a href="https://github.com/jbmoelker/jinja-compat-tests">Source on GitHub</a>
+</footer>
+
+
+</body>
+</html>
